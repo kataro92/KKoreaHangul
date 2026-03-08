@@ -8,6 +8,7 @@ import {
 } from 'react-native';
 import { CategorySection } from '../../src/components/CategorySection';
 import { colors } from '../../src/constants/colors';
+import { useLanguage } from '../../src/contexts/LanguageContext';
 import {
   BASIC_CONSONANTS,
   DOUBLE_CONSONANTS,
@@ -21,6 +22,7 @@ type AlphabetMode = 'default' | 'bySound';
 
 export default function AlphabetScreen() {
   const [mode, setMode] = useState<AlphabetMode>('default');
+  const { t } = useLanguage();
   const batchimBySound = useMemo(() => getBatchimGroupedBySound(), []);
 
   return (
@@ -29,13 +31,13 @@ export default function AlphabetScreen() {
       contentContainerStyle={styles.content}
       showsVerticalScrollIndicator={false}
     >
-      <Text style={styles.header}>Bảng chữ cái Hangul</Text>
-      <Text style={styles.subheader}>Chữ Hàn và cách phát âm tiếng Việt</Text>
+      <Text style={styles.header}>{t('alphabetTitle')}</Text>
+      <Text style={styles.subheader}>{t('alphabetSubtitle')}</Text>
 
-      <CategorySection title="Phụ âm cơ bản (자음)" items={BASIC_CONSONANTS} />
-      <CategorySection title="Phụ âm kép (쌍자음)" items={DOUBLE_CONSONANTS} />
-      <CategorySection title="Nguyên âm cơ bản (모음)" items={BASIC_VOWELS} />
-      <CategorySection title="Nguyên âm kép (복합 모음)" items={COMPOUND_VOWELS} />
+      <CategorySection title={t('alphabetBasicConsonants')} items={BASIC_CONSONANTS} />
+      <CategorySection title={t('alphabetDoubleConsonants')} items={DOUBLE_CONSONANTS} />
+      <CategorySection title={t('alphabetBasicVowels')} items={BASIC_VOWELS} />
+      <CategorySection title={t('alphabetCompoundVowels')} items={COMPOUND_VOWELS} />
 
       <View style={styles.modeRow}>
         <Pressable
@@ -43,7 +45,7 @@ export default function AlphabetScreen() {
           onPress={() => setMode('default')}
         >
           <Text style={[styles.modeButtonText, mode === 'default' && styles.modeButtonTextActive]}>
-            Mặc định
+            {t('alphabetModeDefault')}
           </Text>
         </Pressable>
         <Pressable
@@ -51,20 +53,20 @@ export default function AlphabetScreen() {
           onPress={() => setMode('bySound')}
         >
           <Text style={[styles.modeButtonText, mode === 'bySound' && styles.modeButtonTextActive]}>
-            Nhóm theo âm
+            {t('alphabetModeBySound')}
           </Text>
         </Pressable>
       </View>
 
       {mode === 'default' ? (
-        <CategorySection title="Phụ âm cuối - Batchim (받침)" items={BATCHIM_DISPLAY} />
+        <CategorySection title={t('alphabetBatchim')} items={BATCHIM_DISPLAY} />
       ) : (
         <>
-          <Text style={styles.batchimSectionLabel}>Phụ âm cuối - Batchim (받침) — nhóm theo cách đọc</Text>
+          <Text style={styles.batchimSectionLabel}>{t('alphabetBatchimBySound')}</Text>
           {batchimBySound.map((group) => (
             <CategorySection
               key={group.pronunciation}
-              title={`Đọc: ${group.pronunciation}`}
+              title={`${t('alphabetReadPrefix')}${group.pronunciation}`}
               items={group.items}
             />
           ))}

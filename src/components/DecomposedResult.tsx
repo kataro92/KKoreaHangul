@@ -1,13 +1,15 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import type { DecomposedSyllable } from '../utils/decompose';
 import { colors } from '../constants/colors';
+import { useLanguage } from '../contexts/LanguageContext';
+import type { DecomposedSyllable } from '../utils/decompose';
 
 interface DecomposedResultProps {
   data: DecomposedSyllable;
 }
 
 export function DecomposedResult({ data }: DecomposedResultProps) {
+  const { t } = useLanguage();
   const hasFinal = data.finalChar.length > 0;
   return (
     <View style={styles.container}>
@@ -15,13 +17,13 @@ export function DecomposedResult({ data }: DecomposedResultProps) {
       <View style={styles.partsRow}>
         <View style={[styles.partBadge, styles.initial]}>
           <Text style={styles.partChar}>{data.initialChar}</Text>
-          <Text style={styles.partLabel}>Phụ âm đầu</Text>
+          <Text style={styles.partLabel}>{t('decompInitial')}</Text>
           <Text style={styles.partPronInitial}>{data.initialPronunciation}</Text>
         </View>
         <Text style={styles.plus}>+</Text>
         <View style={[styles.partBadge, styles.medial]}>
           <Text style={styles.partChar}>{data.medialChar}</Text>
-          <Text style={styles.partLabel}>Nguyên âm</Text>
+          <Text style={styles.partLabel}>{t('decompMedial')}</Text>
           <Text style={styles.partPronMedial}>{data.medialPronunciation}</Text>
         </View>
         {hasFinal && (
@@ -29,14 +31,14 @@ export function DecomposedResult({ data }: DecomposedResultProps) {
             <Text style={styles.plus}>+</Text>
             <View style={[styles.partBadge, styles.final]}>
               <Text style={styles.partChar}>{data.finalChar}</Text>
-              <Text style={styles.partLabel}>Phụ âm cuối</Text>
+              <Text style={styles.partLabel}>{t('decompFinal')}</Text>
               <Text style={styles.partPronFinal}>{data.finalPronunciation}</Text>
             </View>
           </>
         )}
       </View>
       <Text style={styles.reading}>
-        Đọc: <Text style={styles.readingValue}>{data.syllablePronunciation}</Text>
+        {t('decompRead')}<Text style={styles.readingValue}>{data.syllablePronunciation}</Text>
       </Text>
     </View>
   );

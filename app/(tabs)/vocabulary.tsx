@@ -10,6 +10,8 @@ import {
 import * as Speech from 'expo-speech';
 import { DecomposedResult } from '../../src/components/DecomposedResult';
 import { colors } from '../../src/constants/colors';
+import { useLanguage } from '../../src/contexts/LanguageContext';
+import type { TranslationMap } from '../../src/contexts/LanguageContext';
 import { useSpeechConfig } from '../../src/contexts/SpeechConfigContext';
 import vocabularyData from '../../src/data/vocabulary.json';
 import { decomposeString } from '../../src/utils/decompose';
@@ -20,15 +22,15 @@ type LevelKey = 'topik1' | 'topik2';
 const topik1Entries: VocabEntry[] = vocabularyData.topik1?.entries ?? [];
 const topik2Entries: VocabEntry[] = vocabularyData.topik2?.entries ?? [];
 
-const POS_LABEL: Record<string, string> = {
-  n: 'Danh từ',
-  v: 'Động từ',
-  adj: 'Tính từ',
-  adv: 'Trạng từ',
-  conj: 'Liên từ',
-  pron: 'Đại từ',
-  phrase: 'Cụm từ',
-  particle: 'Trợ từ',
+const POS_LABEL_KEYS: Record<string, keyof TranslationMap> = {
+  n: 'posNoun',
+  v: 'posVerb',
+  adj: 'posAdj',
+  adv: 'posAdv',
+  conj: 'posConj',
+  pron: 'posPron',
+  phrase: 'posPhrase',
+  particle: 'posParticle',
 };
 
 function getRandomEntry(level: LevelKey): VocabEntry | null {
@@ -43,6 +45,7 @@ export default function VocabularyScreen() {
     topik1Entries.length > 0 ? getRandomEntry('topik1') : null
   );
   const [speaking, setSpeaking] = useState(false);
+  const { t } = useLanguage();
   const { getSpeechOptions } = useSpeechConfig();
 
   // Khi đổi trình độ, chọn từ mới từ danh sách đó
@@ -79,8 +82,8 @@ export default function VocabularyScreen() {
     });
   }, [entry, speaking, getSpeechOptions]);
 
-  const label1 = vocabularyData.topik1?.label ?? 'TOPIK I (Sơ cấp)';
-  const label2 = vocabularyData.topik2?.label ?? 'TOPIK II (Trung cấp)';
+  const label1 = t('vocabLevel1');
+  const label2 = t('vocabLevel2');
 
   return (
     <ScrollView
@@ -88,7 +91,7 @@ export default function VocabularyScreen() {
       contentContainerStyle={styles.content}
       showsVerticalScrollIndicator={false}
     >
-      <Text style={styles.sectionTitle}>Trình độ</Text>
+      <Text style={styles.sectionTitle}>{t('vocabLevelTitle')}</Text>
       <View style={styles.levelRow}>
         <Pressable
           style={[styles.levelBtn, level === 'topik1' && styles.levelBtnActive]}
@@ -119,16 +122,14 @@ export default function VocabularyScreen() {
       </View>
 
       {!entry ? (
-        <Text style={styles.emptyHint}>
-          Chưa có từ vựng cho trình độ này. Hãy thêm dữ liệu vào vocabulary.json.
-        </Text>
+        <Text style={styles.emptyHint}>{t('vocabEmptyHint')}</Text>
       ) : (
         <>
-          <Text style={styles.sectionTitle}>Từ mới</Text>
+          <Text style={styles.sectionTitle}>{t('vocabNewWord')}</Text>
           <View style={styles.card}>
             <Text style={styles.word}>{entry.word}</Text>
             <View style={styles.meaningRow}>
-              <Text style={styles.pos}>{POS_LABEL[entry.pos] ?? entry.pos}</Text>
+              <Text style={styles.pos}>{POS_LABEL_KEYS[entry.pos] ? t(POS_LABEL_KEYS[entry.pos]) : entry.pos}</Text>
               <Text style={styles.meaning}>{entry.meaning}</Text>
             </View>
             <Pressable
@@ -138,16 +139,14 @@ export default function VocabularyScreen() {
               {speaking ? (
                 <ActivityIndicator size="small" color="#fff" />
               ) : (
-                <Text style={styles.speakBtnText}>Phát âm</Text>
+                <Text style={styles.speakBtnText}>{t('speakButton')}</Text>
               )}
             </Pressable>
           </View>
 
-          <Text style={styles.sectionTitle}>Cách đọc</Text>
+          <Text style={styles.sectionTitle}>{t('vocabReadingTitle')}</Text>
           {decomposed.length === 0 ? (
-            <Text style={styles.hint}>
-              Từ này không chứa âm tiết Hangul để phân tách.
-            </Text>
+            <Text style={styles.hint}>{t('vocabNoSyllableHint')}</Text>
           ) : (
             decomposed.map((item, index) => (
               <DecomposedResult key={`${item.syllable}-${index}`} data={item} />
@@ -155,7 +154,7 @@ export default function VocabularyScreen() {
           )}
 
           <Pressable style={styles.nextButton} onPress={nextWord}>
-            <Text style={styles.nextButtonText}>Từ tiếp theo</Text>
+            <Text style={styles.nextButtonText}>{t('nextWordButton')}</Text>
           </Pressable>
         </>
       )}

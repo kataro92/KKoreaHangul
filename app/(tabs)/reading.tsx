@@ -13,29 +13,15 @@ import {
 import * as Speech from 'expo-speech';
 import { DecomposedResult } from '../../src/components/DecomposedResult';
 import { colors } from '../../src/constants/colors';
-import {
-  useSpeechConfig,
-  RATE_OPTIONS,
-  PITCH_OPTIONS,
-  VOLUME_OPTIONS,
-} from '../../src/contexts/SpeechConfigContext';
+import { useLanguage } from '../../src/contexts/LanguageContext';
+import { useSpeechConfig } from '../../src/contexts/SpeechConfigContext';
 import { decomposeString } from '../../src/utils/decompose';
 
 export default function ReadingScreen() {
   const [input, setInput] = useState('');
   const [speaking, setSpeaking] = useState(false);
-  const {
-    rate,
-    pitch,
-    volume,
-    voices,
-    selectedVoiceId,
-    setRate,
-    setPitch,
-    setVolume,
-    setSelectedVoiceId,
-    getSpeechOptions,
-  } = useSpeechConfig();
+  const { t } = useLanguage();
+  const { getSpeechOptions } = useSpeechConfig();
 
   const decomposed = decomposeString(input);
 
@@ -66,12 +52,12 @@ export default function ReadingScreen() {
       keyboardVerticalOffset={Platform.OS === 'ios' ? 90 : 0}
     >
       <View style={styles.inputSection}>
-        <Text style={styles.label}>Nhập chữ tiếng Hàn</Text>
+        <Text style={styles.label}>{t('readingInputLabel')}</Text>
         <TextInput
           style={styles.input}
           value={input}
           onChangeText={setInput}
-          placeholder="Ví dụ: 한국어, 안녕하세요"
+          placeholder={t('readingPlaceholder')}
           placeholderTextColor="#999"
           multiline
         />
@@ -87,89 +73,9 @@ export default function ReadingScreen() {
           {speaking ? (
             <ActivityIndicator size="small" color="#fff" />
           ) : (
-            <Text style={styles.speakButtonText}>Phát âm</Text>
+            <Text style={styles.speakButtonText}>{t('speakButton')}</Text>
           )}
         </Pressable>
-
-        <Text style={styles.configTitle}>Cấu hình giọng đọc</Text>
-
-        <Text style={styles.configLabel}>Tốc độ</Text>
-        <View style={styles.optionRow}>
-          {RATE_OPTIONS.map((opt) => (
-            <Pressable
-              key={opt.value}
-              style={[styles.optionBtn, rate === opt.value && styles.optionBtnActive]}
-              onPress={() => setRate(opt.value)}
-            >
-              <Text style={[styles.optionBtnText, rate === opt.value && styles.optionBtnTextActive]}>
-                {opt.label}
-              </Text>
-            </Pressable>
-          ))}
-        </View>
-
-        <Text style={styles.configLabel}>Cao độ</Text>
-        <View style={styles.optionRow}>
-          {PITCH_OPTIONS.map((opt) => (
-            <Pressable
-              key={opt.value}
-              style={[styles.optionBtn, pitch === opt.value && styles.optionBtnActive]}
-              onPress={() => setPitch(opt.value)}
-            >
-              <Text style={[styles.optionBtnText, pitch === opt.value && styles.optionBtnTextActive]}>
-                {opt.label}
-              </Text>
-            </Pressable>
-          ))}
-        </View>
-
-        <Text style={styles.configLabel}>Âm lượng</Text>
-        <View style={styles.optionRow}>
-          {VOLUME_OPTIONS.map((opt) => (
-            <Pressable
-              key={opt.value}
-              style={[styles.optionBtn, volume === opt.value && styles.optionBtnActive]}
-              onPress={() => setVolume(opt.value)}
-            >
-              <Text style={[styles.optionBtnText, volume === opt.value && styles.optionBtnTextActive]}>
-                {opt.label}
-              </Text>
-            </Pressable>
-          ))}
-        </View>
-
-        {voices.length > 1 && (
-          <>
-            <Text style={styles.configLabel}>Giọng đọc (tiếng Hàn)</Text>
-            <ScrollView
-              horizontal
-              showsHorizontalScrollIndicator={false}
-              style={styles.voiceScroll}
-              contentContainerStyle={styles.voiceScrollContent}
-            >
-              {voices.map((v) => (
-                <Pressable
-                  key={v.identifier}
-                  style={[
-                    styles.voiceChip,
-                    selectedVoiceId === v.identifier && styles.voiceChipActive,
-                  ]}
-                  onPress={() => setSelectedVoiceId(v.identifier)}
-                >
-                  <Text
-                    style={[
-                      styles.voiceChipText,
-                      selectedVoiceId === v.identifier && styles.voiceChipTextActive,
-                    ]}
-                    numberOfLines={1}
-                  >
-                    {v.name}
-                  </Text>
-                </Pressable>
-              ))}
-            </ScrollView>
-          </>
-        )}
       </View>
       <ScrollView
         style={styles.results}
@@ -180,8 +86,8 @@ export default function ReadingScreen() {
         {decomposed.length === 0 ? (
           <Text style={styles.hint}>
             {input.trim().length === 0
-              ? 'Nhập chữ Hàn vào ô trên để xem phân tách và cách đọc.'
-              : 'Chỉ phân tách được các âm tiết Hangul (가–힣). Ký tự khác sẽ bị bỏ qua.'}
+              ? t('readingHintEmpty')
+              : t('readingHintNoHangul')}
           </Text>
         ) : (
           decomposed.map((item, index) => (
@@ -242,78 +148,6 @@ const styles = StyleSheet.create({
   speakButtonText: {
     color: '#fff',
     fontSize: 16,
-    fontWeight: '600',
-  },
-  configTitle: {
-    fontSize: 16,
-    fontWeight: '700',
-    color: colors.text,
-    marginTop: 20,
-    marginBottom: 12,
-  },
-  configLabel: {
-    fontSize: 13,
-    fontWeight: '600',
-    color: colors.textSecondary,
-    marginBottom: 6,
-  },
-  optionRow: {
-    flexDirection: 'row',
-    gap: 8,
-    marginBottom: 12,
-  },
-  optionBtn: {
-    flex: 1,
-    paddingVertical: 8,
-    paddingHorizontal: 12,
-    borderRadius: 8,
-    backgroundColor: colors.background,
-    borderWidth: 1,
-    borderColor: '#e0e0e0',
-    alignItems: 'center',
-  },
-  optionBtnActive: {
-    borderColor: colors.primary,
-    backgroundColor: '#4A90D920',
-  },
-  optionBtnText: {
-    fontSize: 13,
-    color: colors.textSecondary,
-    fontWeight: '500',
-  },
-  optionBtnTextActive: {
-    color: colors.primary,
-    fontWeight: '600',
-  },
-  voiceScroll: {
-    maxHeight: 44,
-    marginBottom: 12,
-  },
-  voiceScrollContent: {
-    flexDirection: 'row',
-    gap: 8,
-    paddingVertical: 4,
-  },
-  voiceChip: {
-    paddingVertical: 8,
-    paddingHorizontal: 14,
-    borderRadius: 20,
-    backgroundColor: colors.background,
-    borderWidth: 1,
-    borderColor: '#e0e0e0',
-  },
-  voiceChipActive: {
-    borderColor: colors.primary,
-    backgroundColor: '#4A90D920',
-  },
-  voiceChipText: {
-    fontSize: 13,
-    color: colors.textSecondary,
-    fontWeight: '500',
-    maxWidth: 120,
-  },
-  voiceChipTextActive: {
-    color: colors.primary,
     fontWeight: '600',
   },
   results: {
