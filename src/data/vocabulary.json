@@ -1,0 +1,613 @@
+{
+  "_comment": "Từ vựng TOPIK I (Beginner) và TOPIK II (Intermediate) từ file PDF.",
+  "topik1": {
+    "label": "TOPIK I (Sơ cấp)",
+    "entries": [
+      {
+        "word": "가게",
+        "meaning": "store, shop",
+        "pos": "n"
+      },
+      {
+        "word": "가격",
+        "meaning": "price",
+        "pos": "n"
+      },
+      {
+        "word": "가구",
+        "meaning": "furniture",
+        "pos": "n"
+      },
+      {
+        "word": "가깝다",
+        "meaning": "close",
+        "pos": "adj"
+      },
+      {
+        "word": "가끔",
+        "meaning": "sometimes",
+        "pos": "adv"
+      },
+      {
+        "word": "가다",
+        "meaning": "go",
+        "pos": "v"
+      },
+      {
+        "word": "가르치다",
+        "meaning": "teach",
+        "pos": "v"
+      },
+      {
+        "word": "가방",
+        "meaning": "bag",
+        "pos": "n"
+      },
+      {
+        "word": "가수",
+        "meaning": "singer",
+        "pos": "n"
+      },
+      {
+        "word": "가족",
+        "meaning": "family",
+        "pos": "n"
+      },
+      {
+        "word": "가을",
+        "meaning": "autumn, fall",
+        "pos": "n"
+      },
+      {
+        "word": "감사하다",
+        "meaning": "thank, appreciate",
+        "pos": "v"
+      },
+      {
+        "word": "감자",
+        "meaning": "potato",
+        "pos": "n"
+      },
+      {
+        "word": "강",
+        "meaning": "river",
+        "pos": "n"
+      },
+      {
+        "word": "개",
+        "meaning": "dog, piece(s)",
+        "pos": "n"
+      },
+      {
+        "word": "거리",
+        "meaning": "street",
+        "pos": "n"
+      },
+      {
+        "word": "건물",
+        "meaning": "building",
+        "pos": "n"
+      },
+      {
+        "word": "경기",
+        "meaning": "competition, game",
+        "pos": "n"
+      },
+      {
+        "word": "고기",
+        "meaning": "meat",
+        "pos": "n"
+      },
+      {
+        "word": "공부하다",
+        "meaning": "study",
+        "pos": "v"
+      },
+      {
+        "word": "공원",
+        "meaning": "park",
+        "pos": "n"
+      },
+      {
+        "word": "공항",
+        "meaning": "airport",
+        "pos": "n"
+      },
+      {
+        "word": "과일",
+        "meaning": "fruit",
+        "pos": "n"
+      },
+      {
+        "word": "교수",
+        "meaning": "professor",
+        "pos": "n"
+      },
+      {
+        "word": "구월",
+        "meaning": "September",
+        "pos": "n"
+      },
+      {
+        "word": "국",
+        "meaning": "soup",
+        "pos": "n"
+      },
+      {
+        "word": "국어",
+        "meaning": "Korean language",
+        "pos": "n"
+      },
+      {
+        "word": "그리고",
+        "meaning": "and",
+        "pos": "conj"
+      },
+      {
+        "word": "기차",
+        "meaning": "train",
+        "pos": "n"
+      },
+      {
+        "word": "김치",
+        "meaning": "Kimchi",
+        "pos": "n"
+      },
+      {
+        "word": "꽃",
+        "meaning": "flower",
+        "pos": "n"
+      },
+      {
+        "word": "나",
+        "meaning": "I",
+        "pos": "pron"
+      },
+      {
+        "word": "나라",
+        "meaning": "country",
+        "pos": "n"
+      },
+      {
+        "word": "남자",
+        "meaning": "man",
+        "pos": "n"
+      },
+      {
+        "word": "내일",
+        "meaning": "tomorrow",
+        "pos": "n"
+      },
+      {
+        "word": "노래",
+        "meaning": "song",
+        "pos": "n"
+      },
+      {
+        "word": "눈",
+        "meaning": "eye, snow",
+        "pos": "n"
+      },
+      {
+        "word": "다음",
+        "meaning": "next, after",
+        "pos": "n"
+      },
+      {
+        "word": "대학교",
+        "meaning": "university, college",
+        "pos": "n"
+      },
+      {
+        "word": "도시",
+        "meaning": "city",
+        "pos": "n"
+      },
+      {
+        "word": "돈",
+        "meaning": "money",
+        "pos": "n"
+      },
+      {
+        "word": "동물",
+        "meaning": "animal",
+        "pos": "n"
+      },
+      {
+        "word": "등산",
+        "meaning": "hiking",
+        "pos": "n"
+      },
+      {
+        "word": "땅",
+        "meaning": "earth, ground",
+        "pos": "n"
+      },
+      {
+        "word": "먹다",
+        "meaning": "eat",
+        "pos": "v"
+      },
+      {
+        "word": "물",
+        "meaning": "water",
+        "pos": "n"
+      },
+      {
+        "word": "밥",
+        "meaning": "rice, meal",
+        "pos": "n"
+      },
+      {
+        "word": "방",
+        "meaning": "room",
+        "pos": "n"
+      },
+      {
+        "word": "버스",
+        "meaning": "bus",
+        "pos": "n"
+      },
+      {
+        "word": "병원",
+        "meaning": "hospital",
+        "pos": "n"
+      },
+      {
+        "word": "부산",
+        "meaning": "Busan",
+        "pos": "n"
+      },
+      {
+        "word": "사람",
+        "meaning": "person, man",
+        "pos": "n"
+      },
+      {
+        "word": "사랑",
+        "meaning": "love",
+        "pos": "n"
+      },
+      {
+        "word": "서울",
+        "meaning": "Seoul",
+        "pos": "n"
+      },
+      {
+        "word": "선생님",
+        "meaning": "teacher",
+        "pos": "n"
+      },
+      {
+        "word": "영화",
+        "meaning": "movie",
+        "pos": "n"
+      },
+      {
+        "word": "오늘",
+        "meaning": "today",
+        "pos": "n"
+      },
+      {
+        "word": "우리",
+        "meaning": "we, us",
+        "pos": "pron"
+      },
+      {
+        "word": "음식",
+        "meaning": "food, cooking",
+        "pos": "n"
+      },
+      {
+        "word": "일",
+        "meaning": "work, day",
+        "pos": "n"
+      },
+      {
+        "word": "일본",
+        "meaning": "Japan",
+        "pos": "n"
+      },
+      {
+        "word": "일본어",
+        "meaning": "Japanese language",
+        "pos": "n"
+      },
+      {
+        "word": "전화",
+        "meaning": "telephone",
+        "pos": "n"
+      },
+      {
+        "word": "주말",
+        "meaning": "weekend",
+        "pos": "n"
+      },
+      {
+        "word": "지하철",
+        "meaning": "subway",
+        "pos": "n"
+      },
+      {
+        "word": "책",
+        "meaning": "book",
+        "pos": "n"
+      },
+      {
+        "word": "친구",
+        "meaning": "friend",
+        "pos": "n"
+      },
+      {
+        "word": "한국",
+        "meaning": "Korea",
+        "pos": "n"
+      },
+      {
+        "word": "한국어",
+        "meaning": "Korean language",
+        "pos": "n"
+      },
+      {
+        "word": "학교",
+        "meaning": "school",
+        "pos": "n"
+      },
+      {
+        "word": "학생",
+        "meaning": "student",
+        "pos": "n"
+      },
+      {
+        "word": "화장실",
+        "meaning": "restroom, toilet",
+        "pos": "n"
+      },
+      {
+        "word": "휴일",
+        "meaning": "holiday",
+        "pos": "n"
+      }
+    ]
+  },
+  "topik2": {
+    "label": "TOPIK II (Trung cấp)",
+    "entries": [
+      {
+        "word": "가계부",
+        "meaning": "household account book",
+        "pos": "n"
+      },
+      {
+        "word": "가능성",
+        "meaning": "possibility",
+        "pos": "n"
+      },
+      {
+        "word": "가능하다",
+        "meaning": "to be possible",
+        "pos": "adj"
+      },
+      {
+        "word": "가상",
+        "meaning": "virtual",
+        "pos": "adj"
+      },
+      {
+        "word": "가입",
+        "meaning": "entry",
+        "pos": "n"
+      },
+      {
+        "word": "가치",
+        "meaning": "value",
+        "pos": "n"
+      },
+      {
+        "word": "간격",
+        "meaning": "interval",
+        "pos": "n"
+      },
+      {
+        "word": "갈등",
+        "meaning": "conflict",
+        "pos": "n"
+      },
+      {
+        "word": "감각",
+        "meaning": "sense",
+        "pos": "n"
+      },
+      {
+        "word": "감독",
+        "meaning": "director",
+        "pos": "n"
+      },
+      {
+        "word": "감소",
+        "meaning": "reduction",
+        "pos": "n"
+      },
+      {
+        "word": "감정",
+        "meaning": "emotion",
+        "pos": "n"
+      },
+      {
+        "word": "강의",
+        "meaning": "lecture",
+        "pos": "n"
+      },
+      {
+        "word": "개발",
+        "meaning": "development",
+        "pos": "n"
+      },
+      {
+        "word": "개선",
+        "meaning": "improvement",
+        "pos": "n"
+      },
+      {
+        "word": "거래",
+        "meaning": "transaction",
+        "pos": "n"
+      },
+      {
+        "word": "건설",
+        "meaning": "construction",
+        "pos": "n"
+      },
+      {
+        "word": "경고",
+        "meaning": "warning",
+        "pos": "n"
+      },
+      {
+        "word": "경력",
+        "meaning": "career",
+        "pos": "n"
+      },
+      {
+        "word": "경제",
+        "meaning": "economy",
+        "pos": "n"
+      },
+      {
+        "word": "계약",
+        "meaning": "contract",
+        "pos": "n"
+      },
+      {
+        "word": "고객",
+        "meaning": "client, customer",
+        "pos": "n"
+      },
+      {
+        "word": "공포",
+        "meaning": "fear",
+        "pos": "n"
+      },
+      {
+        "word": "교육",
+        "meaning": "education",
+        "pos": "n"
+      },
+      {
+        "word": "교환",
+        "meaning": "exchange",
+        "pos": "n"
+      },
+      {
+        "word": "구성",
+        "meaning": "composition",
+        "pos": "n"
+      },
+      {
+        "word": "권리",
+        "meaning": "right",
+        "pos": "n"
+      },
+      {
+        "word": "기대",
+        "meaning": "expectation",
+        "pos": "n"
+      },
+      {
+        "word": "기술",
+        "meaning": "technology, skill",
+        "pos": "n"
+      },
+      {
+        "word": "논리",
+        "meaning": "logic",
+        "pos": "n"
+      },
+      {
+        "word": "능력",
+        "meaning": "ability",
+        "pos": "n"
+      },
+      {
+        "word": "대화",
+        "meaning": "conversation, dialogue",
+        "pos": "n"
+      },
+      {
+        "word": "동의",
+        "meaning": "agreement",
+        "pos": "n"
+      },
+      {
+        "word": "만족",
+        "meaning": "satisfaction",
+        "pos": "n"
+      },
+      {
+        "word": "발견",
+        "meaning": "discovery",
+        "pos": "n"
+      },
+      {
+        "word": "분석",
+        "meaning": "analysis",
+        "pos": "n"
+      },
+      {
+        "word": "생각",
+        "meaning": "thinking, thought",
+        "pos": "n"
+      },
+      {
+        "word": "선택",
+        "meaning": "choice, selection",
+        "pos": "n"
+      },
+      {
+        "word": "이해",
+        "meaning": "understanding",
+        "pos": "n"
+      },
+      {
+        "word": "자연",
+        "meaning": "nature",
+        "pos": "n"
+      },
+      {
+        "word": "전통",
+        "meaning": "tradition",
+        "pos": "n"
+      },
+      {
+        "word": "주장",
+        "meaning": "assertion, captain",
+        "pos": "n"
+      },
+      {
+        "word": "지식",
+        "meaning": "knowledge",
+        "pos": "n"
+      },
+      {
+        "word": "참여",
+        "meaning": "participation",
+        "pos": "n"
+      },
+      {
+        "word": "평가",
+        "meaning": "evaluation",
+        "pos": "n"
+      },
+      {
+        "word": "해결",
+        "meaning": "solution",
+        "pos": "n"
+      },
+      {
+        "word": "환경",
+        "meaning": "environment",
+        "pos": "n"
+      }
+    ]
+  }
+}
