@@ -105,12 +105,7 @@ export default function SettingsScreen() {
         {voices.length > 1 && (
           <>
             <Text style={styles.label}>{t('voiceLabel')}</Text>
-            <ScrollView
-              horizontal
-              showsHorizontalScrollIndicator={false}
-              style={styles.voiceScroll}
-              contentContainerStyle={styles.voiceScrollContent}
-            >
+            <View style={styles.voiceWrap}>
               {voices.map((v) => (
                 <Pressable
                   key={v.identifier}
@@ -131,7 +126,7 @@ export default function SettingsScreen() {
                   </Text>
                 </Pressable>
               ))}
-            </ScrollView>
+            </View>
           </>
         )}
       </View>
@@ -221,14 +216,11 @@ const styles = StyleSheet.create({
     color: colors.primary,
     fontWeight: '600',
   },
-  voiceScroll: {
-    maxHeight: 44,
-    marginBottom: 8,
-  },
-  voiceScrollContent: {
+  voiceWrap: {
     flexDirection: 'row',
+    flexWrap: 'wrap',
     gap: 8,
-    paddingVertical: 4,
+    marginBottom: 8,
   },
   voiceChip: {
     paddingVertical: 8,
@@ -246,7 +238,6 @@ const styles = StyleSheet.create({
     fontSize: 13,
     color: colors.textSecondary,
     fontWeight: '500',
-    maxWidth: 120,
   },
   voiceChipTextActive: {
     color: colors.primary,

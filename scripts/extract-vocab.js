@@ -41,7 +41,7 @@ for (let i = 0; i < lines.length; i++) {
 }
 
 const out = {
-  _comment: 'Từ vựng trích từ EALD Bilingual Dictionary (English/Korean) - OCR, định dạng inline.',
+  _comment: 'Vocabulary extracted from EALD Bilingual Dictionary (English/Korean) - OCR, inline format.',
   entries,
 };
 fs.writeFileSync(path.join(__dirname, '../src/data/vocabulary.json'), JSON.stringify(out, null, 2), 'utf8');

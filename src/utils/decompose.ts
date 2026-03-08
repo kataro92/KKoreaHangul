@@ -1,5 +1,5 @@
 /**
- * Phân tách âm tiết Hangul (Unicode U+AC00..U+D7A3) thành phụ âm đầu, nguyên âm, phụ âm cuối.
+ * Decompose Hangul syllables (Unicode U+AC00..U+D7A3) into initial consonant, vowel, and final consonant.
  */
 
 import { CHOSUNG, JUNGSEONG, JONGSEONG } from '../data/hangul';
@@ -21,7 +21,7 @@ export interface DecomposedSyllable {
   initialPronunciation: string;
   medialPronunciation: string;
   finalPronunciation: string;
-  /** Cách đọc cả âm tiết (phiên âm tiếng Việt) */
+  /** Syllable pronunciation (romanization) */
   syllablePronunciation: string;
 }
 
@@ -31,7 +31,7 @@ function isHangulSyllable(char: string): boolean {
 }
 
 /**
- * Phân tách một ký tự Hangul thành Chosung, Jungseong, Jongseong.
+ * Decompose a single Hangul character into Chosung, Jungseong, Jongseong.
  */
 function decomposeChar(char: string): DecomposedSyllable | null {
   if (char.length !== 1 || !isHangulSyllable(char)) {
@@ -68,7 +68,7 @@ function decomposeChar(char: string): DecomposedSyllable | null {
 }
 
 /**
- * Tách chuỗi thành các âm tiết Hangul và ký tự khác, trả về danh sách đã phân tách.
+ * Split a string into Hangul syllables and other characters; returns the decomposed list.
  */
 export function decomposeString(input: string): DecomposedSyllable[] {
   const result: DecomposedSyllable[] = [];

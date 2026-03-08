@@ -1,6 +1,6 @@
 /**
- * Bảng chữ cái Hangul và phiên âm tiếng Việt.
- * Thứ tự mảng phải khớp với chỉ số dùng trong công thức phân tách Unicode.
+ * Hangul alphabet and romanization (Vietnamese).
+ * Array order must match the indices used in the Unicode decomposition formula.
  */
 
 export interface HangulChar {
@@ -9,7 +9,7 @@ export interface HangulChar {
   name?: string;
 }
 
-// ============ PHỤ ÂM ĐẦU (Chosung) - 19 ký tự, thứ tự Unicode ============
+// ============ INITIAL CONSONANTS (Chosung) - 19 chars, Unicode order ============
 export const CHOSUNG: HangulChar[] = [
   { char: 'ㄱ', pronunciation: 'g/k', name: 'Giyeok' },
   { char: 'ㄲ', pronunciation: 'kk', name: 'Ssanggiyeok' },
@@ -32,7 +32,7 @@ export const CHOSUNG: HangulChar[] = [
   { char: 'ㅎ', pronunciation: 'h', name: 'Hieut' },
 ];
 
-// ============ NGUYÊN ÂM (Jungseong) - 21 ký tự ============
+// ============ VOWELS (Jungseong) - 21 chars ============
 export const JUNGSEONG: HangulChar[] = [
   { char: 'ㅏ', pronunciation: 'a', name: 'A' },
   { char: 'ㅐ', pronunciation: 'ae', name: 'Ae' },
@@ -57,7 +57,7 @@ export const JUNGSEONG: HangulChar[] = [
   { char: 'ㅣ', pronunciation: 'i', name: 'I' },
 ];
 
-// ============ PHỤ ÂM CUỐI (Jongseong) - 28 giá trị (0 = không có) ============
+// ============ FINAL CONSONANTS (Jongseong) - 28 values (0 = none) ============
 export const JONGSEONG: HangulChar[] = [
   { char: '', pronunciation: '', name: 'Không có' },
   { char: 'ㄱ', pronunciation: 'k/g', name: 'Giyeok' },
@@ -89,7 +89,7 @@ export const JONGSEONG: HangulChar[] = [
   { char: 'ㅎ', pronunciation: 't', name: 'Hieut' },
 ];
 
-/** Nhóm Batchim theo cách đọc (dùng cho chế độ "Nhóm theo âm") */
+/** Batchim grouped by pronunciation (for "Group by sound" mode) */
 export interface BatchimBySoundGroup {
   pronunciation: string;
   items: HangulChar[];
@@ -116,7 +116,7 @@ export function getBatchimGroupedBySound(): BatchimBySoundGroup[] {
   return result;
 }
 
-// ============ Nhóm cho Tab Bảng chữ cái (hiển thị theo từng section) ============
+// ============ Groups for Alphabet tab (displayed by section) ============
 
 export const BASIC_CONSONANTS: HangulChar[] = [
   { char: 'ㄱ', pronunciation: 'g/k', name: 'Giyeok' },
@@ -170,7 +170,7 @@ export const COMPOUND_VOWELS: HangulChar[] = [
   { char: 'ㅢ', pronunciation: 'ui', name: 'Ui' },
 ];
 
-// Bổ sung các batchim kép dạng 2 ký tự riêng cho hiển thị
+// Double batchim as separate 2-char forms for display
 export const BATCHIM_DISPLAY: HangulChar[] = [
   { char: 'ㄱ', pronunciation: 'k/g', name: 'Giyeok' },
   { char: 'ㄲ', pronunciation: 'k', name: 'Ssanggiyeok' },

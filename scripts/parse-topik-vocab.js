@@ -47,7 +47,7 @@ async function main() {
     console.warn('topik-2662:', e.message);
   }
   const out = {
-    _comment: 'Từ vựng TOPIK I (Beginner) và TOPIK II (Intermediate) từ file PDF.',
+    _comment: 'TOPIK I (Beginner) and TOPIK II (Intermediate) vocabulary from PDF.',
     topik1: { label: 'TOPIK I (Sơ cấp)', entries: topik1 },
     topik2: { label: 'TOPIK II (Trung cấp)', entries: topik2 },
   };

@@ -71,7 +71,12 @@ export function SpeechConfigProvider({ children }: { children: React.ReactNode }
       .then((list) => {
         const koVoices = list.filter((v) => v.language.startsWith('ko'));
         setVoices(koVoices);
-        setSelectedVoiceId((prev) => (prev === null && koVoices.length > 0 ? koVoices[0].identifier : prev));
+        setSelectedVoiceId((prev) => {
+          if (prev !== null) return prev;
+          if (koVoices.length === 0) return null;
+          const yuna = koVoices.find((v) => v.name.toLowerCase().includes('yuna'));
+          return (yuna ?? koVoices[0]).identifier;
+        });
       })
       .catch(() => {});
   }, []);

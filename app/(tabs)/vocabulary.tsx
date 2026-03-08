@@ -1,4 +1,4 @@
-import { useCallback, useMemo, useState } from 'react';
+import { useCallback, useMemo, useRef, useState } from 'react';
 import {
   ActivityIndicator,
   Pressable,
@@ -48,11 +48,26 @@ export default function VocabularyScreen() {
   const { t } = useLanguage();
   const { getSpeechOptions } = useSpeechConfig();
 
-  // Khi đổi trình độ, chọn từ mới từ danh sách đó
+  // Store the current word per level so it doesn't change when switching back
+  const lastEntryByLevelRef = useRef<Record<LevelKey, VocabEntry | null>>({
+    topik1: null,
+    topik2: null,
+  });
+
   const changeLevel = useCallback((newLevel: LevelKey) => {
-    setLevel(newLevel);
-    const next = getRandomEntry(newLevel);
-    setEntry(next);
+    setLevel((currentLevel) => {
+      setEntry((currentEntry) => {
+        lastEntryByLevelRef.current[currentLevel] = currentEntry;
+        const saved = lastEntryByLevelRef.current[newLevel];
+        if (saved != null) {
+          return saved;
+        }
+        const next = getRandomEntry(newLevel);
+        lastEntryByLevelRef.current[newLevel] = next;
+        return next;
+      });
+      return newLevel;
+    });
   }, []);
 
   const decomposed = useMemo(

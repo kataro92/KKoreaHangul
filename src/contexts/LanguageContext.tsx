@@ -609,7 +609,7 @@ type LanguageContextValue = {
 
 const LanguageContext = createContext<LanguageContextValue | null>(null);
 
-/** Tên mỗi ngôn ngữ bằng chính ngôn ngữ đó (luôn hiển thị cố định, không phụ thuộc locale app). */
+/** Each language name in its native form (always displayed as-is, independent of app locale). */
 export const LOCALE_NATIVE_LABELS: Record<Locale, string> = {
   en: 'English',
   vi: 'Tiếng Việt',
@@ -620,7 +620,7 @@ export const LOCALE_NATIVE_LABELS: Record<Locale, string> = {
   ja: '日本語',
 };
 
-/** Icon cờ (emoji) cho mỗi ngôn ngữ. */
+/** Flag emoji for each language. */
 export const LOCALE_FLAGS: Record<Locale, string> = {
   en: '🇺🇸',
   vi: '🇻🇳',
