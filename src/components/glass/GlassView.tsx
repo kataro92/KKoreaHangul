@@ -58,7 +58,6 @@ export function GlassView({ children, style, strong, radius, highlight = true }:
       <BlurView
         intensity={theme.glass.intensity}
         tint={theme.glass.blurTint}
-        experimentalBlurMethod="dimezisBlurView"
         style={[frame, style]}
       >
         <View style={[StyleSheet.absoluteFill, { backgroundColor: fill }]} pointerEvents="none" />

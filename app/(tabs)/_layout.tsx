@@ -5,6 +5,9 @@ import { useLanguage } from '../../src/contexts/LanguageContext';
 import { useSrs } from '../../src/contexts/SrsContext';
 import { useTheme } from '../../src/constants/theme';
 import { BlurFill } from '../../src/components/glass/BlurFill';
+import { GlassTabBar } from '../../src/components/glass/GlassTabBar';
+
+const TAB_ICON_SIZE = 22;
 
 export default function TabLayout() {
   const router = useRouter();
@@ -14,6 +17,7 @@ export default function TabLayout() {
 
   return (
     <Tabs
+      tabBar={(props) => <GlassTabBar {...props} />}
       screenOptions={{
         tabBarActiveTintColor: theme.colors.primary,
         tabBarInactiveTintColor: theme.colors.textSecondary,
@@ -24,13 +28,6 @@ export default function TabLayout() {
         headerShadowVisible: false,
         headerBackground: () => <BlurFill borderBottom />,
         sceneStyle: { backgroundColor: 'transparent' },
-        tabBarStyle: {
-          position: 'absolute',
-          borderTopWidth: 0,
-          backgroundColor: 'transparent',
-          elevation: 0,
-        },
-        tabBarBackground: () => <BlurFill borderTop />,
         headerRight: () => (
           <Pressable
             onPress={() => router.push('/settings')}
@@ -46,7 +43,7 @@ export default function TabLayout() {
         options={{
           title: t('tabAlphabet'),
           tabBarLabel: t('tabAlphabet'),
-          tabBarIcon: ({ color, size }) => <Ionicons name="book-outline" size={size} color={color} />,
+          tabBarIcon: ({ color }) => <Ionicons name="book-outline" size={TAB_ICON_SIZE} color={color} />,
         }}
       />
       <Tabs.Screen
@@ -54,7 +51,7 @@ export default function TabLayout() {
         options={{
           title: t('tabReading'),
           tabBarLabel: t('tabReading'),
-          tabBarIcon: ({ color, size }) => <Ionicons name="volume-high-outline" size={size} color={color} />,
+          tabBarIcon: ({ color }) => <Ionicons name="volume-high-outline" size={TAB_ICON_SIZE} color={color} />,
         }}
       />
       <Tabs.Screen
@@ -62,7 +59,7 @@ export default function TabLayout() {
         options={{
           title: t('tabGrammar'),
           tabBarLabel: t('tabGrammar'),
-          tabBarIcon: ({ color, size }) => <Ionicons name="school-outline" size={size} color={color} />,
+          tabBarIcon: ({ color }) => <Ionicons name="school-outline" size={TAB_ICON_SIZE} color={color} />,
         }}
       />
       <Tabs.Screen
@@ -70,7 +67,7 @@ export default function TabLayout() {
         options={{
           title: t('tabVocabulary'),
           tabBarLabel: t('tabVocabulary'),
-          tabBarIcon: ({ color, size }) => <Ionicons name="library-outline" size={size} color={color} />,
+          tabBarIcon: ({ color }) => <Ionicons name="library-outline" size={TAB_ICON_SIZE} color={color} />,
         }}
       />
       <Tabs.Screen
@@ -79,7 +76,7 @@ export default function TabLayout() {
           title: t('tabReview'),
           tabBarLabel: t('tabReview'),
           tabBarBadge: stats.due > 0 ? stats.due : undefined,
-          tabBarIcon: ({ color, size }) => <Ionicons name="repeat-outline" size={size} color={color} />,
+          tabBarIcon: ({ color }) => <Ionicons name="repeat-outline" size={TAB_ICON_SIZE} color={color} />,
         }}
       />
     </Tabs>

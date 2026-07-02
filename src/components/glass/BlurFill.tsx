@@ -25,7 +25,6 @@ export function BlurFill({ borderTop, borderBottom }: { borderTop?: boolean; bor
       <BlurView
         intensity={theme.glass.intensity + 15}
         tint={theme.glass.blurTint}
-        experimentalBlurMethod="dimezisBlurView"
         style={[StyleSheet.absoluteFill, borderStyle]}
       >
         <View style={[StyleSheet.absoluteFill, { backgroundColor: theme.glass.fill }]} />
