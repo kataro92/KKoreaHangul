@@ -1,8 +1,9 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import { colors } from '../constants/colors';
+import { useTheme } from '../constants/theme';
 import { useLanguage } from '../contexts/LanguageContext';
 import type { DecomposedSyllable } from '../utils/decompose';
+import { GlassCard } from './glass/GlassCard';
 
 interface DecomposedResultProps {
   data: DecomposedSyllable;
@@ -10,55 +11,56 @@ interface DecomposedResultProps {
 
 export function DecomposedResult({ data }: DecomposedResultProps) {
   const { t } = useLanguage();
+  const theme = useTheme();
+  const c = theme.colors;
   const hasFinal = data.finalChar.length > 0;
+
+  const tint = (hex: string, a: number) => {
+    // hex #RRGGBB → rgba
+    const r = parseInt(hex.slice(1, 3), 16);
+    const g = parseInt(hex.slice(3, 5), 16);
+    const b = parseInt(hex.slice(5, 7), 16);
+    return `rgba(${r},${g},${b},${a})`;
+  };
+
   return (
-    <View style={styles.container}>
-      <Text style={styles.syllable}>{data.syllable}</Text>
+    <GlassCard style={styles.wrap} contentStyle={styles.content}>
+      <Text style={[styles.syllable, { color: c.text }]}>{data.syllable}</Text>
       <View style={styles.partsRow}>
-        <View style={[styles.partBadge, styles.initial]}>
-          <Text style={styles.partChar}>{data.initialChar}</Text>
-          <Text style={styles.partLabel}>{t('decompInitial')}</Text>
-          <Text style={styles.partPronInitial}>{data.initialPronunciation}</Text>
+        <View style={[styles.partBadge, { backgroundColor: tint(c.consonant, 0.18) }]}>
+          <Text style={[styles.partChar, { color: c.text }]}>{data.initialChar}</Text>
+          <Text style={[styles.partLabel, { color: c.textSecondary }]}>{t('decompInitial')}</Text>
+          <Text style={[styles.partPron, { color: c.consonant }]}>{data.initialPronunciation}</Text>
         </View>
-        <Text style={styles.plus}>+</Text>
-        <View style={[styles.partBadge, styles.medial]}>
-          <Text style={styles.partChar}>{data.medialChar}</Text>
-          <Text style={styles.partLabel}>{t('decompMedial')}</Text>
-          <Text style={styles.partPronMedial}>{data.medialPronunciation}</Text>
+        <Text style={[styles.plus, { color: c.textSecondary }]}>+</Text>
+        <View style={[styles.partBadge, { backgroundColor: tint(c.vowel, 0.18) }]}>
+          <Text style={[styles.partChar, { color: c.text }]}>{data.medialChar}</Text>
+          <Text style={[styles.partLabel, { color: c.textSecondary }]}>{t('decompMedial')}</Text>
+          <Text style={[styles.partPron, { color: c.vowel }]}>{data.medialPronunciation}</Text>
         </View>
         {hasFinal && (
           <>
-            <Text style={styles.plus}>+</Text>
-            <View style={[styles.partBadge, styles.final]}>
-              <Text style={styles.partChar}>{data.finalChar}</Text>
-              <Text style={styles.partLabel}>{t('decompFinal')}</Text>
-              <Text style={styles.partPronFinal}>{data.finalPronunciation}</Text>
+            <Text style={[styles.plus, { color: c.textSecondary }]}>+</Text>
+            <View style={[styles.partBadge, { backgroundColor: tint(c.batchim, 0.18) }]}>
+              <Text style={[styles.partChar, { color: c.text }]}>{data.finalChar}</Text>
+              <Text style={[styles.partLabel, { color: c.textSecondary }]}>{t('decompFinal')}</Text>
+              <Text style={[styles.partPron, { color: c.batchim }]}>{data.finalPronunciation}</Text>
             </View>
           </>
         )}
       </View>
-      <Text style={styles.reading}>
-        {t('decompRead')}<Text style={styles.readingValue}>{data.syllablePronunciation}</Text>
+      <Text style={[styles.reading, { color: c.textSecondary }]}>
+        {t('decompRead')}
+        <Text style={[styles.readingValue, { color: c.primary }]}>{data.syllablePronunciation}</Text>
       </Text>
-    </View>
+    </GlassCard>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    backgroundColor: colors.cardBackground,
-    borderRadius: 12,
-    padding: 16,
-    marginBottom: 12,
-    borderLeftWidth: 4,
-    borderLeftColor: colors.primary,
-  },
-  syllable: {
-    fontSize: 40,
-    color: colors.text,
-    marginBottom: 12,
-    textAlign: 'center',
-  },
+  wrap: { marginBottom: 12 },
+  content: { padding: 16 },
+  syllable: { fontSize: 40, marginBottom: 12, textAlign: 'center' },
   partsRow: {
     flexDirection: 'row',
     flexWrap: 'wrap',
@@ -67,60 +69,11 @@ const styles = StyleSheet.create({
     gap: 8,
     marginBottom: 12,
   },
-  partBadge: {
-    paddingVertical: 8,
-    paddingHorizontal: 12,
-    borderRadius: 8,
-    alignItems: 'center',
-    minWidth: 64,
-  },
-  initial: {
-    backgroundColor: 'rgba(74, 144, 217, 0.2)',
-  },
-  medial: {
-    backgroundColor: 'rgba(232, 93, 117, 0.2)',
-  },
-  final: {
-    backgroundColor: 'rgba(52, 199, 89, 0.2)',
-  },
-  partChar: {
-    fontSize: 24,
-    color: colors.text,
-  },
-  partLabel: {
-    fontSize: 10,
-    color: colors.textSecondary,
-    marginTop: 2,
-  },
-  partPronInitial: {
-    fontSize: 12,
-    fontWeight: '600',
-    marginTop: 2,
-    color: colors.consonant,
-  },
-  partPronMedial: {
-    fontSize: 12,
-    fontWeight: '600',
-    marginTop: 2,
-    color: colors.vowel,
-  },
-  partPronFinal: {
-    fontSize: 12,
-    fontWeight: '600',
-    marginTop: 2,
-    color: colors.batchim,
-  },
-  plus: {
-    fontSize: 16,
-    color: colors.textSecondary,
-  },
-  reading: {
-    fontSize: 14,
-    color: colors.textSecondary,
-    textAlign: 'center',
-  },
-  readingValue: {
-    fontWeight: '700',
-    color: colors.primary,
-  },
+  partBadge: { paddingVertical: 8, paddingHorizontal: 12, borderRadius: 10, alignItems: 'center', minWidth: 64 },
+  partChar: { fontSize: 24 },
+  partLabel: { fontSize: 10, marginTop: 2 },
+  partPron: { fontSize: 12, fontWeight: '600', marginTop: 2 },
+  plus: { fontSize: 16 },
+  reading: { fontSize: 14, textAlign: 'center' },
+  readingValue: { fontWeight: '700' },
 });

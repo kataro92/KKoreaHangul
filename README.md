@@ -1,34 +1,75 @@
 # KKorea Hangul
 
-A Korean (Hangul) learning app for Vietnamese speakers, built with **React Native** and **Expo**. The app UI is available in 7 languages.
+A Korean (Hangul) learning app for Vietnamese speakers, built with **React Native** and **Expo**. The app UI is available in 7 languages and features an Apple‑style **Liquid Glass** interface (frosted‑glass surfaces over a pastel gradient) with automatic **light/dark** mode.
 
 ## Screenshots
 
+Captured at **iPhone XR** size (414×896, 2×) from the Expo web build — three states per feature.
+
 **Alphabet** — Hangul letters with romanization and “group by sound” for batchim.
 
-![Alphabet screen](screenshots/alphabet.png)
+<p align="center">
+  <img src="screenshots/alphabet/1.png" alt="Alphabet — basic consonants" width="32%" />
+  <img src="screenshots/alphabet/2.png" alt="Alphabet — basic vowels" width="32%" />
+  <img src="screenshots/alphabet/3.png" alt="Alphabet — batchim by sound" width="32%" />
+</p>
 
-**Reading** — Enter Korean text, see syllable breakdown and use Speak (TTS).
+**Reading** — Syllable breakdown + reading‑practice mode (countdown → Vietnamese phonetics + TTS).
 
-![Reading screen](screenshots/reading.png)
+<p align="center">
+  <img src="screenshots/reading/1.png" alt="Reading — syllable breakdown" width="32%" />
+  <img src="screenshots/reading/2.png" alt="Reading — decomposition result" width="32%" />
+  <img src="screenshots/reading/3.png" alt="Reading — practice with answer" width="32%" />
+</p>
 
-**Vocabulary** — TOPIK I/II levels, new word, pronunciation breakdown, next word.
+**Grammar** — TOPIK I/II grammar points with structure, Vietnamese explanation, and examples.
 
-![Vocabulary screen](screenshots/vocabulary.png)
+<p align="center">
+  <img src="screenshots/grammar/1.png" alt="Grammar — TOPIK I list" width="32%" />
+  <img src="screenshots/grammar/2.png" alt="Grammar — TOPIK II list" width="32%" />
+  <img src="screenshots/grammar/3.png" alt="Grammar — detail screen" width="32%" />
+</p>
 
-**Settings** — Speech (speed, pitch, volume, voice), language (7 locales with flags), About.
+**Vocabulary** — TOPIK I/II word lists with Vietnamese meanings, TTS, syllable breakdown, add‑to‑review.
 
-![Settings screen](screenshots/settings.png)
+<p align="center">
+  <img src="screenshots/vocabulary/1.png" alt="Vocabulary — word card" width="32%" />
+  <img src="screenshots/vocabulary/2.png" alt="Vocabulary — syllable breakdown" width="32%" />
+  <img src="screenshots/vocabulary/3.png" alt="Vocabulary — TOPIK II level" width="32%" />
+</p>
+
+**Review** — Spaced‑repetition flashcards (SM‑2), stats, grade buttons, and word suggestions.
+
+<p align="center">
+  <img src="screenshots/review/1.png" alt="Review — suggestions" width="32%" />
+  <img src="screenshots/review/2.png" alt="Review — flashcard front" width="32%" />
+  <img src="screenshots/review/3.png" alt="Review — flashcard graded" width="32%" />
+</p>
+
+**Settings** — Speech, study reminder, language (7 locales with flags), About.
+
+<p align="center">
+  <img src="screenshots/settings/1.png" alt="Settings — speech" width="32%" />
+  <img src="screenshots/settings/2.png" alt="Settings — language" width="32%" />
+  <img src="screenshots/settings/3.png" alt="Settings — about" width="32%" />
+</p>
 
 ## Features
 
 - **Alphabet** — Browse the full Hangul alphabet by group: basic consonants, double consonants, basic vowels, compound vowels, and batchim (final consonants). Each character shows romanization. Optional “group by sound” view for batchim.
-- **Reading** — Type Korean text and see each syllable decomposed into initial consonant, vowel, and final consonant with pronunciation. **Speak** button for text-to-speech (TTS).
-- **Vocabulary** — Study TOPIK I and II vocabulary with random word display, TTS, and syllable breakdown. Level and all labels follow app language.
+- **Reading** — Two modes via a toggle at the top:
+  - **Syllable breakdown** — Type Korean text and see each syllable decomposed into initial consonant, vowel, and final consonant with pronunciation. **Speak** button for text-to-speech (TTS).
+  - **Reading practice** — A Korean sentence is shown; read it aloud during a configurable countdown (15/30/45/60s). When the timer ends (or you tap **Show answer**), the Vietnamese phonetics, meaning, and a **Listen** model reading appear so you can self-assess. Rate yourself (Needs work / Okay / Good); a “Needs work” sentence is automatically suggested to your review deck.
+- **Grammar** — 66 TOPIK I/II grammar points (27 beginner + 39 intermediate) with structure, Vietnamese explanation, when-to-use notes, and example sentences. Search and filter by level; each example has a TTS button.
+- **Vocabulary** — Full TOPIK I + II word lists (1,671 + 2,662 = 4,333 words) with random word display, TTS, and syllable breakdown. All entries have Vietnamese meanings (the original English is kept as a fallback). **Add to review** button pushes a word into the spaced-repetition deck.
+- **Review (spaced repetition)** — Flashcard review powered by the **SM-2** algorithm (like Anki/Mochi). Flip cards, grade with Again/Hard/Good/Easy, and a tab badge shows how many cards are due. Includes stats (total/due/learned), rule-based **word suggestions**, and a card manager to create custom cards or delete existing ones. Cards persist on device via AsyncStorage. Vocabulary/sentence cards **auto‑sync their Vietnamese meaning** from the source data on launch (older cards get updated), with a manual **Refresh meanings** button in the card manager.
 - **Settings** (gear icon in header) — Single screen with:
-  - **Speech settings** — Speed, pitch, volume, and Korean voice selection. Applies to both Reading and Vocabulary.
+  - **Speech settings** — Speed, pitch, volume, and Korean voice selection. Applies to Reading and Vocabulary.
+  - **Study reminder** — Optional daily notification (8:00 PM) to review due cards (requires `expo-notifications`).
   - **Language** — App UI in 7 languages (native names + flags): English, Tiếng Việt, 中文, हिंदी, Español, Français, 日本語.
   - **About** — App description and author (Phạm Huy Đức). Back button label is localized (e.g. “Màn hình chính” / “Main”).
+
+- **Design** — Apple‑style **Liquid Glass** throughout: a pastel gradient backdrop with frosted‑glass cards, custom **`GlassTabBar`**, and header. Follows the system **light/dark** appearance automatically. All action buttons share a single `GlassButton` component (primary / outline / glass variants) for a consistent look. App icon, splash (`splash-full.png`), and favicon use matching lavender branding.
 
 All on-screen labels (tabs, buttons, hints, level names, part-of-speech, decomposition labels) are localized.
 
@@ -44,6 +85,14 @@ git clone https://github.com/kataro92/KKoreaHangul.git
 cd KKoreaHangul
 npm install
 ```
+
+The Liquid Glass UI uses `expo-blur` and `expo-linear-gradient`, and the daily study reminder uses `expo-notifications`. They're listed in `package.json`; to pin SDK‑compatible versions run:
+
+```bash
+npx expo install expo-blur expo-linear-gradient expo-notifications
+```
+
+The app degrades gracefully if any are missing — glass surfaces fall back to solid translucent panels, the gradient falls back to a solid backdrop, and the reminder section is simply hidden.
 
 ## Usage
 
@@ -67,25 +116,46 @@ Then:
 | `npm run android` | Run on Android        |
 | `npm run web`     | Run in the browser    |
 
+### Refresh README screenshots
+
+```bash
+npx expo start --web --port 8083
+$env:APP_URL='http://localhost:8083'; node scripts/capture-screenshots.mjs
+```
+
+Uses Playwright at **iPhone XR** dimensions (same as Chrome DevTools device mode).
+
 ## Project structure
 
 ```
 ├── app/
-│   ├── _layout.tsx          # Root layout, LanguageProvider, SpeechConfigProvider
-│   ├── settings.tsx         # Settings (speech, language, about)
+│   ├── _layout.tsx          # Root layout: Language / SpeechConfig / Srs providers
+│   ├── settings.tsx         # Settings (speech, reminder, language, about)
+│   ├── review-manage.tsx    # Manage SRS cards + create custom cards
+│   ├── grammar/[id].tsx     # Grammar detail screen
 │   └── (tabs)/
-│       ├── _layout.tsx      # Tab navigator + gear icon → Settings
+│       ├── _layout.tsx      # Tab navigator (+ Review badge) + gear → Settings
 │       ├── index.tsx        # Alphabet screen
-│       ├── reading.tsx      # Reading screen (input + TTS)
-│       └── vocabulary.tsx   # Vocabulary screen
+│       ├── reading.tsx      # Reading screen (syllable breakdown + practice mode)
+│       ├── grammar.tsx      # Grammar list (search + level filter)
+│       ├── vocabulary.tsx   # Vocabulary screen (+ add to review)
+│       └── review.tsx       # Spaced-repetition review + suggestions
 ├── src/
-│   ├── components/         # CharacterCard, CategorySection, DecomposedResult
-│   ├── constants/          # colors
-│   ├── contexts/           # LanguageContext (i18n), SpeechConfigContext (TTS)
-│   ├── data/               # hangul.ts, vocabulary.json
+│   ├── components/         # CharacterCard, CategorySection, DecomposedResult,
+│   │                       #   CountdownRing, ReadingPractice
+│   │   └── glass/          # Liquid Glass: ScreenBackground, GlassScreen,
+│   │                       #   GlassView, GlassCard, GlassButton, GlassTabBar, BlurFill
+│   ├── constants/          # colors, theme.ts (Liquid Glass light/dark tokens)
+│   ├── contexts/           # LanguageContext, SpeechConfigContext, SrsContext
+│   ├── data/               # hangul.ts, vocabulary.json, grammar.json/.ts,
+│   │                       #   sentences.json/.ts
+│   ├── srs/                # sm2.ts (+ test), types.ts, suggest.ts, refresh.ts
+│   ├── services/           # notifications.ts (daily reminder)
+│   ├── storage/            # store.ts (AsyncStorage wrapper)
 │   └── utils/              # decompose.ts (Hangul syllable decomposition)
-├── screenshots/             # App screenshots for README
-└── scripts/                 # parse-topik-vocab.js (vocabulary from PDF)
+├── assets/                  # icon.png, splash-full.png, favicon, Android adaptive icon
+├── screenshots/             # README screenshots (screenshots/<feature>/1-3.png)
+└── scripts/                 # capture-screenshots.mjs, parse-topik-vocab.js
 ```
 
 ## Author
