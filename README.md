@@ -6,27 +6,51 @@ A Korean (Hangul) learning app for Vietnamese speakers, built with **React Nativ
 
 **Alphabet** — Hangul letters with romanization and “group by sound” for batchim.
 
-![Alphabet screen](screenshots/alphabet.png)
+<p align="center">
+  <img src="screenshots/alphabet/1.png" alt="Alphabet — basic consonants" width="32%" />
+  <img src="screenshots/alphabet/2.png" alt="Alphabet — basic vowels" width="32%" />
+  <img src="screenshots/alphabet/3.png" alt="Alphabet — batchim by sound" width="32%" />
+</p>
 
 **Reading** — Syllable breakdown + reading‑practice mode (countdown → Vietnamese phonetics + TTS).
 
-![Reading screen](screenshots/reading.png)
+<p align="center">
+  <img src="screenshots/reading/1.png" alt="Reading — syllable breakdown" width="32%" />
+  <img src="screenshots/reading/2.png" alt="Reading — decomposition result" width="32%" />
+  <img src="screenshots/reading/3.png" alt="Reading — practice with answer" width="32%" />
+</p>
 
 **Grammar** — TOPIK I/II grammar points with structure, Vietnamese explanation, and examples.
 
-![Grammar screen](screenshots/grammar.png)
+<p align="center">
+  <img src="screenshots/grammar/1.png" alt="Grammar — TOPIK I list" width="32%" />
+  <img src="screenshots/grammar/2.png" alt="Grammar — TOPIK II list" width="32%" />
+  <img src="screenshots/grammar/3.png" alt="Grammar — detail screen" width="32%" />
+</p>
 
 **Vocabulary** — TOPIK I/II word lists with Vietnamese meanings, TTS, syllable breakdown, add‑to‑review.
 
-![Vocabulary screen](screenshots/vocabulary.png)
+<p align="center">
+  <img src="screenshots/vocabulary/1.png" alt="Vocabulary — word card" width="32%" />
+  <img src="screenshots/vocabulary/2.png" alt="Vocabulary — syllable breakdown" width="32%" />
+  <img src="screenshots/vocabulary/3.png" alt="Vocabulary — TOPIK II level" width="32%" />
+</p>
 
 **Review** — Spaced‑repetition flashcards (SM‑2), stats, grade buttons, and word suggestions.
 
-![Review screen](screenshots/review.png)
+<p align="center">
+  <img src="screenshots/review/1.png" alt="Review — suggestions" width="32%" />
+  <img src="screenshots/review/2.png" alt="Review — flashcard front" width="32%" />
+  <img src="screenshots/review/3.png" alt="Review — flashcard graded" width="32%" />
+</p>
 
 **Settings** — Speech, study reminder, language (7 locales with flags), About.
 
-![Settings screen](screenshots/settings.png)
+<p align="center">
+  <img src="screenshots/settings/1.png" alt="Settings — speech" width="32%" />
+  <img src="screenshots/settings/2.png" alt="Settings — language" width="32%" />
+  <img src="screenshots/settings/3.png" alt="Settings — about" width="32%" />
+</p>
 
 ## Features
 
@@ -118,7 +142,7 @@ Then:
 │   ├── services/           # notifications.ts (daily reminder)
 │   ├── storage/            # store.ts (AsyncStorage wrapper)
 │   └── utils/              # decompose.ts (Hangul syllable decomposition)
-├── screenshots/             # App screenshots for README
+├── screenshots/             # README screenshots (screenshots/<feature>/1-3.png)
 └── scripts/                 # parse-topik-vocab.js (vocabulary from PDF)
 ```
 
