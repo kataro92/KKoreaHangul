@@ -1,7 +1,7 @@
 /** Kiểu dữ liệu cho ngữ pháp + truy cập tiện lợi vào grammar.json */
 import grammarData from './grammar.json';
 
-export type GrammarLevel = 'topik1' | 'topik2';
+export type GrammarLevel = 'topik1' | 'topik2' | 'basics';
 
 export interface GrammarExample {
   ko: string;
@@ -24,10 +24,13 @@ export const GRAMMAR_TOPIK1: GrammarItem[] =
   (grammarData.topik1?.items as GrammarItem[]) ?? [];
 export const GRAMMAR_TOPIK2: GrammarItem[] =
   (grammarData.topik2?.items as GrammarItem[]) ?? [];
+export const GRAMMAR_BASICS: GrammarItem[] =
+  ((grammarData as any).basics?.items as GrammarItem[]) ?? [];
 
-export const ALL_GRAMMAR: GrammarItem[] = [...GRAMMAR_TOPIK1, ...GRAMMAR_TOPIK2];
+export const ALL_GRAMMAR: GrammarItem[] = [...GRAMMAR_BASICS, ...GRAMMAR_TOPIK1, ...GRAMMAR_TOPIK2];
 
 export function getGrammarByLevel(level: GrammarLevel): GrammarItem[] {
+  if (level === 'basics') return GRAMMAR_BASICS;
   return level === 'topik1' ? GRAMMAR_TOPIK1 : GRAMMAR_TOPIK2;
 }
 

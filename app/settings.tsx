@@ -1,6 +1,6 @@
 import { useNavigation } from 'expo-router';
 import { useEffect, useState } from 'react';
-import { Pressable, ScrollView, StyleSheet, Switch, Text, View } from 'react-native';
+import { Linking, Pressable, ScrollView, StyleSheet, Switch, Text, View } from 'react-native';
 import { GlassCard } from '../src/components/glass/GlassCard';
 import { GlassScreen } from '../src/components/glass/GlassScreen';
 import { useTheme } from '../src/constants/theme';
@@ -150,6 +150,13 @@ export default function SettingsScreen() {
         <Text style={[styles.aboutApp, { color: c.text }]}>KKorea Hangul</Text>
         <Text style={[styles.aboutDescription, { color: c.textSecondary }]}>{t('aboutDescription')}</Text>
         <Text style={[styles.aboutAuthor, { color: c.primary }]}>{t('aboutAuthor')}</Text>
+        <Pressable
+          style={({ pressed }) => [styles.feedbackRow, { opacity: pressed ? 0.6 : 1 }]}
+          onPress={() => Linking.openURL('mailto:kataro92@gmail.com?subject=KKorea%20Hangul%20-%20Feedback')}
+        >
+          <Text style={[styles.feedbackLabel, { color: c.textSecondary }]}>{t('feedbackLabel')} </Text>
+          <Text style={[styles.feedbackEmail, { color: c.primary }]}>kataro92@gmail.com</Text>
+        </Pressable>
       </GlassCard>
     </ScrollView>
     </GlassScreen>
@@ -179,4 +186,7 @@ const styles = StyleSheet.create({
   aboutApp: { fontSize: 20, fontWeight: '700', marginBottom: 12 },
   aboutDescription: { fontSize: 15, lineHeight: 22, marginBottom: 16 },
   aboutAuthor: { fontSize: 15, fontWeight: '600' },
+  feedbackRow: { flexDirection: 'row', alignItems: 'center', flexWrap: 'wrap', marginTop: 10 },
+  feedbackLabel: { fontSize: 14 },
+  feedbackEmail: { fontSize: 14, fontWeight: '700', textDecorationLine: 'underline' },
 });
