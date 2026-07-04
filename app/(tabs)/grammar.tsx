@@ -47,6 +47,7 @@ export default function GrammarScreen() {
     <View style={styles.container}>
       <View style={styles.header}>
         <View style={styles.levelRow}>
+          {levelBtn('basics', t('grammarBasics'))}
           {levelBtn('topik1', t('vocabLevel1'))}
           {levelBtn('topik2', t('vocabLevel2'))}
         </View>
@@ -103,8 +104,8 @@ const styles = StyleSheet.create({
   container: { flex: 1, backgroundColor: 'transparent' },
   header: { padding: 16, paddingBottom: 8 },
   levelRow: { flexDirection: 'row', gap: 12, marginBottom: 12 },
-  levelBtn: { flex: 1, paddingVertical: 10, borderRadius: 12, borderWidth: 2, alignItems: 'center' },
-  levelBtnText: { fontSize: 14, fontWeight: '600' },
+  levelBtn: { flex: 1, paddingVertical: 10, paddingHorizontal: 4, borderRadius: 12, borderWidth: 2, alignItems: 'center', justifyContent: 'center' },
+  levelBtnText: { fontSize: 12.5, fontWeight: '600', textAlign: 'center' },
   searchWrap: { paddingHorizontal: 4 },
   search: { paddingHorizontal: 12, paddingVertical: 11, fontSize: 15 },
   list: { flex: 1 },

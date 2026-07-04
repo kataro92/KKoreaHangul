@@ -1,5 +1,5 @@
 {
-  "_comment": "Ngữ pháp TOPIK I/II. explanation & usage bằng tiếng Việt. Claude soạn theo khung TOPIK.",
+  "_comment": "Ngữ pháp TOPIK I/II (mở rộng theo giáo trình Seoul 1A/1B). explanation & usage bằng tiếng Việt.",
   "topik1": {
     "label": "TOPIK I",
     "items": [
@@ -13,7 +13,9 @@
         "usage": "Dùng khi giới thiệu chủ đề đã biết, hoặc khi so sánh hai đối tượng.",
         "examples": [
           { "ko": "저는 학생이에요.", "vi": "Tôi là học sinh.", "note": "저 không có 받침 → 는" },
-          { "ko": "이름은 민수예요.", "vi": "Tên (tôi) là Minsu.", "note": "이름 có 받침 → 은" }
+          { "ko": "이름은 민수예요.", "vi": "Tên (tôi) là Minsu.", "note": "이름 có 받침 → 은" },
+          { "ko": "저는 베트남 사람이에요.", "vi": "Tôi là người Việt Nam.", "note": "chủ đề" },
+          { "ko": "커피는 좋아하지만 차는 안 마셔요.", "vi": "Cà phê thì thích, còn trà thì không uống.", "note": "so sánh, đối chiếu" }
         ]
       },
       {
@@ -26,7 +28,9 @@
         "usage": "Dùng khi nêu chủ ngữ thực hiện hành động, hoặc khi giới thiệu thông tin mới.",
         "examples": [
           { "ko": "친구가 와요.", "vi": "Bạn (tôi) đến.", "note": "친구 không có 받침 → 가" },
-          { "ko": "선생님이 좋아요.", "vi": "Thầy/cô giáo tốt.", "note": "선생님 có 받침 → 이" }
+          { "ko": "선생님이 좋아요.", "vi": "Thầy/cô giáo tốt.", "note": "선생님 có 받침 → 이" },
+          { "ko": "날씨가 추워요.", "vi": "Trời lạnh.", "note": "chủ ngữ" },
+          { "ko": "누가 왔어요?", "vi": "Ai đã đến?", "note": "누구 + 가 → 누가" }
         ]
       },
       {
@@ -39,7 +43,9 @@
         "usage": "Đặt sau danh từ làm tân ngữ trực tiếp của động từ.",
         "examples": [
           { "ko": "밥을 먹어요.", "vi": "Ăn cơm.", "note": "밥 có 받침 → 을" },
-          { "ko": "커피를 마셔요.", "vi": "Uống cà phê.", "note": "커피 không có 받침 → 를" }
+          { "ko": "커피를 마셔요.", "vi": "Uống cà phê.", "note": "커피 không có 받침 → 를" },
+          { "ko": "한국어를 배워요.", "vi": "Học tiếng Hàn.", "note": "한국어 có 받침 → 를" },
+          { "ko": "친구를 만나요.", "vi": "Gặp bạn.", "note": "tân ngữ" }
         ]
       },
       {
@@ -52,7 +58,9 @@
         "usage": "Dùng để nói 'A là B' một cách lịch sự trong hội thoại hằng ngày.",
         "examples": [
           { "ko": "학생이에요.", "vi": "Là học sinh.", "note": "학생 có 받침 → 이에요" },
-          { "ko": "의사예요.", "vi": "Là bác sĩ.", "note": "의사 không có 받침 → 예요" }
+          { "ko": "의사예요.", "vi": "Là bác sĩ.", "note": "의사 không có 받침 → 예요" },
+          { "ko": "이건 제 가방이에요.", "vi": "Cái này là túi của tôi.", "note": "가방 có 받침 → 이에요" },
+          { "ko": "여기가 우리 학교예요.", "vi": "Đây là trường của chúng tôi.", "note": "학교 không có 받침 → 예요" }
         ]
       },
       {
@@ -65,7 +73,9 @@
         "usage": "Dùng cho câu trần thuật, nghi vấn, đề nghị ở thì hiện tại trong tình huống thông thường.",
         "examples": [
           { "ko": "책을 읽어요.", "vi": "Đọc sách.", "note": "읽다 → 어요" },
-          { "ko": "공부해요.", "vi": "Học bài.", "note": "하다 → 해요" }
+          { "ko": "공부해요.", "vi": "Học bài.", "note": "하다 → 해요" },
+          { "ko": "지금 뭐 해요?", "vi": "Bây giờ (bạn) làm gì?", "note": "câu hỏi" },
+          { "ko": "여기 앉아요.", "vi": "Ngồi đây đi.", "note": "앉다 → 앉아요 (đề nghị)" }
         ]
       },
       {
@@ -78,7 +88,9 @@
         "usage": "Dùng với động từ hành động để chỉ địa điểm xảy ra hành động.",
         "examples": [
           { "ko": "집에서 쉬어요.", "vi": "Nghỉ ngơi ở nhà.", "note": "nơi diễn ra hành động" },
-          { "ko": "한국에서 왔어요.", "vi": "Đến từ Hàn Quốc.", "note": "điểm xuất phát" }
+          { "ko": "한국에서 왔어요.", "vi": "Đến từ Hàn Quốc.", "note": "điểm xuất phát" },
+          { "ko": "도서관에서 공부해요.", "vi": "Học ở thư viện.", "note": "nơi diễn ra hành động" },
+          { "ko": "어디에서 일해요?", "vi": "Bạn làm việc ở đâu?", "note": "câu hỏi nơi chốn" }
         ]
       },
       {
@@ -91,7 +103,9 @@
         "usage": "Dùng với thời gian, với động từ di chuyển (가다/오다), hoặc với 있다/없다.",
         "examples": [
           { "ko": "학교에 가요.", "vi": "Đi đến trường.", "note": "đích đến" },
-          { "ko": "세 시에 만나요.", "vi": "Gặp nhau lúc 3 giờ.", "note": "thời điểm" }
+          { "ko": "세 시에 만나요.", "vi": "Gặp nhau lúc 3 giờ.", "note": "thời điểm" },
+          { "ko": "주말에 쉬어요.", "vi": "Cuối tuần (tôi) nghỉ.", "note": "thời gian" },
+          { "ko": "집에 있어요.", "vi": "(Tôi) ở nhà.", "note": "vị trí tồn tại (với 있다)" }
         ]
       },
       {
@@ -104,7 +118,9 @@
         "usage": "Dùng để nói điều bản thân muốn làm.",
         "examples": [
           { "ko": "물을 마시고 싶어요.", "vi": "Tôi muốn uống nước.", "note": "" },
-          { "ko": "한국에 가고 싶어요.", "vi": "Tôi muốn đi Hàn Quốc.", "note": "" }
+          { "ko": "한국에 가고 싶어요.", "vi": "Tôi muốn đi Hàn Quốc.", "note": "" },
+          { "ko": "뭐 먹고 싶어요?", "vi": "Bạn muốn ăn gì?", "note": "câu hỏi" },
+          { "ko": "집에서 쉬고 싶어요.", "vi": "Tôi muốn nghỉ ở nhà.", "note": "" }
         ]
       },
       {
@@ -117,7 +133,9 @@
         "usage": "Dùng nêu lý do, hoặc hai hành động nối tiếp có liên quan chặt chẽ.",
         "examples": [
           { "ko": "배가 아파서 병원에 가요.", "vi": "Vì đau bụng nên đi bệnh viện.", "note": "nguyên nhân" },
-          { "ko": "친구를 만나서 밥을 먹어요.", "vi": "Gặp bạn rồi ăn cơm.", "note": "trình tự" }
+          { "ko": "친구를 만나서 밥을 먹어요.", "vi": "Gặp bạn rồi ăn cơm.", "note": "trình tự" },
+          { "ko": "시간이 없어서 못 갔어요.", "vi": "Vì không có thời gian nên không đi được.", "note": "nguyên nhân" },
+          { "ko": "도서관에 가서 공부했어요.", "vi": "Đến thư viện rồi học.", "note": "trình tự gắn kết" }
         ]
       },
       {
@@ -130,7 +148,9 @@
         "usage": "Dùng kể lại sự việc đã hoàn thành trong quá khứ.",
         "examples": [
           { "ko": "어제 영화를 봤어요.", "vi": "Hôm qua đã xem phim.", "note": "보다 → 봤어요" },
-          { "ko": "밥을 먹었어요.", "vi": "Đã ăn cơm.", "note": "먹다 → 먹었어요" }
+          { "ko": "밥을 먹었어요.", "vi": "Đã ăn cơm.", "note": "먹다 → 먹었어요" },
+          { "ko": "어제 친구를 만났어요.", "vi": "Hôm qua đã gặp bạn.", "note": "만나다 → 만났어요" },
+          { "ko": "주말에 집에서 쉬었어요.", "vi": "Cuối tuần đã nghỉ ở nhà.", "note": "쉬다 → 쉬었어요" }
         ]
       },
       {
@@ -143,7 +163,9 @@
         "usage": "Dùng nói về dự định tương lai hoặc suy đoán về điều chưa chắc chắn.",
         "examples": [
           { "ko": "내일 갈 거예요.", "vi": "Ngày mai (tôi) sẽ đi.", "note": "가다 → 갈 거예요" },
-          { "ko": "주말에 쉴 거예요.", "vi": "Cuối tuần (tôi) sẽ nghỉ.", "note": "쉬다 → 쉴 거예요" }
+          { "ko": "주말에 쉴 거예요.", "vi": "Cuối tuần (tôi) sẽ nghỉ.", "note": "쉬다 → 쉴 거예요" },
+          { "ko": "내년에 한국에 갈 거예요.", "vi": "Năm sau tôi sẽ đi Hàn Quốc.", "note": "dự định" },
+          { "ko": "아마 비가 올 거예요.", "vi": "Chắc là trời sẽ mưa.", "note": "phỏng đoán" }
         ]
       },
       {
@@ -156,7 +178,9 @@
         "usage": "Dùng để mô tả danh từ bằng một tính từ (hiện tại) hoặc động từ (đang diễn ra).",
         "examples": [
           { "ko": "예쁜 꽃이에요.", "vi": "Là bông hoa đẹp.", "note": "예쁘다 → 예쁜" },
-          { "ko": "책을 읽는 사람이에요.", "vi": "Là người đang đọc sách.", "note": "읽다 → 읽는" }
+          { "ko": "책을 읽는 사람이에요.", "vi": "Là người đang đọc sách.", "note": "읽다 → 읽는" },
+          { "ko": "맛있는 음식을 먹었어요.", "vi": "Đã ăn món ăn ngon.", "note": "맛있다 → 맛있는" },
+          { "ko": "큰 집에 살아요.", "vi": "(Tôi) sống trong ngôi nhà lớn.", "note": "크다 → 큰" }
         ]
       },
       {
@@ -169,7 +193,9 @@
         "usage": "Dùng khi muốn nói 'A cũng…' như B.",
         "examples": [
           { "ko": "저도 학생이에요.", "vi": "Tôi cũng là học sinh.", "note": "" },
-          { "ko": "커피도 좋아해요.", "vi": "Tôi cũng thích cà phê.", "note": "" }
+          { "ko": "커피도 좋아해요.", "vi": "Tôi cũng thích cà phê.", "note": "" },
+          { "ko": "저도 가고 싶어요.", "vi": "Tôi cũng muốn đi.", "note": "" },
+          { "ko": "한국어도 배워요.", "vi": "Tôi cũng học tiếng Hàn.", "note": "" }
         ]
       },
       {
@@ -182,7 +208,9 @@
         "usage": "Dùng để nhấn mạnh chỉ có một thứ, loại trừ những cái khác.",
         "examples": [
           { "ko": "물만 마셔요.", "vi": "Tôi chỉ uống nước.", "note": "" },
-          { "ko": "한 명만 왔어요.", "vi": "Chỉ có một người đến.", "note": "" }
+          { "ko": "한 명만 왔어요.", "vi": "Chỉ có một người đến.", "note": "" },
+          { "ko": "이것만 주세요.", "vi": "Cho tôi mỗi cái này thôi.", "note": "" },
+          { "ko": "주말에만 운동해요.", "vi": "Chỉ cuối tuần tôi mới tập thể dục.", "note": "에 + 만" }
         ]
       },
       {
@@ -195,7 +223,9 @@
         "usage": "Dùng liệt kê danh từ hoặc chỉ người/vật đi cùng.",
         "examples": [
           { "ko": "빵과 우유를 샀어요.", "vi": "Đã mua bánh mì và sữa.", "note": "빵 có 받침 → 과" },
-          { "ko": "친구와 만나요.", "vi": "Gặp gỡ với bạn.", "note": "친구 không có 받침 → 와" }
+          { "ko": "친구와 만나요.", "vi": "Gặp gỡ với bạn.", "note": "친구 không có 받침 → 와" },
+          { "ko": "저는 친구와 영화를 봤어요.", "vi": "Tôi đã xem phim với bạn.", "note": "với ai" },
+          { "ko": "사과하고 바나나를 샀어요.", "vi": "Đã mua táo và chuối.", "note": "하고 (khẩu ngữ)" }
         ]
       },
       {
@@ -208,7 +238,9 @@
         "usage": "Dùng với động từ như 주다, 보내다, 말하다… hướng đến một người.",
         "examples": [
           { "ko": "친구에게 선물을 줬어요.", "vi": "Đã tặng quà cho bạn.", "note": "" },
-          { "ko": "엄마한테 전화했어요.", "vi": "Đã gọi điện cho mẹ.", "note": "khẩu ngữ 한테" }
+          { "ko": "엄마한테 전화했어요.", "vi": "Đã gọi điện cho mẹ.", "note": "khẩu ngữ 한테" },
+          { "ko": "선생님에게 이메일을 보냈어요.", "vi": "Đã gửi email cho thầy/cô.", "note": "에게 (trang trọng)" },
+          { "ko": "동생한테 책을 줬어요.", "vi": "Đã đưa sách cho em.", "note": "한테 (khẩu ngữ)" }
         ]
       },
       {
@@ -221,7 +253,9 @@
         "usage": "Đặt trước động từ/tính từ. Với động từ 하다: 공부 안 해요 / 공부 못 해요.",
         "examples": [
           { "ko": "오늘은 안 가요.", "vi": "Hôm nay (tôi) không đi.", "note": "안 = không (chủ ý)" },
-          { "ko": "너무 바빠서 못 갔어요.", "vi": "Vì quá bận nên không đi được.", "note": "못 = không thể" }
+          { "ko": "너무 바빠서 못 갔어요.", "vi": "Vì quá bận nên không đi được.", "note": "못 = không thể" },
+          { "ko": "저는 매운 음식을 안 좋아해요.", "vi": "Tôi không thích đồ cay.", "note": "안 (chủ ý)" },
+          { "ko": "수영을 못 해요.", "vi": "Tôi không biết bơi.", "note": "못 하다 = không thể" }
         ]
       },
       {
@@ -234,7 +268,9 @@
         "usage": "Dùng thay cho 안 trong văn viết hoặc khi muốn nhấn mạnh.",
         "examples": [
           { "ko": "저는 술을 마시지 않아요.", "vi": "Tôi không uống rượu.", "note": "마시다 → 마시지 않다" },
-          { "ko": "이 옷은 비싸지 않아요.", "vi": "Bộ đồ này không đắt.", "note": "비싸다 → 비싸지 않다" }
+          { "ko": "이 옷은 비싸지 않아요.", "vi": "Bộ đồ này không đắt.", "note": "비싸다 → 비싸지 않다" },
+          { "ko": "오늘은 학교에 가지 않아요.", "vi": "Hôm nay tôi không đến trường.", "note": "가다 → 가지 않다" },
+          { "ko": "그 영화는 재미있지 않았어요.", "vi": "Bộ phim đó không hay.", "note": "quá khứ: 지 않았어요" }
         ]
       },
       {
@@ -247,7 +283,9 @@
         "usage": "Dùng liệt kê tính chất/hành động, hoặc kể chuỗi việc làm.",
         "examples": [
           { "ko": "이 방은 크고 깨끗해요.", "vi": "Phòng này rộng và sạch.", "note": "liệt kê tính chất" },
-          { "ko": "밥을 먹고 학교에 가요.", "vi": "Ăn cơm rồi đi học.", "note": "trình tự" }
+          { "ko": "밥을 먹고 학교에 가요.", "vi": "Ăn cơm rồi đi học.", "note": "trình tự" },
+          { "ko": "저는 학생이고 친구는 회사원이에요.", "vi": "Tôi là học sinh còn bạn tôi là nhân viên.", "note": "liệt kê (N이고)" },
+          { "ko": "손을 씻고 밥을 먹어요.", "vi": "Rửa tay rồi ăn cơm.", "note": "trình tự" }
         ]
       },
       {
@@ -260,7 +298,9 @@
         "usage": "Thường đi cặp để nêu khoảng từ… đến…",
         "examples": [
           { "ko": "9시부터 6시까지 일해요.", "vi": "Làm việc từ 9 giờ đến 6 giờ.", "note": "" },
-          { "ko": "여기부터 저기까지.", "vi": "Từ đây đến kia.", "note": "phạm vi" }
+          { "ko": "여기부터 저기까지.", "vi": "Từ đây đến kia.", "note": "phạm vi" },
+          { "ko": "월요일부터 금요일까지 일해요.", "vi": "Làm việc từ thứ Hai đến thứ Sáu.", "note": "thời gian" },
+          { "ko": "처음부터 끝까지 읽었어요.", "vi": "Đọc từ đầu đến cuối.", "note": "" }
         ]
       },
       {
@@ -273,7 +313,9 @@
         "usage": "Dùng trong ngữ cảnh trang trọng, thuyết trình, quân đội, dịch vụ khách hàng.",
         "examples": [
           { "ko": "감사합니다.", "vi": "Xin cảm ơn.", "note": "하다 → 합니다" },
-          { "ko": "지금 어디에 갑니까?", "vi": "Bây giờ (bạn) đi đâu?", "note": "가다 → 갑니까?" }
+          { "ko": "지금 어디에 갑니까?", "vi": "Bây giờ (bạn) đi đâu?", "note": "가다 → 갑니까?" },
+          { "ko": "저는 학생입니다.", "vi": "Tôi là học sinh.", "note": "N입니다" },
+          { "ko": "무엇을 찾습니까?", "vi": "Bạn tìm gì?", "note": "찾다 → 찾습니까?" }
         ]
       },
       {
@@ -286,7 +328,9 @@
         "usage": "Dùng khi nhờ vả lịch sự hoặc nói về hành động của người đáng kính.",
         "examples": [
           { "ko": "여기 앉으세요.", "vi": "Mời ngồi đây.", "note": "앉다 → 앉으세요" },
-          { "ko": "안녕히 가세요.", "vi": "Đi cẩn thận nhé (tạm biệt).", "note": "가다 → 가세요" }
+          { "ko": "안녕히 가세요.", "vi": "Đi cẩn thận nhé (tạm biệt).", "note": "가다 → 가세요" },
+          { "ko": "이 책을 읽으세요.", "vi": "Hãy đọc quyển sách này.", "note": "읽다 → 읽으세요 (đề nghị)" },
+          { "ko": "할머니께서 주무세요.", "vi": "Bà đang ngủ.", "note": "자다 → 주무시다 (kính ngữ đặc biệt)" }
         ]
       },
       {
@@ -299,7 +343,9 @@
         "usage": "Dùng khi đề nghị làm chung hoặc hỏi ý người nghe.",
         "examples": [
           { "ko": "같이 점심 먹을까요?", "vi": "Chúng ta cùng ăn trưa nhé?", "note": "먹다 → 먹을까요?" },
-          { "ko": "창문을 열까요?", "vi": "Mở cửa sổ nhé?", "note": "열다 → 열까요?" }
+          { "ko": "창문을 열까요?", "vi": "Mở cửa sổ nhé?", "note": "열다 → 열까요?" },
+          { "ko": "우리 같이 갈까요?", "vi": "Chúng ta cùng đi nhé?", "note": "rủ rê" },
+          { "ko": "내일 날씨가 좋을까요?", "vi": "Liệu mai trời có đẹp không?", "note": "phỏng đoán" }
         ]
       },
       {
@@ -312,7 +358,9 @@
         "usage": "Dùng cho hành động tiếp diễn ở hiện tại hoặc quá khứ (고 있었다).",
         "examples": [
           { "ko": "지금 밥을 먹고 있어요.", "vi": "Bây giờ đang ăn cơm.", "note": "" },
-          { "ko": "음악을 듣고 있어요.", "vi": "Đang nghe nhạc.", "note": "듣다 → 듣고 있다" }
+          { "ko": "음악을 듣고 있어요.", "vi": "Đang nghe nhạc.", "note": "듣다 → 듣고 있다" },
+          { "ko": "친구를 기다리고 있어요.", "vi": "Đang đợi bạn.", "note": "" },
+          { "ko": "요즘 한국어를 배우고 있어요.", "vi": "Dạo này đang học tiếng Hàn.", "note": "" }
         ]
       },
       {
@@ -325,7 +373,9 @@
         "usage": "Dùng nói về năng lực làm việc gì hoặc khả năng xảy ra.",
         "examples": [
           { "ko": "한국어를 할 수 있어요.", "vi": "Tôi có thể nói tiếng Hàn.", "note": "하다 → 할 수 있다" },
-          { "ko": "오늘은 갈 수 없어요.", "vi": "Hôm nay tôi không thể đi.", "note": "가다 → 갈 수 없다" }
+          { "ko": "오늘은 갈 수 없어요.", "vi": "Hôm nay tôi không thể đi.", "note": "가다 → 갈 수 없다" },
+          { "ko": "김치를 만들 수 있어요.", "vi": "Tôi có thể làm kim chi.", "note": "만들다 → 만들 수 있다" },
+          { "ko": "여기에서 사진을 찍을 수 없어요.", "vi": "Không thể chụp ảnh ở đây.", "note": "찍다 → 찍을 수 없다" }
         ]
       },
       {
@@ -338,7 +388,9 @@
         "usage": "Chỉ dùng với động từ di chuyển (가다, 오다, 다니다).",
         "examples": [
           { "ko": "밥을 먹으러 가요.", "vi": "Đi để ăn cơm.", "note": "먹다 → 먹으러" },
-          { "ko": "친구를 만나러 왔어요.", "vi": "Đã đến để gặp bạn.", "note": "만나다 → 만나러" }
+          { "ko": "친구를 만나러 왔어요.", "vi": "Đã đến để gặp bạn.", "note": "만나다 → 만나러" },
+          { "ko": "도서관에 책을 빌리러 가요.", "vi": "Đi thư viện để mượn sách.", "note": "빌리다 → 빌리러" },
+          { "ko": "점심을 먹으러 식당에 가요.", "vi": "Đến nhà hàng để ăn trưa.", "note": "먹다 → 먹으러" }
         ]
       },
       {
@@ -351,7 +403,144 @@
         "usage": "Dùng khi làm ơn cho ai hoặc nhờ ai làm giúp mình.",
         "examples": [
           { "ko": "사진을 찍어 주세요.", "vi": "Hãy chụp ảnh giúp tôi.", "note": "찍다 → 찍어 주세요" },
-          { "ko": "친구가 도와줬어요.", "vi": "Bạn đã giúp tôi.", "note": "돕다 → 도와주다" }
+          { "ko": "친구가 도와줬어요.", "vi": "Bạn đã giúp tôi.", "note": "돕다 → 도와주다" },
+          { "ko": "문 좀 열어 주세요.", "vi": "Làm ơn mở cửa giúp tôi.", "note": "열다 → 열어 주세요" },
+          { "ko": "어머니가 밥을 해 주셨어요.", "vi": "Mẹ đã nấu cơm cho (tôi).", "note": "해 주시다 (kính ngữ)" }
+        ]
+      },
+      {
+        "id": "n-i-ga-anieyo",
+        "title": "N이/가 아니에요",
+        "level": "topik1",
+        "tags": ["vị ngữ", "phủ định", "là"],
+        "structure": "N + 이/가 아니에요 (받침 O + 이 / 받침 X + 가)",
+        "explanation": "Dạng phủ định của 이에요/예요, nghĩa 'không phải là (danh từ)'.",
+        "usage": "Dùng để phủ nhận một danh từ: 'A không phải là B'.",
+        "examples": [
+          { "ko": "저는 학생이 아니에요.", "vi": "Tôi không phải là học sinh.", "note": "학생 có 받침 → 이" },
+          { "ko": "이거는 커피가 아니에요.", "vi": "Cái này không phải cà phê.", "note": "커피 không có 받침 → 가" },
+          { "ko": "그분은 의사가 아니에요.", "vi": "Vị ấy không phải là bác sĩ.", "note": "의사 không có 받침 → 가" },
+          { "ko": "오늘은 월요일이 아니에요.", "vi": "Hôm nay không phải thứ Hai.", "note": "월요일 có 받침 → 이" }
+        ]
+      },
+      {
+        "id": "n-itda-eopda",
+        "title": "N이/가 있어요/없어요",
+        "level": "topik1",
+        "tags": ["tồn tại", "sở hữu"],
+        "structure": "N + 이/가 있어요 (có) / 없어요 (không có)",
+        "explanation": "Diễn tả sự tồn tại ('có/không có') hoặc sở hữu ('có/không có cái gì'). Kết hợp với 에 để chỉ vị trí.",
+        "usage": "Dùng nói vật gì tồn tại, mình có gì, hoặc cái gì ở đâu (N에 있어요).",
+        "examples": [
+          { "ko": "시간이 있어요?", "vi": "Bạn có thời gian không?", "note": "sở hữu" },
+          { "ko": "책상 위에 책이 없어요.", "vi": "Trên bàn không có sách.", "note": "위치: 에 + 있다/없다" },
+          { "ko": "저는 동생이 있어요.", "vi": "Tôi có em.", "note": "sở hữu" },
+          { "ko": "교실에 학생이 많이 있어요.", "vi": "Trong lớp có nhiều học sinh.", "note": "tồn tại + vị trí" }
+        ]
+      },
+      {
+        "id": "ige-geuge-jeoge",
+        "title": "이거/그거/저거 · 여기/거기/저기",
+        "level": "topik1",
+        "tags": ["chỉ định", "này/đó/kia"],
+        "structure": "이 (này) / 그 (đó) / 저 (kia) + 거(것) hoặc 기 (nơi chốn)",
+        "explanation": "Đại từ chỉ định: 이거 (cái này), 그거 (cái đó), 저거 (cái kia); nơi chốn: 여기 (ở đây), 거기 (ở đó), 저기 (ở kia).",
+        "usage": "이 dùng cho vật gần người nói, 그 gần người nghe, 저 xa cả hai.",
+        "examples": [
+          { "ko": "이거는 뭐예요?", "vi": "Cái này là gì?", "note": "이거 = 이것 (cái này)" },
+          { "ko": "화장실은 저기에 있어요.", "vi": "Nhà vệ sinh ở đằng kia.", "note": "저기 = ở kia" },
+          { "ko": "그거 주세요.", "vi": "Cho tôi cái đó.", "note": "그거 = cái đó (gần người nghe)" },
+          { "ko": "여기가 어디예요?", "vi": "Đây là đâu?", "note": "여기 = ở đây" }
+        ]
+      },
+      {
+        "id": "n-e-gada-oda",
+        "title": "N에 가다/오다",
+        "level": "topik1",
+        "tags": ["di chuyển", "đích đến"],
+        "structure": "N(nơi đến) + 에 + 가다 (đi) / 오다 (đến)",
+        "explanation": "Diễn tả di chuyển đến một địa điểm. 에 đánh dấu đích đến của động từ chuyển động.",
+        "usage": "Dùng với 가다/오다/다니다 để nói đi/đến đâu.",
+        "examples": [
+          { "ko": "학교에 가요.", "vi": "(Tôi) đi đến trường.", "note": "" },
+          { "ko": "친구가 우리 집에 와요.", "vi": "Bạn đến nhà tôi.", "note": "" },
+          { "ko": "내일 회사에 안 가요.", "vi": "Ngày mai tôi không đến công ty.", "note": "" },
+          { "ko": "언제 한국에 왔어요?", "vi": "Bạn đến Hàn Quốc khi nào?", "note": "câu hỏi" }
+        ]
+      },
+      {
+        "id": "numbers-counters",
+        "title": "숫자 + 단위 명사 (số + đơn vị)",
+        "level": "topik1",
+        "tags": ["số đếm", "đơn vị", "giá"],
+        "structure": "Số thuần Hàn (하나, 둘, 셋…) + 개/명/살/시 · Số Hán-Hàn (일, 이, 삼…) + 원/월/분/번",
+        "explanation": "Tiếng Hàn có hai hệ số: thuần Hàn (đếm đồ vật/người/tuổi/giờ) và Hán-Hàn (tiền, tháng, phút, số thứ tự). Đơn vị đếm đứng sau số.",
+        "usage": "Chọn hệ số theo đơn vị: 개(cái)/명(người)/살(tuổi)/시(giờ) dùng số thuần Hàn; 원(won)/분(phút)/월(tháng) dùng số Hán-Hàn. Hỏi giá: 얼마예요?",
+        "examples": [
+          { "ko": "커피 두 개 주세요.", "vi": "Cho tôi hai cốc cà phê.", "note": "둘 → 두 + 개 (thuần Hàn)" },
+          { "ko": "이거 얼마예요? 삼천 원이에요.", "vi": "Cái này bao nhiêu? 3.000 won.", "note": "원 dùng số Hán-Hàn" },
+          { "ko": "우리 반에 학생이 스무 명 있어요.", "vi": "Lớp tôi có 20 học sinh.", "note": "스물 → 스무 + 명" },
+          { "ko": "사과 다섯 개하고 우유 두 병 주세요.", "vi": "Cho 5 quả táo và 2 chai sữa.", "note": "다섯 개 / 두 병 (thuần Hàn)" }
+        ]
+      },
+      {
+        "id": "n-si-n-bun",
+        "title": "N시 N분 (giờ phút)",
+        "level": "topik1",
+        "tags": ["thời gian", "giờ giấc"],
+        "structure": "Số thuần Hàn + 시 (giờ) + Số Hán-Hàn + 분 (phút)",
+        "explanation": "Nói giờ: số giờ dùng số thuần Hàn (한 시, 두 시…), số phút dùng số Hán-Hàn (십 분, 삼십 분…).",
+        "usage": "Dùng để nói giờ, thường kèm 에 để chỉ thời điểm (…시에).",
+        "examples": [
+          { "ko": "지금 세 시 삼십 분이에요.", "vi": "Bây giờ là 3 giờ 30 phút.", "note": "세 시 (thuần Hàn) + 삼십 분 (Hán-Hàn)" },
+          { "ko": "일곱 시에 만나요.", "vi": "Gặp nhau lúc 7 giờ.", "note": "…시에 = lúc … giờ" },
+          { "ko": "지금 몇 시예요?", "vi": "Bây giờ mấy giờ rồi?", "note": "몇 시 = mấy giờ" },
+          { "ko": "학교가 아홉 시에 시작해요.", "vi": "Trường bắt đầu lúc 9 giờ.", "note": "아홉 시 (thuần Hàn)" }
+        ]
+      },
+      {
+        "id": "v-a-eo-boda",
+        "title": "V-아/어 보다",
+        "level": "topik1",
+        "tags": ["thử", "kinh nghiệm"],
+        "structure": "ㅏ/ㅗ + 아 보다 / còn lại + 어 보다 / 하다 → 해 보다",
+        "explanation": "Diễn tả 'thử làm gì' (làm thử để trải nghiệm). Dạng quá khứ 아/어 봤다 nghĩa 'đã từng làm'.",
+        "usage": "Dùng khi gợi ý ai thử làm, hoặc nói về việc mình đã thử/từng làm.",
+        "examples": [
+          { "ko": "이 옷을 입어 보세요.", "vi": "Hãy thử mặc bộ đồ này.", "note": "입다 → 입어 보다" },
+          { "ko": "한국 음식을 먹어 봤어요.", "vi": "Tôi đã thử/từng ăn món Hàn.", "note": "먹다 → 먹어 봤어요" },
+          { "ko": "이 신발을 신어 보세요.", "vi": "Hãy thử đi đôi giày này.", "note": "신다 → 신어 보다" },
+          { "ko": "제주도에 가 봤어요.", "vi": "Tôi đã từng đến đảo Jeju.", "note": "가 봤어요 = đã từng" }
+        ]
+      },
+      {
+        "id": "n-euro",
+        "title": "N(으)로",
+        "level": "topik1",
+        "tags": ["trợ từ", "phương hướng", "phương tiện"],
+        "structure": "받침 O + 으로 / 받침 X hoặc ㄹ + 로",
+        "explanation": "Chỉ phương hướng ('về phía'), phương tiện/cách thức ('bằng'), hoặc nguyên liệu.",
+        "usage": "Dùng với động từ di chuyển (hướng), phương tiện đi lại, hoặc công cụ.",
+        "examples": [
+          { "ko": "서울역으로 가 주세요.", "vi": "Cho tôi đến (về phía) ga Seoul.", "note": "역 có 받침 → 으로 (hướng)" },
+          { "ko": "버스로 학교에 가요.", "vi": "Tôi đến trường bằng xe buýt.", "note": "버스 không 받침 → 로 (phương tiện)" },
+          { "ko": "오른쪽으로 가세요.", "vi": "Hãy đi về bên phải.", "note": "hướng" },
+          { "ko": "젓가락으로 먹어요.", "vi": "Ăn bằng đũa.", "note": "công cụ" }
+        ]
+      },
+      {
+        "id": "v-jiyo",
+        "title": "V/A-지요? (죠?)",
+        "level": "topik1",
+        "tags": ["đuôi câu", "xác nhận"],
+        "structure": "Động/tính từ/N이다 + 지요? (nói tắt: 죠?)",
+        "explanation": "Đuôi câu tìm sự đồng tình/xác nhận điều mình đã biết ('… đúng không?', '… nhỉ?').",
+        "usage": "Dùng khi khá chắc và mong người nghe đồng ý.",
+        "examples": [
+          { "ko": "오늘 날씨가 좋지요?", "vi": "Hôm nay trời đẹp nhỉ?", "note": "" },
+          { "ko": "이거 맵지요?", "vi": "Cái này cay đúng không?", "note": "" },
+          { "ko": "한국어가 어렵지요?", "vi": "Tiếng Hàn khó nhỉ?", "note": "" },
+          { "ko": "내일 시험이 있지요?", "vi": "Mai có kỳ thi đúng không?", "note": "" }
         ]
       }
     ]
@@ -369,7 +558,9 @@
         "usage": "Dùng khi nói về điều bắt buộc phải làm theo quy tắc hay hoàn cảnh.",
         "examples": [
           { "ko": "지금 가야 돼요.", "vi": "Bây giờ (tôi) phải đi.", "note": "가다 → 가야 돼요" },
-          { "ko": "약을 먹어야 해요.", "vi": "Phải uống thuốc.", "note": "먹다 → 먹어야 해요" }
+          { "ko": "약을 먹어야 해요.", "vi": "Phải uống thuốc.", "note": "먹다 → 먹어야 해요" },
+          { "ko": "내일까지 숙제를 내야 돼요.", "vi": "Phải nộp bài tập trước ngày mai.", "note": "내다 → 내야 되다" },
+          { "ko": "한국에서는 신발을 벗어야 해요.", "vi": "Ở Hàn Quốc phải cởi giày.", "note": "벗다 → 벗어야 하다" }
         ]
       },
       {
@@ -382,7 +573,9 @@
         "usage": "Dùng để hỏi/kể về trải nghiệm đã từng có.",
         "examples": [
           { "ko": "한국에 간 적이 있어요.", "vi": "Tôi đã từng đến Hàn Quốc.", "note": "가다 → 간 적이 있다" },
-          { "ko": "그 영화를 본 적이 없어요.", "vi": "Tôi chưa từng xem bộ phim đó.", "note": "보다 → 본 적이 없다" }
+          { "ko": "그 영화를 본 적이 없어요.", "vi": "Tôi chưa từng xem bộ phim đó.", "note": "보다 → 본 적이 없다" },
+          { "ko": "김치를 만들어 본 적이 있어요.", "vi": "Tôi đã từng làm kim chi.", "note": "만들다 → 만든 적이 있다" },
+          { "ko": "한 번도 늦은 적이 없어요.", "vi": "Tôi chưa từng đi trễ lần nào.", "note": "늦다 → 늦은 적이 없다" }
         ]
       },
       {
@@ -395,7 +588,9 @@
         "usage": "Dùng để xin phép hoặc cho phép ai đó làm việc gì.",
         "examples": [
           { "ko": "여기 앉아도 돼요?", "vi": "Tôi ngồi đây được không?", "note": "앉다 → 앉아도 되다" },
-          { "ko": "사진을 찍어도 돼요.", "vi": "Chụp ảnh cũng được.", "note": "찍다 → 찍어도 되다" }
+          { "ko": "사진을 찍어도 돼요.", "vi": "Chụp ảnh cũng được.", "note": "찍다 → 찍어도 되다" },
+          { "ko": "창문을 열어도 돼요?", "vi": "Mở cửa sổ có được không?", "note": "열다 → 열어도 되다" },
+          { "ko": "이제 집에 가도 돼요.", "vi": "Bây giờ về nhà cũng được.", "note": "가다 → 가도 되다" }
         ]
       },
       {
@@ -408,7 +603,9 @@
         "usage": "Dùng nêu điều kiện cho một kết quả, hoặc giả định một tình huống.",
         "examples": [
           { "ko": "시간이 있으면 만나요.", "vi": "Nếu có thời gian thì gặp nhau.", "note": "있다 → 있으면" },
-          { "ko": "비가 오면 안 가요.", "vi": "Nếu trời mưa thì (tôi) không đi.", "note": "오다 → 오면" }
+          { "ko": "비가 오면 안 가요.", "vi": "Nếu trời mưa thì (tôi) không đi.", "note": "오다 → 오면" },
+          { "ko": "열심히 공부하면 합격할 거예요.", "vi": "Nếu học chăm thì sẽ đỗ.", "note": "điều kiện" },
+          { "ko": "이 버튼을 누르면 문이 열려요.", "vi": "Nếu nhấn nút này thì cửa mở.", "note": "누르다 → 누르면" }
         ]
       },
       {
@@ -421,7 +618,9 @@
         "usage": "Dùng trong văn viết hoặc khi muốn nhấn mạnh lý do. Không dùng với câu mệnh lệnh/đề nghị.",
         "examples": [
           { "ko": "바쁘기 때문에 못 가요.", "vi": "Vì bận nên (tôi) không thể đi.", "note": "바쁘다 → 바쁘기 때문에" },
-          { "ko": "감기 때문에 학교에 안 갔어요.", "vi": "Vì cảm nên (tôi) đã không đến trường.", "note": "N + 때문에" }
+          { "ko": "감기 때문에 학교에 안 갔어요.", "vi": "Vì cảm nên (tôi) đã không đến trường.", "note": "N + 때문에" },
+          { "ko": "일이 많기 때문에 주말에도 일해요.", "vi": "Vì nhiều việc nên cuối tuần cũng làm.", "note": "많다 → 많기 때문에" },
+          { "ko": "눈이 오기 때문에 길이 막혀요.", "vi": "Vì tuyết rơi nên đường tắc.", "note": "오다 → 오기 때문에" }
         ]
       },
       {
@@ -434,7 +633,9 @@
         "usage": "Thường đi với 걸리다, 필요하다, 좋다… để nói về việc gì đó cần/tốn/tốt cho mục đích nào.",
         "examples": [
           { "ko": "집을 사는 데 돈이 많이 들어요.", "vi": "Mua nhà tốn nhiều tiền.", "note": "" },
-          { "ko": "한국어를 배우는 데 시간이 걸려요.", "vi": "Học tiếng Hàn mất thời gian.", "note": "" }
+          { "ko": "한국어를 배우는 데 시간이 걸려요.", "vi": "Học tiếng Hàn mất thời gian.", "note": "" },
+          { "ko": "이 일을 끝내는 데 세 시간이 걸렸어요.", "vi": "Hoàn thành việc này mất 3 tiếng.", "note": "" },
+          { "ko": "건강을 지키는 데 운동이 중요해요.", "vi": "Tập thể dục quan trọng trong việc giữ sức khỏe.", "note": "" }
         ]
       },
       {
@@ -447,7 +648,9 @@
         "usage": "Dùng dẫn dắt hoàn cảnh, tương phản, hoặc để câu mềm mại hơn.",
         "examples": [
           { "ko": "비가 오는데 우산이 없어요.", "vi": "Trời mưa mà (tôi) không có ô.", "note": "tương phản" },
-          { "ko": "이거 좀 매운데요.", "vi": "Cái này hơi cay đấy.", "note": "bỏ lửng, mong phản hồi" }
+          { "ko": "이거 좀 매운데요.", "vi": "Cái này hơi cay đấy.", "note": "bỏ lửng, mong phản hồi" },
+          { "ko": "지금 통화 중인데 나중에 전화할게요.", "vi": "Đang bận gọi điện, lát nữa tôi gọi lại.", "note": "bối cảnh" },
+          { "ko": "어제는 추웠는데 오늘은 따뜻해요.", "vi": "Hôm qua lạnh mà hôm nay ấm.", "note": "tương phản" }
         ]
       },
       {
@@ -460,7 +663,9 @@
         "usage": "Dùng khi tự quyết định hoặc hẹn với người khác làm việc gì.",
         "examples": [
           { "ko": "내일부터 운동하기로 했어요.", "vi": "(Tôi) đã quyết định từ mai sẽ tập thể dục.", "note": "" },
-          { "ko": "친구와 만나기로 했어요.", "vi": "(Tôi) đã hẹn gặp bạn.", "note": "" }
+          { "ko": "친구와 만나기로 했어요.", "vi": "(Tôi) đã hẹn gặp bạn.", "note": "" },
+          { "ko": "담배를 끊기로 했어요.", "vi": "Tôi quyết định bỏ thuốc lá.", "note": "quyết định" },
+          { "ko": "우리 다음 주에 여행 가기로 했어요.", "vi": "Chúng tôi hẹn tuần sau đi du lịch.", "note": "hẹn nhau" }
         ]
       },
       {
@@ -473,7 +678,9 @@
         "usage": "Dùng nêu quan hệ tỉ lệ thuận giữa hai yếu tố.",
         "examples": [
           { "ko": "보면 볼수록 예뻐요.", "vi": "Càng ngắm càng đẹp.", "note": "" },
-          { "ko": "많으면 많을수록 좋아요.", "vi": "Càng nhiều càng tốt.", "note": "" }
+          { "ko": "많으면 많을수록 좋아요.", "vi": "Càng nhiều càng tốt.", "note": "" },
+          { "ko": "시간이 갈수록 실력이 늘어요.", "vi": "Càng có thời gian, kỹ năng càng tiến bộ.", "note": "" },
+          { "ko": "높이 올라갈수록 추워요.", "vi": "Càng lên cao càng lạnh.", "note": "" }
         ]
       },
       {
@@ -486,7 +693,9 @@
         "usage": "Dùng khi một hành động bị ngắt/chuyển sang hành động khác.",
         "examples": [
           { "ko": "집에 가다가 친구를 만났어요.", "vi": "Đang trên đường về nhà thì gặp bạn.", "note": "" },
-          { "ko": "자다가 전화를 받았어요.", "vi": "Đang ngủ thì nghe điện thoại.", "note": "" }
+          { "ko": "자다가 전화를 받았어요.", "vi": "Đang ngủ thì nghe điện thoại.", "note": "" },
+          { "ko": "텔레비전을 보다가 잠이 들었어요.", "vi": "Đang xem tivi thì ngủ thiếp đi.", "note": "" },
+          { "ko": "길을 걷다가 넘어졌어요.", "vi": "Đang đi bộ thì bị ngã.", "note": "" }
         ]
       },
       {
@@ -499,7 +708,9 @@
         "usage": "Dùng khi hành động sau xảy ra ngay sau hành động trước.",
         "examples": [
           { "ko": "집에 오자마자 잤어요.", "vi": "Vừa về đến nhà là ngủ ngay.", "note": "" },
-          { "ko": "소식을 듣자마자 전화했어요.", "vi": "Nghe tin xong là gọi ngay.", "note": "" }
+          { "ko": "소식을 듣자마자 전화했어요.", "vi": "Nghe tin xong là gọi ngay.", "note": "" },
+          { "ko": "수업이 끝나자마자 집에 갔어요.", "vi": "Vừa tan học là về nhà ngay.", "note": "" },
+          { "ko": "자리에 앉자마자 잠이 들었어요.", "vi": "Vừa ngồi vào chỗ là ngủ thiếp đi.", "note": "" }
         ]
       },
       {
@@ -512,7 +723,9 @@
         "usage": "Dùng nêu khoảng thời gian một việc khác diễn ra.",
         "examples": [
           { "ko": "제가 요리하는 동안 청소해 주세요.", "vi": "Trong khi tôi nấu ăn, hãy dọn dẹp giúp.", "note": "" },
-          { "ko": "방학 동안 여행했어요.", "vi": "Trong kỳ nghỉ (tôi) đã đi du lịch.", "note": "N + 동안" }
+          { "ko": "방학 동안 여행했어요.", "vi": "Trong kỳ nghỉ (tôi) đã đi du lịch.", "note": "N + 동안" },
+          { "ko": "제가 없는 동안 잘 지냈어요?", "vi": "Trong lúc tôi vắng, bạn có khỏe không?", "note": "" },
+          { "ko": "기다리는 동안 책을 읽었어요.", "vi": "Trong lúc chờ, tôi đã đọc sách.", "note": "" }
         ]
       },
       {
@@ -525,7 +738,9 @@
         "usage": "Dùng nêu hành động xảy ra sau một hành động khác.",
         "examples": [
           { "ko": "밥을 먹은 후에 약을 드세요.", "vi": "Sau khi ăn cơm hãy uống thuốc.", "note": "먹다 → 먹은 후에" },
-          { "ko": "수업이 끝난 후에 만나요.", "vi": "Sau khi tan học thì gặp nhau.", "note": "" }
+          { "ko": "수업이 끝난 후에 만나요.", "vi": "Sau khi tan học thì gặp nhau.", "note": "" },
+          { "ko": "손을 씻은 후에 밥을 먹어요.", "vi": "Sau khi rửa tay thì ăn cơm.", "note": "씻다 → 씻은 후에" },
+          { "ko": "운동한 후에 샤워해요.", "vi": "Sau khi tập thể dục thì tắm.", "note": "운동하다 → 운동한 후에" }
         ]
       },
       {
@@ -538,7 +753,9 @@
         "usage": "Dùng nêu hành động xảy ra trước một hành động/thời điểm khác.",
         "examples": [
           { "ko": "자기 전에 이를 닦아요.", "vi": "Trước khi ngủ thì đánh răng.", "note": "자다 → 자기 전에" },
-          { "ko": "식사 전에 손을 씻으세요.", "vi": "Trước bữa ăn hãy rửa tay.", "note": "N + 전에" }
+          { "ko": "식사 전에 손을 씻으세요.", "vi": "Trước bữa ăn hãy rửa tay.", "note": "N + 전에" },
+          { "ko": "시험을 보기 전에 복습해요.", "vi": "Trước khi thi thì ôn lại.", "note": "보다 → 보기 전에" },
+          { "ko": "여행 가기 전에 표를 예약했어요.", "vi": "Trước khi đi du lịch đã đặt vé.", "note": "" }
         ]
       },
       {
@@ -551,7 +768,9 @@
         "usage": "Dùng khi phỏng đoán từ dấu hiệu thấy được.",
         "examples": [
           { "ko": "밖에 비가 오나 봐요.", "vi": "Hình như ngoài trời đang mưa.", "note": "오다 → 오나 보다" },
-          { "ko": "저 식당이 맛있는가 봐요.", "vi": "Có vẻ quán đó ngon.", "note": "맛있다 → 맛있는가 보다" }
+          { "ko": "저 식당이 맛있는가 봐요.", "vi": "Có vẻ quán đó ngon.", "note": "맛있다 → 맛있는가 보다" },
+          { "ko": "사람이 많은 걸 보니 유명한가 봐요.", "vi": "Thấy đông người, chắc là nổi tiếng.", "note": "" },
+          { "ko": "불이 꺼진 걸 보니 아무도 없나 봐요.", "vi": "Đèn tắt, có vẻ không có ai.", "note": "" }
         ]
       },
       {
@@ -564,7 +783,9 @@
         "usage": "Dùng nhấn mạnh có thêm điều nữa ngoài điều đã nêu.",
         "examples": [
           { "ko": "그는 똑똑할 뿐만 아니라 친절해요.", "vi": "Anh ấy không những thông minh mà còn tử tế.", "note": "" },
-          { "ko": "한국어뿐만 아니라 일본어도 잘해요.", "vi": "Không chỉ tiếng Hàn mà tiếng Nhật cũng giỏi.", "note": "N + 뿐만 아니라" }
+          { "ko": "한국어뿐만 아니라 일본어도 잘해요.", "vi": "Không chỉ tiếng Hàn mà tiếng Nhật cũng giỏi.", "note": "N + 뿐만 아니라" },
+          { "ko": "그 식당은 음식이 맛있을 뿐만 아니라 값도 싸요.", "vi": "Quán đó không những ngon mà còn rẻ.", "note": "" },
+          { "ko": "노래뿐만 아니라 춤도 잘 춰요.", "vi": "Không chỉ hát mà nhảy cũng giỏi.", "note": "N + 뿐만 아니라" }
         ]
       },
       {
@@ -577,7 +798,9 @@
         "usage": "Dùng khi một tình huống dẫn đến kết quả ngoài chủ ý.",
         "examples": [
           { "ko": "한국에서 일하게 됐어요.", "vi": "(Rốt cuộc) tôi làm việc ở Hàn Quốc.", "note": "" },
-          { "ko": "그 사실을 알게 됐어요.", "vi": "Tôi (đã) biết được sự thật đó.", "note": "" }
+          { "ko": "그 사실을 알게 됐어요.", "vi": "Tôi (đã) biết được sự thật đó.", "note": "" },
+          { "ko": "우연히 옛 친구를 만나게 됐어요.", "vi": "Tình cờ gặp lại bạn cũ.", "note": "" },
+          { "ko": "이제 매운 음식을 좋아하게 됐어요.", "vi": "Giờ tôi thành ra thích đồ cay.", "note": "thay đổi dần" }
         ]
       },
       {
@@ -590,7 +813,9 @@
         "usage": "Dùng nêu mục đích cho vế sau hoặc mức độ của hành động.",
         "examples": [
           { "ko": "잊지 않도록 메모하세요.", "vi": "Hãy ghi chú để khỏi quên.", "note": "mục đích" },
-          { "ko": "목이 아프도록 노래했어요.", "vi": "Hát đến mức đau cả họng.", "note": "mức độ" }
+          { "ko": "목이 아프도록 노래했어요.", "vi": "Hát đến mức đau cả họng.", "note": "mức độ" },
+          { "ko": "다른 사람이 알아듣도록 크게 말하세요.", "vi": "Hãy nói to để người khác nghe rõ.", "note": "mục đích" },
+          { "ko": "감기에 걸리지 않도록 조심하세요.", "vi": "Hãy cẩn thận để không bị cảm.", "note": "mục đích (phủ định)" }
         ]
       },
       {
@@ -603,7 +828,9 @@
         "usage": "Khác 을 수 있다 ở chỗ nhấn vào 'biết cách làm' chứ không chỉ khả năng.",
         "examples": [
           { "ko": "운전할 줄 알아요.", "vi": "Tôi biết lái xe.", "note": "운전하다 → 운전할 줄 알다" },
-          { "ko": "수영할 줄 몰라요.", "vi": "Tôi không biết bơi.", "note": "수영하다 → 수영할 줄 모르다" }
+          { "ko": "수영할 줄 몰라요.", "vi": "Tôi không biết bơi.", "note": "수영하다 → 수영할 줄 모르다" },
+          { "ko": "김치를 만들 줄 알아요.", "vi": "Tôi biết làm kim chi.", "note": "만들다 → 만들 줄 알다" },
+          { "ko": "젓가락을 쓸 줄 몰라요.", "vi": "Tôi không biết dùng đũa.", "note": "쓰다 → 쓸 줄 모르다" }
         ]
       },
       {
@@ -616,7 +843,9 @@
         "usage": "Dùng khi ai đó cố tỏ ra một trạng thái không thật.",
         "examples": [
           { "ko": "그는 자는 척했어요.", "vi": "Anh ấy giả vờ ngủ.", "note": "자다 → 자는 척하다" },
-          { "ko": "모르는 척하지 마세요.", "vi": "Đừng giả vờ không biết.", "note": "모르다 → 모르는 척하다" }
+          { "ko": "모르는 척하지 마세요.", "vi": "Đừng giả vờ không biết.", "note": "모르다 → 모르는 척하다" },
+          { "ko": "아픈 척하고 학교에 안 갔어요.", "vi": "Giả vờ ốm rồi không đến trường.", "note": "아프다 → 아픈 척하다" },
+          { "ko": "못 들은 척했어요.", "vi": "Tôi đã giả vờ không nghe thấy.", "note": "듣다 → 들은 척하다" }
         ]
       },
       {
@@ -629,7 +858,9 @@
         "usage": "Dùng khi hoàn cảnh buộc phải làm điều gì.",
         "examples": [
           { "ko": "차가 없어서 걸어갈 수밖에 없어요.", "vi": "Không có xe nên đành phải đi bộ.", "note": "" },
-          { "ko": "비싸도 살 수밖에 없어요.", "vi": "Dù đắt cũng đành phải mua.", "note": "" }
+          { "ko": "비싸도 살 수밖에 없어요.", "vi": "Dù đắt cũng đành phải mua.", "note": "" },
+          { "ko": "표가 없어서 서서 갈 수밖에 없었어요.", "vi": "Không có vé nên đành phải đứng.", "note": "" },
+          { "ko": "아프면 병원에 갈 수밖에 없어요.", "vi": "Ốm thì đành phải đi bệnh viện.", "note": "" }
         ]
       },
       {
@@ -642,7 +873,9 @@
         "usage": "Dùng nêu lý do, đặc biệt trước câu đề nghị/mệnh lệnh. Cũng dùng khi phát hiện ra điều gì.",
         "examples": [
           { "ko": "위험하니까 조심하세요.", "vi": "Vì nguy hiểm nên hãy cẩn thận.", "note": "trước mệnh lệnh" },
-          { "ko": "비가 오니까 택시를 탑시다.", "vi": "Vì trời mưa nên đi taxi thôi.", "note": "trước rủ rê" }
+          { "ko": "비가 오니까 택시를 탑시다.", "vi": "Vì trời mưa nên đi taxi thôi.", "note": "trước rủ rê" },
+          { "ko": "배고프니까 밥부터 먹어요.", "vi": "Vì đói nên ăn cơm trước đã.", "note": "" },
+          { "ko": "문을 여니까 고양이가 있었어요.", "vi": "Mở cửa ra thì thấy có con mèo.", "note": "phát hiện" }
         ]
       },
       {
@@ -655,7 +888,9 @@
         "usage": "Dùng khi một người làm hai việc cùng lúc.",
         "examples": [
           { "ko": "음악을 들으면서 공부해요.", "vi": "Vừa nghe nhạc vừa học.", "note": "듣다 → 들으면서" },
-          { "ko": "커피를 마시면서 이야기했어요.", "vi": "Vừa uống cà phê vừa trò chuyện.", "note": "" }
+          { "ko": "커피를 마시면서 이야기했어요.", "vi": "Vừa uống cà phê vừa trò chuyện.", "note": "" },
+          { "ko": "운전하면서 전화하지 마세요.", "vi": "Đừng vừa lái xe vừa gọi điện.", "note": "" },
+          { "ko": "텔레비전을 보면서 밥을 먹어요.", "vi": "Vừa xem tivi vừa ăn cơm.", "note": "" }
         ]
       },
       {
@@ -668,7 +903,9 @@
         "usage": "Dùng khi chủ ngữ khiến người khác thực hiện hành động.",
         "examples": [
           { "ko": "선생님이 학생들을 청소하게 했어요.", "vi": "Giáo viên bắt học sinh dọn dẹp.", "note": "" },
-          { "ko": "엄마가 아이에게 우유를 마시게 해요.", "vi": "Mẹ cho/bắt con uống sữa.", "note": "" }
+          { "ko": "엄마가 아이에게 우유를 마시게 해요.", "vi": "Mẹ cho/bắt con uống sữa.", "note": "" },
+          { "ko": "그 이야기는 우리를 웃게 했어요.", "vi": "Câu chuyện đó khiến chúng tôi cười.", "note": "" },
+          { "ko": "부모님이 저를 유학 가게 했어요.", "vi": "Bố mẹ cho tôi đi du học.", "note": "" }
         ]
       },
       {
@@ -681,7 +918,9 @@
         "usage": "Dùng khi kết quả không đổi bất kể điều kiện.",
         "examples": [
           { "ko": "아무리 바빠도 운동은 해요.", "vi": "Dù bận đến mấy vẫn tập thể dục.", "note": "" },
-          { "ko": "비가 와도 갈 거예요.", "vi": "Dù trời mưa (tôi) vẫn sẽ đi.", "note": "" }
+          { "ko": "비가 와도 갈 거예요.", "vi": "Dù trời mưa (tôi) vẫn sẽ đi.", "note": "" },
+          { "ko": "아무리 설명해도 이해가 안 돼요.", "vi": "Dù giải thích thế nào cũng không hiểu.", "note": "" },
+          { "ko": "힘들어도 포기하지 않을 거예요.", "vi": "Dù vất vả cũng sẽ không bỏ cuộc.", "note": "" }
         ]
       },
       {
@@ -694,7 +933,9 @@
         "usage": "Dùng với động từ chỉ mốc bắt đầu, kèm 되다/지나다.",
         "examples": [
           { "ko": "한국에 온 지 2년이 됐어요.", "vi": "Tôi đến Hàn Quốc được 2 năm rồi.", "note": "오다 → 온 지" },
-          { "ko": "밥을 먹은 지 오래됐어요.", "vi": "Tôi ăn cơm cũng lâu rồi.", "note": "" }
+          { "ko": "밥을 먹은 지 오래됐어요.", "vi": "Tôi ăn cơm cũng lâu rồi.", "note": "" },
+          { "ko": "한국어를 배운 지 6개월 됐어요.", "vi": "Học tiếng Hàn được 6 tháng rồi.", "note": "배우다 → 배운 지" },
+          { "ko": "그를 만난 지 십 년이 넘었어요.", "vi": "Gặp anh ấy đã hơn 10 năm.", "note": "" }
         ]
       },
       {
@@ -707,7 +948,9 @@
         "usage": "Dùng nhấn mạnh duy chỉ có điều đó.",
         "examples": [
           { "ko": "저는 최선을 다할 뿐이에요.", "vi": "Tôi chỉ cố gắng hết sức mà thôi.", "note": "" },
-          { "ko": "그냥 농담이었을 뿐이에요.", "vi": "Chỉ là nói đùa thôi mà.", "note": "" }
+          { "ko": "그냥 농담이었을 뿐이에요.", "vi": "Chỉ là nói đùa thôi mà.", "note": "" },
+          { "ko": "저는 사실을 말했을 뿐이에요.", "vi": "Tôi chỉ nói sự thật thôi.", "note": "" },
+          { "ko": "조금 피곤할 뿐이에요.", "vi": "Chỉ hơi mệt thôi mà.", "note": "" }
         ]
       },
       {
@@ -720,7 +963,9 @@
         "usage": "Dùng khi nhận xét chung chung về tính chất/thói quen.",
         "examples": [
           { "ko": "저는 매운 음식을 잘 먹는 편이에요.", "vi": "Tôi thuộc dạng ăn cay khá tốt.", "note": "" },
-          { "ko": "이 동네는 조용한 편이에요.", "vi": "Khu này khá yên tĩnh.", "note": "조용하다 → 조용한 편" }
+          { "ko": "이 동네는 조용한 편이에요.", "vi": "Khu này khá yên tĩnh.", "note": "조용하다 → 조용한 편" },
+          { "ko": "저는 아침에 일찍 일어나는 편이에요.", "vi": "Tôi thuộc dạng dậy sớm.", "note": "" },
+          { "ko": "이 식당은 가격이 비싼 편이에요.", "vi": "Quán này giá khá đắt.", "note": "비싸다 → 비싼 편" }
         ]
       },
       {
@@ -733,7 +978,9 @@
         "usage": "Dùng khi hoàn tất hành động và duy trì kết quả để dùng sau.",
         "examples": [
           { "ko": "표를 미리 사 놓았어요.", "vi": "Tôi đã mua sẵn vé từ trước.", "note": "" },
-          { "ko": "창문을 열어 놓으세요.", "vi": "Hãy mở sẵn cửa sổ ra.", "note": "" }
+          { "ko": "창문을 열어 놓으세요.", "vi": "Hãy mở sẵn cửa sổ ra.", "note": "" },
+          { "ko": "음식을 미리 만들어 놓았어요.", "vi": "Tôi đã nấu sẵn đồ ăn từ trước.", "note": "" },
+          { "ko": "불을 켜 놓고 나갔어요.", "vi": "Để đèn bật rồi đi ra ngoài.", "note": "" }
         ]
       },
       {
@@ -746,7 +993,9 @@
         "usage": "Dùng nhấn mạnh việc đã xong hẳn, không còn gì.",
         "examples": [
           { "ko": "숙제를 다 끝내 버렸어요.", "vi": "Tôi đã làm xong hết bài tập (nhẹ cả người).", "note": "nhẹ nhõm" },
-          { "ko": "친구가 먼저 가 버렸어요.", "vi": "Bạn đã đi mất trước rồi.", "note": "tiếc nuối" }
+          { "ko": "친구가 먼저 가 버렸어요.", "vi": "Bạn đã đi mất trước rồi.", "note": "tiếc nuối" },
+          { "ko": "돈을 다 써 버렸어요.", "vi": "Tôi tiêu hết sạch tiền rồi.", "note": "hoàn tất" },
+          { "ko": "그 사실을 잊어버렸어요.", "vi": "Tôi đã quên mất sự thật đó.", "note": "잊다 → 잊어버리다" }
         ]
       },
       {
@@ -759,7 +1008,9 @@
         "usage": "Dùng đưa lời khuyên/điều kiện cho một mục đích.",
         "examples": [
           { "ko": "성공하려면 노력해야 해요.", "vi": "Muốn thành công thì phải nỗ lực.", "note": "" },
-          { "ko": "표를 사려면 줄을 서세요.", "vi": "Nếu muốn mua vé thì hãy xếp hàng.", "note": "" }
+          { "ko": "표를 사려면 줄을 서세요.", "vi": "Nếu muốn mua vé thì hãy xếp hàng.", "note": "" },
+          { "ko": "건강해지려면 잠을 충분히 자세요.", "vi": "Muốn khỏe thì hãy ngủ đủ giấc.", "note": "" },
+          { "ko": "한국어를 잘하려면 매일 연습해야 해요.", "vi": "Muốn giỏi tiếng Hàn thì phải luyện mỗi ngày.", "note": "" }
         ]
       },
       {
@@ -772,7 +1023,9 @@
         "usage": "Vế trước là ý định của người nói, vế sau thường là đề nghị cho người nghe.",
         "examples": [
           { "ko": "제가 요리할 테니까 좀 도와주세요.", "vi": "Tôi sẽ nấu ăn nên bạn giúp một tay nhé.", "note": "" },
-          { "ko": "곧 도착할 테니까 기다리세요.", "vi": "Sắp đến nơi rồi nên hãy đợi nhé.", "note": "" }
+          { "ko": "곧 도착할 테니까 기다리세요.", "vi": "Sắp đến nơi rồi nên hãy đợi nhé.", "note": "" },
+          { "ko": "제가 청소할 테니까 설거지를 해 주세요.", "vi": "Tôi sẽ dọn nhà nên bạn rửa bát giúp nhé.", "note": "ý chí + đề nghị" },
+          { "ko": "길이 막힐 테니까 지하철로 가세요.", "vi": "Đường sẽ tắc nên hãy đi tàu điện ngầm.", "note": "phỏng đoán mạnh" }
         ]
       },
       {
@@ -785,7 +1038,9 @@
         "usage": "Dùng khi khuyên ai đó nên làm gì.",
         "examples": [
           { "ko": "일찍 자는 게 좋겠어요.", "vi": "Bạn nên đi ngủ sớm thì hơn.", "note": "" },
-          { "ko": "의사한테 가 보는 게 좋겠어요.", "vi": "Nên đi khám bác sĩ thì hơn.", "note": "" }
+          { "ko": "의사한테 가 보는 게 좋겠어요.", "vi": "Nên đi khám bác sĩ thì hơn.", "note": "" },
+          { "ko": "오늘은 집에서 쉬는 게 좋겠어요.", "vi": "Hôm nay nên nghỉ ở nhà thì hơn.", "note": "" },
+          { "ko": "미리 예약하는 게 좋겠어요.", "vi": "Nên đặt trước thì hơn.", "note": "" }
         ]
       },
       {
@@ -798,7 +1053,9 @@
         "usage": "Dùng ví von hành động/trạng thái giống một điều khác.",
         "examples": [
           { "ko": "물 쓰듯이 돈을 써요.", "vi": "Tiêu tiền như nước.", "note": "" },
-          { "ko": "모든 것을 아는 듯이 말해요.", "vi": "Nói như thể biết hết mọi thứ.", "note": "" }
+          { "ko": "모든 것을 아는 듯이 말해요.", "vi": "Nói như thể biết hết mọi thứ.", "note": "" },
+          { "ko": "그는 화가 난 듯이 문을 세게 닫았어요.", "vi": "Anh ấy đóng cửa mạnh như thể đang tức giận.", "note": "" },
+          { "ko": "꿈을 꾸듯이 행복했어요.", "vi": "Hạnh phúc như thể đang mơ.", "note": "" }
         ]
       },
       {
@@ -811,7 +1068,9 @@
         "usage": "Vế sau thường là kết quả không mong đợi, ở quá khứ.",
         "examples": [
           { "ko": "늦잠을 자는 바람에 지각했어요.", "vi": "Vì ngủ quên nên đã đi trễ.", "note": "" },
-          { "ko": "비가 오는 바람에 소풍이 취소됐어요.", "vi": "Vì trời mưa mà buổi dã ngoại bị huỷ.", "note": "" }
+          { "ko": "비가 오는 바람에 소풍이 취소됐어요.", "vi": "Vì trời mưa mà buổi dã ngoại bị huỷ.", "note": "" },
+          { "ko": "갑자기 넘어지는 바람에 다쳤어요.", "vi": "Vì bất ngờ bị ngã nên bị thương.", "note": "" },
+          { "ko": "버스를 놓치는 바람에 지각했어요.", "vi": "Vì lỡ xe buýt nên đi trễ.", "note": "" }
         ]
       },
       {
@@ -824,7 +1083,9 @@
         "usage": "Dùng thuật lại lời nói của ai đó.",
         "examples": [
           { "ko": "친구가 내일 온다고 했어요.", "vi": "Bạn nói ngày mai sẽ đến.", "note": "trần thuật" },
-          { "ko": "선생님이 조용히 하라고 했어요.", "vi": "Thầy bảo hãy im lặng.", "note": "mệnh lệnh" }
+          { "ko": "선생님이 조용히 하라고 했어요.", "vi": "Thầy bảo hãy im lặng.", "note": "mệnh lệnh" },
+          { "ko": "친구가 어디에 사냐고 물었어요.", "vi": "Bạn hỏi tôi sống ở đâu.", "note": "nghi vấn (-냐고)" },
+          { "ko": "같이 밥을 먹자고 했어요.", "vi": "(Ai đó) rủ cùng ăn cơm.", "note": "rủ rê (-자고)" }
         ]
       },
       {
@@ -837,7 +1098,9 @@
         "usage": "Dùng khi suy đoán rồi nêu ý kiến/đề nghị dựa trên đó.",
         "examples": [
           { "ko": "배고플 텐데 이거 드세요.", "vi": "Chắc bạn đói rồi, ăn cái này đi.", "note": "" },
-          { "ko": "곧 시험일 텐데 공부 안 해요?", "vi": "Sắp thi rồi mà (bạn) không học à?", "note": "" }
+          { "ko": "곧 시험일 텐데 공부 안 해요?", "vi": "Sắp thi rồi mà (bạn) không học à?", "note": "" },
+          { "ko": "피곤할 텐데 좀 쉬세요.", "vi": "Chắc bạn mệt rồi, nghỉ chút đi.", "note": "phỏng đoán + gợi ý" },
+          { "ko": "길이 막힐 텐데 일찍 출발하세요.", "vi": "Đường chắc sẽ tắc, hãy đi sớm.", "note": "" }
         ]
       },
       {
@@ -850,7 +1113,344 @@
         "usage": "Dùng với 알다, 모르다, 궁금하다… để nói về điều chưa chắc.",
         "examples": [
           { "ko": "그 사람이 오는지 몰라요.", "vi": "Tôi không biết người đó có đến hay không.", "note": "" },
-          { "ko": "이게 맞는지 확인해 주세요.", "vi": "Hãy kiểm tra xem cái này có đúng không.", "note": "" }
+          { "ko": "이게 맞는지 확인해 주세요.", "vi": "Hãy kiểm tra xem cái này có đúng không.", "note": "" },
+          { "ko": "내일 시험이 몇 시에 있는지 아세요?", "vi": "Bạn có biết mai thi lúc mấy giờ không?", "note": "" },
+          { "ko": "이 음식이 맛있는지 궁금해요.", "vi": "Tôi tò mò không biết món này có ngon không.", "note": "" }
+        ]
+      }
+    ]
+  },
+  "basics": {
+    "label": "Chia từ & Phát âm",
+    "items": [
+      {
+        "id": "conj-a-eo-yo",
+        "title": "Chia đuôi 아/어요 (thì hiện tại)",
+        "level": "basics",
+        "tags": ["chia từ", "đuôi câu", "rút gọn"],
+        "structure": "Gốc có ㅏ/ㅗ + 아요 · còn lại + 어요 · 하다 → 해요",
+        "explanation": "Quy tắc chia thì hiện tại thân mật. Xét nguyên âm cuối của gốc (bỏ 다), không phải 받침. Nhiều trường hợp bị rút gọn nguyên âm.",
+        "usage": "Bỏ 다 lấy gốc, thêm 아요/어요 theo nguyên âm cuối, rồi rút gọn nếu cần.",
+        "examples": [
+          { "ko": "먹다 → 먹어요", "vi": "ăn", "note": "gốc 먹 (ㅓ) → 어요" },
+          { "ko": "가다 → 가요", "vi": "đi", "note": "가 + 아요 → 가요 (rút gọn)" },
+          { "ko": "오다 → 와요", "vi": "đến", "note": "오 + 아요 → 와요" },
+          { "ko": "마시다 → 마셔요", "vi": "uống", "note": "이 + 어요 → 여요" }
+        ]
+      },
+      {
+        "id": "conj-batchim-eu",
+        "title": "받침 với đuôi (으)",
+        "level": "basics",
+        "tags": ["chia từ", "받침", "quy tắc"],
+        "structure": "Gốc có 받침 + 으(세요/면/ㄹ…) · Gốc không 받침 → bỏ 으",
+        "explanation": "Nhiều đuôi bắt đầu bằng (으): -(으)세요, -(으)면, -(으)ㄹ, -(으)러… Có 받침 thì giữ 으, không 받침 thì bỏ.",
+        "usage": "Kiểm tra 받침 của âm tiết cuối gốc để quyết định giữ hay bỏ 으.",
+        "examples": [
+          { "ko": "읽다 → 읽으세요", "vi": "đọc đi", "note": "받침 O → 으세요" },
+          { "ko": "가다 → 가세요", "vi": "đi đi", "note": "받침 X → 세요" },
+          { "ko": "먹다 → 먹으면", "vi": "nếu ăn", "note": "받침 O → 으면" },
+          { "ko": "만들다 → 만들면", "vi": "nếu làm", "note": "받침 ㄹ → bỏ 으" }
+        ]
+      },
+      {
+        "id": "irr-b",
+        "title": "Bất quy tắc ㅂ (ㅂ 불규칙)",
+        "level": "basics",
+        "tags": ["bất quy tắc", "chia từ", "ㅂ"],
+        "structure": "받침 ㅂ + nguyên âm → 우 (ㅂ + 아/어 → 워)",
+        "explanation": "Phần lớn tính từ có 받침 ㅂ: ㅂ đổi thành 우 khi gặp nguyên âm. 돕다/곱다 là ngoại lệ đổi thành 와.",
+        "usage": "Áp dụng cho 덥다, 춥다, 쉽다, 어렵다, 맵다… Ngoại lệ: 돕다→도와요, 곱다→고와요.",
+        "examples": [
+          { "ko": "덥다 → 더워요", "vi": "nóng", "note": "ㅂ → 우 + 어요" },
+          { "ko": "쉽다 → 쉬워요", "vi": "dễ", "note": "" },
+          { "ko": "돕다 → 도와요", "vi": "giúp", "note": "NGOẠI LỆ → 와" },
+          { "ko": "좁다 → 좁아요", "vi": "chật", "note": "QUY TẮC (không đổi)" }
+        ]
+      },
+      {
+        "id": "irr-d",
+        "title": "Bất quy tắc ㄷ (ㄷ 불규칙)",
+        "level": "basics",
+        "tags": ["bất quy tắc", "chia từ", "ㄷ"],
+        "structure": "받침 ㄷ + nguyên âm → ㄹ",
+        "explanation": "Một số động từ có 받침 ㄷ đổi thành ㄹ khi gặp nguyên âm. Nhiều động từ khác vẫn quy tắc.",
+        "usage": "Bất quy tắc: 듣다, 걷다, 묻다(hỏi), 싣다. Quy tắc: 받다, 닫다, 믿다.",
+        "examples": [
+          { "ko": "듣다 → 들어요", "vi": "nghe", "note": "ㄷ → ㄹ" },
+          { "ko": "걷다 → 걸어요", "vi": "đi bộ", "note": "" },
+          { "ko": "묻다 → 물어요", "vi": "hỏi", "note": "" },
+          { "ko": "받다 → 받아요", "vi": "nhận", "note": "QUY TẮC (không đổi)" }
+        ]
+      },
+      {
+        "id": "irr-s",
+        "title": "Bất quy tắc ㅅ (ㅅ 불규칙)",
+        "level": "basics",
+        "tags": ["bất quy tắc", "chia từ", "ㅅ"],
+        "structure": "받침 ㅅ + nguyên âm → ㅅ rụng (KHÔNG rút gọn nguyên âm)",
+        "explanation": "Một số động từ rụng 받침 ㅅ khi gặp nguyên âm, nhưng nguyên âm không rút gọn.",
+        "usage": "Bất quy tắc: 짓다, 낫다, 붓다, 젓다. Quy tắc: 웃다, 씻다, 벗다.",
+        "examples": [
+          { "ko": "짓다 → 지어요", "vi": "xây; đặt (tên)", "note": "ㅅ rụng, giữ 어" },
+          { "ko": "낫다 → 나아요", "vi": "khỏi bệnh", "note": "나 + 아요 (không rút)" },
+          { "ko": "웃다 → 웃어요", "vi": "cười", "note": "QUY TẮC (không đổi)" },
+          { "ko": "씻다 → 씻어요", "vi": "rửa", "note": "QUY TẮC" }
+        ]
+      },
+      {
+        "id": "irr-eu",
+        "title": "Bất quy tắc ㅡ (으 탈락)",
+        "level": "basics",
+        "tags": ["bất quy tắc", "chia từ", "ㅡ"],
+        "structure": "Gốc kết thúc ㅡ + 아/어 → ㅡ rụng; nguyên âm trước quyết định 아/어",
+        "explanation": "Gốc có nguyên âm cuối ㅡ thì rụng ㅡ khi thêm 아/어요. Xét nguyên âm âm tiết ngay trước (ㅏ/ㅗ → 아, còn lại → 어); nếu chỉ một âm tiết thì dùng 어.",
+        "usage": "Áp dụng cho 쓰다, 크다, 바쁘다, 예쁘다, 아프다, 배고프다…",
+        "examples": [
+          { "ko": "바쁘다 → 바빠요", "vi": "bận", "note": "ㅏ trước → 아" },
+          { "ko": "예쁘다 → 예뻐요", "vi": "đẹp", "note": "→ 어" },
+          { "ko": "쓰다 → 써요", "vi": "viết", "note": "một âm tiết → 어" },
+          { "ko": "크다 → 커요", "vi": "to", "note": "" }
+        ]
+      },
+      {
+        "id": "irr-reu",
+        "title": "Bất quy tắc 르 (르 불규칙)",
+        "level": "basics",
+        "tags": ["bất quy tắc", "chia từ", "르"],
+        "structure": "Gốc kết thúc 르 + 아/어 → thêm ㄹ (르 → ㄹ라 / ㄹ러)",
+        "explanation": "Gốc kết thúc 르: khi gặp 아/어, ㅡ rụng và thêm một ㄹ vào âm trước (ㄹ라 nếu nguyên âm trước là ㅏ/ㅗ, ㄹ러 nếu khác).",
+        "usage": "Áp dụng cho 모르다, 다르다, 빠르다, 부르다, 자르다…",
+        "examples": [
+          { "ko": "모르다 → 몰라요", "vi": "không biết", "note": "모 (ㅗ) → ㄹ라" },
+          { "ko": "빠르다 → 빨라요", "vi": "nhanh", "note": "빠 (ㅏ) → ㄹ라" },
+          { "ko": "부르다 → 불러요", "vi": "gọi; hát", "note": "부 (ㅜ) → ㄹ러" },
+          { "ko": "다르다 → 달라요", "vi": "khác", "note": "" }
+        ]
+      },
+      {
+        "id": "irr-l-drop",
+        "title": "ㄹ 탈락 (rụng ㄹ)",
+        "level": "basics",
+        "tags": ["bất quy tắc", "chia từ", "ㄹ"],
+        "structure": "받침 ㄹ + đuôi bắt đầu ㄴ/ㅂ/ㅅ → ㄹ rụng",
+        "explanation": "Gốc có 받침 ㄹ thì rụng ㄹ trước các đuôi bắt đầu bằng ㄴ, ㅂ, ㅅ (vd -ㅂ니다, -세요, -는). Giữ ㄹ trước nguyên âm.",
+        "usage": "Áp dụng cho 살다, 만들다, 알다, 팔다, 열다…",
+        "examples": [
+          { "ko": "살다 → 삽니다", "vi": "sống", "note": "ㄹ rụng trước ㅂ니다" },
+          { "ko": "만들다 → 만드세요", "vi": "hãy làm", "note": "ㄹ rụng trước 세요" },
+          { "ko": "알다 → 아는 사람", "vi": "người quen", "note": "ㄹ rụng trước 는" },
+          { "ko": "살다 → 살아요", "vi": "sống", "note": "GIỮ ㄹ trước nguyên âm" }
+        ]
+      },
+      {
+        "id": "irr-h",
+        "title": "Bất quy tắc ㅎ (ㅎ 불규칙)",
+        "level": "basics",
+        "tags": ["bất quy tắc", "chia từ", "ㅎ"],
+        "structure": "Tính từ có 받침 ㅎ + nguyên âm → ㅎ rụng, nguyên âm đổi thành 애/에",
+        "explanation": "Đa số tính từ chỉ màu/trạng thái có 받침 ㅎ: rụng ㅎ và nguyên âm biến đổi (아/어 → 애). 좋다 là quy tắc.",
+        "usage": "Áp dụng cho 그렇다, 빨갛다, 파랗다, 어떻다, 하얗다. Quy tắc: 좋다, 놓다, 넣다.",
+        "examples": [
+          { "ko": "그렇다 → 그래요", "vi": "như vậy", "note": "ㅎ rụng, → 애" },
+          { "ko": "빨갛다 → 빨개요", "vi": "đỏ", "note": "" },
+          { "ko": "어떻다 → 어때요", "vi": "thế nào", "note": "" },
+          { "ko": "좋다 → 좋아요", "vi": "tốt", "note": "QUY TẮC (không đổi)" }
+        ]
+      },
+      {
+        "id": "irr-exceptions",
+        "title": "Ngoại lệ của bất quy tắc",
+        "level": "basics",
+        "tags": ["bất quy tắc", "chia từ", "ngoại lệ"],
+        "structure": "Nhiều từ 'trông giống' bất quy tắc nhưng chia QUY TẮC",
+        "explanation": "Không phải cứ có 받침 ㄷ/ㅅ/ㅂ/ㅎ là bất quy tắc. Cần nhớ nhóm quy tắc; và vài bất quy tắc đặc biệt (돕다/곱다).",
+        "usage": "Học thuộc nhóm quy tắc để tránh chia sai.",
+        "examples": [
+          { "ko": "받다·닫다·믿다 (ㄷ)", "vi": "nhận / đóng / tin", "note": "QUY TẮC: 받아요, 닫아요" },
+          { "ko": "웃다·씻다·벗다 (ㅅ)", "vi": "cười / rửa / cởi", "note": "QUY TẮC: 웃어요, 씻어요" },
+          { "ko": "좁다·입다·잡다 (ㅂ)", "vi": "chật / mặc / nắm", "note": "QUY TẮC: 좁아요, 입어요" },
+          { "ko": "돕다·곱다 (ㅂ đặc biệt)", "vi": "giúp / đẹp mịn", "note": "BẤT QUY TẮC → 도와요, 고와요" }
+        ]
+      },
+      {
+        "id": "pron-liaison",
+        "title": "Nối âm (연음)",
+        "level": "basics",
+        "tags": ["phát âm", "nối âm"],
+        "structure": "받침 + âm tiết bắt đầu bằng ㅇ (nguyên âm) → 받침 chuyển sang đầu âm tiết sau",
+        "explanation": "Khi âm tiết sau bắt đầu bằng nguyên âm (viết là ㅇ), phụ âm cuối (받침) của âm tiết trước được đọc nối sang.",
+        "usage": "Rất phổ biến khi thêm trợ từ/đuôi bắt đầu bằng nguyên âm.",
+        "examples": [
+          { "ko": "한국어 [한구거]", "vi": "tiếng Hàn", "note": "ㄱ nối sang 어" },
+          { "ko": "음악 [으막]", "vi": "âm nhạc", "note": "ㅁ nối sang 악" },
+          { "ko": "먹어요 [머거요]", "vi": "ăn", "note": "ㄱ nối sang 어" },
+          { "ko": "옷이 [오시]", "vi": "áo (chủ ngữ)", "note": "ㅅ nối sang 이" }
+        ]
+      },
+      {
+        "id": "pron-nasalization",
+        "title": "Mũi hóa (비음화)",
+        "level": "basics",
+        "tags": ["phát âm", "biến âm"],
+        "structure": "ㄱ/ㄷ/ㅂ + ㄴ/ㅁ → [ㅇ/ㄴ/ㅁ] + ㄴ/ㅁ",
+        "explanation": "Phụ âm tắc ㄱ,ㄷ,ㅂ khi đứng trước ㄴ hoặc ㅁ sẽ biến thành âm mũi tương ứng ㅇ,ㄴ,ㅁ.",
+        "usage": "Đọc khác chữ viết — cần luyện nghe.",
+        "examples": [
+          { "ko": "학년 [항년]", "vi": "khối lớp", "note": "ㄱ → ㅇ trước ㄴ" },
+          { "ko": "국물 [궁물]", "vi": "nước dùng", "note": "ㄱ → ㅇ trước ㅁ" },
+          { "ko": "입니다 [임니다]", "vi": "là (trang trọng)", "note": "ㅂ → ㅁ trước ㄴ" },
+          { "ko": "받는다 [반는다]", "vi": "nhận", "note": "ㄷ → ㄴ trước ㄴ" }
+        ]
+      },
+      {
+        "id": "pron-lateralization",
+        "title": "Biến âm ㄴ↔ㄹ (유음화)",
+        "level": "basics",
+        "tags": ["phát âm", "biến âm"],
+        "structure": "ㄴ + ㄹ hoặc ㄹ + ㄴ → [ㄹㄹ]",
+        "explanation": "Khi ㄴ và ㄹ đứng cạnh nhau, ㄴ được đọc thành ㄹ (đọc là ㄹㄹ).",
+        "usage": "",
+        "examples": [
+          { "ko": "신라 [실라]", "vi": "Silla (Tân La)", "note": "ㄴ+ㄹ → ㄹㄹ" },
+          { "ko": "연락 [열락]", "vi": "liên lạc", "note": "" },
+          { "ko": "설날 [설랄]", "vi": "Tết Nguyên Đán", "note": "ㄹ+ㄴ → ㄹㄹ" },
+          { "ko": "일 년 [일련]", "vi": "một năm", "note": "" }
+        ]
+      },
+      {
+        "id": "pron-tensification",
+        "title": "Căng âm hóa (경음화)",
+        "level": "basics",
+        "tags": ["phát âm", "biến âm"],
+        "structure": "받침 ㄱ/ㄷ/ㅂ + ㄱ/ㄷ/ㅂ/ㅅ/ㅈ → phụ âm sau đọc căng ㄲ/ㄸ/ㅃ/ㅆ/ㅉ",
+        "explanation": "Sau các 받침 tắc ㄱ,ㄷ,ㅂ, phụ âm đầu tiếp theo được đọc căng.",
+        "usage": "",
+        "examples": [
+          { "ko": "학교 [학꾜]", "vi": "trường học", "note": "ㄱ → ㄲ" },
+          { "ko": "식당 [식땅]", "vi": "quán ăn", "note": "ㄷ → ㄸ" },
+          { "ko": "박수 [박쑤]", "vi": "vỗ tay", "note": "ㅅ → ㅆ" },
+          { "ko": "옷장 [옫짱]", "vi": "tủ quần áo", "note": "ㅈ → ㅉ" }
+        ]
+      },
+      {
+        "id": "pron-aspiration",
+        "title": "Bật hơi hóa với ㅎ (격음화)",
+        "level": "basics",
+        "tags": ["phát âm", "biến âm", "ㅎ"],
+        "structure": "ㅎ + ㄱ/ㄷ/ㅂ/ㅈ (hoặc ngược) → ㅋ/ㅌ/ㅍ/ㅊ",
+        "explanation": "Khi ㅎ gặp ㄱ,ㄷ,ㅂ,ㅈ (trước hoặc sau), hai âm hợp thành phụ âm bật hơi tương ứng.",
+        "usage": "",
+        "examples": [
+          { "ko": "축하 [추카]", "vi": "chúc mừng", "note": "ㄱ+ㅎ → ㅋ" },
+          { "ko": "좋다 [조타]", "vi": "tốt", "note": "ㅎ+ㄷ → ㅌ" },
+          { "ko": "입학 [이팍]", "vi": "nhập học", "note": "ㅂ+ㅎ → ㅍ" },
+          { "ko": "어떻게 [어떠케]", "vi": "như thế nào", "note": "ㅎ+ㄱ → ㅋ" }
+        ]
+      },
+      {
+        "id": "pron-h-drop",
+        "title": "Rụng ㅎ (ㅎ 탈락)",
+        "level": "basics",
+        "tags": ["phát âm", "biến âm", "ㅎ"],
+        "structure": "받침 ㅎ (ㅎ/ㄶ/ㅀ) + nguyên âm → ㅎ câm",
+        "explanation": "받침 ㅎ khi đứng trước nguyên âm thì không đọc.",
+        "usage": "",
+        "examples": [
+          { "ko": "좋아요 [조아요]", "vi": "thích / tốt", "note": "ㅎ câm" },
+          { "ko": "많이 [마니]", "vi": "nhiều", "note": "ㄶ → ㄴ, ㅎ câm" },
+          { "ko": "싫어요 [시러요]", "vi": "ghét", "note": "ㅀ → ㄹ, ㅎ câm" },
+          { "ko": "넣어요 [너어요]", "vi": "cho vào", "note": "" }
+        ]
+      },
+      {
+        "id": "pron-palatalization",
+        "title": "Khẩu cái hóa (구개음화)",
+        "level": "basics",
+        "tags": ["phát âm", "biến âm"],
+        "structure": "받침 ㄷ/ㅌ + 이/히 → [지/치]",
+        "explanation": "받침 ㄷ, ㅌ khi gặp 이 (hoặc 히) được đọc thành ㅈ, ㅊ.",
+        "usage": "",
+        "examples": [
+          { "ko": "같이 [가치]", "vi": "cùng nhau", "note": "ㅌ + 이 → 치" },
+          { "ko": "굳이 [구지]", "vi": "nhất định phải", "note": "ㄷ + 이 → 지" },
+          { "ko": "해돋이 [해도지]", "vi": "bình minh", "note": "" },
+          { "ko": "닫히다 [다치다]", "vi": "bị đóng", "note": "ㄷ+히 → 치" }
+        ]
+      },
+      {
+        "id": "num-sino",
+        "title": "Số Hán-Hàn (일 이 삼…)",
+        "level": "basics",
+        "tags": ["số đếm", "Hán-Hàn"],
+        "structure": "일(1) 이(2) 삼(3) 사(4) 오(5) 육(6) 칠(7) 팔(8) 구(9) 십(10) / 백 천 만",
+        "explanation": "Hệ số gốc Hán, dùng cho tiền (원), tháng (월), ngày (일), phút (분), số điện thoại, số thứ tự và số lớn.",
+        "usage": "Ghép: hàng chục + hàng đơn vị (이십오 = 25). Dùng với 원/월/일/분/번…",
+        "examples": [
+          { "ko": "일 이 삼 사 오 육 칠 팔 구 십", "vi": "1–10 (Hán-Hàn)", "note": "" },
+          { "ko": "이십오", "vi": "25", "note": "이십(20) + 오(5)" },
+          { "ko": "삼천오백 원", "vi": "3.500 won", "note": "tiền → số Hán-Hàn" },
+          { "ko": "십일월 이십삼일", "vi": "ngày 23 tháng 11", "note": "월 / 일 → số Hán-Hàn" }
+        ]
+      },
+      {
+        "id": "num-native",
+        "title": "Số thuần Hàn (하나 둘 셋…)",
+        "level": "basics",
+        "tags": ["số đếm", "thuần Hàn", "đơn vị"],
+        "structure": "하나 둘 셋 넷 다섯 여섯 일곱 여덟 아홉 열 / 스물 서른 마흔 쉰 예순…",
+        "explanation": "Hệ số thuần Hàn, dùng để đếm đồ vật/người/tuổi/giờ với đơn vị (개/명/살/시/마리/병/잔).",
+        "usage": "Trước đơn vị, các số này biến đổi: 하나→한, 둘→두, 셋→세, 넷→네, 스물→스무.",
+        "examples": [
+          { "ko": "하나 둘 셋 넷 다섯", "vi": "1–5 (thuần Hàn)", "note": "" },
+          { "ko": "사과 한 개 주세요.", "vi": "Cho một quả táo.", "note": "하나 → 한 + 개" },
+          { "ko": "스무 살이에요.", "vi": "20 tuổi.", "note": "스물 → 스무 + 살" },
+          { "ko": "고양이 세 마리", "vi": "3 con mèo", "note": "셋 → 세 + 마리" }
+        ]
+      },
+      {
+        "id": "num-large",
+        "title": "Đọc số lớn (십 백 천 만 억)",
+        "level": "basics",
+        "tags": ["số đếm", "số lớn"],
+        "structure": "십(10) 백(100) 천(1.000) 만(10.000) 억(100.000.000)",
+        "explanation": "Tiếng Hàn nhóm theo 만 (vạn = 10.000), không theo nghìn như tiếng Anh/Việt. Sau 만 mới đến 억.",
+        "usage": "만 = 1 vạn; 십만 = 100.000; 백만 = 1 triệu; 천만 = 10 triệu; 억 = 100 triệu.",
+        "examples": [
+          { "ko": "만", "vi": "10.000 (một vạn)", "note": "nhóm theo 만" },
+          { "ko": "이만 오천", "vi": "25.000", "note": "2 vạn 5 nghìn" },
+          { "ko": "백만", "vi": "1.000.000 (một triệu)", "note": "백 × 만" },
+          { "ko": "일억", "vi": "100.000.000", "note": "억 = 100 triệu" }
+        ]
+      },
+      {
+        "id": "date-ymd",
+        "title": "Ngày tháng năm (년 월 일)",
+        "level": "basics",
+        "tags": ["ngày tháng", "số đếm", "Hán-Hàn"],
+        "structure": "…년(năm) …월(tháng) …일(ngày) — đều dùng số Hán-Hàn; thứ tự Năm–Tháng–Ngày",
+        "explanation": "Ngày, tháng, năm đều dùng số Hán-Hàn. Lưu ý tháng 6 và 10 đọc rút gọn: 유월, 시월 (không phải 육월/십월).",
+        "usage": "Hỏi ngày: 며칠이에요? Hỏi thứ: 무슨 요일이에요?",
+        "examples": [
+          { "ko": "이천이십사 년 삼월 오일", "vi": "ngày 5 tháng 3 năm 2024", "note": "Năm–Tháng–Ngày" },
+          { "ko": "유월", "vi": "tháng 6", "note": "đặc biệt (không phải 육월)" },
+          { "ko": "시월", "vi": "tháng 10", "note": "đặc biệt (không phải 십월)" },
+          { "ko": "며칠이에요?", "vi": "Ngày mấy?", "note": "hỏi ngày" }
+        ]
+      },
+      {
+        "id": "weekdays",
+        "title": "Thứ trong tuần (요일)",
+        "level": "basics",
+        "tags": ["ngày tháng", "요일"],
+        "structure": "월/화/수/목/금/토/일 + 요일",
+        "explanation": "월요일(T2) 화요일(T3) 수요일(T4) 목요일(T5) 금요일(T6) 토요일(T7) 일요일(CN). 주말 = cuối tuần, 평일 = ngày thường.",
+        "usage": "Nói lịch hẹn: …요일에 (vào thứ …).",
+        "examples": [
+          { "ko": "오늘은 무슨 요일이에요?", "vi": "Hôm nay thứ mấy?", "note": "" },
+          { "ko": "수요일에 시험이 있어요.", "vi": "Thứ Tư có kỳ thi.", "note": "수요일 = thứ Tư" },
+          { "ko": "월요일부터 금요일까지", "vi": "từ thứ Hai đến thứ Sáu", "note": "평일" },
+          { "ko": "주말에 쉬어요.", "vi": "Cuối tuần (tôi) nghỉ.", "note": "주말 = 토+일" }
         ]
       }
     ]

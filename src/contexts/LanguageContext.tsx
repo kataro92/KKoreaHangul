@@ -83,6 +83,7 @@ type TranslationMap = {
   grammarUsage: string;
   grammarExamples: string;
   grammarEmpty: string;
+  grammarBasics: string;
   // Reading practice (Luyện đọc)
   readingModeAnalyze: string;
   readingModePractice: string;
@@ -205,6 +206,7 @@ const translations: Record<Locale, TranslationMap> = {
     grammarUsage: 'When to use',
     grammarExamples: 'Examples',
     grammarEmpty: 'No grammar points match your search.',
+    grammarBasics: 'Conjugation & Sounds',
     readingModeAnalyze: 'Syllable breakdown',
     readingModePractice: 'Reading practice',
     practiceInstruction: 'Read this sentence aloud. The phonetics and a model reading will appear when the timer ends.',
@@ -322,6 +324,7 @@ const translations: Record<Locale, TranslationMap> = {
     grammarUsage: 'Khi nào dùng',
     grammarExamples: 'Ví dụ',
     grammarEmpty: 'Không có điểm ngữ pháp nào khớp.',
+    grammarBasics: 'Chia từ & Phát âm',
     readingModeAnalyze: 'Phân tích âm tiết',
     readingModePractice: 'Luyện đọc',
     practiceInstruction: 'Hãy tự đọc to câu này. Khi hết giờ sẽ hiện phiên âm và cách đọc mẫu.',
@@ -439,6 +442,7 @@ const translations: Record<Locale, TranslationMap> = {
     grammarUsage: '使用场景',
     grammarExamples: '例句',
     grammarEmpty: '没有匹配的语法点。',
+    grammarBasics: '变形与发音',
     readingModeAnalyze: '音节拆分',
     readingModePractice: '朗读练习',
     practiceInstruction: '请大声朗读这句话。计时结束后会显示发音和示范朗读。',
@@ -556,6 +560,7 @@ const translations: Record<Locale, TranslationMap> = {
     grammarUsage: 'कब उपयोग करें',
     grammarExamples: 'उदाहरण',
     grammarEmpty: 'कोई व्याकरण बिंदु मेल नहीं खाता।',
+    grammarBasics: 'रूप और उच्चारण',
     readingModeAnalyze: 'अक्षर विभाजन',
     readingModePractice: 'पढ़ने का अभ्यास',
     practiceInstruction: 'इस वाक्य को ज़ोर से पढ़ें। समय समाप्त होने पर उच्चारण और नमूना पठन दिखेगा।',
@@ -673,6 +678,7 @@ const translations: Record<Locale, TranslationMap> = {
     grammarUsage: 'Cuándo usar',
     grammarExamples: 'Ejemplos',
     grammarEmpty: 'Ningún punto gramatical coincide.',
+    grammarBasics: 'Conjugación y sonidos',
     readingModeAnalyze: 'Desglose silábico',
     readingModePractice: 'Práctica de lectura',
     practiceInstruction: 'Lee esta frase en voz alta. La pronunciación y una lectura modelo aparecerán al terminar el tiempo.',
@@ -790,6 +796,7 @@ const translations: Record<Locale, TranslationMap> = {
     grammarUsage: 'Quand l\'utiliser',
     grammarExamples: 'Exemples',
     grammarEmpty: 'Aucun point de grammaire ne correspond.',
+    grammarBasics: 'Conjugaison & sons',
     readingModeAnalyze: 'Décomposition',
     readingModePractice: 'Entraînement à la lecture',
     practiceInstruction: 'Lisez cette phrase à voix haute. La prononciation et une lecture modèle apparaîtront à la fin du minuteur.',
@@ -907,6 +914,7 @@ const translations: Record<Locale, TranslationMap> = {
     grammarUsage: '使う場面',
     grammarExamples: '例文',
     grammarEmpty: '一致する文法項目がありません。',
+    grammarBasics: '活用と発音',
     readingModeAnalyze: '音節分解',
     readingModePractice: '音読練習',
     practiceInstruction: 'この文を声に出して読みましょう。時間が終わると発音とお手本が表示されます。',
