@@ -35,6 +35,7 @@ type TranslationMap = {
   aboutTitle: string;
   aboutDescription: string;
   aboutAuthor: string;
+  feedbackLabel: string;
   // Reading
   readingInputLabel: string;
   readingPlaceholder: string;
@@ -161,8 +162,9 @@ const translations: Record<Locale, TranslationMap> = {
     langJapanese: 'Japanese',
     aboutTitle: 'About',
     aboutDescription:
-      'KKorea Hangul is a Korean (Hangul) learning app. It helps you learn the alphabet with Vietnamese romanization, practice reading with syllable breakdown, and study TOPIK vocabulary with text-to-speech. Speech settings apply to both Reading and Vocabulary.',
+      'KKorea Hangul is a Korean learning app for Vietnamese speakers. Learn the Hangul alphabet, practice reading and pronunciation, study TOPIK I/II grammar with conjugation and sound-change rules, learn the full TOPIK I–II vocabulary with Vietnamese meanings, and review with spaced repetition (SM-2). UI in 7 languages, with text-to-speech and light/dark mode.',
     aboutAuthor: 'Author: Phạm Huy Đức',
+    feedbackLabel: 'Feedback:',
     readingInputLabel: 'Enter Korean text',
     readingPlaceholder: 'E.g.: 한국어, 안녕하세요',
     speakButton: 'Speak',
@@ -279,8 +281,9 @@ const translations: Record<Locale, TranslationMap> = {
     langJapanese: 'Tiếng Nhật',
     aboutTitle: 'Giới thiệu',
     aboutDescription:
-      'KKorea Hangul là ứng dụng học tiếng Hàn (chữ Hangul). Bạn có thể học bảng chữ cái kèm phiên âm tiếng Việt, luyện đọc với phân tách âm tiết, và học từ vựng TOPIK với phát âm. Cấu hình giọng đọc áp dụng cho cả màn Đọc và Từ vựng.',
+      'KKorea Hangul là ứng dụng học tiếng Hàn dành cho người Việt: học bảng chữ Hangul, luyện đọc và phát âm, tra ngữ pháp TOPIK I/II kèm quy tắc chia từ & phát âm, học trọn bộ từ vựng TOPIK I–II với nghĩa tiếng Việt, và ôn tập theo phương pháp lặp lại ngắt quãng (SM-2). Giao diện 7 ngôn ngữ, có phát âm (TTS) và chế độ sáng/tối.',
     aboutAuthor: 'Tác giả: Phạm Huy Đức',
+    feedbackLabel: 'Góp ý:',
     readingInputLabel: 'Nhập chữ tiếng Hàn',
     readingPlaceholder: 'Ví dụ: 한국어, 안녕하세요',
     speakButton: 'Phát âm',
@@ -397,8 +400,9 @@ const translations: Record<Locale, TranslationMap> = {
     langJapanese: '日语',
     aboutTitle: '关于',
     aboutDescription:
-      'KKorea Hangul 是一款韩语（韩文）学习应用，帮助您学习字母表（含越南语罗马音）、练习音节拆读、以及通过语音学习 TOPIK 词汇。语音设置同时适用于阅读和词汇页面。',
+      'KKorea Hangul 是一款面向越南语使用者的韩语学习应用：学习韩文字母，练习阅读与发音，查阅 TOPIK I/II 语法及变形与发音规则，学习完整的 TOPIK I–II 词汇（含越南语释义），并用间隔重复（SM-2）复习。界面支持 7 种语言，含语音朗读与明暗模式。',
     aboutAuthor: '作者：Phạm Huy Đức',
+    feedbackLabel: '反馈：',
     readingInputLabel: '输入韩文',
     readingPlaceholder: '例如：한국어, 안녕하세요',
     speakButton: '朗读',
@@ -515,8 +519,9 @@ const translations: Record<Locale, TranslationMap> = {
     langJapanese: 'जापानी',
     aboutTitle: 'के बारे में',
     aboutDescription:
-      'KKorea Hangul कोरियाई (हंगुल) सीखने का ऐप है। इसमें वर्णमाला, पढ़ने का अभ्यास और TOPIK शब्दावली टेक्स्ट-टू-स्पीच के साथ है। भाषण सेटिंग्स रीडिंग और शब्दावली दोनों पर लागू होती हैं।',
+      'KKorea Hangul वियतनामी भाषियों के लिए कोरियाई सीखने का ऐप है: हंगुल वर्णमाला, पढ़ने और उच्चारण का अभ्यास, TOPIK I/II व्याकरण एवं रूप व उच्चारण नियम, वियतनामी अर्थ सहित पूर्ण TOPIK I–II शब्दावली, और स्पेस्ड रिपिटिशन (SM-2) से दोहराव। 7 भाषाओं में UI, वाक्-से-ध्वनि और लाइट/डार्क मोड।',
     aboutAuthor: 'लेखक: Phạm Huy Đức',
+    feedbackLabel: 'प्रतिक्रिया:',
     readingInputLabel: 'कोरियाई टाइप करें',
     readingPlaceholder: 'जैसे: 한국어, 안녕하세요',
     speakButton: 'बोलें',
@@ -633,8 +638,9 @@ const translations: Record<Locale, TranslationMap> = {
     langJapanese: 'Japonés',
     aboutTitle: 'Acerca de',
     aboutDescription:
-      'KKorea Hangul es una app para aprender coreano (hangul): alfabeto con romanización, práctica de lectura con desglose silábico y vocabulario TOPIK con texto a voz. La configuración de voz aplica a Lectura y Vocabulario.',
+      'KKorea Hangul es una app de coreano para vietnamitas: alfabeto hangul, práctica de lectura y pronunciación, gramática TOPIK I/II con reglas de conjugación y pronunciación, todo el vocabulario TOPIK I–II con significados en vietnamita, y repaso con repetición espaciada (SM-2). Interfaz en 7 idiomas, con lectura por voz y modo claro/oscuro.',
     aboutAuthor: 'Autor: Phạm Huy Đức',
+    feedbackLabel: 'Comentarios:',
     readingInputLabel: 'Escribe texto en coreano',
     readingPlaceholder: 'Ej.: 한국어, 안녕하세요',
     speakButton: 'Pronunciar',
@@ -751,8 +757,9 @@ const translations: Record<Locale, TranslationMap> = {
     langJapanese: 'Japonais',
     aboutTitle: 'À propos',
     aboutDescription:
-      'KKorea Hangul est une application pour apprendre le coréen (hangul) : alphabet, lecture avec décomposition des syllabes et vocabulaire TOPIK avec synthèse vocale. Les paramètres vocaux s\'appliquent à Lecture et Vocabulaire.',
+      'KKorea Hangul est une app d\'apprentissage du coréen pour vietnamophones : alphabet hangul, lecture et prononciation, grammaire TOPIK I/II avec règles de conjugaison et de prononciation, tout le vocabulaire TOPIK I–II avec traductions vietnamiennes, et révision par répétition espacée (SM-2). Interface en 7 langues, synthèse vocale et mode clair/sombre.',
     aboutAuthor: 'Auteur : Phạm Huy Đức',
+    feedbackLabel: 'Retour :',
     readingInputLabel: 'Entrez du coréen',
     readingPlaceholder: 'Ex. : 한국어, 안녕하세요',
     speakButton: 'Lire',
@@ -869,8 +876,9 @@ const translations: Record<Locale, TranslationMap> = {
     langJapanese: '日本語',
     aboutTitle: 'このアプリについて',
     aboutDescription:
-      'KKorea Hangulは韓国語（ハングル）学習アプリです。文字一覧、音節分解付きの読み練習、TOPIK語彙の読み上げ機能があります。音声設定は読みと語彙の両方に適用されます。',
+      'KKorea Hangulはベトナム語話者向けの韓国語学習アプリです。ハングルの学習、読みと発音の練習、TOPIK I/IIの文法と活用・発音規則、越語訳付きのTOPIK I–II全語彙、間隔反復（SM-2）による復習ができます。UIは7言語対応、音声読み上げとライト/ダークモード付き。',
     aboutAuthor: '作者：Phạm Huy Đức',
+    feedbackLabel: 'フィードバック：',
     readingInputLabel: '韓国語を入力',
     readingPlaceholder: '例：한국어、안녕하세요',
     speakButton: '読み上げ',
