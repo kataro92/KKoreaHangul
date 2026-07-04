@@ -6,7 +6,10 @@
     "start": "expo start",
     "android": "expo run:android",
     "ios": "expo run:ios",
-    "web": "expo start --web"
+    "web": "expo start --web",
+    "screenshots": "node scripts/capture-screenshots.mjs",
+    "screenshots:native": "bash scripts/capture-screenshots-native.sh",
+    "screenshots:native:build": "bash scripts/capture-screenshots-native.sh --build"
   },
   "dependencies": {
     "@react-native-async-storage/async-storage": "2.2.0",

@@ -1,0 +1,174 @@
+# Captures 18 screenshots for one appearance (light or dark).
+# SHOT_DIR is passed from the shell script, e.g. screenshots/light
+appId: com.kataro92.kkorea-hangul
+env:
+  SHOT_DIR: ${SHOT_DIR}
+name: Capture theme screenshots
+---
+- launchApp:
+    clearState: true
+    stopApp: true
+
+- extendedWaitUntil:
+    visible: "Chữ cái"
+    timeout: 90000
+
+# App may restore the last tab after deep links — always start on Alphabet.
+- tapOn:
+    point: "10%,96%"
+- extendedWaitUntil:
+    visible: "Bảng chữ cái Hangul"
+    timeout: 15000
+
+# ── Alphabet ────────────────────────────────────────────────────────────────
+- runFlow: settle.yaml
+- takeScreenshot:
+    path: ${SHOT_DIR}/alphabet/1
+
+- scrollUntilVisible:
+    element:
+      text: "Nguyên âm cơ bản (모음)"
+    direction: DOWN
+    timeout: 15000
+- runFlow: settle.yaml
+- takeScreenshot:
+    path: ${SHOT_DIR}/alphabet/2
+
+- scrollUntilVisible:
+    element:
+      text: "Nhóm theo âm"
+    direction: DOWN
+    timeout: 15000
+- tapOn: "Nhóm theo âm"
+- runFlow: settle.yaml
+- takeScreenshot:
+    path: ${SHOT_DIR}/alphabet/3
+
+# ── Reading ───────────────────────────────────────────────────────────────────
+- tapOn:
+    point: "30%,96%"
+- extendedWaitUntil:
+    visible: "Nhập chữ tiếng Hàn"
+    timeout: 15000
+- runFlow: settle.yaml
+- takeScreenshot:
+    path: ${SHOT_DIR}/reading/1
+
+- tapOn: "Ví dụ: 한국어, 안녕하세요"
+- inputText: "안녕하세요"
+- hideKeyboard
+- runFlow: settle.yaml
+- takeScreenshot:
+    path: ${SHOT_DIR}/reading/2
+
+- tapOn: "Luyện đọc"
+- tapOn: "Hiện đáp án"
+- runFlow: settle.yaml
+- takeScreenshot:
+    path: ${SHOT_DIR}/reading/3
+
+# ── Grammar ───────────────────────────────────────────────────────────────────
+- tapOn:
+    point: "50%,96%"
+- extendedWaitUntil:
+    visible: "TOPIK I (Sơ cấp)"
+    timeout: 15000
+- runFlow: settle.yaml
+- takeScreenshot:
+    path: ${SHOT_DIR}/grammar/1
+
+- tapOn: "TOPIK II (Trung cấp)"
+- runFlow: settle.yaml
+- takeScreenshot:
+    path: ${SHOT_DIR}/grammar/2
+
+- openLink: kkorea-hangul://grammar/n-eun-neun
+- extendedWaitUntil:
+    visible: "N은/는"
+    timeout: 15000
+- runFlow: settle.yaml
+- takeScreenshot:
+    path: ${SHOT_DIR}/grammar/3
+
+# ── Vocabulary ────────────────────────────────────────────────────────────────
+- openLink: kkorea-hangul://vocabulary
+- extendedWaitUntil:
+    visible: "TOPIK I (Sơ cấp)"
+    timeout: 15000
+- runFlow: settle.yaml
+- takeScreenshot:
+    path: ${SHOT_DIR}/vocabulary/1
+
+- scrollUntilVisible:
+    element:
+      text: "Cách đọc"
+    direction: DOWN
+    timeout: 15000
+- runFlow: settle.yaml
+- takeScreenshot:
+    path: ${SHOT_DIR}/vocabulary/2
+
+- tapOn: "TOPIK II (Trung cấp)"
+- runFlow: settle.yaml
+- takeScreenshot:
+    path: ${SHOT_DIR}/vocabulary/3
+
+# ── Review ────────────────────────────────────────────────────────────────────
+- openLink: kkorea-hangul://review
+- extendedWaitUntil:
+    visible: "Từ gợi ý"
+    timeout: 15000
+- runFlow: settle.yaml
+- takeScreenshot:
+    path: ${SHOT_DIR}/review/1
+
+- openLink: kkorea-hangul://review-manage
+- extendedWaitUntil:
+    visible: "Tạo thẻ"
+    timeout: 15000
+- tapOn: "Mặt trước (tiếng Hàn)"
+- inputText: "안녕하세요"
+- tapOn: "Mặt sau (nghĩa)"
+- inputText: "xin chào"
+- hideKeyboard
+- tapOn: "Lưu"
+- runFlow: settle.yaml
+- openLink: kkorea-hangul://review
+- extendedWaitUntil:
+    visible: "Hiện đáp án"
+    timeout: 30000
+- runFlow: settle.yaml
+- takeScreenshot:
+    path: ${SHOT_DIR}/review/2
+
+- tapOn: "Hiện đáp án"
+- runFlow: settle.yaml
+- takeScreenshot:
+    path: ${SHOT_DIR}/review/3
+
+# ── Settings ──────────────────────────────────────────────────────────────────
+- openLink: kkorea-hangul://settings
+- extendedWaitUntil:
+    visible: "Cấu hình giọng đọc"
+    timeout: 15000
+- runFlow: settle.yaml
+- takeScreenshot:
+    path: ${SHOT_DIR}/settings/1
+
+- scrollUntilVisible:
+    element:
+      text: "Ngôn ngữ"
+    direction: DOWN
+    timeout: 15000
+- runFlow: settle.yaml
+- takeScreenshot:
+    path: ${SHOT_DIR}/settings/2
+
+- scrollUntilVisible:
+    element:
+      text: "Giới thiệu"
+    direction: DOWN
+    timeout: 15000
+- runFlow: settle.yaml
+- takeScreenshot:
+    path: ${SHOT_DIR}/settings/3

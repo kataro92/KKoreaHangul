@@ -1,0 +1,9 @@
+# Runs light + dark capture via shell (scripts/capture-screenshots-native.sh).
+# This file is kept for `maestro test` convenience — runs light only by default.
+appId: com.kataro92.kkorea-hangul
+name: Capture README screenshots (light)
+---
+- runFlow:
+    file: _capture-theme.yaml
+    env:
+      SHOT_DIR: screenshots/light

@@ -1,0 +1,5 @@
+# Brief pause so blur/glass animations finish before a screenshot.
+appId: com.kataro92.kkorea-hangul
+---
+- waitForAnimationToEnd:
+    timeout: 5000

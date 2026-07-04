@@ -4,54 +4,108 @@ A Korean (Hangul) learning app for Vietnamese speakers, built with **React Nativ
 
 ## Screenshots
 
-Captured at **iPhone XR** size (414×896, 2×) from the Expo web build — three states per feature.
+Captured on the **iOS Simulator** (native React Native UI). Each feature shows **three states** in **light** and **dark** appearance (follows the system theme).
 
-**Alphabet** — Hangul letters with romanization and “group by sound” for batchim.
+### Alphabet
 
+Hangul letters with romanization and “group by sound” for batchim.
+
+<p align="center"><strong>Light</strong></p>
 <p align="center">
-  <img src="screenshots/alphabet/1.png" alt="Alphabet — basic consonants" width="32%" />
-  <img src="screenshots/alphabet/2.png" alt="Alphabet — basic vowels" width="32%" />
-  <img src="screenshots/alphabet/3.png" alt="Alphabet — batchim by sound" width="32%" />
+  <img src="screenshots/light/alphabet/1.png" alt="Alphabet (light) — basic consonants" width="32%" />
+  <img src="screenshots/light/alphabet/2.png" alt="Alphabet (light) — basic vowels" width="32%" />
+  <img src="screenshots/light/alphabet/3.png" alt="Alphabet (light) — batchim by sound" width="32%" />
+</p>
+<p align="center"><strong>Dark</strong></p>
+<p align="center">
+  <img src="screenshots/dark/alphabet/1.png" alt="Alphabet (dark) — basic consonants" width="32%" />
+  <img src="screenshots/dark/alphabet/2.png" alt="Alphabet (dark) — basic vowels" width="32%" />
+  <img src="screenshots/dark/alphabet/3.png" alt="Alphabet (dark) — batchim by sound" width="32%" />
 </p>
 
-**Reading** — Syllable breakdown + reading‑practice mode (countdown → Vietnamese phonetics + TTS).
+### Reading
 
+Syllable breakdown + reading‑practice mode (countdown → Vietnamese phonetics + TTS).
+
+<p align="center"><strong>Light</strong></p>
 <p align="center">
-  <img src="screenshots/reading/1.png" alt="Reading — syllable breakdown" width="32%" />
-  <img src="screenshots/reading/2.png" alt="Reading — decomposition result" width="32%" />
-  <img src="screenshots/reading/3.png" alt="Reading — practice with answer" width="32%" />
+  <img src="screenshots/light/reading/1.png" alt="Reading (light) — syllable breakdown" width="32%" />
+  <img src="screenshots/light/reading/2.png" alt="Reading (light) — decomposition result" width="32%" />
+  <img src="screenshots/light/reading/3.png" alt="Reading (light) — practice with answer" width="32%" />
+</p>
+<p align="center"><strong>Dark</strong></p>
+<p align="center">
+  <img src="screenshots/dark/reading/1.png" alt="Reading (dark) — syllable breakdown" width="32%" />
+  <img src="screenshots/dark/reading/2.png" alt="Reading (dark) — decomposition result" width="32%" />
+  <img src="screenshots/dark/reading/3.png" alt="Reading (dark) — practice with answer" width="32%" />
 </p>
 
-**Grammar** — TOPIK I/II grammar points with structure, Vietnamese explanation, and examples.
+### Grammar
 
+TOPIK I/II grammar points with structure, Vietnamese explanation, and examples.
+
+<p align="center"><strong>Light</strong></p>
 <p align="center">
-  <img src="screenshots/grammar/1.png" alt="Grammar — TOPIK I list" width="32%" />
-  <img src="screenshots/grammar/2.png" alt="Grammar — TOPIK II list" width="32%" />
-  <img src="screenshots/grammar/3.png" alt="Grammar — detail screen" width="32%" />
+  <img src="screenshots/light/grammar/1.png" alt="Grammar (light) — TOPIK I list" width="32%" />
+  <img src="screenshots/light/grammar/2.png" alt="Grammar (light) — TOPIK II list" width="32%" />
+  <img src="screenshots/light/grammar/3.png" alt="Grammar (light) — detail screen" width="32%" />
+</p>
+<p align="center"><strong>Dark</strong></p>
+<p align="center">
+  <img src="screenshots/dark/grammar/1.png" alt="Grammar (dark) — TOPIK I list" width="32%" />
+  <img src="screenshots/dark/grammar/2.png" alt="Grammar (dark) — TOPIK II list" width="32%" />
+  <img src="screenshots/dark/grammar/3.png" alt="Grammar (dark) — detail screen" width="32%" />
 </p>
 
-**Vocabulary** — TOPIK I/II word lists with Vietnamese meanings, TTS, syllable breakdown, add‑to‑review.
+### Vocabulary
 
+TOPIK I/II word lists with Vietnamese meanings, TTS, syllable breakdown, add‑to‑review.
+
+<p align="center"><strong>Light</strong></p>
 <p align="center">
-  <img src="screenshots/vocabulary/1.png" alt="Vocabulary — word card" width="32%" />
-  <img src="screenshots/vocabulary/2.png" alt="Vocabulary — syllable breakdown" width="32%" />
-  <img src="screenshots/vocabulary/3.png" alt="Vocabulary — TOPIK II level" width="32%" />
+  <img src="screenshots/light/vocabulary/1.png" alt="Vocabulary (light) — word card" width="32%" />
+  <img src="screenshots/light/vocabulary/2.png" alt="Vocabulary (light) — syllable breakdown" width="32%" />
+  <img src="screenshots/light/vocabulary/3.png" alt="Vocabulary (light) — TOPIK II level" width="32%" />
+</p>
+<p align="center"><strong>Dark</strong></p>
+<p align="center">
+  <img src="screenshots/dark/vocabulary/1.png" alt="Vocabulary (dark) — word card" width="32%" />
+  <img src="screenshots/dark/vocabulary/2.png" alt="Vocabulary (dark) — syllable breakdown" width="32%" />
+  <img src="screenshots/dark/vocabulary/3.png" alt="Vocabulary (dark) — TOPIK II level" width="32%" />
 </p>
 
-**Review** — Spaced‑repetition flashcards (SM‑2), stats, grade buttons, and word suggestions.
+### Review
 
+Spaced‑repetition flashcards (SM‑2), stats, grade buttons, and word suggestions.
+
+<p align="center"><strong>Light</strong></p>
 <p align="center">
-  <img src="screenshots/review/1.png" alt="Review — suggestions" width="32%" />
-  <img src="screenshots/review/2.png" alt="Review — flashcard front" width="32%" />
-  <img src="screenshots/review/3.png" alt="Review — flashcard graded" width="32%" />
+  <img src="screenshots/light/review/1.png" alt="Review (light) — suggestions" width="32%" />
+  <img src="screenshots/light/review/2.png" alt="Review (light) — flashcard front" width="32%" />
+  <img src="screenshots/light/review/3.png" alt="Review (light) — flashcard graded" width="32%" />
+</p>
+<p align="center"><strong>Dark</strong></p>
+<p align="center">
+  <img src="screenshots/dark/review/1.png" alt="Review (dark) — suggestions" width="32%" />
+  <img src="screenshots/dark/review/2.png" alt="Review (dark) — flashcard front" width="32%" />
+  <img src="screenshots/dark/review/3.png" alt="Review (dark) — flashcard graded" width="32%" />
 </p>
 
-**Settings** — Speech, study reminder, language (7 locales with flags), About.
+### Settings
 
+Speech, study reminder, language (7 locales with flags), About.
+
+<p align="center"><strong>Light</strong></p>
 <p align="center">
-  <img src="screenshots/settings/1.png" alt="Settings — speech" width="32%" />
-  <img src="screenshots/settings/2.png" alt="Settings — language" width="32%" />
-  <img src="screenshots/settings/3.png" alt="Settings — about" width="32%" />
+  <img src="screenshots/light/settings/1.png" alt="Settings (light) — speech" width="32%" />
+  <img src="screenshots/light/settings/2.png" alt="Settings (light) — language" width="32%" />
+  <img src="screenshots/light/settings/3.png" alt="Settings (light) — about" width="32%" />
+</p>
+<p align="center"><strong>Dark</strong></p>
+<p align="center">
+  <img src="screenshots/dark/settings/1.png" alt="Settings (dark) — speech" width="32%" />
+  <img src="screenshots/dark/settings/2.png" alt="Settings (dark) — language" width="32%" />
+  <img src="screenshots/dark/settings/3.png" alt="Settings (dark) — about" width="32%" />
 </p>
 
 ## Features
@@ -118,12 +172,26 @@ Then:
 
 ### Refresh README screenshots
 
+**Native (recommended)** — real iOS blur/glass via Maestro; captures **light and dark** (36 PNGs):
+
 ```bash
-npx expo start --web --port 8083
-$env:APP_URL='http://localhost:8083'; node scripts/capture-screenshots.mjs
+# First time (builds Release on simulator, then captures):
+npm run screenshots:native:build
+
+# Later runs (app already installed):
+npm run screenshots:native
 ```
 
-Uses Playwright at **iPhone XR** dimensions (same as Chrome DevTools device mode).
+Optional: `SIMULATOR="iPhone 17 Pro" npm run screenshots:native`
+
+Requires [Maestro](https://maestro.mobile.dev/) (auto-installed on first run) and Xcode Simulator.
+
+**Web (legacy)** — Playwright at iPhone XR dimensions (light appearance only):
+
+```bash
+npx expo start --web --port 8083
+APP_URL=http://localhost:8083 node scripts/capture-screenshots.mjs
+```
 
 ## Project structure
 
@@ -154,8 +222,9 @@ Uses Playwright at **iPhone XR** dimensions (same as Chrome DevTools device mode
 │   ├── storage/            # store.ts (AsyncStorage wrapper)
 │   └── utils/              # decompose.ts (Hangul syllable decomposition)
 ├── assets/                  # icon.png, splash-full.png, favicon, Android adaptive icon
-├── screenshots/             # README screenshots (screenshots/<feature>/1-3.png)
-└── scripts/                 # capture-screenshots.mjs, parse-topik-vocab.js
+├── screenshots/             # README screenshots (screenshots/{light,dark}/<feature>/1-3.png)
+├── .maestro/                # Maestro flows for native screenshots
+└── scripts/                 # capture-screenshots*.mjs/sh, parse-topik-vocab.js
 ```
 
 ## Author
