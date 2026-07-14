@@ -120,6 +120,7 @@ Speech, study reminder, language (7 locales with flags), About.
 - **Settings** (gear icon in header) — Single screen with:
   - **Speech settings** — Speed, pitch, volume, and Korean voice selection. Applies to Reading and Vocabulary.
   - **Study reminder** — Optional daily notification (8:00 PM) to review due cards (requires `expo-notifications`).
+  - **Backup & Restore** — Export all flashcards, progress, and settings to a JSON file (save to Google Drive, iCloud/Files, email, etc.). Restore later by choosing the file again—no server needed.
   - **Language** — App UI in 7 languages (native names + flags): English, Tiếng Việt, 中文, हिंदी, Español, Français, 日本語.
   - **About** — App description and author (Phạm Huy Đức). Back button label is localized (e.g. “Màn hình chính” / “Main”).
 
@@ -150,6 +151,8 @@ The app degrades gracefully if any are missing — glass surfaces fall back to s
 
 ## Usage
 
+### Quick start
+
 Start the development server:
 
 ```bash
@@ -161,12 +164,34 @@ Then:
 - Scan the QR code with **Expo Go** (Android/iOS), or
 - Press **i** for iOS Simulator, **a** for Android emulator, or **w** for web.
 
+### Run on iOS
+
+**iOS Simulator (requires Xcode):**
+
+```bash
+npm run ios
+```
+
+Or with a custom simulator:
+
+```bash
+npx expo run:ios --simulator="iPhone 17 Pro"
+```
+
+**Physical iOS device:**
+
+1. Build a development client:
+   ```bash
+   npx eas build --platform ios --profile preview
+   ```
+2. Scan the QR code with Camera app or use Expo Go to run the development build.
+
 ### Scripts
 
 | Command           | Description           |
 |-------------------|-----------------------|
 | `npm start`       | Start Expo dev server |
-| `npm run ios`     | Run on iOS            |
+| `npm run ios`     | Run on iOS Simulator  |
 | `npm run android` | Run on Android        |
 | `npm run web`     | Run in the browser    |
 
