@@ -1,12 +1,15 @@
 import { useNavigation } from 'expo-router';
 import { useEffect, useState } from 'react';
-import { Linking, Pressable, ScrollView, StyleSheet, Switch, Text, View } from 'react-native';
+import { Alert, Linking, Pressable, ScrollView, StyleSheet, Switch, Text, View } from 'react-native';
+import { GlassButton } from '../src/components/glass/GlassButton';
 import { GlassCard } from '../src/components/glass/GlassCard';
 import { GlassScreen } from '../src/components/glass/GlassScreen';
 import { useTheme } from '../src/constants/theme';
 import { useLanguage, LOCALE_NATIVE_LABELS, LOCALE_FLAGS } from '../src/contexts/LanguageContext';
 import type { Locale } from '../src/contexts/LanguageContext';
 import { useSpeechConfig, RATE_OPTIONS, PITCH_OPTIONS, VOLUME_OPTIONS } from '../src/contexts/SpeechConfigContext';
+import { useSrs } from '../src/contexts/SrsContext';
+import { exportBackup, importBackup } from '../src/storage/backup';
 import { loadJSON, saveJSON, StorageKeys } from '../src/storage/store';
 import {
   scheduleDailyReminder,
@@ -26,7 +29,10 @@ export default function SettingsScreen() {
   const { rate, pitch, volume, voices, selectedVoiceId, setRate, setPitch, setVolume, setSelectedVoiceId } =
     useSpeechConfig();
 
+  const { reloadFromStorage } = useSrs();
+
   const [reminderEnabled, setReminderEnabled] = useState(false);
+  const [backupBusy, setBackupBusy] = useState(false);
 
   useEffect(() => {
     navigation.setOptions({ title: t('settingsTitle'), headerBackTitle: t('backToMain') });
@@ -49,6 +55,54 @@ export default function SettingsScreen() {
       await cancelReminder();
     }
     await saveJSON(StorageKeys.settings, { reminderEnabled: value });
+  };
+
+  const handleBackupExport = async () => {
+    setBackupBusy(true);
+    const result = await exportBackup();
+    setBackupBusy(false);
+    if (result === 'empty') {
+      Alert.alert(t('backupSectionTitle'), t('backupEmpty'));
+    } else if (result === 'unavailable' || result === 'error') {
+      Alert.alert(t('backupSectionTitle'), t('backupError'));
+    }
+  };
+
+  const handleBackupImport = () => {
+    Alert.alert(t('backupConfirmTitle'), t('backupConfirmBody'), [
+      { text: t('srsCancel'), style: 'cancel' },
+      {
+        text: t('backupImport'),
+        style: 'destructive',
+        onPress: async () => {
+          setBackupBusy(true);
+          const result = await importBackup();
+          if (result.status === 'restored') {
+            await reloadFromStorage();
+            // Áp lại trạng thái nhắc ôn theo dữ liệu vừa khôi phục.
+            const s = await loadJSON<SettingsData>(StorageKeys.settings, {});
+            if (s.reminderEnabled) {
+              const ok = await scheduleDailyReminder(t('reminderTitle'), t('reminderBody'));
+              setReminderEnabled(ok);
+              if (!ok) await saveJSON(StorageKeys.settings, { ...s, reminderEnabled: false });
+            } else {
+              setReminderEnabled(false);
+              await cancelReminder();
+            }
+            setBackupBusy(false);
+            Alert.alert(t('backupDoneTitle'), t('backupDoneBody'));
+          } else {
+            setBackupBusy(false);
+            if (result.status === 'invalid') {
+              Alert.alert(t('backupSectionTitle'), t('backupInvalidFile'));
+            } else if (result.status === 'error') {
+              Alert.alert(t('backupSectionTitle'), t('backupError'));
+            }
+            // Người dùng tự huỷ chọn file: không cần thông báo.
+          }
+        },
+      },
+    ]);
   };
 
   const reminderTimeLabel = `${String(REMINDER_HOUR).padStart(2, '0')}:${String(REMINDER_MINUTE).padStart(2, '0')}`;
@@ -145,6 +199,28 @@ export default function SettingsScreen() {
         </>
       )}
 
+      <Text style={[styles.sectionTitle, { color: c.text }]}>{t('backupSectionTitle')}</Text>
+      <GlassCard style={styles.card}>
+        <Text style={[styles.backupDesc, { color: c.textSecondary }]}>{t('backupDesc')}</Text>
+        <View style={styles.backupRow}>
+          <GlassButton
+            compact
+            label={t('backupExport')}
+            onPress={handleBackupExport}
+            disabled={backupBusy}
+            style={styles.backupBtn}
+          />
+          <GlassButton
+            compact
+            variant="outline"
+            label={t('backupImport')}
+            onPress={handleBackupImport}
+            disabled={backupBusy}
+            style={styles.backupBtn}
+          />
+        </View>
+      </GlassCard>
+
       <Text style={[styles.sectionTitle, { color: c.text }]}>{t('aboutTitle')}</Text>
       <GlassCard style={styles.card}>
         <Text style={[styles.aboutApp, { color: c.text }]}>KKorea Hangul</Text>
@@ -183,6 +259,9 @@ const styles = StyleSheet.create({
   langRow: { flexDirection: 'row', alignItems: 'center', paddingVertical: 14, paddingHorizontal: 12 },
   langFlag: { fontSize: 22, marginRight: 12 },
   langText: { fontSize: 16, flex: 1 },
+  backupDesc: { fontSize: 13, lineHeight: 18, marginBottom: 12 },
+  backupRow: { flexDirection: 'row', gap: 10 },
+  backupBtn: { flex: 1 },
   aboutApp: { fontSize: 20, fontWeight: '700', marginBottom: 12 },
   aboutDescription: { fontSize: 15, lineHeight: 22, marginBottom: 16 },
   aboutAuthor: { fontSize: 15, fontWeight: '600' },

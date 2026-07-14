@@ -38,6 +38,8 @@ type SrsContextValue = {
   hasCard: (type: CardType, front: string) => boolean;
   /** Đồng bộ nghĩa thẻ vocab/sentence với dữ liệu nguồn; trả về số thẻ đã đổi. */
   refreshMeanings: () => number;
+  /** Nạp lại thẻ từ storage — dùng sau khi khôi phục backup. */
+  reloadFromStorage: () => Promise<void>;
 };
 
 const SrsContext = createContext<SrsContextValue | null>(null);
@@ -159,6 +161,12 @@ export function SrsProvider({ children }: { children: React.ReactNode }) {
     return changed;
   }, []);
 
+  const reloadFromStorage = useCallback(async () => {
+    const data = await loadJSON<SrsCard[]>(StorageKeys.srsCards, []);
+    const { cards: synced } = syncMeanings(data);
+    setCards(synced);
+  }, []);
+
   const dueCards = useMemo(() => {
     const now = new Date().toISOString();
     return cards.filter((c) => isDue(c, now));
@@ -186,6 +194,7 @@ export function SrsProvider({ children }: { children: React.ReactNode }) {
     removeCard,
     hasCard,
     refreshMeanings,
+    reloadFromStorage,
   };
 
   return <SrsContext.Provider value={value}>{children}</SrsContext.Provider>;

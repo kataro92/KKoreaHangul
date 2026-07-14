@@ -17,6 +17,7 @@ export function AppSplash({
 }) {
   const theme = useTheme();
   const [hidden, setHidden] = useState(false);
+  const [fading, setFading] = useState(false);
   const opacity = useRef(new Animated.Value(1)).current;
   const scale = useRef(new Animated.Value(0.9)).current;
 
@@ -24,17 +25,28 @@ export function AppSplash({
     // Logo phóng nhẹ lên khi xuất hiện.
     Animated.spring(scale, { toValue: 1, friction: 7, tension: 60, useNativeDriver: true }).start();
     const id = setTimeout(() => {
+      setFading(true);
       Animated.timing(opacity, { toValue: 0, duration: fadeDuration, useNativeDriver: true }).start(() =>
         setHidden(true)
       );
     }, minDuration);
-    return () => clearTimeout(id);
+    // Dự phòng: animation có thể không bao giờ hoàn tất khi app/tab bị đưa
+    // xuống nền (rAF bị tạm dừng) — luôn gỡ splash sau tổng thời gian dự kiến
+    // để lớp phủ không chặn tương tác vĩnh viễn.
+    const failSafe = setTimeout(() => setHidden(true), minDuration + fadeDuration + 250);
+    return () => {
+      clearTimeout(id);
+      clearTimeout(failSafe);
+    };
   }, [minDuration, fadeDuration, opacity, scale]);
 
   if (hidden) return null;
 
   return (
-    <Animated.View style={[StyleSheet.absoluteFill, styles.wrap, { opacity }]}>
+    <Animated.View
+      style={[StyleSheet.absoluteFill, styles.wrap, { opacity }]}
+      pointerEvents={fading ? 'none' : 'auto'}
+    >
       <ScreenBackground />
       <Animated.View style={[styles.center, { transform: [{ scale }] }]}>
         <Image source={require('../../../assets/splash-icon.png')} style={styles.logo} resizeMode="contain" />

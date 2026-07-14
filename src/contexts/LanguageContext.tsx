@@ -131,6 +131,18 @@ type TranslationMap = {
   reminderDesc: string;
   reminderTitle: string;
   reminderBody: string;
+  // Backup (sao lưu & khôi phục)
+  backupSectionTitle: string;
+  backupDesc: string;
+  backupExport: string;
+  backupImport: string;
+  backupConfirmTitle: string;
+  backupConfirmBody: string;
+  backupDoneTitle: string;
+  backupDoneBody: string;
+  backupInvalidFile: string;
+  backupError: string;
+  backupEmpty: string;
 };
 
 const translations: Record<Locale, TranslationMap> = {
@@ -252,6 +264,17 @@ const translations: Record<Locale, TranslationMap> = {
     reminderDesc: 'Get a daily notification to review your due cards.',
     reminderTitle: 'Time to review!',
     reminderBody: 'You have cards waiting. Open KKorea Hangul to review.',
+    backupSectionTitle: 'Backup & Restore',
+    backupDesc: 'Export your flashcards, progress and settings to a JSON file (save it to Google Drive, iCloud/Files…). Restore by picking that file again.',
+    backupExport: 'Back up',
+    backupImport: 'Restore',
+    backupConfirmTitle: 'Restore from file?',
+    backupConfirmBody: 'Current data on this device will be overwritten by the backup file. Continue?',
+    backupDoneTitle: 'Restore complete',
+    backupDoneBody: 'Your data has been restored.',
+    backupInvalidFile: 'This file is not a valid KKorea Hangul backup.',
+    backupError: 'Something went wrong. Please try again.',
+    backupEmpty: 'No data to back up yet.',
   },
   vi: {
     tabAlphabet: 'Chữ cái',
@@ -371,6 +394,17 @@ const translations: Record<Locale, TranslationMap> = {
     reminderDesc: 'Nhận thông báo mỗi ngày để ôn các thẻ đến hạn.',
     reminderTitle: 'Đến giờ ôn tập!',
     reminderBody: 'Bạn có thẻ đang chờ. Mở KKorea Hangul để ôn nhé.',
+    backupSectionTitle: 'Sao lưu & Khôi phục',
+    backupDesc: 'Xuất thẻ ôn tập, tiến độ và cài đặt ra file JSON (lưu vào Google Drive, iCloud/Files…). Khôi phục bằng cách chọn lại file đó.',
+    backupExport: 'Sao lưu',
+    backupImport: 'Khôi phục',
+    backupConfirmTitle: 'Khôi phục từ file?',
+    backupConfirmBody: 'Dữ liệu hiện tại trên máy sẽ bị ghi đè bởi file sao lưu. Tiếp tục?',
+    backupDoneTitle: 'Khôi phục xong',
+    backupDoneBody: 'Dữ liệu của bạn đã được khôi phục.',
+    backupInvalidFile: 'File này không phải bản sao lưu hợp lệ của KKorea Hangul.',
+    backupError: 'Có lỗi xảy ra. Vui lòng thử lại.',
+    backupEmpty: 'Chưa có dữ liệu để sao lưu.',
   },
   zh: {
     tabAlphabet: '字母',
@@ -490,6 +524,17 @@ const translations: Record<Locale, TranslationMap> = {
     reminderDesc: '每天收到通知，复习到期的卡片。',
     reminderTitle: '该复习啦！',
     reminderBody: '有卡片在等你。打开 KKorea Hangul 复习吧。',
+    backupSectionTitle: '备份与恢复',
+    backupDesc: '将复习卡片、学习进度和设置导出为 JSON 文件（可保存到 Google Drive、iCloud/文件等）。恢复时重新选择该文件即可。',
+    backupExport: '备份',
+    backupImport: '恢复',
+    backupConfirmTitle: '从文件恢复？',
+    backupConfirmBody: '设备上的当前数据将被备份文件覆盖。继续吗？',
+    backupDoneTitle: '恢复完成',
+    backupDoneBody: '你的数据已恢复。',
+    backupInvalidFile: '该文件不是有效的 KKorea Hangul 备份。',
+    backupError: '出错了，请重试。',
+    backupEmpty: '暂无数据可备份。',
   },
   hi: {
     tabAlphabet: 'वर्णमाला',
@@ -609,6 +654,17 @@ const translations: Record<Locale, TranslationMap> = {
     reminderDesc: 'बकाया कार्ड दोहराने के लिए हर दिन सूचना पाएँ।',
     reminderTitle: 'दोहराने का समय!',
     reminderBody: 'कार्ड आपका इंतज़ार कर रहे हैं। दोहराने के लिए KKorea Hangul खोलें।',
+    backupSectionTitle: 'बैकअप और पुनर्स्थापना',
+    backupDesc: 'अपने कार्ड, प्रगति और सेटिंग्स को JSON फ़ाइल में निर्यात करें (Google Drive, iCloud/Files… में सहेजें)। पुनर्स्थापित करने के लिए वही फ़ाइल चुनें।',
+    backupExport: 'बैकअप लें',
+    backupImport: 'पुनर्स्थापित करें',
+    backupConfirmTitle: 'फ़ाइल से पुनर्स्थापित करें?',
+    backupConfirmBody: 'इस डिवाइस का मौजूदा डेटा बैकअप फ़ाइल से बदल दिया जाएगा। जारी रखें?',
+    backupDoneTitle: 'पुनर्स्थापना पूर्ण',
+    backupDoneBody: 'आपका डेटा पुनर्स्थापित कर दिया गया है।',
+    backupInvalidFile: 'यह फ़ाइल मान्य KKorea Hangul बैकअप नहीं है।',
+    backupError: 'कुछ गड़बड़ हुई। कृपया फिर से कोशिश करें।',
+    backupEmpty: 'बैकअप के लिए अभी कोई डेटा नहीं है।',
   },
   es: {
     tabAlphabet: 'Alfabeto',
@@ -728,6 +784,17 @@ const translations: Record<Locale, TranslationMap> = {
     reminderDesc: 'Recibe una notificación diaria para repasar tus tarjetas pendientes.',
     reminderTitle: '¡Hora de repasar!',
     reminderBody: 'Tienes tarjetas esperando. Abre KKorea Hangul para repasar.',
+    backupSectionTitle: 'Copia de seguridad y restauración',
+    backupDesc: 'Exporta tus tarjetas, progreso y ajustes a un archivo JSON (guárdalo en Google Drive, iCloud/Archivos…). Restaura eligiendo ese archivo de nuevo.',
+    backupExport: 'Hacer copia',
+    backupImport: 'Restaurar',
+    backupConfirmTitle: '¿Restaurar desde archivo?',
+    backupConfirmBody: 'Los datos actuales de este dispositivo se sobrescribirán con el archivo de copia. ¿Continuar?',
+    backupDoneTitle: 'Restauración completada',
+    backupDoneBody: 'Tus datos han sido restaurados.',
+    backupInvalidFile: 'Este archivo no es una copia de seguridad válida de KKorea Hangul.',
+    backupError: 'Algo salió mal. Inténtalo de nuevo.',
+    backupEmpty: 'Aún no hay datos para respaldar.',
   },
   fr: {
     tabAlphabet: 'Alphabet',
@@ -847,6 +914,17 @@ const translations: Record<Locale, TranslationMap> = {
     reminderDesc: 'Recevez une notification quotidienne pour réviser vos cartes.',
     reminderTitle: "C'est l'heure de réviser !",
     reminderBody: 'Des cartes vous attendent. Ouvrez KKorea Hangul pour réviser.',
+    backupSectionTitle: 'Sauvegarde et restauration',
+    backupDesc: 'Exportez vos cartes, votre progression et vos réglages dans un fichier JSON (à enregistrer sur Google Drive, iCloud/Fichiers…). Restaurez en re-sélectionnant ce fichier.',
+    backupExport: 'Sauvegarder',
+    backupImport: 'Restaurer',
+    backupConfirmTitle: 'Restaurer depuis le fichier ?',
+    backupConfirmBody: 'Les données actuelles de cet appareil seront remplacées par le fichier de sauvegarde. Continuer ?',
+    backupDoneTitle: 'Restauration terminée',
+    backupDoneBody: 'Vos données ont été restaurées.',
+    backupInvalidFile: 'Ce fichier n’est pas une sauvegarde KKorea Hangul valide.',
+    backupError: 'Une erreur est survenue. Veuillez réessayer.',
+    backupEmpty: 'Aucune donnée à sauvegarder pour le moment.',
   },
   ja: {
     tabAlphabet: '文字',
@@ -966,6 +1044,17 @@ const translations: Record<Locale, TranslationMap> = {
     reminderDesc: '期限のカードを復習するため毎日通知を受け取ります。',
     reminderTitle: '復習の時間です！',
     reminderBody: 'カードが待っています。KKorea Hangul を開いて復習しましょう。',
+    backupSectionTitle: 'バックアップと復元',
+    backupDesc: '復習カード・学習進捗・設定を JSON ファイルに書き出します（Google Drive や iCloud/ファイル に保存）。復元はそのファイルを選び直すだけです。',
+    backupExport: 'バックアップ',
+    backupImport: '復元',
+    backupConfirmTitle: 'ファイルから復元しますか？',
+    backupConfirmBody: 'この端末の現在のデータはバックアップファイルで上書きされます。続けますか？',
+    backupDoneTitle: '復元が完了しました',
+    backupDoneBody: 'データを復元しました。',
+    backupInvalidFile: 'このファイルは有効な KKorea Hangul バックアップではありません。',
+    backupError: 'エラーが発生しました。もう一度お試しください。',
+    backupEmpty: 'バックアップするデータがまだありません。',
   },
 };
 
