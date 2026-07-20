@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useMemo, useState } from 'react';
-import { Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
+import { Image, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { useRouter } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
 import * as Speech from 'expo-speech';
@@ -7,6 +7,7 @@ import { GlassCard } from '../../src/components/glass/GlassCard';
 import { GlassView } from '../../src/components/glass/GlassView';
 import { GlassButton } from '../../src/components/glass/GlassButton';
 import { GlassScreen } from '../../src/components/glass/GlassScreen';
+import { ScreenHint } from '../../src/components/glass/ScreenHint';
 import { useTheme } from '../../src/constants/theme';
 import { useLanguage } from '../../src/contexts/LanguageContext';
 import { useSpeechConfig } from '../../src/contexts/SpeechConfigContext';
@@ -14,6 +15,7 @@ import { useSrs } from '../../src/contexts/SrsContext';
 import type { Rating } from '../../src/srs/types';
 import { getSuggestions } from '../../src/srs/suggest';
 import type { VocabSuggestion } from '../../src/srs/suggest';
+import { resolveVocabIllustration } from '../../src/utils/vocabIllustration';
 
 export default function ReviewScreen() {
   const { t } = useLanguage();
@@ -39,11 +41,21 @@ export default function ReviewScreen() {
 
   const addSuggestion = useCallback(
     (s: VocabSuggestion) => {
-      addCard({ type: 'vocab', front: s.word, back: s.vi || s.meaning, extra: { pos: s.pos } });
+      addCard({
+        type: 'vocab',
+        front: s.word,
+        back: s.vi || s.meaning,
+        extra: { pos: s.pos, illust: s.illust },
+      });
       setSuggestions((prev) => prev.filter((x) => x.word !== s.word));
     },
     [addCard]
   );
+
+  const reviewIllust =
+    current?.type === 'vocab'
+      ? resolveVocabIllustration(current.extra?.illust || current.front)
+      : null;
 
   useEffect(() => setFlipped(false), [current?.id]);
   useEffect(() => () => Speech.stop(), []);
@@ -75,6 +87,7 @@ export default function ReviewScreen() {
   return (
     <GlassScreen>
     <ScrollView style={styles.container} contentContainerStyle={styles.content} showsVerticalScrollIndicator={false}>
+      <ScreenHint id="review" hint={t('hintReview')} subtitle={t('subtitleReview')} />
       <View style={styles.statsRow}>
         <Stat label={t('srsStatsDue')} value={stats.due} highlight />
         <Stat label={t('srsStatsTotal')} value={stats.total} />
@@ -101,6 +114,9 @@ export default function ReviewScreen() {
                   <Ionicons name="volume-high" size={22} color={c.primary} />
                 </Pressable>
               </View>
+              {reviewIllust ? (
+                <Image source={reviewIllust} style={styles.illust} resizeMode="contain" />
+              ) : null}
               <Text style={[styles.front, { color: c.text }]}>{current.front}</Text>
               {flipped ? (
                 <>
@@ -171,6 +187,7 @@ const styles = StyleSheet.create({
   cardContent: { minHeight: 200, justifyContent: 'center', padding: 24 },
   cardTop: { position: 'absolute', top: 12, left: 16, right: 16, flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' },
   typeTag: { fontSize: 11, textTransform: 'uppercase', letterSpacing: 0.5 },
+  illust: { width: 120, height: 120, alignSelf: 'center', marginBottom: 12, marginTop: 20 },
   front: { fontSize: 34, textAlign: 'center', fontWeight: '700' },
   divider: { height: 1, marginVertical: 16 },
   phonetic: { fontSize: 18, textAlign: 'center', marginBottom: 6 },

@@ -17,6 +17,7 @@ export const StorageKeys = {
   grammarProgress: `${NS}grammar:progress`,
   readingHistory: `${NS}reading:history`,
   settings: `${NS}settings`,
+  guidance: `${NS}guidance`,
 } as const;
 
 type Envelope<T> = { v: number; data: T };

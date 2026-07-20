@@ -1,6 +1,7 @@
-import { useNavigation } from 'expo-router';
+import { useNavigation, useRouter } from 'expo-router';
 import { useEffect, useState } from 'react';
 import { Alert, Linking, Pressable, ScrollView, StyleSheet, Switch, Text, View } from 'react-native';
+import { Ionicons } from '@expo/vector-icons';
 import { GlassButton } from '../src/components/glass/GlassButton';
 import { GlassCard } from '../src/components/glass/GlassCard';
 import { GlassScreen } from '../src/components/glass/GlassScreen';
@@ -9,6 +10,7 @@ import { useLanguage, LOCALE_NATIVE_LABELS, LOCALE_FLAGS } from '../src/contexts
 import type { Locale } from '../src/contexts/LanguageContext';
 import { useSpeechConfig, RATE_OPTIONS, PITCH_OPTIONS, VOLUME_OPTIONS } from '../src/contexts/SpeechConfigContext';
 import { useSrs } from '../src/contexts/SrsContext';
+import { useGuidance } from '../src/contexts/GuidanceContext';
 import { exportBackup, importBackup } from '../src/storage/backup';
 import { loadJSON, saveJSON, StorageKeys } from '../src/storage/store';
 import {
@@ -23,6 +25,8 @@ type SettingsData = { reminderEnabled?: boolean };
 
 export default function SettingsScreen() {
   const navigation = useNavigation();
+  const router = useRouter();
+  const { replayIntro, resetHints } = useGuidance();
   const { t, locale, setLocale, getRateLabel, getPitchLabel, getVolumeLabel } = useLanguage();
   const theme = useTheme();
   const c = theme.colors;
@@ -221,6 +225,50 @@ export default function SettingsScreen() {
         </View>
       </GlassCard>
 
+      <Text style={[styles.sectionTitle, { color: c.text }]}>{t('guideSectionTitle')}</Text>
+      <GlassCard style={styles.card} contentStyle={styles.guideCard}>
+        {[
+          {
+            key: 'open',
+            icon: 'book-outline' as const,
+            label: t('guideOpenLabel'),
+            onPress: () => router.push('/guide'),
+          },
+          {
+            key: 'replay',
+            icon: 'play-circle-outline' as const,
+            label: t('guideReplayIntro'),
+            onPress: replayIntro,
+          },
+          {
+            key: 'resetHints',
+            icon: 'information-circle-outline' as const,
+            label: t('guideResetHints'),
+            onPress: async () => {
+              await resetHints();
+              Alert.alert(t('guideSectionTitle'), t('guideResetHintsDone'));
+            },
+          },
+        ].map((row, i, arr) => (
+          <Pressable
+            key={row.key}
+            style={({ pressed }) => [
+              styles.guideRow,
+              {
+                borderBottomColor: c.hairline,
+                borderBottomWidth: i === arr.length - 1 ? 0 : StyleSheet.hairlineWidth,
+                opacity: pressed ? 0.6 : 1,
+              },
+            ]}
+            onPress={row.onPress}
+          >
+            <Ionicons name={row.icon} size={20} color={c.primary} style={styles.guideIcon} />
+            <Text style={[styles.guideLabel, { color: c.text }]}>{row.label}</Text>
+            <Ionicons name="chevron-forward" size={18} color={c.textSecondary} />
+          </Pressable>
+        ))}
+      </GlassCard>
+
       <Text style={[styles.sectionTitle, { color: c.text }]}>{t('aboutTitle')}</Text>
       <GlassCard style={styles.card}>
         <Text style={[styles.aboutApp, { color: c.text }]}>KKorea Hangul</Text>
@@ -259,6 +307,10 @@ const styles = StyleSheet.create({
   langRow: { flexDirection: 'row', alignItems: 'center', paddingVertical: 14, paddingHorizontal: 12 },
   langFlag: { fontSize: 22, marginRight: 12 },
   langText: { fontSize: 16, flex: 1 },
+  guideCard: { padding: 8 },
+  guideRow: { flexDirection: 'row', alignItems: 'center', paddingVertical: 14, paddingHorizontal: 12 },
+  guideIcon: { marginRight: 12 },
+  guideLabel: { fontSize: 16, flex: 1 },
   backupDesc: { fontSize: 13, lineHeight: 18, marginBottom: 12 },
   backupRow: { flexDirection: 'row', gap: 10 },
   backupBtn: { flex: 1 },

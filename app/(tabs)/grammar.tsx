@@ -5,6 +5,7 @@ import { Ionicons } from '@expo/vector-icons';
 import { GlassView } from '../../src/components/glass/GlassView';
 import { GlassCard } from '../../src/components/glass/GlassCard';
 import { GlassScreen } from '../../src/components/glass/GlassScreen';
+import { ScreenHint } from '../../src/components/glass/ScreenHint';
 import { useTheme } from '../../src/constants/theme';
 import { useLanguage } from '../../src/contexts/LanguageContext';
 import { getGrammarByLevel } from '../../src/data/grammar';
@@ -46,6 +47,7 @@ export default function GrammarScreen() {
     <GlassScreen>
     <View style={styles.container}>
       <View style={styles.header}>
+        <ScreenHint id="grammar" hint={t('hintGrammar')} subtitle={t('subtitleGrammar')} />
         <View style={styles.levelRow}>
           {levelBtn('basics', t('grammarBasics'))}
           {levelBtn('topik1', t('vocabLevel1'))}

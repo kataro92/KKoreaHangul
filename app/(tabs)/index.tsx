@@ -2,6 +2,7 @@ import { useMemo, useState } from 'react';
 import { Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { CategorySection } from '../../src/components/CategorySection';
 import { GlassScreen } from '../../src/components/glass/GlassScreen';
+import { ScreenHint } from '../../src/components/glass/ScreenHint';
 import { useTheme } from '../../src/constants/theme';
 import { useLanguage } from '../../src/contexts/LanguageContext';
 import {
@@ -46,6 +47,7 @@ export default function AlphabetScreen() {
     >
       <Text style={[styles.header, { color: c.text }]}>{t('alphabetTitle')}</Text>
       <Text style={[styles.subheader, { color: c.textSecondary }]}>{t('alphabetSubtitle')}</Text>
+      <ScreenHint id="alphabet" hint={t('hintAlphabet')} />
 
       <CategorySection title={t('alphabetBasicConsonants')} items={BASIC_CONSONANTS} />
       <CategorySection title={t('alphabetDoubleConsonants')} items={DOUBLE_CONSONANTS} />

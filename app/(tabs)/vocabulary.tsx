@@ -1,10 +1,12 @@
 import { useCallback, useMemo, useRef, useState } from 'react';
-import { ActivityIndicator, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
+import { ActivityIndicator, Image, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
+import { Ionicons } from '@expo/vector-icons';
 import * as Speech from 'expo-speech';
 import { DecomposedResult } from '../../src/components/DecomposedResult';
 import { GlassCard } from '../../src/components/glass/GlassCard';
 import { GlassButton } from '../../src/components/glass/GlassButton';
 import { GlassScreen } from '../../src/components/glass/GlassScreen';
+import { ScreenHint } from '../../src/components/glass/ScreenHint';
 import { useTheme } from '../../src/constants/theme';
 import { useLanguage } from '../../src/contexts/LanguageContext';
 import type { TranslationMap } from '../../src/contexts/LanguageContext';
@@ -12,8 +14,9 @@ import { useSpeechConfig } from '../../src/contexts/SpeechConfigContext';
 import { useSrs } from '../../src/contexts/SrsContext';
 import vocabularyData from '../../src/data/vocabulary.json';
 import { decomposeString } from '../../src/utils/decompose';
+import { resolveVocabIllustration } from '../../src/utils/vocabIllustration';
 
-type VocabEntry = { word: string; meaning: string; pos: string; vi?: string };
+type VocabEntry = { word: string; meaning: string; pos: string; vi?: string; illust?: string };
 type LevelKey = 'topik1' | 'topik2';
 
 const topik1Entries: VocabEntry[] = vocabularyData.topik1?.entries ?? [];
@@ -52,8 +55,15 @@ export default function VocabularyScreen() {
 
   const addToReview = useCallback(() => {
     if (!entry) return;
-    addCard({ type: 'vocab', front: entry.word, back: entry.vi || entry.meaning, extra: { pos: entry.pos } });
+    addCard({
+      type: 'vocab',
+      front: entry.word,
+      back: entry.vi || entry.meaning,
+      extra: { pos: entry.pos, illust: entry.illust },
+    });
   }, [entry, addCard]);
+
+  const illustSource = entry ? resolveVocabIllustration(entry.illust || entry.word) : null;
 
   const lastEntryByLevelRef = useRef<Record<LevelKey, VocabEntry | null>>({ topik1: null, topik2: null });
 
@@ -107,6 +117,7 @@ export default function VocabularyScreen() {
   return (
     <GlassScreen>
     <ScrollView style={styles.container} contentContainerStyle={styles.content} showsVerticalScrollIndicator={false}>
+      <ScreenHint id="vocabulary" hint={t('hintVocabulary')} subtitle={t('subtitleVocabulary')} />
       <Text style={[styles.sectionTitle, { color: c.text }]}>{t('vocabLevelTitle')}</Text>
       <View style={styles.levelRow}>
         {levelBtn('topik1', t('vocabLevel1'))}
@@ -119,6 +130,13 @@ export default function VocabularyScreen() {
         <>
           <Text style={[styles.sectionTitle, { color: c.text }]}>{t('vocabNewWord')}</Text>
           <GlassCard style={styles.card} contentStyle={styles.cardContent}>
+            <View style={[styles.illustWrap, { backgroundColor: c.primary + '12' }]}>
+              {illustSource ? (
+                <Image source={illustSource} style={styles.illust} resizeMode="contain" />
+              ) : (
+                <Ionicons name="image-outline" size={48} color={c.textSecondary} />
+              )}
+            </View>
             <Text style={[styles.word, { color: c.text }]}>{entry.word}</Text>
             <View style={styles.meaningRow}>
               <Text style={[styles.pos, { color: c.primary }]}>
@@ -164,6 +182,16 @@ const styles = StyleSheet.create({
   emptyHint: { fontSize: 15, textAlign: 'center', marginTop: 24 },
   card: { marginBottom: 24 },
   cardContent: { padding: 20 },
+  illustWrap: {
+    width: '100%',
+    height: 180,
+    borderRadius: 16,
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginBottom: 16,
+    overflow: 'hidden',
+  },
+  illust: { width: 160, height: 160 },
   word: { fontSize: 40, marginBottom: 12 },
   meaningRow: { flexDirection: 'row', alignItems: 'center', gap: 8, marginBottom: 14 },
   pos: { fontSize: 12, fontWeight: '700' },

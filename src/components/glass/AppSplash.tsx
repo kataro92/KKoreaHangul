@@ -11,34 +11,44 @@ import { ScreenBackground } from './ScreenBackground';
 export function AppSplash({
   minDuration = 1200,
   fadeDuration = 500,
+  ready = true,
 }: {
   minDuration?: number;
   fadeDuration?: number;
+  /** Chỉ bắt đầu đếm giờ fade khi app đã sẵn sàng (vd đã đọc xong cờ onboarding). */
+  ready?: boolean;
 }) {
   const theme = useTheme();
   const [hidden, setHidden] = useState(false);
   const [fading, setFading] = useState(false);
   const opacity = useRef(new Animated.Value(1)).current;
   const scale = useRef(new Animated.Value(0.9)).current;
+  const mountedAt = useRef(Date.now());
 
   useEffect(() => {
     // Logo phóng nhẹ lên khi xuất hiện.
     Animated.spring(scale, { toValue: 1, friction: 7, tension: 60, useNativeDriver: true }).start();
+    // Dự phòng: animation có thể không bao giờ hoàn tất khi app/tab bị đưa
+    // xuống nền (rAF bị tạm dừng) — luôn gỡ splash sau tổng thời gian dự kiến
+    // để lớp phủ không chặn tương tác vĩnh viễn (vô điều kiện, kể cả khi
+    // `ready` không bao giờ tới, vd AsyncStorage treo).
+    const failSafe = setTimeout(() => setHidden(true), minDuration + fadeDuration + 1500);
+    return () => clearTimeout(failSafe);
+  }, [minDuration, fadeDuration, scale]);
+
+  useEffect(() => {
+    if (!ready) return;
+    // Đếm giờ fade chỉ khi app sẵn sàng, nhưng vẫn tính từ lúc mount để tổng
+    // thời gian splash không bị cộng dồn khi ready tới sớm.
+    const elapsed = Date.now() - mountedAt.current;
     const id = setTimeout(() => {
       setFading(true);
       Animated.timing(opacity, { toValue: 0, duration: fadeDuration, useNativeDriver: true }).start(() =>
         setHidden(true)
       );
-    }, minDuration);
-    // Dự phòng: animation có thể không bao giờ hoàn tất khi app/tab bị đưa
-    // xuống nền (rAF bị tạm dừng) — luôn gỡ splash sau tổng thời gian dự kiến
-    // để lớp phủ không chặn tương tác vĩnh viễn.
-    const failSafe = setTimeout(() => setHidden(true), minDuration + fadeDuration + 250);
-    return () => {
-      clearTimeout(id);
-      clearTimeout(failSafe);
-    };
-  }, [minDuration, fadeDuration, opacity, scale]);
+    }, Math.max(0, minDuration - elapsed));
+    return () => clearTimeout(id);
+  }, [ready, minDuration, fadeDuration, opacity]);
 
   if (hidden) return null;
 

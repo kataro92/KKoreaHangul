@@ -5,7 +5,9 @@ import { View } from 'react-native';
 import { LanguageProvider } from '../src/contexts/LanguageContext';
 import { SpeechConfigProvider } from '../src/contexts/SpeechConfigContext';
 import { SrsProvider } from '../src/contexts/SrsContext';
+import { GuidanceProvider, useGuidance } from '../src/contexts/GuidanceContext';
 import { AppSplash } from '../src/components/glass/AppSplash';
+import { OnboardingOverlay } from '../src/components/onboarding/OnboardingOverlay';
 import { useTheme } from '../src/constants/theme';
 
 // Import có bảo vệ: nếu chưa cài expo-splash-screen thì app vẫn chạy (no-op).
@@ -29,6 +31,7 @@ try {
 
 function ThemedStack() {
   const theme = useTheme();
+  const { ready } = useGuidance();
 
   useEffect(() => {
     // Lớp AppSplash (React) đã phủ kín; ẩn splash native bên dưới sau frame đầu
@@ -58,8 +61,11 @@ function ThemedStack() {
         <Stack.Screen name="settings" options={{ headerShown: true }} />
         <Stack.Screen name="grammar/[id]" options={{ headerShown: true }} />
         <Stack.Screen name="review-manage" options={{ headerShown: true }} />
+        <Stack.Screen name="guide" options={{ headerShown: true }} />
       </Stack>
-      <AppSplash minDuration={MIN_SPLASH_MS} fadeDuration={500} />
+      {/* Thứ tự lớp phủ: tabs < giới thiệu (onboarding) < splash. */}
+      <OnboardingOverlay />
+      <AppSplash minDuration={MIN_SPLASH_MS} fadeDuration={500} ready={ready} />
     </View>
   );
 }
@@ -69,7 +75,9 @@ export default function RootLayout() {
     <LanguageProvider>
       <SpeechConfigProvider>
         <SrsProvider>
-          <ThemedStack />
+          <GuidanceProvider>
+            <ThemedStack />
+          </GuidanceProvider>
         </SrsProvider>
       </SpeechConfigProvider>
     </LanguageProvider>

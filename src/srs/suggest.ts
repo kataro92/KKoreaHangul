@@ -9,6 +9,7 @@ export interface VocabSuggestion {
   meaning: string;
   pos: string;
   vi?: string;
+  illust?: string;
 }
 
 const topik1: VocabSuggestion[] = vocabularyData.topik1?.entries ?? [];

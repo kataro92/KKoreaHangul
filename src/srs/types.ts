@@ -14,6 +14,7 @@ export interface SrsCard {
     pos?: string;
     phonetic?: string;
     sourceId?: string; // id nguồn (vd điểm ngữ pháp / câu)
+    illust?: string; // slug minh họa từ vựng
   };
   // Trạng thái SM-2
   easeFactor: number; // hệ số dễ, mặc định 2.5

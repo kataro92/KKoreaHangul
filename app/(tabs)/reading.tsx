@@ -16,6 +16,7 @@ import { ReadingPractice } from '../../src/components/ReadingPractice';
 import { GlassView } from '../../src/components/glass/GlassView';
 import { GlassButton } from '../../src/components/glass/GlassButton';
 import { GlassScreen } from '../../src/components/glass/GlassScreen';
+import { ScreenHint } from '../../src/components/glass/ScreenHint';
 import { useTheme } from '../../src/constants/theme';
 import { useLanguage } from '../../src/contexts/LanguageContext';
 import { useSpeechConfig } from '../../src/contexts/SpeechConfigContext';
@@ -73,10 +74,20 @@ export default function ReadingScreen() {
     </View>
   );
 
+  const screenHint = (
+    <ScreenHint
+      id="reading"
+      hint={t('hintReading')}
+      subtitle={t('subtitleReading')}
+      style={{ marginHorizontal: 16, marginTop: 10, marginBottom: 0 }}
+    />
+  );
+
   if (mode === 'practice') {
     return (
       <GlassScreen>
         <View style={styles.container}>
+          {screenHint}
           {modeToggle}
           <ReadingPractice />
         </View>
@@ -91,6 +102,7 @@ export default function ReadingScreen() {
       behavior={Platform.OS === 'ios' ? 'padding' : undefined}
       keyboardVerticalOffset={Platform.OS === 'ios' ? 90 : 0}
     >
+      {screenHint}
       {modeToggle}
       <View style={styles.inputSection}>
         <Text style={[styles.label, { color: c.text }]}>{t('readingInputLabel')}</Text>

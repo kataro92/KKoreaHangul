@@ -170,17 +170,19 @@
       },
       {
         "id": "a-eun-v-neun-modifier",
-        "title": "A-(으)ㄴ / V-는 N",
+        "title": "A-(으)ㄴ / V-는 N (định ngữ hiện tại)",
         "level": "topik1",
-        "tags": ["định ngữ", "bổ nghĩa danh từ"],
-        "structure": "Tính từ + (으)ㄴ + N / Động từ + 는 + N",
-        "explanation": "Biến tính từ/động từ thành định ngữ bổ nghĩa cho danh từ đứng sau ('… mà/đang…').",
-        "usage": "Dùng để mô tả danh từ bằng một tính từ (hiện tại) hoặc động từ (đang diễn ra).",
+        "tags": ["định ngữ", "관형사형", "bổ nghĩa danh từ"],
+        "structure": "① Tính từ: 받침 O + 은 (작다 → 작은) · 받침 X + ㄴ (예쁘다 → 예쁜)\n② Động từ: V + 는 (가다 → 가는, 먹다 → 먹는)\n③ 있다/없다 (kể cả 맛있다, 재미없다…): luôn + 는 (맛있는, 재미없는)\n④ Danh từ: N + 인 (학생인 동생 = đứa em vốn là học sinh)",
+        "explanation": "Định ngữ (관형사형) là cách biến động từ/tính từ thành thành phần đứng TRƯỚC danh từ để bổ nghĩa cho danh từ đó. Đây là điểm ngược hoàn toàn với tiếng Việt: tiếng Việt nói 'bông hoa đẹp' (danh từ trước), tiếng Hàn nói 예쁜 꽃 (định ngữ trước, danh từ sau).\n\n• Tính từ + (으)ㄴ: mô tả tính chất, trạng thái hiện tại của danh từ. 작은 집 (ngôi nhà nhỏ), 좋은 사람 (người tốt), 바쁜 하루 (một ngày bận rộn).\n• Động từ + 는: hành động đang diễn ra hoặc lặp lại thường xuyên. 읽는 책 (quyển sách đang đọc), 다니는 회사 (công ty đang làm việc), 자주 가는 식당 (quán hay đến).\n• 있다/없다 và các từ ghép từ chúng (맛있다, 맛없다, 재미있다, 재미없다…) tuy là tính từ nhưng LUÔN chia như động từ, tức là + 는: 맛있는 음식, 재미있는 영화.\n\nBất quy tắc cần nhớ khi chia (으)ㄴ:\n• Gốc ㄹ: rụng ㄹ trước ㄴ/는 → 살다 → 사는, 길다 → 긴, 멀다 → 먼.\n• Gốc ㅂ: ㅂ → 우 → 덥다 → 더운, 어렵다 → 어려운, 귀엽다 → 귀여운.\n• Gốc ㅎ: rụng ㅎ → 그렇다 → 그런, 어떻다 → 어떤, 하얗다 → 하얀.",
+        "usage": "Dùng mỗi khi muốn mô tả danh từ bằng một từ hay cả một mệnh đề. Cụm [định ngữ + danh từ] sau đó hoạt động như một danh từ bình thường, có thể gắn trợ từ 이/가, 을/를, 에… phía sau.\n\nSo sánh để thấy rõ vai trò:\n• 꽃이 예뻐요. = Hoa đẹp. (예쁘다 làm vị ngữ, kết thúc câu)\n• 예쁜 꽃을 샀어요. = Tôi đã mua bông hoa đẹp. (예쁜 làm định ngữ cho 꽃)\n\nChủ ngữ bên trong mệnh đề định ngữ dùng 이/가 (không dùng 은/는): 제가 읽는 책 = quyển sách mà tôi đang đọc.\n\nĐịnh ngữ còn có dạng quá khứ V-(으)ㄴ, tương lai V-(으)ㄹ và hồi tưởng -던 — xem các bài riêng ở mục TOPIK II.",
         "examples": [
-          { "ko": "예쁜 꽃이에요.", "vi": "Là bông hoa đẹp.", "note": "예쁘다 → 예쁜" },
-          { "ko": "책을 읽는 사람이에요.", "vi": "Là người đang đọc sách.", "note": "읽다 → 읽는" },
-          { "ko": "맛있는 음식을 먹었어요.", "vi": "Đã ăn món ăn ngon.", "note": "맛있다 → 맛있는" },
-          { "ko": "큰 집에 살아요.", "vi": "(Tôi) sống trong ngôi nhà lớn.", "note": "크다 → 큰" }
+          { "ko": "예쁜 꽃이에요.", "vi": "Là bông hoa đẹp.", "note": "예쁘다 → 예쁜 (tính từ, không 받침 → ㄴ)" },
+          { "ko": "책을 읽는 사람이 제 친구예요.", "vi": "Người đang đọc sách là bạn tôi.", "note": "읽다 → 읽는 (động từ + 는); cả cụm làm chủ ngữ + 이" },
+          { "ko": "맛있는 음식을 먹었어요.", "vi": "Đã ăn món ăn ngon.", "note": "맛있다 → 맛있는 (있다 luôn + 는)" },
+          { "ko": "큰 집에 살아요.", "vi": "(Tôi) sống trong ngôi nhà lớn.", "note": "크다 → 큰 (tính từ + ㄴ)" },
+          { "ko": "서울에 사는 친구를 만났어요.", "vi": "Đã gặp người bạn sống ở Seoul.", "note": "살다 → 사는 (rụng ㄹ trước 는)" },
+          { "ko": "더운 날씨에는 물을 많이 마셔야 해요.", "vi": "Trời nóng thì phải uống nhiều nước.", "note": "덥다 → 더운 (bất quy tắc ㅂ)" }
         ]
       },
       {
@@ -561,6 +563,57 @@
           { "ko": "약을 먹어야 해요.", "vi": "Phải uống thuốc.", "note": "먹다 → 먹어야 해요" },
           { "ko": "내일까지 숙제를 내야 돼요.", "vi": "Phải nộp bài tập trước ngày mai.", "note": "내다 → 내야 되다" },
           { "ko": "한국에서는 신발을 벗어야 해요.", "vi": "Ở Hàn Quốc phải cởi giày.", "note": "벗다 → 벗어야 하다" }
+        ]
+      },
+      {
+        "id": "v-eun-past-modifier",
+        "title": "V-(으)ㄴ N (định ngữ quá khứ)",
+        "level": "topik2",
+        "tags": ["định ngữ", "관형사형", "quá khứ"],
+        "structure": "받침 O + 은 (먹다 → 먹은) / 받침 X + ㄴ (가다 → 간)\nBất quy tắc: 듣다 → 들은 (ㄷ→ㄹ) · 짓다 → 지은 (rụng ㅅ) · 살다 → 산 (rụng ㄹ) · 굽다 → 구운 (ㅂ→우)",
+        "explanation": "Định ngữ quá khứ của ĐỘNG TỪ: hành động đã xảy ra/hoàn tất, bổ nghĩa cho danh từ đứng sau ('… đã/mà đã…'). 어제 본 영화 = bộ phim (mà tôi) đã xem hôm qua; 제가 만든 케이크 = cái bánh tôi đã làm.\n\nĐiểm dễ nhầm nhất: cùng một đuôi (으)ㄴ nhưng nghĩa khác nhau tùy loại từ:\n• TÍNH TỪ + (으)ㄴ = hiện tại: 예쁜 꽃 (bông hoa đẹp — bây giờ).\n• ĐỘNG TỪ + (으)ㄴ = quá khứ: 먹은 음식 (món ăn đã ăn — rồi).\nVì vậy khi gặp dạng (으)ㄴ, phải xác định gốc từ là động từ hay tính từ mới dịch đúng thì.\n\nSo sánh 3 thì định ngữ của động từ với cùng một câu:\n• 어제 읽은 책 = quyển sách đã đọc hôm qua (quá khứ)\n• 지금 읽는 책 = quyển sách đang đọc (hiện tại)\n• 내일 읽을 책 = quyển sách sẽ đọc ngày mai (tương lai)",
+        "usage": "Dùng khi muốn mô tả danh từ bằng một hành động đã kết thúc. Rất hay xuất hiện trong các mẫu ngữ pháp lớn hơn: -(으)ㄴ 적이 있다 (từng làm), -(으)ㄴ 후에 (sau khi làm), -(으)ㄴ 지 (kể từ khi làm) — tất cả đều mượn định ngữ quá khứ này.\n\nChủ ngữ trong mệnh đề định ngữ dùng 이/가: 친구가 준 선물 = món quà mà bạn (tôi) đã tặng.\n\nPhân biệt với -던: -(으)ㄴ chỉ nói việc ĐÃ HOÀN TẤT; -던 mang sắc thái hồi tưởng hoặc việc còn dang dở (xem bài -던/-았던).",
+        "examples": [
+          { "ko": "어제 본 영화가 정말 재미있었어요.", "vi": "Bộ phim xem hôm qua thật sự rất hay.", "note": "보다 → 본; cả cụm '어제 본 영화' + 가 làm chủ ngữ" },
+          { "ko": "제가 만든 케이크예요.", "vi": "Là cái bánh tôi đã làm.", "note": "만들다 → 만든 (rụng ㄹ trước ㄴ)" },
+          { "ko": "지난주에 읽은 책을 다시 읽고 있어요.", "vi": "Tôi đang đọc lại quyển sách đã đọc tuần trước.", "note": "읽다 → 읽은 (받침 O → 은)" },
+          { "ko": "한국에서 산 옷이 아주 마음에 들어요.", "vi": "Bộ đồ mua ở Hàn Quốc tôi rất ưng.", "note": "사다 → 산 (mua); đừng nhầm với 살다 → 산 (sống)" },
+          { "ko": "어제 들은 이야기를 아직 기억해요.", "vi": "Tôi vẫn nhớ câu chuyện nghe hôm qua.", "note": "듣다 → 들은 (bất quy tắc ㄷ)" },
+          { "ko": "친구가 준 선물을 잃어버렸어요.", "vi": "Tôi làm mất món quà bạn tặng.", "note": "주다 → 준; chủ ngữ trong định ngữ: 친구가" }
+        ]
+      },
+      {
+        "id": "v-eul-future-modifier",
+        "title": "V-(으)ㄹ N (định ngữ tương lai)",
+        "level": "topik2",
+        "tags": ["định ngữ", "관형사형", "tương lai"],
+        "structure": "받침 O + 을 (먹다 → 먹을) / 받침 X + ㄹ (가다 → 갈)\nGốc ㄹ giữ nguyên ㄹ: 만들다 → 만들, 살다 → 살\nBất quy tắc: 듣다 → 들을 · 돕다 → 도울 · 짓다 → 지을",
+        "explanation": "Định ngữ tương lai: hành động sẽ xảy ra hoặc dự định làm, bổ nghĩa cho danh từ đứng sau ('… sẽ/để/cần…'). 내일 입을 옷 = bộ đồ (sẽ) mặc ngày mai; 먹을 것 = đồ để ăn.\n\nĐây là dạng định ngữ xuất hiện nhiều nhất trong các mẫu ngữ pháp đã học — thực chất chúng đều là [V-(으)ㄹ + danh từ]:\n• -(으)ㄹ 거예요 = ㄹ + 것 (việc sẽ làm) → tương lai\n• -(으)ㄹ 수 있다 = ㄹ + 수 (cách/khả năng) → có thể\n• -(으)ㄹ 때 = ㄹ + 때 (lúc) → khi…\n• -(으)ㄹ 줄 알다 = ㄹ + 줄 (cách làm) → biết cách\nHiểu được định ngữ ㄹ là hiểu được gốc của cả loạt mẫu câu trên.\n\nNgoài nghĩa tương lai, V-(으)ㄹ còn diễn tả việc CHƯA xảy ra nói chung (mang tính dự định, cần làm): 할 일 = việc phải làm, 마실 물 = nước để uống.",
+        "usage": "Dùng khi danh từ được mô tả bằng hành động chưa/sắp diễn ra: kế hoạch (내일 만날 사람 = người sẽ gặp ngày mai), mục đích (먹을 것, 읽을 책), việc cần làm (오늘 할 일).\n\nLưu ý chính tả/phát âm: sau định ngữ ㄹ, phụ âm đầu của danh từ tiếp theo thường bị căng hóa khi nói: 할 것 đọc là [할 껏], 갈 데 đọc là [갈 떼].\n\nSo sánh nhanh 3 thì: 읽은 책 (đã đọc) · 읽는 책 (đang đọc) · 읽을 책 (sẽ đọc).",
+        "examples": [
+          { "ko": "내일 입을 옷을 준비했어요.", "vi": "Tôi đã chuẩn bị quần áo sẽ mặc ngày mai.", "note": "입다 → 입을 (받침 O → 을)" },
+          { "ko": "오늘 할 일이 많아요.", "vi": "Hôm nay có nhiều việc phải làm.", "note": "하다 → 할; 할 일 = việc cần làm" },
+          { "ko": "냉장고에 먹을 것이 없어요.", "vi": "Trong tủ lạnh không có gì để ăn.", "note": "먹다 → 먹을; 먹을 것 = đồ ăn" },
+          { "ko": "다음 주에 만날 사람이 누구예요?", "vi": "Người bạn sẽ gặp tuần sau là ai?", "note": "만나다 → 만날 (không 받침 → ㄹ)" },
+          { "ko": "주말에 갈 곳을 정했어요?", "vi": "Đã quyết định nơi sẽ đi cuối tuần chưa?", "note": "가다 → 갈" },
+          { "ko": "이사할 때 도와줄 친구가 필요해요.", "vi": "Tôi cần một người bạn sẽ giúp khi chuyển nhà.", "note": "돕다 → 도와줄; ㄹ 때 cũng chính là định ngữ ㄹ + 때" }
+        ]
+      },
+      {
+        "id": "v-deon-modifier",
+        "title": "V/A-던, -았던/었던 N (định ngữ hồi tưởng)",
+        "level": "topik2",
+        "tags": ["định ngữ", "관형사형", "hồi tưởng", "quá khứ"],
+        "structure": "V/A + 던 (하다 → 하던, 좋다 → 좋던)\nV/A + 았던/었던: ㅏ/ㅗ + 았던 (가다 → 갔던) / còn lại + 었던 (먹다 → 먹었던) / 하다 → 했던",
+        "explanation": "Định ngữ hồi tưởng, dùng khi nhớ lại quá khứ để mô tả danh từ. Có hai dạng với sắc thái khác nhau:\n\n① -던: hành động/trạng thái LẶP LẠI thường xuyên trong quá khứ ('hồi đó hay…'), hoặc hành động DANG DỞ chưa kết thúc ('đang… thì bỏ dở').\n• 자주 가던 카페 = quán cà phê hồi đó hay đến (thói quen quá khứ)\n• 마시던 커피 = ly cà phê đang uống dở (chưa uống xong)\n\n② -았던/었던: việc đã HOÀN TẤT hẳn trong quá khứ, thường ngầm ý bây giờ không còn như vậy nữa, chỉ còn trong ký ức.\n• 어렸을 때 살았던 집 = ngôi nhà từng sống hồi nhỏ (giờ không sống nữa)\n• 예뻤던 그 거리 = con phố từng rất đẹp (giờ có thể đã khác)\n\nPhân biệt 3 cách nói 'quyển sách đã đọc':\n• 읽은 책: đã đọc xong — thông tin trung tính.\n• 읽던 책: đang đọc dở — chưa xong, có thể đọc tiếp.\n• 읽었던 책: từng đọc (lâu rồi) — nhấn mạnh hồi tưởng.",
+        "usage": "Dùng -던 khi kể về thói quen, kỷ niệm trong quá khứ (thường đi với 자주, 옛날에, 어렸을 때…) hoặc việc bị bỏ dở giữa chừng.\n\nDùng -았던/었던 khi việc đã chấm dứt hoàn toàn và người nói đang hồi tưởng; tính từ muốn nói về trạng thái quá khứ bắt buộc dùng dạng này hoặc -던 (tính từ KHÔNG có dạng định ngữ quá khứ (으)ㄴ riêng — 예쁜 luôn là hiện tại, muốn nói 'từng đẹp' phải dùng 예쁘던/예뻤던).\n\nTrong bài hát, thơ, hồi ký tiếng Hàn, -던 xuất hiện rất nhiều vì sắc thái hoài niệm của nó.",
+        "examples": [
+          { "ko": "어릴 때 자주 가던 공원이에요.", "vi": "Là công viên hồi nhỏ tôi hay đến.", "note": "가다 → 가던: thói quen lặp lại trong quá khứ" },
+          { "ko": "마시던 커피가 어디에 있어요?", "vi": "Ly cà phê tôi đang uống dở đâu rồi?", "note": "마시다 → 마시던: hành động dang dở" },
+          { "ko": "읽던 책을 계속 읽으세요.", "vi": "Hãy đọc tiếp quyển sách đang đọc dở.", "note": "읽던 = đọc dở, khác 읽은 = đã đọc xong" },
+          { "ko": "어렸을 때 살았던 집에 다시 가 봤어요.", "vi": "Tôi đã quay lại ngôi nhà từng sống hồi nhỏ.", "note": "살다 → 살았던: đã kết thúc, chỉ còn trong ký ức" },
+          { "ko": "학생 때 좋아했던 노래를 들었어요.", "vi": "Tôi đã nghe bài hát từng thích thời học sinh.", "note": "좋아하다 → 좋아했던" },
+          { "ko": "날씬했던 그 친구가 많이 변했어요.", "vi": "Người bạn từng thon thả ấy giờ thay đổi nhiều.", "note": "tính từ + 았던: trạng thái quá khứ, giờ không còn" }
         ]
       },
       {

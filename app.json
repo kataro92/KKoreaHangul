@@ -7,11 +7,6 @@
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "automatic",
-    "splash": {
-      "image": "./assets/splash-full.png",
-      "resizeMode": "cover",
-      "backgroundColor": "#E7DFF6"
-    },
     "ios": {
       "supportsTablet": true,
       "bundleIdentifier": "com.kataro92.kkorea-hangul"
@@ -19,7 +14,9 @@
     "android": {
       "adaptiveIcon": {
         "backgroundColor": "#EEF2FF",
-        "foregroundImage": "./assets/android-icon-foreground.png"
+        "foregroundImage": "./assets/android-icon-foreground.png",
+        "backgroundImage": "./assets/android-icon-background.png",
+        "monochromeImage": "./assets/android-icon-monochrome.png"
       },
       "predictiveBackGestureEnabled": false,
       "package": "com.kataro92.kkoreahangul"
@@ -29,7 +26,18 @@
     },
     "plugins": [
       "expo-router",
-      "expo-sharing"
+      "expo-sharing",
+      [
+        "expo-splash-screen",
+        {
+          "image": "./assets/splash-icon.png",
+          "imageWidth": 200,
+          "backgroundColor": "#E7DFF6",
+          "dark": {
+            "backgroundColor": "#141634"
+          }
+        }
+      ]
     ]
   }
 }
