@@ -39,3 +39,14 @@ yarn-error.*
 # generated native folders
 /ios
 /android
+
+# build outputs & logs
+*.apk
+*.aab
+build-apk.log
+
+# uncompressed originals of branding assets
+assets/.originals/
+
+# copyrighted source material — never commit or push
+docs/*.pdf

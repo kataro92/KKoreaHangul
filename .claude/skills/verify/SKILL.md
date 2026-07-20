@@ -37,4 +37,7 @@ description: Cách chạy và xác minh KKorea Hangul (Expo app) trong môi trư
 
 - `/settings`: đổi ngôn ngữ (7 locale — kiểm tra key i18n mới ở ≥2 locale),
   section Sao lưu & Khôi phục, toggle nhắc ôn.
-- Locale không persist (in-memory) — reload là về 'vi'.
+- Locale & speech config persist qua `kkh:locale` / `kkh:speech` (từ 2026-07-20)
+  — reload phải giữ nguyên lựa chọn; nếu về 'vi' là regression.
+- Banner "No Korean voice" hiện trong Settings khi máy không có giọng ko-*
+  (browser pane luôn không có → dùng làm test case cho banner).

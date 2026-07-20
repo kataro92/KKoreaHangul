@@ -114,14 +114,14 @@ Speech, study reminder, language (7 locales with flags), About.
 - **Reading** — Two modes via a toggle at the top:
   - **Syllable breakdown** — Type Korean text and see each syllable decomposed into initial consonant, vowel, and final consonant with pronunciation. **Speak** button for text-to-speech (TTS).
   - **Reading practice** — A Korean sentence is shown; read it aloud during a configurable countdown (15/30/45/60s). When the timer ends (or you tap **Show answer**), the Vietnamese phonetics, meaning, and a **Listen** model reading appear so you can self-assess. Rate yourself (Needs work / Okay / Good); a “Needs work” sentence is automatically suggested to your review deck.
-- **Grammar** — 66 TOPIK I/II grammar points (27 beginner + 39 intermediate) with structure, Vietnamese explanation, when-to-use notes, and example sentences. Search and filter by level; each example has a TTS button.
+- **Grammar** — 99 TOPIK I/II grammar points (22 basics + 36 beginner + 41 intermediate) with structure, Vietnamese explanation, when-to-use notes, and example sentences. Search and filter by level; each example has a TTS button.
 - **Vocabulary** — Full TOPIK I + II word lists (1,671 + 2,662 = 4,333 words) with random word display, TTS, and syllable breakdown. All entries have Vietnamese meanings (the original English is kept as a fallback). **Add to review** button pushes a word into the spaced-repetition deck.
 - **Review (spaced repetition)** — Flashcard review powered by the **SM-2** algorithm (like Anki/Mochi). Flip cards, grade with Again/Hard/Good/Easy, and a tab badge shows how many cards are due. Includes stats (total/due/learned), rule-based **word suggestions**, and a card manager to create custom cards or delete existing ones. Cards persist on device via AsyncStorage. Vocabulary/sentence cards **auto‑sync their Vietnamese meaning** from the source data on launch (older cards get updated), with a manual **Refresh meanings** button in the card manager.
 - **Settings** (gear icon in header) — Single screen with:
   - **Speech settings** — Speed, pitch, volume, and Korean voice selection. Applies to Reading and Vocabulary.
   - **Study reminder** — Optional daily notification (8:00 PM) to review due cards (requires `expo-notifications`).
   - **Backup & Restore** — Export all flashcards, progress, and settings to a JSON file (save to Google Drive, iCloud/Files, email, etc.). Restore later by choosing the file again—no server needed.
-  - **Language** — App UI in 7 languages (native names + flags): English, Tiếng Việt, 中文, हिंदी, Español, Français, 日本語.
+  - **Language** — App UI in 7 languages (native names + flags): English, Tiếng Việt, 中文, हिंदी, Español, Français, 日本語. The chosen language, and all speech settings, persist across restarts and are included in backups.
   - **About** — App description and author (Phạm Huy Đức). Back button label is localized (e.g. “Màn hình chính” / “Main”).
 
 - **Design** — Apple‑style **Liquid Glass** throughout: a pastel gradient backdrop with frosted‑glass cards, custom **`GlassTabBar`**, and header. Follows the system **light/dark** appearance automatically. All action buttons share a single `GlassButton` component (primary / outline / glass variants) for a consistent look. App icon, splash (`splash-full.png`), and favicon use matching lavender branding.
@@ -251,6 +251,10 @@ APP_URL=http://localhost:8083 node scripts/capture-screenshots.mjs
 ├── .maestro/                # Maestro flows for native screenshots
 └── scripts/                 # capture-screenshots*.mjs/sh, parse-topik-vocab.js
 ```
+
+## Privacy
+
+The app is fully offline and collects no personal data — see [PRIVACY.md](PRIVACY.md).
 
 ## Author
 
