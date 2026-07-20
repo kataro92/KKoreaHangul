@@ -1,6 +1,6 @@
 {
   "name": "KKoreaHangul",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "main": "expo-router/entry",
   "scripts": {
     "start": "expo start",
@@ -9,9 +9,19 @@
     "web": "expo start --web",
     "screenshots": "node scripts/capture-screenshots.mjs",
     "screenshots:native": "bash scripts/capture-screenshots-native.sh",
-    "screenshots:native:build": "bash scripts/capture-screenshots-native.sh --build"
+    "screenshots:native:build": "bash scripts/capture-screenshots-native.sh --build",
+    "test": "jest",
+    "typecheck": "tsc --noEmit"
+  },
+  "jest": {
+    "preset": "ts-jest",
+    "testEnvironment": "node",
+    "testMatch": [
+      "**/src/**/*.test.ts"
+    ]
   },
   "dependencies": {
+    "@expo/vector-icons": "^15.1.1",
     "@react-native-async-storage/async-storage": "2.2.0",
     "expo": "~55.0.5",
     "expo-blur": "~55.0.15",
@@ -34,8 +44,12 @@
     "react-native-web": "^0.21.2"
   },
   "devDependencies": {
+    "@types/jest": "^29.5.14",
     "@types/react": "~19.2.2",
+    "jest": "^29.7.0",
     "pdf-parse": "^2.4.5",
+    "sharp": "^0.35.3",
+    "ts-jest": "^29.4.11",
     "typescript": "~5.9.2"
   },
   "license": "MIT",
