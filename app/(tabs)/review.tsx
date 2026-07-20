@@ -58,7 +58,12 @@ export default function ReviewScreen() {
       : null;
 
   useEffect(() => setFlipped(false), [current?.id]);
-  useEffect(() => () => Speech.stop(), []);
+  useEffect(
+    () => () => {
+      void Speech.stop();
+    },
+    []
+  );
 
   const speak = () => {
     if (!current) return;
@@ -110,7 +115,12 @@ export default function ReviewScreen() {
             <GlassCard contentStyle={styles.cardContent}>
               <View style={styles.cardTop}>
                 <Text style={[styles.typeTag, { color: c.textSecondary }]}>{current.type}</Text>
-                <Pressable onPress={speak} hitSlop={8}>
+                <Pressable
+                  onPress={speak}
+                  hitSlop={8}
+                  accessibilityRole="button"
+                  accessibilityLabel={t('speakButton')}
+                >
                   <Ionicons name="volume-high" size={22} color={c.primary} />
                 </Pressable>
               </View>
@@ -149,7 +159,12 @@ export default function ReviewScreen() {
         <View style={[styles.suggestBlock, { borderTopColor: c.hairline }]}>
           <View style={styles.suggestHeader}>
             <Text style={[styles.suggestTitle, { color: c.text }]}>{t('srsSuggestTitle')}</Text>
-            <Pressable onPress={refreshSuggestions} hitSlop={8}>
+            <Pressable
+              onPress={refreshSuggestions}
+              hitSlop={8}
+              accessibilityRole="button"
+              accessibilityLabel={t('srsSuggestTitle')}
+            >
               <Ionicons name="refresh" size={20} color={c.primary} />
             </Pressable>
           </View>
@@ -161,7 +176,12 @@ export default function ReviewScreen() {
                   {s.vi || s.meaning}
                 </Text>
               </View>
-              <Pressable onPress={() => addSuggestion(s)} hitSlop={6}>
+              <Pressable
+                onPress={() => addSuggestion(s)}
+                hitSlop={6}
+                accessibilityRole="button"
+                accessibilityLabel={`${t('srsAddToReview')}: ${s.word}`}
+              >
                 <Ionicons name="add-circle" size={26} color={c.primary} />
               </Pressable>
             </GlassView>

@@ -83,7 +83,13 @@ export default function ReviewManageScreen() {
                   {card.back}
                 </Text>
               </View>
-              <Pressable onPress={() => removeCard(card.id)} hitSlop={8} style={styles.delBtn}>
+              <Pressable
+                onPress={() => removeCard(card.id)}
+                hitSlop={8}
+                accessibilityRole="button"
+                accessibilityLabel={`${t('srsDelete')}: ${card.front}`}
+                style={styles.delBtn}
+              >
                 <Ionicons name="trash-outline" size={20} color={c.danger} />
               </Pressable>
             </GlassView>

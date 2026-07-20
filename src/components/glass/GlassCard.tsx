@@ -1,12 +1,12 @@
 import React from 'react';
-import { Platform, StyleSheet, View, ViewStyle } from 'react-native';
+import { Platform, StyleProp, StyleSheet, View, ViewStyle } from 'react-native';
 import { useTheme } from '../../constants/theme';
 import { GlassView } from './GlassView';
 
 interface GlassCardProps {
   children?: React.ReactNode;
-  style?: ViewStyle | ViewStyle[];
-  contentStyle?: ViewStyle | ViewStyle[];
+  style?: StyleProp<ViewStyle>;
+  contentStyle?: StyleProp<ViewStyle>;
   strong?: boolean;
   radius?: number;
 }

@@ -81,7 +81,13 @@ export default function GrammarDetailScreen() {
         <GlassCard key={index} style={styles.exampleWrap} contentStyle={styles.exampleContent}>
           <View style={styles.exampleHeader}>
             <Text style={[styles.exampleKo, { color: c.text }]}>{ex.ko}</Text>
-            <Pressable onPress={() => speak(ex.ko, index)} hitSlop={8} style={({ pressed }) => ({ opacity: pressed ? 0.6 : 1 })}>
+            <Pressable
+              onPress={() => speak(ex.ko, index)}
+              hitSlop={8}
+              accessibilityRole="button"
+              accessibilityLabel={t('speakButton')}
+              style={({ pressed }) => ({ opacity: pressed ? 0.6 : 1 })}
+            >
               <Ionicons name={speakingIndex === index ? 'stop-circle' : 'volume-high'} size={24} color={c.primary} />
             </Pressable>
           </View>

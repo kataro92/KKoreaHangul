@@ -31,6 +31,8 @@ export default function TabLayout() {
         headerRight: () => (
           <Pressable
             onPress={() => router.push('/settings')}
+            accessibilityRole="button"
+            accessibilityLabel={t('settingsTitle')}
             style={({ pressed }) => ({ opacity: pressed ? 0.7 : 1, marginRight: 16 })}
           >
             <Ionicons name="settings-outline" size={24} color={theme.colors.text} />

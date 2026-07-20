@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, View, ViewStyle } from 'react-native';
+import { StyleProp, StyleSheet, View, ViewStyle } from 'react-native';
 import { useTheme } from '../../constants/theme';
 
 // Import có bảo vệ: nếu chưa cài expo-blur thì fallback View bán trong suốt.
@@ -13,7 +13,7 @@ try {
 
 interface GlassViewProps {
   children?: React.ReactNode;
-  style?: ViewStyle | ViewStyle[];
+  style?: StyleProp<ViewStyle>;
   /** Dùng nền kính đậm hơn cho thẻ nổi bật */
   strong?: boolean;
   /** Bo góc (mặc định lg) */

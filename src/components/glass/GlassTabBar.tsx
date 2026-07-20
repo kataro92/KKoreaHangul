@@ -60,7 +60,7 @@ export function GlassTabBar({ state, descriptors, navigation }: BottomTabBarProp
                 {options.tabBarIcon?.({ focused, color, size: TAB_ICON_SIZE }) ?? (
                   <Ionicons name="ellipse-outline" size={TAB_ICON_SIZE} color={color} />
                 )}
-                {badge != null && badge !== false ? (
+                {badge != null ? (
                   <View style={[styles.badge, { backgroundColor: theme.colors.danger }]}>
                     <Text style={styles.badgeText}>{String(badge)}</Text>
                   </View>

@@ -104,5 +104,5 @@ export function getTheme(scheme: Scheme | null | undefined): Theme {
 /** Hook chính: trả về theme theo chế độ hệ thống. */
 export function useTheme(): Theme {
   const scheme = useColorScheme();
-  return getTheme(scheme);
+  return getTheme(scheme === 'dark' ? 'dark' : 'light');
 }
