@@ -14,7 +14,7 @@
 - 🟡 No Korean-TTS-missing hint; icon-only buttons lack accessibilityLabel
 - 🟡 Only 47 reading-practice sentences; 6 vocab illust slugs have no image file; branding assets oversized (icon.png 756KB, splash-full.png 1.7MB)
 - ⚪ README says 66 grammar points, actual is 99 (36 topik1 + 41 topik2 + 22 basics); .gitignore missing *.apk, build-apk.log, docs/*.pdf (copyrighted textbook PDFs — must never be committed/pushed)
-- ⚪ No crash reporting (needs user's Sentry account — user action)
+- ⚪ ~~No crash reporting~~ — user decided against crash reporting (2026-07-20); app stays fully offline with zero data collection
 
 ## Task list
 
@@ -30,7 +30,7 @@
 | 8 | Expand reading sentences (47 → 120+) | DONE (120 total) |
 | 9 | .gitignore: *.apk, build-apk.log, docs/*.pdf; README fixes (99 grammar points, backup covers language/speech now) | DONE |
 | 10 | Compress branding assets (icon/splash PNGs) | DONE (~3.3 MB saved) |
-| 11 | Crash reporting (Sentry) | BLOCKED — needs user to create Sentry account/DSN |
+| 11 | Crash reporting (Sentry) | DROPPED — user decision: no crash reporting, keep the app 100% offline |
 | 12 | Host privacy policy (GitHub Pages) + fill Play Data Safety form | BLOCKED — user action in Play Console |
 | 13 | Rebuild release APK/AAB (`eas build -p android --profile production`) and smoke-test reminder + backup on a real Android device | TODO — next session |
 | 14 | Commit all of the above | DONE — 5 commits on develop (6d85e1f..6305c2c) |
@@ -55,6 +55,6 @@
 
 1. Read this file first. Code state: all fixes committed on branch `develop` (5 commits: 6d85e1f fixes, 186307d a11y/types, 90650f3 tooling, b434081 data, 6305c2c release prep). Not yet pushed.
 2. Task 13: rebuild the release artifact (versionCode 2 / 1.1.0) and smoke-test on a real Android device: (a) reminder toggle now schedules and fires, (b) backup export/import round-trip incl. locale+speech, (c) quantized app icon/splash look OK.
-3. Task 11: user must create a Sentry (or similar) account; then wire `@sentry/react-native` (or sentry-expo) before store release.
-4. Task 12: user hosts PRIVACY.md (GitHub Pages works) and fills the Play Data Safety form (answers: no data collected/shared, all local).
-5. Optional backlog from the review: device-locale detection on first launch (expo-localization), Vietnamese-first store positioning, more sentences (120 → 150+), tablet layout pass.
+3. Task 12: user hosts PRIVACY.md (GitHub Pages works) and fills the Play Data Safety form (answers: no data collected/shared, all local).
+4. Optional backlog from the review: device-locale detection on first launch (expo-localization), Vietnamese-first store positioning, more sentences (120 → 150+), tablet layout pass.
+5. Do NOT suggest crash reporting/analytics again — user explicitly declined (2026-07-20); Play-vitals crash stats in the Play Console are the fallback signal.
