@@ -33,7 +33,7 @@
 | 11 | Crash reporting (Sentry) | BLOCKED — needs user to create Sentry account/DSN |
 | 12 | Host privacy policy (GitHub Pages) + fill Play Data Safety form | BLOCKED — user action in Play Console |
 | 13 | Rebuild release APK/AAB (`eas build -p android --profile production`) and smoke-test reminder + backup on a real Android device | TODO — next session |
-| 14 | Commit all of the above (nothing committed yet) | TODO — ask user / commit on request |
+| 14 | Commit all of the above | DONE — 5 commits on develop (6d85e1f..6305c2c) |
 
 ## Log
 
@@ -53,7 +53,7 @@
 
 ## For the next session
 
-1. Read this file first. Code state: all fixes uncommitted on branch `develop` — review with `git status` / `git diff`.
+1. Read this file first. Code state: all fixes committed on branch `develop` (5 commits: 6d85e1f fixes, 186307d a11y/types, 90650f3 tooling, b434081 data, 6305c2c release prep). Not yet pushed.
 2. Task 13: rebuild the release artifact (versionCode 2 / 1.1.0) and smoke-test on a real Android device: (a) reminder toggle now schedules and fires, (b) backup export/import round-trip incl. locale+speech, (c) quantized app icon/splash look OK.
 3. Task 11: user must create a Sentry (or similar) account; then wire `@sentry/react-native` (or sentry-expo) before store release.
 4. Task 12: user hosts PRIVACY.md (GitHub Pages works) and fills the Play Data Safety form (answers: no data collected/shared, all local).
