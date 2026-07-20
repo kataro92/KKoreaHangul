@@ -178,22 +178,34 @@ Or with a custom simulator:
 npx expo run:ios --simulator="iPhone 17 Pro"
 ```
 
-**Physical iOS device:**
+**Physical iPhone (USB, requires Xcode + Apple Developer signing):**
 
-1. Build a development client:
-   ```bash
-   npx eas build --platform ios --profile preview
-   ```
-2. Scan the QR code with Camera app or use Expo Go to run the development build.
+Connect the iPhone, trust the computer, then:
+
+```bash
+# Debug build
+npx expo run:ios --device
+
+# Release build (optimized, no Metro)
+npx expo run:ios --device --configuration Release
+```
+
+If several devices are connected, pick one by name or UDID:
+
+```bash
+npx expo run:ios --device "Your iPhone"
+```
 
 ### Scripts
 
-| Command           | Description           |
-|-------------------|-----------------------|
-| `npm start`       | Start Expo dev server |
-| `npm run ios`     | Run on iOS Simulator  |
-| `npm run android` | Run on Android        |
-| `npm run web`     | Run in the browser    |
+| Command           | Description                          |
+|-------------------|--------------------------------------|
+| `npm start`       | Start Expo dev server                |
+| `npm run ios`     | Run on iOS Simulator                 |
+| `npx expo run:ios --device` | Deploy Debug build to connected iPhone |
+| `npx expo run:ios --device --configuration Release` | Deploy Release build to connected iPhone |
+| `npm run android` | Run on Android                       |
+| `npm run web`     | Run in the browser                   |
 
 ### Refresh README screenshots
 
