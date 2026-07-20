@@ -27,11 +27,30 @@ export default function SettingsScreen() {
   const navigation = useNavigation();
   const router = useRouter();
   const { replayIntro, resetHints } = useGuidance();
-  const { t, locale, setLocale, getRateLabel, getPitchLabel, getVolumeLabel } = useLanguage();
+  const {
+    t,
+    locale,
+    setLocale,
+    getRateLabel,
+    getPitchLabel,
+    getVolumeLabel,
+    reloadFromStorage: reloadLanguage,
+  } = useLanguage();
   const theme = useTheme();
   const c = theme.colors;
-  const { rate, pitch, volume, voices, selectedVoiceId, setRate, setPitch, setVolume, setSelectedVoiceId } =
-    useSpeechConfig();
+  const {
+    rate,
+    pitch,
+    volume,
+    voices,
+    selectedVoiceId,
+    setRate,
+    setPitch,
+    setVolume,
+    setSelectedVoiceId,
+    voicesLoaded,
+    reloadFromStorage: reloadSpeech,
+  } = useSpeechConfig();
 
   const { reloadFromStorage } = useSrs();
 
@@ -53,6 +72,7 @@ export default function SettingsScreen() {
       if (!ok) {
         setReminderEnabled(false);
         await saveJSON(StorageKeys.settings, { reminderEnabled: false });
+        Alert.alert(t('reminderSectionTitle'), t('reminderFailed'));
         return;
       }
     } else {
@@ -83,6 +103,8 @@ export default function SettingsScreen() {
           const result = await importBackup();
           if (result.status === 'restored') {
             await reloadFromStorage();
+            await reloadLanguage();
+            await reloadSpeech();
             // Áp lại trạng thái nhắc ôn theo dữ liệu vừa khôi phục.
             const s = await loadJSON<SettingsData>(StorageKeys.settings, {});
             if (s.reminderEnabled) {
@@ -127,6 +149,12 @@ export default function SettingsScreen() {
     <ScrollView style={styles.container} contentContainerStyle={styles.content} showsVerticalScrollIndicator={false}>
       <Text style={[styles.sectionTitle, { color: c.text }]}>{t('speechTitle')}</Text>
       <GlassCard style={styles.card}>
+        {voicesLoaded && voices.length === 0 && (
+          <View style={[styles.voiceWarn, { backgroundColor: c.warning + '22' }]}>
+            <Ionicons name="warning-outline" size={18} color={c.warning} style={styles.voiceWarnIcon} />
+            <Text style={[styles.voiceWarnText, { color: c.text }]}>{t('noKoreanVoice')}</Text>
+          </View>
+        )}
         <Text style={[styles.label, { color: c.textSecondary }]}>{t('rateLabel')}</Text>
         <View style={styles.optionRow}>
           {RATE_OPTIONS.map((opt) => optionBtn(String(opt.value), rate === opt.value, getRateLabel(opt.value), () => setRate(opt.value)))}
@@ -302,6 +330,9 @@ const styles = StyleSheet.create({
   optionBtn: { flex: 1, paddingVertical: 9, paddingHorizontal: 12, borderRadius: 10, borderWidth: 1.5, alignItems: 'center' },
   optionBtnText: { fontSize: 13, fontWeight: '600' },
   voiceWrap: { flexDirection: 'row', flexWrap: 'wrap', gap: 8, marginBottom: 8 },
+  voiceWarn: { flexDirection: 'row', alignItems: 'flex-start', gap: 8, borderRadius: 10, padding: 10, marginBottom: 8 },
+  voiceWarnIcon: { marginTop: 1 },
+  voiceWarnText: { flex: 1, fontSize: 13, lineHeight: 18 },
   voiceChip: { paddingVertical: 8, paddingHorizontal: 14, borderRadius: 20, borderWidth: 1.5 },
   voiceChipText: { fontSize: 13, fontWeight: '500' },
   langRow: { flexDirection: 'row', alignItems: 'center', paddingVertical: 14, paddingHorizontal: 12 },

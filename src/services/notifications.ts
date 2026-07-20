@@ -47,10 +47,11 @@ export async function scheduleDailyReminder(title: string, body: string): Promis
     await Notifications.cancelAllScheduledNotificationsAsync();
     await Notifications.scheduleNotificationAsync({
       content: { title, body },
+      // SDK 52+: trigger bắt buộc có `type` — thiếu sẽ throw TypeError.
       trigger: {
+        type: Notifications.SchedulableTriggerInputTypes.DAILY,
         hour: REMINDER_HOUR,
         minute: REMINDER_MINUTE,
-        repeats: true,
       },
     });
     return true;

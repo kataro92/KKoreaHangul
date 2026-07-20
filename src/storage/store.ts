@@ -18,6 +18,8 @@ export const StorageKeys = {
   readingHistory: `${NS}reading:history`,
   settings: `${NS}settings`,
   guidance: `${NS}guidance`,
+  locale: `${NS}locale`,
+  speech: `${NS}speech`,
 } as const;
 
 type Envelope<T> = { v: number; data: T };

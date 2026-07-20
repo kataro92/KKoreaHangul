@@ -52,7 +52,7 @@ export function SrsProvider({ children }: { children: React.ReactNode }) {
   const [cards, setCards] = useState<SrsCard[]>([]);
   const [loaded, setLoaded] = useState(false);
   // Tick để tính lại "đến hạn" theo thời gian mà không cần đổi cards.
-  const [, setTick] = useState(0);
+  const [tick, setTick] = useState(0);
   const didLoad = useRef(false);
 
   // Nạp thẻ từ storage khi mở app.
@@ -170,9 +170,9 @@ export function SrsProvider({ children }: { children: React.ReactNode }) {
   const dueCards = useMemo(() => {
     const now = new Date().toISOString();
     return cards.filter((c) => isDue(c, now));
-    // Phụ thuộc cards; tick khiến component tiêu thụ render lại qua context value.
+    // tick trong deps để danh sách đến hạn được tính lại mỗi phút.
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [cards]);
+  }, [cards, tick]);
 
   const stats: SrsStats = useMemo(
     () => ({

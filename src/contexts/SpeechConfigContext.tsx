@@ -1,6 +1,7 @@
-import React, { createContext, useCallback, useContext, useEffect, useState } from 'react';
+import React, { createContext, useCallback, useContext, useEffect, useRef, useState } from 'react';
 import * as Speech from 'expo-speech';
 import type { Voice } from 'expo-speech';
+import { loadJSON, saveJSON, StorageKeys } from '../storage/store';
 
 export const RATE_OPTIONS = [
   { label: 'Chậm', value: 0.7 },
@@ -26,6 +27,16 @@ type SpeechConfigState = {
   volume: number;
   voices: Voice[];
   selectedVoiceId: string | null;
+  /** true sau khi đã truy vấn danh sách giọng của máy — dùng để hiện cảnh báo thiếu giọng Hàn. */
+  voicesLoaded: boolean;
+};
+
+/** Phần cấu hình được lưu vào AsyncStorage (không gồm danh sách voices của máy). */
+type PersistedSpeechConfig = {
+  rate: number;
+  pitch: number;
+  volume: number;
+  selectedVoiceId: string | null;
 };
 
 type SpeechConfigContextValue = SpeechConfigState & {
@@ -33,6 +44,8 @@ type SpeechConfigContextValue = SpeechConfigState & {
   setPitch: (pitch: number) => void;
   setVolume: (volume: number) => void;
   setSelectedVoiceId: (id: string | null) => void;
+  /** Nạp lại cấu hình từ storage — dùng sau khi khôi phục backup. */
+  reloadFromStorage: () => Promise<void>;
   getSpeechOptions: (callbacks?: {
     onDone?: () => void;
     onStopped?: () => void;
@@ -55,6 +68,7 @@ const defaultState: SpeechConfigState = {
   volume: 0.85,
   voices: [],
   selectedVoiceId: null,
+  voicesLoaded: false,
 };
 
 const SpeechConfigContext = createContext<SpeechConfigContextValue | null>(null);
@@ -65,6 +79,44 @@ export function SpeechConfigProvider({ children }: { children: React.ReactNode }
   const [volume, setVolume] = useState(defaultState.volume);
   const [voices, setVoices] = useState<Voice[]>(defaultState.voices);
   const [selectedVoiceId, setSelectedVoiceId] = useState<string | null>(defaultState.selectedVoiceId);
+  // Chỉ lưu sau khi đã nạp xong từ storage để không ghi đè giá trị đã lưu.
+  const didLoad = useRef(false);
+
+  const applyPersisted = useCallback((saved: Partial<PersistedSpeechConfig>) => {
+    if (typeof saved.rate === 'number') setRate(saved.rate);
+    if (typeof saved.pitch === 'number') setPitch(saved.pitch);
+    if (typeof saved.volume === 'number') setVolume(saved.volume);
+    if (saved.selectedVoiceId !== undefined) setSelectedVoiceId(saved.selectedVoiceId);
+  }, []);
+
+  useEffect(() => {
+    let active = true;
+    loadJSON<Partial<PersistedSpeechConfig>>(StorageKeys.speech, {}).then((saved) => {
+      if (!active) return;
+      applyPersisted(saved);
+      didLoad.current = true;
+    });
+    return () => {
+      active = false;
+    };
+  }, [applyPersisted]);
+
+  useEffect(() => {
+    if (!didLoad.current) return;
+    void saveJSON<PersistedSpeechConfig>(StorageKeys.speech, {
+      rate,
+      pitch,
+      volume,
+      selectedVoiceId,
+    });
+  }, [rate, pitch, volume, selectedVoiceId]);
+
+  const reloadFromStorage = useCallback(async () => {
+    const saved = await loadJSON<Partial<PersistedSpeechConfig>>(StorageKeys.speech, {});
+    applyPersisted(saved);
+  }, [applyPersisted]);
+
+  const [voicesLoaded, setVoicesLoaded] = useState(false);
 
   useEffect(() => {
     Speech.getAvailableVoicesAsync()
@@ -77,8 +129,9 @@ export function SpeechConfigProvider({ children }: { children: React.ReactNode }
           const yuna = koVoices.find((v) => v.name.toLowerCase().includes('yuna'));
           return (yuna ?? koVoices[0]).identifier;
         });
+        setVoicesLoaded(true);
       })
-      .catch(() => {});
+      .catch(() => setVoicesLoaded(true));
   }, []);
 
   const getSpeechOptions = useCallback(
@@ -99,10 +152,12 @@ export function SpeechConfigProvider({ children }: { children: React.ReactNode }
     volume,
     voices,
     selectedVoiceId,
+    voicesLoaded,
     setRate,
     setPitch,
     setVolume,
     setSelectedVoiceId,
+    reloadFromStorage,
     getSpeechOptions,
   };
 

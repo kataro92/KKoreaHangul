@@ -1,4 +1,5 @@
-import React, { createContext, useCallback, useContext, useState } from 'react';
+import React, { createContext, useCallback, useContext, useEffect, useState } from 'react';
+import { loadJSON, saveJSON, StorageKeys } from '../storage/store';
 
 export type Locale = 'en' | 'vi' | 'zh' | 'hi' | 'es' | 'fr' | 'ja';
 
@@ -131,6 +132,8 @@ type TranslationMap = {
   reminderDesc: string;
   reminderTitle: string;
   reminderBody: string;
+  reminderFailed: string;
+  noKoreanVoice: string;
   // Backup (sao lưu & khôi phục)
   backupSectionTitle: string;
   backupDesc: string;
@@ -302,6 +305,8 @@ const translations: Record<Locale, TranslationMap> = {
     reminderDesc: 'Get a daily notification to review your due cards.',
     reminderTitle: 'Time to review!',
     reminderBody: 'You have cards waiting. Open KKorea Hangul to review.',
+    reminderFailed: 'Could not enable the reminder. Please allow notifications for KKorea Hangul in system settings.',
+    noKoreanVoice: 'No Korean voice found on this device. Install a Korean text-to-speech voice in system settings to hear pronunciations.',
     backupSectionTitle: 'Backup & Restore',
     backupDesc: 'Export your flashcards, progress and settings to a JSON file (save it to Google Drive, iCloud/Files…). Restore by picking that file again.',
     backupExport: 'Back up',
@@ -467,6 +472,8 @@ const translations: Record<Locale, TranslationMap> = {
     reminderDesc: 'Nhận thông báo mỗi ngày để ôn các thẻ đến hạn.',
     reminderTitle: 'Đến giờ ôn tập!',
     reminderBody: 'Bạn có thẻ đang chờ. Mở KKorea Hangul để ôn nhé.',
+    reminderFailed: 'Không bật được nhắc nhở. Hãy cho phép thông báo cho KKorea Hangul trong cài đặt hệ thống.',
+    noKoreanVoice: 'Thiết bị chưa có giọng đọc tiếng Hàn. Hãy cài giọng đọc (TTS) tiếng Hàn trong cài đặt hệ thống để nghe phát âm.',
     backupSectionTitle: 'Sao lưu & Khôi phục',
     backupDesc: 'Xuất thẻ ôn tập, tiến độ và cài đặt ra file JSON (lưu vào Google Drive, iCloud/Files…). Khôi phục bằng cách chọn lại file đó.',
     backupExport: 'Sao lưu',
@@ -632,6 +639,8 @@ const translations: Record<Locale, TranslationMap> = {
     reminderDesc: '每天收到通知，复习到期的卡片。',
     reminderTitle: '该复习啦！',
     reminderBody: '有卡片在等你。打开 KKorea Hangul 复习吧。',
+    reminderFailed: '无法开启提醒。请在系统设置中允许 KKorea Hangul 发送通知。',
+    noKoreanVoice: '设备上没有韩语语音。请在系统设置中安装韩语语音（TTS）以收听发音。',
     backupSectionTitle: '备份与恢复',
     backupDesc: '将复习卡片、学习进度和设置导出为 JSON 文件（可保存到 Google Drive、iCloud/文件等）。恢复时重新选择该文件即可。',
     backupExport: '备份',
@@ -797,6 +806,8 @@ const translations: Record<Locale, TranslationMap> = {
     reminderDesc: 'बकाया कार्ड दोहराने के लिए हर दिन सूचना पाएँ।',
     reminderTitle: 'दोहराने का समय!',
     reminderBody: 'कार्ड आपका इंतज़ार कर रहे हैं। दोहराने के लिए KKorea Hangul खोलें।',
+    reminderFailed: 'अनुस्मारक चालू नहीं हो सका। कृपया सिस्टम सेटिंग्स में KKorea Hangul के लिए सूचनाएँ अनुमति दें।',
+    noKoreanVoice: 'इस डिवाइस पर कोरियाई आवाज़ नहीं मिली। उच्चारण सुनने के लिए सिस्टम सेटिंग्स में कोरियाई टेक्स्ट-टू-स्पीच आवाज़ इंस्टॉल करें।',
     backupSectionTitle: 'बैकअप और पुनर्स्थापना',
     backupDesc: 'अपने कार्ड, प्रगति और सेटिंग्स को JSON फ़ाइल में निर्यात करें (Google Drive, iCloud/Files… में सहेजें)। पुनर्स्थापित करने के लिए वही फ़ाइल चुनें।',
     backupExport: 'बैकअप लें',
@@ -962,6 +973,8 @@ const translations: Record<Locale, TranslationMap> = {
     reminderDesc: 'Recibe una notificación diaria para repasar tus tarjetas pendientes.',
     reminderTitle: '¡Hora de repasar!',
     reminderBody: 'Tienes tarjetas esperando. Abre KKorea Hangul para repasar.',
+    reminderFailed: 'No se pudo activar el recordatorio. Permite las notificaciones de KKorea Hangul en los ajustes del sistema.',
+    noKoreanVoice: 'No se encontró una voz coreana en este dispositivo. Instala una voz de texto a voz en coreano en los ajustes del sistema para escuchar la pronunciación.',
     backupSectionTitle: 'Copia de seguridad y restauración',
     backupDesc: 'Exporta tus tarjetas, progreso y ajustes a un archivo JSON (guárdalo en Google Drive, iCloud/Archivos…). Restaura eligiendo ese archivo de nuevo.',
     backupExport: 'Hacer copia',
@@ -1127,6 +1140,8 @@ const translations: Record<Locale, TranslationMap> = {
     reminderDesc: 'Recevez une notification quotidienne pour réviser vos cartes.',
     reminderTitle: "C'est l'heure de réviser !",
     reminderBody: 'Des cartes vous attendent. Ouvrez KKorea Hangul pour réviser.',
+    reminderFailed: "Impossible d'activer le rappel. Autorisez les notifications pour KKorea Hangul dans les réglages du système.",
+    noKoreanVoice: "Aucune voix coréenne trouvée sur cet appareil. Installez une voix de synthèse vocale coréenne dans les réglages du système pour écouter la prononciation.",
     backupSectionTitle: 'Sauvegarde et restauration',
     backupDesc: 'Exportez vos cartes, votre progression et vos réglages dans un fichier JSON (à enregistrer sur Google Drive, iCloud/Fichiers…). Restaurez en re-sélectionnant ce fichier.',
     backupExport: 'Sauvegarder',
@@ -1292,6 +1307,8 @@ const translations: Record<Locale, TranslationMap> = {
     reminderDesc: '期限のカードを復習するため毎日通知を受け取ります。',
     reminderTitle: '復習の時間です！',
     reminderBody: 'カードが待っています。KKorea Hangul を開いて復習しましょう。',
+    reminderFailed: 'リマインダーを有効にできませんでした。システム設定で KKorea Hangul の通知を許可してください。',
+    noKoreanVoice: 'この端末に韓国語の音声が見つかりません。発音を聞くには、システム設定で韓国語の音声（TTS）をインストールしてください。',
     backupSectionTitle: 'バックアップと復元',
     backupDesc: '復習カード・学習進捗・設定を JSON ファイルに書き出します（Google Drive や iCloud/ファイル に保存）。復元はそのファイルを選び直すだけです。',
     backupExport: 'バックアップ',
@@ -1366,7 +1383,15 @@ type LanguageContextValue = {
   getRateLabel: (value: number) => string;
   getPitchLabel: (value: number) => string;
   getVolumeLabel: (value: number) => string;
+  /** Nạp lại locale từ storage — dùng sau khi khôi phục backup. */
+  reloadFromStorage: () => Promise<void>;
 };
+
+const ALL_LOCALES: Locale[] = ['en', 'vi', 'zh', 'hi', 'es', 'fr', 'ja'];
+
+function isLocale(value: unknown): value is Locale {
+  return typeof value === 'string' && (ALL_LOCALES as string[]).includes(value);
+}
 
 const LanguageContext = createContext<LanguageContextValue | null>(null);
 
@@ -1403,7 +1428,28 @@ const LOCALES: { value: Locale }[] = [
 ];
 
 export function LanguageProvider({ children }: { children: React.ReactNode }) {
-  const [locale, setLocale] = useState<Locale>('vi');
+  const [locale, setLocaleState] = useState<Locale>('vi');
+
+  useEffect(() => {
+    let active = true;
+    loadJSON<string | null>(StorageKeys.locale, null).then((saved) => {
+      if (!active) return;
+      if (isLocale(saved)) setLocaleState(saved);
+    });
+    return () => {
+      active = false;
+    };
+  }, []);
+
+  const setLocale = useCallback((next: Locale) => {
+    setLocaleState(next);
+    void saveJSON(StorageKeys.locale, next);
+  }, []);
+
+  const reloadFromStorage = useCallback(async () => {
+    const saved = await loadJSON<string | null>(StorageKeys.locale, null);
+    if (isLocale(saved)) setLocaleState(saved);
+  }, []);
 
   const t = useCallback(
     (key: keyof TranslationMap) => translations[locale][key] ?? key,
@@ -1430,6 +1476,7 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
     getRateLabel,
     getPitchLabel,
     getVolumeLabel,
+    reloadFromStorage,
   };
 
   return (
