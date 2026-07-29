@@ -36,7 +36,7 @@ export function GlassButton({
   const radius = theme.radius.md;
   const pad = compact
     ? { paddingVertical: 11, paddingHorizontal: 12, minHeight: 44 }
-    : { paddingVertical: 14, paddingHorizontal: 20, minHeight: 52 };
+    : { paddingVertical: 14, paddingHorizontal: children ? 12 : 20, minHeight: 52 };
   const fontSize = compact ? 14 : 16;
 
   if (variant === 'glass') {
@@ -56,13 +56,15 @@ export function GlassButton({
   }
 
   const isOutline = variant === 'outline';
+  const contentStyle = children
+    ? [styles.center, styles.stretchContent, pad]
+    : [styles.center, pad];
   return (
     <Pressable
       onPress={onPress}
       disabled={disabled}
       style={({ pressed }) => [
-        styles.center,
-        pad,
+        ...contentStyle,
         {
           borderRadius: radius,
           backgroundColor: isOutline ? 'transparent' : disabled ? theme.colors.textSecondary : tint,
@@ -82,5 +84,6 @@ export function GlassButton({
 
 const styles = StyleSheet.create({
   center: { alignItems: 'center', justifyContent: 'center' },
+  stretchContent: { alignItems: 'stretch' },
   text: { fontWeight: '700' },
 });

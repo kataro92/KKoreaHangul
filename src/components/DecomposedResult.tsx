@@ -2,6 +2,8 @@ import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { useTheme } from '../constants/theme';
 import { useLanguage } from '../contexts/LanguageContext';
+import { useReadingDisplay } from '../contexts/ReadingDisplayContext';
+import { getPartPronunciations } from '../data/phonetics';
 import type { DecomposedSyllable } from '../utils/decompose';
 import { GlassCard } from './glass/GlassCard';
 
@@ -13,10 +15,12 @@ export function DecomposedResult({ data }: DecomposedResultProps) {
   const { t } = useLanguage();
   const theme = useTheme();
   const c = theme.colors;
+  const { phoneticSystem } = useReadingDisplay();
+  const pron = getPartPronunciations(data, phoneticSystem);
   const hasFinal = data.finalChar.length > 0;
+  const silentLabel = '—';
 
   const tint = (hex: string, a: number) => {
-    // hex #RRGGBB → rgba
     const r = parseInt(hex.slice(1, 3), 16);
     const g = parseInt(hex.slice(3, 5), 16);
     const b = parseInt(hex.slice(5, 7), 16);
@@ -30,13 +34,13 @@ export function DecomposedResult({ data }: DecomposedResultProps) {
         <View style={[styles.partBadge, { backgroundColor: tint(c.consonant, 0.18) }]}>
           <Text style={[styles.partChar, { color: c.text }]}>{data.initialChar}</Text>
           <Text style={[styles.partLabel, { color: c.textSecondary }]}>{t('decompInitial')}</Text>
-          <Text style={[styles.partPron, { color: c.consonant }]}>{data.initialPronunciation}</Text>
+          <Text style={[styles.partPron, { color: c.consonant }]}>{pron.initial || silentLabel}</Text>
         </View>
         <Text style={[styles.plus, { color: c.textSecondary }]}>+</Text>
         <View style={[styles.partBadge, { backgroundColor: tint(c.vowel, 0.18) }]}>
           <Text style={[styles.partChar, { color: c.text }]}>{data.medialChar}</Text>
           <Text style={[styles.partLabel, { color: c.textSecondary }]}>{t('decompMedial')}</Text>
-          <Text style={[styles.partPron, { color: c.vowel }]}>{data.medialPronunciation}</Text>
+          <Text style={[styles.partPron, { color: c.vowel }]}>{pron.medial || silentLabel}</Text>
         </View>
         {hasFinal && (
           <>
@@ -44,14 +48,14 @@ export function DecomposedResult({ data }: DecomposedResultProps) {
             <View style={[styles.partBadge, { backgroundColor: tint(c.batchim, 0.18) }]}>
               <Text style={[styles.partChar, { color: c.text }]}>{data.finalChar}</Text>
               <Text style={[styles.partLabel, { color: c.textSecondary }]}>{t('decompFinal')}</Text>
-              <Text style={[styles.partPron, { color: c.batchim }]}>{data.finalPronunciation}</Text>
+              <Text style={[styles.partPron, { color: c.batchim }]}>{pron.final || silentLabel}</Text>
             </View>
           </>
         )}
       </View>
       <Text style={[styles.reading, { color: c.textSecondary }]}>
         {t('decompRead')}
-        <Text style={[styles.readingValue, { color: c.primary }]}>{data.syllablePronunciation}</Text>
+        <Text style={[styles.readingValue, { color: c.primary }]}>{pron.syllable}</Text>
       </Text>
     </GlassCard>
   );

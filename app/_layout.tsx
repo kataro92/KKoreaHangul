@@ -3,6 +3,7 @@ import { StatusBar } from 'expo-status-bar';
 import { useEffect } from 'react';
 import { View } from 'react-native';
 import { LanguageProvider } from '../src/contexts/LanguageContext';
+import { ReadingDisplayProvider } from '../src/contexts/ReadingDisplayContext';
 import { SpeechConfigProvider } from '../src/contexts/SpeechConfigContext';
 import { SrsProvider } from '../src/contexts/SrsContext';
 import { GuidanceProvider, useGuidance } from '../src/contexts/GuidanceContext';
@@ -74,11 +75,13 @@ export default function RootLayout() {
   return (
     <LanguageProvider>
       <SpeechConfigProvider>
-        <SrsProvider>
-          <GuidanceProvider>
-            <ThemedStack />
-          </GuidanceProvider>
-        </SrsProvider>
+        <ReadingDisplayProvider>
+          <SrsProvider>
+            <GuidanceProvider>
+              <ThemedStack />
+            </GuidanceProvider>
+          </SrsProvider>
+        </ReadingDisplayProvider>
       </SpeechConfigProvider>
     </LanguageProvider>
   );

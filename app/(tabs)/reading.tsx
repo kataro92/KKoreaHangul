@@ -1,6 +1,5 @@
 import { useCallback, useState } from 'react';
 import {
-  ActivityIndicator,
   KeyboardAvoidingView,
   Platform,
   Pressable,
@@ -12,6 +11,8 @@ import {
 } from 'react-native';
 import * as Speech from 'expo-speech';
 import { DecomposedResult } from '../../src/components/DecomposedResult';
+import { PokerSyllableRow } from '../../src/components/PokerSyllableRow';
+import { SolidWave } from '../../src/components/SolidWave';
 import { ReadingPractice } from '../../src/components/ReadingPractice';
 import { GlassView } from '../../src/components/glass/GlassView';
 import { GlassButton } from '../../src/components/glass/GlassButton';
@@ -19,6 +20,7 @@ import { GlassScreen } from '../../src/components/glass/GlassScreen';
 import { ScreenHint } from '../../src/components/glass/ScreenHint';
 import { useTheme } from '../../src/constants/theme';
 import { useLanguage } from '../../src/contexts/LanguageContext';
+import { useReadingDisplay } from '../../src/contexts/ReadingDisplayContext';
 import { useSpeechConfig } from '../../src/contexts/SpeechConfigContext';
 import { decomposeString } from '../../src/utils/decompose';
 
@@ -31,7 +33,8 @@ export default function ReadingScreen() {
   const { t } = useLanguage();
   const theme = useTheme();
   const c = theme.colors;
-  const { getSpeechOptions } = useSpeechConfig();
+  const { getSpeechOptions, rate } = useSpeechConfig();
+  const { mode: displayMode } = useReadingDisplay();
 
   const decomposed = decomposeString(input);
 
@@ -117,12 +120,12 @@ export default function ReadingScreen() {
           />
         </GlassView>
         <GlassButton
-          label={t('speakButton')}
+          label={speaking ? undefined : t('speakButton')}
           onPress={handleSpeak}
           disabled={!canSpeak}
           style={styles.speakBtn}
         >
-          {speaking ? <ActivityIndicator size="small" color={c.onPrimary} /> : undefined}
+          {speaking ? <SolidWave active text={input.trim()} rate={rate} height={28} barCount={40} /> : undefined}
         </GlassButton>
       </View>
       <ScrollView
@@ -135,6 +138,8 @@ export default function ReadingScreen() {
           <Text style={[styles.hint, { color: c.textSecondary }]}>
             {input.trim().length === 0 ? t('readingHintEmpty') : t('readingHintNoHangul')}
           </Text>
+        ) : displayMode === 'poker' ? (
+          <PokerSyllableRow items={decomposed} />
         ) : (
           decomposed.map((item, index) => <DecomposedResult key={`${item.syllable}-${index}`} data={item} />)
         )}

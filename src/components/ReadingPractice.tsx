@@ -1,10 +1,11 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
-import { ActivityIndicator, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
+import { Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 import * as Speech from 'expo-speech';
 import { useTheme } from '../constants/theme';
 import { CountdownRing } from './CountdownRing';
 import { GlassCard } from './glass/GlassCard';
 import { GlassButton } from './glass/GlassButton';
+import { SolidWave } from './SolidWave';
 import { useLanguage } from '../contexts/LanguageContext';
 import { useSpeechConfig } from '../contexts/SpeechConfigContext';
 import { useSrs } from '../contexts/SrsContext';
@@ -21,7 +22,7 @@ export function ReadingPractice() {
   const { t } = useLanguage();
   const theme = useTheme();
   const c = theme.colors;
-  const { getSpeechOptions } = useSpeechConfig();
+  const { getSpeechOptions, rate: speechRate } = useSpeechConfig();
   const { addCard } = useSrs();
 
   const [level, setLevel] = useState<SentenceLevel>('topik1');
@@ -180,7 +181,9 @@ export function ReadingPractice() {
               <Text style={[styles.meaning, { color: c.text }]}>{sentence.vi}</Text>
 
               <GlassButton onPress={listen} style={styles.listenBtn} label={speaking ? undefined : t('practiceListen')}>
-                {speaking ? <ActivityIndicator size="small" color={c.onPrimary} /> : undefined}
+                {speaking ? (
+                  <SolidWave active text={sentence.ko} rate={speechRate} height={28} barCount={40} />
+                ) : undefined}
               </GlassButton>
 
               <Text style={[styles.selfRate, { color: c.text }]}>{t('practiceSelfRate')}</Text>

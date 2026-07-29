@@ -1,8 +1,10 @@
 import { useCallback, useMemo, useRef, useState } from 'react';
-import { ActivityIndicator, Image, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
+import { Image, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import * as Speech from 'expo-speech';
 import { DecomposedResult } from '../../src/components/DecomposedResult';
+import { PokerSyllableRow } from '../../src/components/PokerSyllableRow';
+import { SolidWave } from '../../src/components/SolidWave';
 import { GlassCard } from '../../src/components/glass/GlassCard';
 import { GlassButton } from '../../src/components/glass/GlassButton';
 import { GlassScreen } from '../../src/components/glass/GlassScreen';
@@ -10,6 +12,7 @@ import { ScreenHint } from '../../src/components/glass/ScreenHint';
 import { useTheme } from '../../src/constants/theme';
 import { useLanguage } from '../../src/contexts/LanguageContext';
 import type { TranslationMap } from '../../src/contexts/LanguageContext';
+import { useReadingDisplay } from '../../src/contexts/ReadingDisplayContext';
 import { useSpeechConfig } from '../../src/contexts/SpeechConfigContext';
 import { useSrs } from '../../src/contexts/SrsContext';
 import vocabularyData from '../../src/data/vocabulary.json';
@@ -48,8 +51,9 @@ export default function VocabularyScreen() {
   const { t } = useLanguage();
   const theme = useTheme();
   const c = theme.colors;
-  const { getSpeechOptions } = useSpeechConfig();
+  const { getSpeechOptions, rate } = useSpeechConfig();
   const { addCard, hasCard } = useSrs();
+  const { mode: displayMode } = useReadingDisplay();
 
   const inReview = entry ? hasCard('vocab', entry.word) : false;
 
@@ -137,34 +141,45 @@ export default function VocabularyScreen() {
                 <Ionicons name="image-outline" size={48} color={c.textSecondary} />
               )}
             </View>
-            <Text style={[styles.word, { color: c.text }]}>{entry.word}</Text>
-            <View style={styles.meaningRow}>
-              <Text style={[styles.pos, { color: c.primary }]}>
-                {POS_LABEL_KEYS[entry.pos] ? t(POS_LABEL_KEYS[entry.pos]) : entry.pos}
-              </Text>
-              <Text style={[styles.meaning, { color: c.text }]}>{entry.vi || entry.meaning}</Text>
+            <View style={styles.wordRow}>
+              <Text style={[styles.word, { color: c.text }]}>{entry.word}</Text>
+              <View style={styles.metaCol}>
+                <Text style={[styles.pos, { color: c.primary }]}>
+                  {POS_LABEL_KEYS[entry.pos] ? t(POS_LABEL_KEYS[entry.pos]) : entry.pos}
+                </Text>
+                <Text style={[styles.meaning, { color: c.text }]}>{entry.vi || entry.meaning}</Text>
+              </View>
             </View>
             <GlassButton onPress={speak} style={styles.speakBtn} label={speaking ? undefined : t('speakButton')}>
-              {speaking ? <ActivityIndicator size="small" color={c.onPrimary} /> : undefined}
+              {speaking ? (
+                <SolidWave active text={entry.word} rate={rate} height={28} barCount={40} />
+              ) : undefined}
             </GlassButton>
-            <GlassButton
-              variant="outline"
-              color={inReview ? c.batchim : c.primary}
-              onPress={addToReview}
-              disabled={inReview}
-              label={inReview ? t('srsAlreadyAdded') : t('srsAddToReview')}
-              style={styles.addBtn}
-            />
           </GlassCard>
 
           <Text style={[styles.sectionTitle, { color: c.text }]}>{t('vocabReadingTitle')}</Text>
           {decomposed.length === 0 ? (
             <Text style={[styles.hint, { color: c.textSecondary }]}>{t('vocabNoSyllableHint')}</Text>
+          ) : displayMode === 'poker' ? (
+            <View style={styles.pokerWrap}>
+              <PokerSyllableRow items={decomposed} />
+            </View>
           ) : (
             decomposed.map((item, index) => <DecomposedResult key={`${item.syllable}-${index}`} data={item} />)
           )}
 
-          <GlassButton variant="glass" onPress={nextWord} label={t('nextWordButton')} style={styles.nextButton} />
+          <View style={styles.actionRow}>
+            <GlassButton
+              compact
+              variant="outline"
+              color={inReview ? c.batchim : c.primary}
+              onPress={addToReview}
+              disabled={inReview}
+              label={inReview ? t('srsAlreadyAdded') : t('srsAddToReview')}
+              style={styles.actionBtn}
+            />
+            <GlassButton compact variant="glass" onPress={nextWord} label={t('nextWordButton')} style={styles.actionBtn} />
+          </View>
         </>
       )}
     </ScrollView>
@@ -192,12 +207,19 @@ const styles = StyleSheet.create({
     overflow: 'hidden',
   },
   illust: { width: 160, height: 160 },
-  word: { fontSize: 40, marginBottom: 12 },
-  meaningRow: { flexDirection: 'row', alignItems: 'center', gap: 8, marginBottom: 14 },
+  wordRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 12,
+    marginBottom: 14,
+  },
+  word: { fontSize: 40, flexShrink: 0 },
+  metaCol: { flex: 1, justifyContent: 'center', gap: 4 },
   pos: { fontSize: 12, fontWeight: '700' },
-  meaning: { fontSize: 18, flex: 1 },
-  speakBtn: {},
-  addBtn: { marginTop: 10 },
+  meaning: { fontSize: 18 },
+  speakBtn: { alignSelf: 'stretch' },
   hint: { fontSize: 14, marginBottom: 16 },
-  nextButton: { marginTop: 8 },
+  pokerWrap: { marginBottom: 8 },
+  actionRow: { flexDirection: 'row', gap: 10, marginTop: 8 },
+  actionBtn: { flex: 1 },
 });

@@ -9,6 +9,11 @@ import { useTheme } from '../src/constants/theme';
 import { useLanguage, LOCALE_NATIVE_LABELS, LOCALE_FLAGS } from '../src/contexts/LanguageContext';
 import type { Locale } from '../src/contexts/LanguageContext';
 import { useSpeechConfig, RATE_OPTIONS, PITCH_OPTIONS, VOLUME_OPTIONS } from '../src/contexts/SpeechConfigContext';
+import {
+  useReadingDisplay,
+  type ReadingDisplayMode,
+  type PhoneticSystem,
+} from '../src/contexts/ReadingDisplayContext';
 import { useSrs } from '../src/contexts/SrsContext';
 import { useGuidance } from '../src/contexts/GuidanceContext';
 import { exportBackup, importBackup } from '../src/storage/backup';
@@ -51,6 +56,14 @@ export default function SettingsScreen() {
     voicesLoaded,
     reloadFromStorage: reloadSpeech,
   } = useSpeechConfig();
+
+  const {
+    mode: readingDisplayMode,
+    setMode: setReadingDisplayMode,
+    phoneticSystem,
+    setPhoneticSystem,
+    reloadFromStorage: reloadReadingDisplay,
+  } = useReadingDisplay();
 
   const { reloadFromStorage } = useSrs();
 
@@ -105,6 +118,7 @@ export default function SettingsScreen() {
             await reloadFromStorage();
             await reloadLanguage();
             await reloadSpeech();
+            await reloadReadingDisplay();
             // Áp lại trạng thái nhắc ôn theo dữ liệu vừa khôi phục.
             const s = await loadJSON<SettingsData>(StorageKeys.settings, {});
             if (s.reminderEnabled) {
@@ -189,6 +203,37 @@ export default function SettingsScreen() {
             </View>
           </>
         )}
+      </GlassCard>
+
+      <Text style={[styles.sectionTitle, { color: c.text }]}>{t('readingDisplayTitle')}</Text>
+      <GlassCard style={styles.card}>
+        <Text style={[styles.backupDesc, { color: c.textSecondary }]}>{t('readingDisplayDesc')}</Text>
+        <View style={styles.optionRow}>
+          {(
+            [
+              { key: 'breakdown' as ReadingDisplayMode, label: t('readingDisplayBreakdown') },
+              { key: 'poker' as ReadingDisplayMode, label: t('readingDisplayPoker') },
+            ] as const
+          ).map((opt) =>
+            optionBtn(opt.key, readingDisplayMode === opt.key, opt.label, () => setReadingDisplayMode(opt.key))
+          )}
+        </View>
+      </GlassCard>
+
+      <Text style={[styles.sectionTitle, { color: c.text }]}>{t('phoneticSystemTitle')}</Text>
+      <GlassCard style={styles.card}>
+        <Text style={[styles.backupDesc, { color: c.textSecondary }]}>{t('phoneticSystemDesc')}</Text>
+        <View style={styles.optionRow}>
+          {(
+            [
+              { key: 'default' as PhoneticSystem, label: t('phoneticSystemDefault') },
+              { key: 'romanization' as PhoneticSystem, label: t('phoneticSystemRomanization') },
+              { key: 'ipa' as PhoneticSystem, label: t('phoneticSystemIpa') },
+            ] as const
+          ).map((opt) =>
+            optionBtn(opt.key, phoneticSystem === opt.key, opt.label, () => setPhoneticSystem(opt.key))
+          )}
+        </View>
       </GlassCard>
 
       <Text style={[styles.sectionTitle, { color: c.text }]}>{t('languageTitle')}</Text>

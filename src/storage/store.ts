@@ -16,6 +16,7 @@ export const StorageKeys = {
   srsReviews: `${NS}srs:reviews`,
   grammarProgress: `${NS}grammar:progress`,
   readingHistory: `${NS}reading:history`,
+  readingDisplay: `${NS}reading:display`,
   settings: `${NS}settings`,
   guidance: `${NS}guidance`,
   locale: `${NS}locale`,
