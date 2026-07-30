@@ -124,7 +124,7 @@ Speech, study reminder, language (7 locales with flags), About.
   - **Language** — App UI in 7 languages (native names + flags): English, Tiếng Việt, 中文, हिंदी, Español, Français, 日本語. The chosen language, and all speech settings, persist across restarts and are included in backups.
   - **About** — App description and author (Phạm Huy Đức). Back button label is localized (e.g. “Màn hình chính” / “Main”).
 
-- **Design** — Apple‑style **Liquid Glass** throughout: a pastel gradient backdrop with frosted‑glass cards, custom **`GlassTabBar`**, and header. Follows the system **light/dark** appearance automatically. All action buttons share a single `GlassButton` component (primary / outline / glass variants) for a consistent look. App icon, splash (`splash-full.png`), and favicon use matching lavender branding.
+- **Design** — Apple‑style **Liquid Glass** throughout: a pastel gradient backdrop with frosted‑glass cards, custom **`GlassTabBar`**, and header. Follows the system **light/dark** appearance automatically. All action buttons share a single `GlassButton` component (primary / outline / glass variants) for a consistent look. Brand mascot **Hangmi** (tabby cat with a Hangul **ㅎ** forehead marking) appears on the app icon, splash, onboarding, empty states, and About.
 
 All on-screen labels (tabs, buttons, hints, level names, part-of-speech, decomposition labels) are localized.
 

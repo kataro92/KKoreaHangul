@@ -49,10 +49,10 @@ export default function AlphabetScreen() {
       <Text style={[styles.subheader, { color: c.textSecondary }]}>{t('alphabetSubtitle')}</Text>
       <ScreenHint id="alphabet" hint={t('hintAlphabet')} />
 
-      <CategorySection title={t('alphabetBasicConsonants')} items={BASIC_CONSONANTS} />
-      <CategorySection title={t('alphabetDoubleConsonants')} items={DOUBLE_CONSONANTS} />
-      <CategorySection title={t('alphabetBasicVowels')} items={BASIC_VOWELS} />
-      <CategorySection title={t('alphabetCompoundVowels')} items={COMPOUND_VOWELS} />
+      <CategorySection title={t('alphabetBasicConsonants')} items={BASIC_CONSONANTS} speakRole="initial" />
+      <CategorySection title={t('alphabetDoubleConsonants')} items={DOUBLE_CONSONANTS} speakRole="initial" />
+      <CategorySection title={t('alphabetBasicVowels')} items={BASIC_VOWELS} speakRole="vowel" />
+      <CategorySection title={t('alphabetCompoundVowels')} items={COMPOUND_VOWELS} speakRole="vowel" />
 
       <View style={styles.modeRow}>
         {modeBtn('default', t('alphabetModeDefault'))}
@@ -60,7 +60,7 @@ export default function AlphabetScreen() {
       </View>
 
       {mode === 'default' ? (
-        <CategorySection title={t('alphabetBatchim')} items={BATCHIM_DISPLAY} />
+        <CategorySection title={t('alphabetBatchim')} items={BATCHIM_DISPLAY} speakRole="final" />
       ) : (
         <>
           <Text style={[styles.batchimSectionLabel, { color: c.text }]}>{t('alphabetBatchimBySound')}</Text>
@@ -69,6 +69,7 @@ export default function AlphabetScreen() {
               key={group.pronunciation}
               title={`${t('alphabetReadPrefix')}${group.pronunciation}`}
               items={group.items}
+              speakRole="final"
             />
           ))}
         </>

@@ -8,6 +8,7 @@ import { GlassView } from '../../src/components/glass/GlassView';
 import { GlassButton } from '../../src/components/glass/GlassButton';
 import { GlassScreen } from '../../src/components/glass/GlassScreen';
 import { ScreenHint } from '../../src/components/glass/ScreenHint';
+import { HangmiFigure } from '../../src/components/mascot/HangmiFigure';
 import { useTheme } from '../../src/constants/theme';
 import { useLanguage } from '../../src/contexts/LanguageContext';
 import { useSpeechConfig } from '../../src/contexts/SpeechConfigContext';
@@ -106,8 +107,7 @@ export default function ReviewScreen() {
 
       {!current ? (
         <View style={styles.emptyBlock}>
-          <Ionicons name="checkmark-circle-outline" size={64} color={c.batchim} />
-          <Text style={[styles.emptyText, { color: c.textSecondary }]}>{t('srsNoDue')}</Text>
+          <HangmiFigure pose="celebrate" size={160} animate caption={t('srsNoDue')} captionColor={c.textSecondary} />
         </View>
       ) : (
         <>

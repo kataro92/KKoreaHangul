@@ -59,7 +59,7 @@ export function AppSplash({
     >
       <ScreenBackground />
       <Animated.View style={[styles.center, { transform: [{ scale }] }]}>
-        <Image source={require('../../../assets/splash-icon.png')} style={styles.logo} resizeMode="contain" />
+        <Image source={require('../../../assets/mascot/hangmi-hero.png')} style={styles.logo} resizeMode="contain" />
         <Text style={[styles.title, { color: theme.colors.text }]}>KKorea Hangul</Text>
       </Animated.View>
     </Animated.View>
@@ -69,6 +69,6 @@ export function AppSplash({
 const styles = StyleSheet.create({
   wrap: { alignItems: 'center', justifyContent: 'center', zIndex: 9999, elevation: 24 },
   center: { alignItems: 'center', justifyContent: 'center', gap: 14 },
-  logo: { width: 176, height: 176 },
+  logo: { width: 200, height: 200 },
   title: { fontSize: 22, fontWeight: '800', letterSpacing: 0.5 },
 });

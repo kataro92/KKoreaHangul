@@ -5,6 +5,7 @@ import { Ionicons } from '@expo/vector-icons';
 import { GlassView } from '../src/components/glass/GlassView';
 import { GlassButton } from '../src/components/glass/GlassButton';
 import { GlassScreen } from '../src/components/glass/GlassScreen';
+import { HangmiFigure } from '../src/components/mascot/HangmiFigure';
 import { useTheme } from '../src/constants/theme';
 import { useLanguage } from '../src/contexts/LanguageContext';
 import { useSrs } from '../src/contexts/SrsContext';
@@ -73,7 +74,14 @@ export default function ReviewManageScreen() {
           {t('srsManageTitle')} ({cards.length})
         </Text>
         {cards.length === 0 ? (
-          <Text style={[styles.empty, { color: c.textSecondary }]}>{t('srsManageEmpty')}</Text>
+          <HangmiFigure
+            pose="think"
+            size={120}
+            animate
+            caption={t('srsManageEmpty')}
+            captionColor={c.textSecondary}
+            style={styles.emptyMascot}
+          />
         ) : (
           cards.map((card) => (
             <GlassView key={card.id} radius={theme.radius.md} style={styles.cardRow}>
@@ -109,6 +117,7 @@ const styles = StyleSheet.create({
   input: { paddingHorizontal: 12, paddingVertical: 12, fontSize: 16 },
   refreshBtn: { marginTop: 10 },
   empty: { fontSize: 14, textAlign: 'center', paddingVertical: 20 },
+  emptyMascot: { marginTop: 8, marginBottom: 12 },
   cardRow: { flexDirection: 'row', alignItems: 'center', padding: 14, marginBottom: 8 },
   cardInfo: { flex: 1, marginRight: 8 },
   cardFront: { fontSize: 17, fontWeight: '600' },

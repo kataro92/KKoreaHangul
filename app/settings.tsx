@@ -5,6 +5,7 @@ import { Ionicons } from '@expo/vector-icons';
 import { GlassButton } from '../src/components/glass/GlassButton';
 import { GlassCard } from '../src/components/glass/GlassCard';
 import { GlassScreen } from '../src/components/glass/GlassScreen';
+import { HangmiFigure } from '../src/components/mascot/HangmiFigure';
 import { useTheme } from '../src/constants/theme';
 import { useLanguage, LOCALE_NATIVE_LABELS, LOCALE_FLAGS } from '../src/contexts/LanguageContext';
 import type { Locale } from '../src/contexts/LanguageContext';
@@ -344,7 +345,10 @@ export default function SettingsScreen() {
 
       <Text style={[styles.sectionTitle, { color: c.text }]}>{t('aboutTitle')}</Text>
       <GlassCard style={styles.card}>
+        <HangmiFigure pose="hero" size={112} style={styles.aboutMascot} />
         <Text style={[styles.aboutApp, { color: c.text }]}>KKorea Hangul</Text>
+        <Text style={[styles.mascotName, { color: c.primary }]}>{t('mascotName')}</Text>
+        <Text style={[styles.mascotBlurb, { color: c.textSecondary }]}>{t('mascotBlurb')}</Text>
         <Text style={[styles.aboutDescription, { color: c.textSecondary }]}>{t('aboutDescription')}</Text>
         <Text style={[styles.aboutAuthor, { color: c.primary }]}>{t('aboutAuthor')}</Text>
         <Pressable
@@ -390,7 +394,10 @@ const styles = StyleSheet.create({
   backupDesc: { fontSize: 13, lineHeight: 18, marginBottom: 12 },
   backupRow: { flexDirection: 'row', gap: 10 },
   backupBtn: { flex: 1 },
-  aboutApp: { fontSize: 20, fontWeight: '700', marginBottom: 12 },
+  aboutApp: { fontSize: 20, fontWeight: '700', marginBottom: 4, textAlign: 'center' },
+  aboutMascot: { marginBottom: 8 },
+  mascotName: { fontSize: 15, fontWeight: '700', textAlign: 'center', marginBottom: 4 },
+  mascotBlurb: { fontSize: 13, lineHeight: 18, textAlign: 'center', marginBottom: 14 },
   aboutDescription: { fontSize: 15, lineHeight: 22, marginBottom: 16 },
   aboutAuthor: { fontSize: 15, fontWeight: '600' },
   feedbackRow: { flexDirection: 'row', alignItems: 'center', flexWrap: 'wrap', marginTop: 10 },

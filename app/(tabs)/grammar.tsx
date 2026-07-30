@@ -6,6 +6,7 @@ import { GlassView } from '../../src/components/glass/GlassView';
 import { GlassCard } from '../../src/components/glass/GlassCard';
 import { GlassScreen } from '../../src/components/glass/GlassScreen';
 import { ScreenHint } from '../../src/components/glass/ScreenHint';
+import { HangmiFigure } from '../../src/components/mascot/HangmiFigure';
 import { useTheme } from '../../src/constants/theme';
 import { useLanguage } from '../../src/contexts/LanguageContext';
 import { getGrammarByLevel } from '../../src/data/grammar';
@@ -71,7 +72,9 @@ export default function GrammarScreen() {
         showsVerticalScrollIndicator={false}
       >
         {items.length === 0 ? (
-          <Text style={[styles.empty, { color: c.textSecondary }]}>{t('grammarEmpty')}</Text>
+          <View style={styles.emptyWrap}>
+            <HangmiFigure pose="think" size={120} animate caption={t('grammarEmpty')} captionColor={c.textSecondary} />
+          </View>
         ) : (
           items.map((g) => (
             <Pressable key={g.id} onPress={() => router.push(`/grammar/${g.id}`)}>
@@ -113,6 +116,7 @@ const styles = StyleSheet.create({
   list: { flex: 1 },
   listContent: { padding: 16, paddingTop: 4, paddingBottom: 110 },
   empty: { fontSize: 14, textAlign: 'center', paddingVertical: 24 },
+  emptyWrap: { alignItems: 'center', paddingVertical: 28 },
   item: { marginBottom: 12 },
   itemContent: { flexDirection: 'row', alignItems: 'center', padding: 16 },
   itemMain: { flex: 1, marginRight: 8 },

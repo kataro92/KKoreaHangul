@@ -1,22 +1,23 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import type { HangulChar } from '../data/hangul';
+import type { AlphabetSpeakRole, HangulChar } from '../data/hangul';
 import { useTheme } from '../constants/theme';
 import { CharacterCard } from './CharacterCard';
 
 interface CategorySectionProps {
   title: string;
   items: HangulChar[];
+  speakRole: AlphabetSpeakRole;
 }
 
-export function CategorySection({ title, items }: CategorySectionProps) {
+export function CategorySection({ title, items, speakRole }: CategorySectionProps) {
   const theme = useTheme();
   return (
     <View style={styles.section}>
       <Text style={[styles.title, { color: theme.colors.text }]}>{title}</Text>
       <View style={styles.grid}>
         {items.map((item, index) => (
-          <CharacterCard key={`${item.char}-${index}`} item={item} />
+          <CharacterCard key={`${item.char}-${index}`} item={item} speakRole={speakRole} />
         ))}
       </View>
     </View>

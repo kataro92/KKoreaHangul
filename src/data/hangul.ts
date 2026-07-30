@@ -200,3 +200,33 @@ export const BATCHIM_DISPLAY: HangulChar[] = [
   { char: 'ㅍ', pronunciation: 'p', name: 'Pieup' },
   { char: 'ㅎ', pronunciation: 't', name: 'Hieut' },
 ];
+
+// ============ TTS helpers (jamo alone is unreliable — speak as a syllable) ============
+
+const HANGUL_SYLLABLE_BASE = 0xac00;
+
+function composeSyllable(chosung: number, jungseong: number, jongseong = 0): string {
+  return String.fromCharCode(HANGUL_SYLLABLE_BASE + (chosung * 21 + jungseong) * 28 + jongseong);
+}
+
+export type AlphabetSpeakRole = 'initial' | 'vowel' | 'final';
+
+/**
+ * Map a displayed jamo to a pronounceable Hangul syllable for TTS:
+ * - initial: consonant + ㅏ (가, 나, …)
+ * - vowel: ㅇ + vowel (아, 야, …)
+ * - final: 아 + batchim (악, 안, …)
+ */
+export function getAlphabetSpeakText(char: string, role: AlphabetSpeakRole): string {
+  if (role === 'vowel') {
+    const i = JUNGSEONG.findIndex((j) => j.char === char);
+    if (i >= 0) return composeSyllable(11, i, 0);
+  } else if (role === 'initial') {
+    const i = CHOSUNG.findIndex((c) => c.char === char);
+    if (i >= 0) return composeSyllable(i, 0, 0);
+  } else if (role === 'final') {
+    const i = JONGSEONG.findIndex((j) => j.char === char);
+    if (i > 0) return composeSyllable(11, 0, i);
+  }
+  return char;
+}
