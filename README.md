@@ -1,6 +1,6 @@
 # KKorea Hangul
 
-A Korean (Hangul) learning app for Vietnamese speakers, built with **React Native** and **Expo**. The app UI is available in 7 languages and features an Apple‑style **Liquid Glass** interface (frosted‑glass surfaces over a pastel gradient) with automatic **light/dark** mode.
+**KKorea Hangul** is a Korean learning app made for Vietnamese speakers, built with **React Native** and **Expo**. Start with the Hangul alphabet, practice reading and pronunciation syllable by syllable, look up TOPIK I and II grammar with conjugation and sound change rules, learn the full TOPIK I and II vocabulary with clear Vietnamese meanings, then keep what you learn with spaced repetition (SM2). The UI is available in 7 languages, with text to speech and automatic light or dark mode, on an Apple style **Liquid Glass** interface (frosted glass surfaces over a pastel gradient). Brand mascot **Hangmi**, a tabby cat with a Hangul **ㅎ** marking on her forehead, appears on the icon, splash, onboarding, hints, empty states, and About.
 
 ## Screenshots
 
@@ -8,7 +8,7 @@ Captured on the **iOS Simulator** (native React Native UI). Each feature shows *
 
 ### Alphabet
 
-Hangul letters with romanization and “group by sound” for batchim.
+Hangul letters with romanization, tap‑to‑speak pronunciation, and “group by sound” for batchim. First‑visit hints are delivered by Hangmi.
 
 <p align="center"><strong>Light</strong></p>
 <p align="center">
@@ -93,7 +93,7 @@ Spaced‑repetition flashcards (SM‑2), stats, grade buttons, and word suggesti
 
 ### Settings
 
-Speech, study reminder, language (7 locales with flags), About.
+Speech, study reminder, language (7 locales with flags), About (Hangmi, app intro, author thanks).
 
 <p align="center"><strong>Light</strong></p>
 <p align="center">
@@ -110,21 +110,22 @@ Speech, study reminder, language (7 locales with flags), About.
 
 ## Features
 
-- **Alphabet** — Browse the full Hangul alphabet by group: basic consonants, double consonants, basic vowels, compound vowels, and batchim (final consonants). Each character shows romanization. Optional “group by sound” view for batchim.
+- **Alphabet** — Browse the full Hangul alphabet by group: basic consonants, double consonants, basic vowels, compound vowels, and batchim (final consonants). Each character shows romanization. **Tap a letter to hear its pronunciation** (TTS). Optional “group by sound” view for batchim.
 - **Reading** — Two modes via a toggle at the top:
-  - **Syllable breakdown** — Type Korean text and see each syllable decomposed into initial consonant, vowel, and final consonant with pronunciation. **Speak** button for text-to-speech (TTS).
+  - **Syllable breakdown** — Type Korean text and see each syllable decomposed into initial consonant, vowel, and final consonant with pronunciation. **Speak** button for text-to-speech (TTS). Display modes: breakdown list or poker‑card flip layout; phonetic systems (default / romanization / IPA).
   - **Reading practice** — A Korean sentence is shown; read it aloud during a configurable countdown (15/30/45/60s). When the timer ends (or you tap **Show answer**), the Vietnamese phonetics, meaning, and a **Listen** model reading appear so you can self-assess. Rate yourself (Needs work / Okay / Good); a “Needs work” sentence is automatically suggested to your review deck.
 - **Grammar** — 99 TOPIK I/II grammar points (22 basics + 36 beginner + 41 intermediate) with structure, Vietnamese explanation, when-to-use notes, and example sentences. Search and filter by level; each example has a TTS button.
-- **Vocabulary** — Full TOPIK I + II word lists (1,671 + 2,662 = 4,333 words) with random word display, TTS, and syllable breakdown. All entries have Vietnamese meanings (the original English is kept as a fallback). **Add to review** button pushes a word into the spaced-repetition deck.
-- **Review (spaced repetition)** — Flashcard review powered by the **SM-2** algorithm (like Anki/Mochi). Flip cards, grade with Again/Hard/Good/Easy, and a tab badge shows how many cards are due. Includes stats (total/due/learned), rule-based **word suggestions**, and a card manager to create custom cards or delete existing ones. Cards persist on device via AsyncStorage. Vocabulary/sentence cards **auto‑sync their Vietnamese meaning** from the source data on launch (older cards get updated), with a manual **Refresh meanings** button in the card manager.
+- **Vocabulary** — Full TOPIK I + II word lists (1,671 + 2,662 = 4,333 words) with random word display, TTS, syllable breakdown, and illustrations. All entries have Vietnamese meanings (the original English is kept as a fallback). **Add to review** button pushes a word into the spaced-repetition deck.
+- **Review (spaced repetition)** — Flashcard review powered by the **SM-2** algorithm (like Anki/Mochi). Flip cards, grade with Again/Hard/Good/Easy, and a tab badge shows how many cards are due. Includes stats (total/due/learned), rule-based **word suggestions**, and a card manager to create custom cards or delete existing ones. Cards persist on device via AsyncStorage. Vocabulary/sentence cards **auto‑sync their Vietnamese meaning** from the source data on launch (older cards get updated), with a manual **Refresh meanings** button in the card manager. Empty states feature Hangmi.
 - **Settings** (gear icon in header) — Single screen with:
-  - **Speech settings** — Speed, pitch, volume, and Korean voice selection. Applies to Reading and Vocabulary.
+  - **Speech settings** — Speed, pitch, volume, and Korean voice selection. Applies across Alphabet, Reading, Vocabulary, Grammar, and Review.
   - **Study reminder** — Optional daily notification (8:00 PM) to review due cards (requires `expo-notifications`).
   - **Backup & Restore** — Export all flashcards, progress, and settings to a JSON file (save to Google Drive, iCloud/Files, email, etc.). Restore later by choosing the file again—no server needed.
   - **Language** — App UI in 7 languages (native names + flags): English, Tiếng Việt, 中文, हिंदी, Español, Français, 日本語. The chosen language, and all speech settings, persist across restarts and are included in backups.
-  - **About** — App description and author (Phạm Huy Đức). Back button label is localized (e.g. “Màn hình chính” / “Main”).
+  - **Guide** — User guide and onboarding replay, with Hangmi explaining each tab in speech bubbles. Per‑screen hint cards (also Hangmi) can be reset here.
+  - **About** — App description, Hangmi, author (Phạm Huy Đức), and a special thanks to the author’s beginner Korean class teacher and classmates.
 
-- **Design** — Apple‑style **Liquid Glass** throughout: a pastel gradient backdrop with frosted‑glass cards, custom **`GlassTabBar`**, and header. Follows the system **light/dark** appearance automatically. All action buttons share a single `GlassButton` component (primary / outline / glass variants) for a consistent look. Brand mascot **Hangmi** (tabby cat with a Hangul **ㅎ** forehead marking) appears on the app icon, splash, onboarding, empty states, and About.
+- **Design** — Apple‑style **Liquid Glass** throughout: a pastel gradient backdrop with frosted‑glass cards, custom **`GlassTabBar`**, and header. Follows the system **light/dark** appearance automatically. All action buttons share a single `GlassButton` component (primary / outline / glass variants) for a consistent look. Brand mascot **Hangmi** appears on the app icon, splash, onboarding, ScreenHint bubbles, empty states, user guide, and About.
 
 All on-screen labels (tabs, buttons, hints, level names, part-of-speech, decomposition labels) are localized.
 
@@ -234,31 +235,35 @@ APP_URL=http://localhost:8083 node scripts/capture-screenshots.mjs
 
 ```
 ├── app/
-│   ├── _layout.tsx          # Root layout: Language / SpeechConfig / Srs providers
-│   ├── settings.tsx         # Settings (speech, reminder, language, about)
+│   ├── _layout.tsx          # Root layout: Language / SpeechConfig / Srs / Guidance providers
+│   ├── settings.tsx         # Settings (speech, reminder, language, guide, about)
+│   ├── guide.tsx            # User guide (Hangmi speech bubbles)
 │   ├── review-manage.tsx    # Manage SRS cards + create custom cards
 │   ├── grammar/[id].tsx     # Grammar detail screen
 │   └── (tabs)/
 │       ├── _layout.tsx      # Tab navigator (+ Review badge) + gear → Settings
-│       ├── index.tsx        # Alphabet screen
+│       ├── index.tsx        # Alphabet screen (tap letter to speak)
 │       ├── reading.tsx      # Reading screen (syllable breakdown + practice mode)
 │       ├── grammar.tsx      # Grammar list (search + level filter)
 │       ├── vocabulary.tsx   # Vocabulary screen (+ add to review)
 │       └── review.tsx       # Spaced-repetition review + suggestions
 ├── src/
 │   ├── components/         # CharacterCard, CategorySection, DecomposedResult,
-│   │                       #   CountdownRing, ReadingPractice
-│   │   └── glass/          # Liquid Glass: ScreenBackground, GlassScreen,
-│   │                       #   GlassView, GlassCard, GlassButton, GlassTabBar, BlurFill
+│   │                       #   CountdownRing, ReadingPractice, PokerSyllable*
+│   │   ├── glass/          # Liquid Glass: ScreenBackground, GlassScreen,
+│   │   │                   #   GlassView, GlassCard, GlassButton, GlassTabBar,
+│   │   │                   #   BlurFill, AppSplash, ScreenHint
+│   │   └── mascot/         # HangmiFigure, HangmiSpeechBubble
 │   ├── constants/          # colors, theme.ts (Liquid Glass light/dark tokens)
-│   ├── contexts/           # LanguageContext, SpeechConfigContext, SrsContext
+│   ├── contexts/           # Language, SpeechConfig, Srs, Guidance, ReadingDisplay
 │   ├── data/               # hangul.ts, vocabulary.json, grammar.json/.ts,
-│   │                       #   sentences.json/.ts
+│   │                       #   sentences.json/.ts, phonetics.ts
 │   ├── srs/                # sm2.ts (+ test), types.ts, suggest.ts, refresh.ts
 │   ├── services/           # notifications.ts (daily reminder)
-│   ├── storage/            # store.ts (AsyncStorage wrapper)
-│   └── utils/              # decompose.ts (Hangul syllable decomposition)
-├── assets/                  # icon.png, splash-full.png, favicon, Android adaptive icon
+│   ├── storage/            # store.ts, backup.ts
+│   └── utils/              # decompose.ts, vocabIllustration.ts
+├── assets/                  # icon, splash, favicon, Android adaptive icon
+│   └── mascot/              # Hangmi poses (hero, icon, wave, read, think, celebrate, speak)
 ├── screenshots/             # README screenshots (screenshots/{light,dark}/<feature>/1-3.png)
 ├── .maestro/                # Maestro flows for native screenshots
 └── scripts/                 # capture-screenshots*.mjs/sh, parse-topik-vocab.js
@@ -271,6 +276,8 @@ The app is fully offline and collects no personal data — see [PRIVACY.md](PRIV
 ## Author
 
 **Phạm Huy Đức**
+
+Special thanks to the author’s beginner Korean class teacher and classmates for the motivation and inspiration to keep learning Korean.
 
 ## License
 

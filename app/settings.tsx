@@ -351,6 +351,7 @@ export default function SettingsScreen() {
         <Text style={[styles.mascotBlurb, { color: c.textSecondary }]}>{t('mascotBlurb')}</Text>
         <Text style={[styles.aboutDescription, { color: c.textSecondary }]}>{t('aboutDescription')}</Text>
         <Text style={[styles.aboutAuthor, { color: c.primary }]}>{t('aboutAuthor')}</Text>
+        <Text style={[styles.aboutThanks, { color: c.textSecondary }]}>{t('aboutThanks')}</Text>
         <Pressable
           style={({ pressed }) => [styles.feedbackRow, { opacity: pressed ? 0.6 : 1 }]}
           onPress={() => Linking.openURL('mailto:kataro92@gmail.com?subject=KKorea%20Hangul%20-%20Feedback')}
@@ -400,6 +401,7 @@ const styles = StyleSheet.create({
   mascotBlurb: { fontSize: 13, lineHeight: 18, textAlign: 'center', marginBottom: 14 },
   aboutDescription: { fontSize: 15, lineHeight: 22, marginBottom: 16 },
   aboutAuthor: { fontSize: 15, fontWeight: '600' },
+  aboutThanks: { fontSize: 14, lineHeight: 21, marginTop: 12, fontStyle: 'italic' },
   feedbackRow: { flexDirection: 'row', alignItems: 'center', flexWrap: 'wrap', marginTop: 10 },
   feedbackLabel: { fontSize: 14 },
   feedbackEmail: { fontSize: 14, fontWeight: '700', textDecorationLine: 'underline' },

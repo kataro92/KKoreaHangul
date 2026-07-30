@@ -64,7 +64,8 @@ done
 
 if [[ "$BUILD" == true ]]; then
   echo "Building Release on $SIMULATOR (first run may take several minutes) …"
-  npx expo run:ios --configuration Release --device "$SIMULATOR"
+  # --no-bundler: embed JS in the Release binary and exit (do not leave Metro running).
+  npx expo run:ios --configuration Release --no-bundler --device "$SIMULATOR"
 else
   if ! xcrun simctl get_app_container booted "$APP_ID" data >/dev/null 2>&1; then
     echo "App $APP_ID is not installed on the booted simulator."

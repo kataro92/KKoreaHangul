@@ -36,6 +36,7 @@ type TranslationMap = {
   aboutTitle: string;
   aboutDescription: string;
   aboutAuthor: string;
+  aboutThanks: string;
   mascotName: string;
   mascotBlurb: string;
   feedbackLabel: string;
@@ -228,8 +229,10 @@ const translations: Record<Locale, TranslationMap> = {
     langJapanese: 'Japanese',
     aboutTitle: 'About',
     aboutDescription:
-      'KKorea Hangul is a Korean learning app for Vietnamese speakers. Learn the Hangul alphabet, practice reading and pronunciation, study TOPIK I/II grammar with conjugation and sound-change rules, learn the full TOPIK I–II vocabulary with Vietnamese meanings, and review with spaced repetition (SM-2). UI in 7 languages, with text-to-speech and light/dark mode.',
+      'KKorea Hangul is a Korean learning app made for Vietnamese speakers. Start with the Hangul alphabet, practice reading and pronunciation syllable by syllable, look up TOPIK I and II grammar with conjugation and sound change rules, learn the full TOPIK I and II vocabulary with clear Vietnamese meanings, then keep what you learn with spaced repetition (SM2). The interface is available in 7 languages, with text to speech and light or dark mode.',
     aboutAuthor: 'Author: Phạm Huy Đức',
+    aboutThanks:
+      'Special thanks to my Korean beginner-class teacher and classmates — thank you for the motivation and inspiration that keep me learning Korean.',
     mascotName: 'Hangmi',
     mascotBlurb: 'Hangmi is our tabby-cat guide — look for the Hangul ㅎ on her forehead.',
     feedbackLabel: 'Feedback:',
@@ -406,8 +409,10 @@ const translations: Record<Locale, TranslationMap> = {
     langJapanese: 'Tiếng Nhật',
     aboutTitle: 'Giới thiệu',
     aboutDescription:
-      'KKorea Hangul là ứng dụng học tiếng Hàn dành cho người Việt: học bảng chữ Hangul, luyện đọc và phát âm, tra ngữ pháp TOPIK I/II kèm quy tắc chia từ & phát âm, học trọn bộ từ vựng TOPIK I–II với nghĩa tiếng Việt, và ôn tập theo phương pháp lặp lại ngắt quãng (SM-2). Giao diện 7 ngôn ngữ, có phát âm (TTS) và chế độ sáng/tối.',
+      'KKorea Hangul là ứng dụng học tiếng Hàn được thiết kế dành riêng cho người Việt. Bạn có thể học bảng chữ Hangul từ cơ bản đến nâng cao, luyện đọc và phát âm từng âm tiết, tra cứu ngữ pháp TOPIK I và II kèm quy tắc chia từ cùng biến âm, học trọn bộ từ vựng TOPIK I và II với nghĩa tiếng Việt rõ ràng, rồi ôn tập bền vững bằng phương pháp lặp lại ngắt quãng (SM2). Giao diện hỗ trợ 7 ngôn ngữ, có phát âm bằng giọng nói (TTS) và chế độ sáng hoặc tối theo hệ thống.',
     aboutAuthor: 'Tác giả: Phạm Huy Đức',
+    aboutThanks:
+      'Xin gửi lời cảm ơn đặc biệt tới cô giáo và các bạn lớp tiếng Hàn sơ cấp — cảm ơn đã tiếp thêm động lực và truyền cảm hứng cho hành trình học tiếng Hàn của mình.',
     mascotName: 'Hangmi',
     mascotBlurb: 'Hangmi là linh vật mèo mướp — nhận ra nhờ vân chữ Hangul ㅎ trên trán.',
     feedbackLabel: 'Góp ý:',
@@ -584,8 +589,9 @@ const translations: Record<Locale, TranslationMap> = {
     langJapanese: '日语',
     aboutTitle: '关于',
     aboutDescription:
-      'KKorea Hangul 是一款面向越南语使用者的韩语学习应用：学习韩文字母，练习阅读与发音，查阅 TOPIK I/II 语法及变形与发音规则，学习完整的 TOPIK I–II 词汇（含越南语释义），并用间隔重复（SM-2）复习。界面支持 7 种语言，含语音朗读与明暗模式。',
+      'KKorea Hangul 是一款专为越南语使用者打造的韩语学习应用。你可以从韩文字母起步，逐音节练习阅读与发音，查阅 TOPIK I 与 II 语法及变形与变音规则，学习完整的 TOPIK I 与 II 词汇（含清晰的越南语释义），再用间隔重复（SM2）把所学记牢。界面支持 7 种语言，提供语音朗读，并支持明亮或暗黑模式。',
     aboutAuthor: '作者：Phạm Huy Đức',
+    aboutThanks: '特别感谢我韩语初级班的老师和同学们——谢谢你们给予我学习韩语的动力与灵感。',
     mascotName: 'Hangmi',
     mascotBlurb: 'Hangmi 是我们的狸花猫向导——认准额头上的韩文 ㅎ。',
     feedbackLabel: '反馈：',
@@ -762,8 +768,10 @@ const translations: Record<Locale, TranslationMap> = {
     langJapanese: 'जापानी',
     aboutTitle: 'के बारे में',
     aboutDescription:
-      'KKorea Hangul वियतनामी भाषियों के लिए कोरियाई सीखने का ऐप है: हंगुल वर्णमाला, पढ़ने और उच्चारण का अभ्यास, TOPIK I/II व्याकरण एवं रूप व उच्चारण नियम, वियतनामी अर्थ सहित पूर्ण TOPIK I–II शब्दावली, और स्पेस्ड रिपिटिशन (SM-2) से दोहराव। 7 भाषाओं में UI, वाक्-से-ध्वनि और लाइट/डार्क मोड।',
+      'KKorea Hangul वियतनामी भाषियों के लिए बना कोरियाई सीखने का ऐप है। हंगुल वर्णमाला से शुरू करें, हर अक्षर के साथ पढ़ना और उच्चारण का अभ्यास करें, TOPIK I और II व्याकरण के साथ रूप और ध्वनि परिवर्तन नियम देखें, वियतनामी अर्थ सहित पूरी TOPIK I और II शब्दावली सीखें, फिर स्पेस्ड रिपिटिशन (SM2) से याद रखें। इंटरफ़ेस 7 भाषाओं में उपलब्ध है, वाक् से ध्वनि और लाइट या डार्क मोड के साथ।',
     aboutAuthor: 'लेखक: Phạm Huy Đức',
+    aboutThanks:
+      'विशेष धन्यवाद मेरे कोरियाई शुरुआती कक्षा के शिक्षक और सहपाठियों को — प्रेरणा और प्रोत्साहन के लिए धन्यवाद जिससे मैं कोरियाई सीखता रहा।',
     mascotName: 'Hangmi',
     mascotBlurb: 'Hangmi हमारी टेबी बिल्ली गाइड है — माथे पर हंगुल ㅎ देखें।',
     feedbackLabel: 'प्रतिक्रिया:',
@@ -940,8 +948,10 @@ const translations: Record<Locale, TranslationMap> = {
     langJapanese: 'Japonés',
     aboutTitle: 'Acerca de',
     aboutDescription:
-      'KKorea Hangul es una app de coreano para vietnamitas: alfabeto hangul, práctica de lectura y pronunciación, gramática TOPIK I/II con reglas de conjugación y pronunciación, todo el vocabulario TOPIK I–II con significados en vietnamita, y repaso con repetición espaciada (SM-2). Interfaz en 7 idiomas, con lectura por voz y modo claro/oscuro.',
+      'KKorea Hangul es una app de aprendizaje de coreano pensada para hablantes de vietnamita. Empieza por el alfabeto hangul, practica la lectura y la pronunciación sílaba a sílaba, consulta la gramática TOPIK I y II con reglas de conjugación y cambios de sonido, aprende todo el vocabulario TOPIK I y II con significados claros en vietnamita, y conserva lo aprendido con repetición espaciada (SM2). La interfaz está disponible en 7 idiomas, con lectura por voz y modo claro u oscuro.',
     aboutAuthor: 'Autor: Phạm Huy Đức',
+    aboutThanks:
+      'Un agradecimiento especial a mi profesora y compañeros del curso de coreano principiante: gracias por la motivación y la inspiración para seguir aprendiendo coreano.',
     mascotName: 'Hangmi',
     mascotBlurb: 'Hangmi es nuestra guía atigrada — busca el hangul ㅎ en su frente.',
     feedbackLabel: 'Comentarios:',
@@ -1118,8 +1128,10 @@ const translations: Record<Locale, TranslationMap> = {
     langJapanese: 'Japonais',
     aboutTitle: 'À propos',
     aboutDescription:
-      'KKorea Hangul est une app d\'apprentissage du coréen pour vietnamophones : alphabet hangul, lecture et prononciation, grammaire TOPIK I/II avec règles de conjugaison et de prononciation, tout le vocabulaire TOPIK I–II avec traductions vietnamiennes, et révision par répétition espacée (SM-2). Interface en 7 langues, synthèse vocale et mode clair/sombre.',
+      'KKorea Hangul est une application d\'apprentissage du coréen conçue pour les vietnamophones. Commencez par l\'alphabet hangul, entraînez lecture et prononciation syllabe par syllabe, consultez la grammaire TOPIK I et II avec les règles de conjugaison et de changements phonétiques, apprenez tout le vocabulaire TOPIK I et II avec des traductions vietnamiennes claires, puis ancrez vos acquis grâce à la répétition espacée (SM2). L\'interface est disponible en 7 langues, avec synthèse vocale et mode clair ou sombre.',
     aboutAuthor: 'Auteur : Phạm Huy Đức',
+    aboutThanks:
+      'Un remerciement particulier à mon enseignante et à mes camarades de cours de coréen débutant — merci pour la motivation et l’inspiration qui m’accompagnent dans cet apprentissage.',
     mascotName: 'Hangmi',
     mascotBlurb: 'Hangmi est notre guide tigré — repérez le ㅎ hangul sur son front.',
     feedbackLabel: 'Retour :',
@@ -1296,8 +1308,10 @@ const translations: Record<Locale, TranslationMap> = {
     langJapanese: '日本語',
     aboutTitle: 'このアプリについて',
     aboutDescription:
-      'KKorea Hangulはベトナム語話者向けの韓国語学習アプリです。ハングルの学習、読みと発音の練習、TOPIK I/IIの文法と活用・発音規則、越語訳付きのTOPIK I–II全語彙、間隔反復（SM-2）による復習ができます。UIは7言語対応、音声読み上げとライト/ダークモード付き。',
+      'KKorea Hangulはベトナム語話者のために作られた韓国語学習アプリです。ハングルの文字から始め、音節ごとに読みと発音を練習し、TOPIK IとIIの文法や活用と音変化のルールを調べ、ベトナム語訳付きのTOPIK IとIIの全語彙を学び、間隔反復（SM2）で定着させます。UIは7言語に対応し、音声読み上げとライトまたはダークモードを備えています。',
     aboutAuthor: '作者：Phạm Huy Đức',
+    aboutThanks:
+      '特に、初級韓国語クラスの先生と仲間たちへ。学び続ける原動力とインスピレーションをくれて、本当にありがとう。',
     mascotName: 'Hangmi',
     mascotBlurb: 'Hangmiはトラ猫のガイド。おでこのハングル「ㅎ」が目印です。',
     feedbackLabel: 'フィードバック：',

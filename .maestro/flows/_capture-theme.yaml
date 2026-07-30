@@ -9,9 +9,14 @@ name: Capture theme screenshots
     clearState: true
     stopApp: true
 
+# First launch shows Hangmi onboarding — skip to reach the tabs.
+- extendedWaitUntil:
+    visible: "Bỏ qua"
+    timeout: 90000
+- tapOn: "Bỏ qua"
 - extendedWaitUntil:
     visible: "Chữ cái"
-    timeout: 90000
+    timeout: 30000
 
 # App may restore the last tab after deep links — always start on Alphabet.
 - tapOn:
@@ -56,7 +61,7 @@ name: Capture theme screenshots
 
 - tapOn: "Ví dụ: 한국어, 안녕하세요"
 - inputText: "안녕하세요"
-- hideKeyboard
+- tapOn: "Nhập chữ tiếng Hàn"
 - runFlow: settle.yaml
 - takeScreenshot:
     path: ${SHOT_DIR}/reading/2
@@ -130,7 +135,7 @@ name: Capture theme screenshots
 - inputText: "안녕하세요"
 - tapOn: "Mặt sau (nghĩa)"
 - inputText: "xin chào"
-- hideKeyboard
+- tapOn: "Tạo thẻ"
 - tapOn: "Lưu"
 - runFlow: settle.yaml
 - openLink: kkorea-hangul://review
@@ -155,20 +160,25 @@ name: Capture theme screenshots
 - takeScreenshot:
     path: ${SHOT_DIR}/settings/1
 
+# Stop as soon as the reminder title peeks in — language list stays above it.
 - scrollUntilVisible:
     element:
-      text: "Ngôn ngữ"
+      text: "Nhắc ôn tập"
     direction: DOWN
-    timeout: 15000
+    timeout: 20000
+    visibilityPercentage: 10
+    centerElement: false
 - runFlow: settle.yaml
 - takeScreenshot:
     path: ${SHOT_DIR}/settings/2
 
 - scrollUntilVisible:
     element:
-      text: "Giới thiệu"
+      text: "Hangmi"
     direction: DOWN
-    timeout: 15000
+    timeout: 30000
+    visibilityPercentage: 40
+    centerElement: true
 - runFlow: settle.yaml
 - takeScreenshot:
     path: ${SHOT_DIR}/settings/3

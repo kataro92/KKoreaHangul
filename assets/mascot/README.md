@@ -24,14 +24,13 @@ KKorea Hangul mascot: a friendly tabby cat who helps learners with Hangul.
 | File | Use |
 |------|-----|
 | `hangmi-hero.png` | Splash, About |
-| `hangmi-icon.png` | Source for app icon / favicon |
 | `hangmi-wave.webp` | Onboarding welcome |
 | `hangmi-read.webp` | Onboarding alphabet / reading |
 | `hangmi-think.webp` | Empty / no-due states |
 | `hangmi-celebrate.webp` | Onboarding end / success |
 | `hangmi-speak.webp` | Guide tips & ScreenHint speech bubbles |
 
-Full-resolution PNG masters live in `source/`. In-app poses ship as WebP.
+App icon / favicon use `assets/icon.png` (Hangmi head). Full-resolution PNG masters for poses live in `source/`. In-app poses ship as WebP.
 
 ## Prompt anchor (for regenerating)
 
