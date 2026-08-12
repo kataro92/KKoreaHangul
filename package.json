@@ -6,6 +6,7 @@
     "start": "expo start",
     "android": "expo run:android",
     "ios": "expo run:ios",
+    "ios:device": "node scripts/ensure-ios-signing.mjs && expo run:ios --device --configuration Release",
     "web": "expo start --web",
     "screenshots": "node scripts/capture-screenshots.mjs",
     "screenshots:native": "bash scripts/capture-screenshots-native.sh",
