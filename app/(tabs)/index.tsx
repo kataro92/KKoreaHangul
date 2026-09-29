@@ -47,6 +47,7 @@ export default function AlphabetScreen() {
     >
       <Text style={[styles.header, { color: c.text }]}>{t('alphabetTitle')}</Text>
       <Text style={[styles.subheader, { color: c.textSecondary }]}>{t('alphabetSubtitle')}</Text>
+      <Text style={[styles.audioGuide, { color: c.textSecondary }]}>{t('alphabetAudioGuide')}</Text>
       <ScreenHint id="alphabet" hint={t('hintAlphabet')} />
 
       <CategorySection title={t('alphabetBasicConsonants')} items={BASIC_CONSONANTS} speakRole="initial" />
@@ -84,6 +85,7 @@ const styles = StyleSheet.create({
   content: { padding: 16, paddingBottom: 110 },
   header: { fontSize: 24, fontWeight: '800', marginBottom: 4 },
   subheader: { fontSize: 14, marginBottom: 16 },
+  audioGuide: { fontSize: 12, lineHeight: 18, marginBottom: 12 },
   modeRow: { flexDirection: 'row', gap: 10, marginBottom: 12 },
   modeButton: { flex: 1, paddingVertical: 10, paddingHorizontal: 16, borderRadius: 12, borderWidth: 2, alignItems: 'center' },
   modeButtonText: { fontSize: 14, fontWeight: '600' },

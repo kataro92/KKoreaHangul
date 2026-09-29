@@ -110,7 +110,7 @@ Speech, study reminder, language (7 locales with flags), About (Hangmi, app intr
 
 ## Features
 
-- **Alphabet** — Browse the full Hangul alphabet by group: basic consonants, double consonants, basic vowels, compound vowels, and batchim (final consonants). Each character shows romanization. **Tap a letter to hear its pronunciation** (TTS). Optional “group by sound” view for batchim.
+- **Alphabet** — Browse the full Hangul alphabet by group: basic consonants, double consonants, basic vowels, compound vowels, and batchim (final consonants). Each character shows romanization. Tap a consonant to hear its standard Korean name followed by a sample syllable; vowels use their standalone syllable, and batchim use a real word with the corresponding final sound. The Korean text shown on each card is what the device's Korean TTS reads. Optional “group by sound” view for batchim.
 - **Reading** — Two modes via a toggle at the top:
   - **Syllable breakdown** — Type Korean text and see each syllable decomposed into initial consonant, vowel, and final consonant with pronunciation. **Speak** button for text-to-speech (TTS). Display modes: breakdown list or poker‑card flip layout; phonetic systems (default / romanization / IPA).
   - **Reading practice** — A Korean sentence is shown; read it aloud during a configurable countdown (15/30/45/60s). When the timer ends (or you tap **Show answer**), the Vietnamese phonetics, meaning, and a **Listen** model reading appear so you can self-assess. Rate yourself (Needs work / Okay / Good); a “Needs work” sentence is automatically suggested to your review deck.
