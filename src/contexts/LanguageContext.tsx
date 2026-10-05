@@ -1,7 +1,8 @@
-import React, { createContext, useCallback, useContext, useEffect, useState } from 'react';
+import React, { createContext, useCallback, useContext, useEffect, useRef, useState } from 'react';
 import { loadJSON, saveJSON, StorageKeys } from '../storage/store';
-
-export type Locale = 'en' | 'vi' | 'zh' | 'hi' | 'es' | 'fr' | 'ja';
+import { FALLBACK_LOCALE, resolveInitialLocale, type Locale } from '../localization/locale';
+import { detectDefaultLocale } from '../localization/detectDefaultLocale';
+export type { Locale } from '../localization/locale';
 
 type TranslationMap = {
   // Tab & app
@@ -1490,6 +1491,7 @@ const VOLUME_LABEL_KEYS: Record<number, keyof TranslationMap> = {
 
 type LanguageContextValue = {
   locale: Locale;
+  ready: boolean;
   setLocale: (locale: Locale) => void;
   t: (key: keyof TranslationMap) => string;
   getRateLabel: (value: number) => string;
@@ -1498,12 +1500,6 @@ type LanguageContextValue = {
   /** Nạp lại locale từ storage — dùng sau khi khôi phục backup. */
   reloadFromStorage: () => Promise<void>;
 };
-
-const ALL_LOCALES: Locale[] = ['en', 'vi', 'zh', 'hi', 'es', 'fr', 'ja'];
-
-function isLocale(value: unknown): value is Locale {
-  return typeof value === 'string' && (ALL_LOCALES as string[]).includes(value);
-}
 
 const LanguageContext = createContext<LanguageContextValue | null>(null);
 
@@ -1540,27 +1536,36 @@ const LOCALES: { value: Locale }[] = [
 ];
 
 export function LanguageProvider({ children }: { children: React.ReactNode }) {
-  const [locale, setLocaleState] = useState<Locale>('vi');
-
-  useEffect(() => {
-    let active = true;
-    loadJSON<string | null>(StorageKeys.locale, null).then((saved) => {
-      if (!active) return;
-      if (isLocale(saved)) setLocaleState(saved);
-    });
-    return () => {
-      active = false;
-    };
-  }, []);
-
-  const setLocale = useCallback((next: Locale) => {
-    setLocaleState(next);
-    void saveJSON(StorageKeys.locale, next);
-  }, []);
+  const [locale, setLocaleState] = useState<Locale>(FALLBACK_LOCALE);
+  const [ready, setReady] = useState(false);
+  const requestId = useRef(0);
+  const mounted = useRef(false);
 
   const reloadFromStorage = useCallback(async () => {
+    const id = ++requestId.current;
     const saved = await loadJSON<string | null>(StorageKeys.locale, null);
-    if (isLocale(saved)) setLocaleState(saved);
+    const next = await resolveInitialLocale(saved, detectDefaultLocale);
+    // A newer manual choice or restore must win over a pending startup request.
+    if (mounted.current && id === requestId.current) {
+      setLocaleState(next);
+      setReady(true);
+    }
+  }, []);
+
+  useEffect(() => {
+    mounted.current = true;
+    void reloadFromStorage();
+    return () => {
+      mounted.current = false;
+      ++requestId.current;
+    };
+  }, [reloadFromStorage]);
+
+  const setLocale = useCallback((next: Locale) => {
+    ++requestId.current;
+    setLocaleState(next);
+    setReady(true);
+    void saveJSON(StorageKeys.locale, next);
   }, []);
 
   const t = useCallback(
@@ -1583,6 +1588,7 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
 
   const value: LanguageContextValue = {
     locale,
+    ready,
     setLocale,
     t,
     getRateLabel,

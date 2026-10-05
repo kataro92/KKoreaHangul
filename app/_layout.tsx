@@ -2,7 +2,7 @@ import { Stack } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
 import { useEffect } from 'react';
 import { View } from 'react-native';
-import { LanguageProvider } from '../src/contexts/LanguageContext';
+import { LanguageProvider, useLanguage } from '../src/contexts/LanguageContext';
 import { ReadingDisplayProvider } from '../src/contexts/ReadingDisplayContext';
 import { SpeechConfigProvider } from '../src/contexts/SpeechConfigContext';
 import { SrsProvider } from '../src/contexts/SrsContext';
@@ -33,6 +33,7 @@ try {
 function ThemedStack() {
   const theme = useTheme();
   const { ready } = useGuidance();
+  const { ready: languageReady } = useLanguage();
 
   useEffect(() => {
     // Lớp AppSplash (React) đã phủ kín; ẩn splash native bên dưới sau frame đầu
@@ -66,7 +67,7 @@ function ThemedStack() {
       </Stack>
       {/* Thứ tự lớp phủ: tabs < giới thiệu (onboarding) < splash. */}
       <OnboardingOverlay />
-      <AppSplash minDuration={MIN_SPLASH_MS} fadeDuration={500} ready={ready} />
+      <AppSplash minDuration={MIN_SPLASH_MS} fadeDuration={500} ready={ready && languageReady} />
     </View>
   );
 }

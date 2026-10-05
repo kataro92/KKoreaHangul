@@ -44,6 +44,10 @@ yarn-error.*
 *.apk
 *.aab
 build-apk.log
+modules/*/android/build/
+.secrets/
+release/
+release-build-internal.log
 
 # uncompressed originals of branding assets
 assets/.originals/

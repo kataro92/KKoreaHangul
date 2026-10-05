@@ -33,7 +33,7 @@ const FADE_OUT_MS = 350;
 export function OnboardingOverlay() {
   const theme = useTheme();
   const c = theme.colors;
-  const { t } = useLanguage();
+  const { t, ready: languageReady } = useLanguage();
   const { ready, introVisible, finishIntro } = useGuidance();
   const { width } = useWindowDimensions();
   const insets = useSafeAreaInsets();
@@ -61,7 +61,7 @@ export function OnboardingOverlay() {
     return () => clearTimeout(failSafe);
   }, [closing, finishIntro]);
 
-  if (!ready || !introVisible) return null;
+  if (!ready || !languageReady || !introVisible) return null;
 
   const slides = [1, 2, 3, 4].map((n) => ({
     image: SLIDE_IMAGES[n - 1],
