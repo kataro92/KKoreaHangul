@@ -5,17 +5,27 @@ Phạm vi: chỉ Internal testing, dừng trước Closed testing và Production
 ## Package hiện tại
 
 - Android: `com.spacekatcompany.kkoreanhangul`, đúng ID được yêu cầu.
-- Phiên bản: `1.1.2`, versionCode `4`.
+- Phiên bản Internal hiện tại: `1.1.3`, versionCode `5`.
 - iOS giữ bundleIdentifier riêng trong `app.json`.
 - Tài khoản Play: The Space Kat Company, developer ID `6660012349184224355`.
 - App mới đã tạo ngày 05/10/2026 sau khi chủ tài khoản xác nhận hai khai báo: KKorea Hangul, English (United States) — `en-US`, App, Free. App ID `4975560487486352974`, Internal track ID `4699881387950463788`. Danh sách thử `KKorea Hangul - Thử nghiệm nội bộ` đã được chọn và lưu, gồm `spacekatcompany@gmail.com` và `kataro92@gmail.com`.
 - [Internal testing trên Console](https://play.google.com/console/u/1/developers/6660012349184224355/app/4975560487486352974/tracks/4699881387950463788).
-- Đã phát hành release ID `1`, tên `1.1.2 (4) - Internal`, ghi chú `en-US`, ngày 05/10/2026 lúc 13:53 (giờ hiển thị trên Console). Console xác nhận **Active — Available to internal testers**. Chưa bắt đầu Closed testing hoặc Production.
+- Đã phát hành release ID `2`, tên `1.1.3 (5) - Internal`, ghi chú `en-US` và `vi`, ngày 05/10/2026 lúc 18:05 (giờ hiển thị trên Console). Console xác nhận **Active — Available to internal testers**. Chưa bắt đầu Closed testing hoặc Production. Release đầu tiên là `1.1.2 (4) - Internal`, release ID `1`, ngày 05/10/2026 lúc 13:53; bundle code `4` không được đưa vào release mới.
 - [Tham gia Internal testing](https://play.google.com/apps/internaltest/4699881387950463788): đăng nhập bằng một trong hai email đã chọn, tham gia rồi cài từ Google Play. Danh sách email là điều kiện tham gia, không đồng nghĩa đã opt-in. Google thông báo thay đổi thường xuất hiện trong một giờ, đôi khi lâu hơn.
-- Play tạm hiển thị `com.spacekatcompany.kkoreanhangul (unreviewed)` vì app chưa review. Dung lượng tải cài mới ước tính 57,2 MB. Có một cảnh báo không chặn về deobfuscation file; bản hiện tại chưa bật minify/R8, native debug symbols đã đính kèm.
-- Bằng chứng: `release/com.spacekatcompany.kkoreanhangul-internal-published.jpg`.
+- Play tạm hiển thị `com.spacekatcompany.kkoreanhangul (unreviewed)` vì app chưa review. Bản `1.1.3 (5)` có dung lượng tải cài mới ước tính 57,4 MB, cập nhật 10,4 MB. Có một cảnh báo không chặn về deobfuscation file; bản hiện tại chưa bật minify/R8, native debug symbols đã đính kèm.
+- Bằng chứng bản hiện tại: `release/com.spacekatcompany.kkoreanhangul-1.1.3-5-internal-published.png`. Bằng chứng bản đầu: `release/com.spacekatcompany.kkoreanhangul-internal-published.jpg`.
 
 ## AAB đã chuẩn bị
+
+`release/com.spacekatcompany.kkoreanhangul-1.1.3-5.aab`
+
+SHA-256: `475AA135E528F95FA9D3500368B256260486B95E08D9EE4BD4EA9E2FCFA0205D`.
+
+Build release, TypeScript và 61 unit test đạt. Bundletool validate, jarsigner verify, đối chiếu upload certificate, package/version/target SDK 36 và kiểm 38 thư viện ELF 64-bit alignment 16 KB đạt. JavaScript/Hermes bundle và module native `PlayCountry` được đóng gói. Google Play nhận đúng code `5`, không có lỗi chặn và không làm mất thiết bị được hỗ trợ so với bản trước.
+
+Smoke test Android 14 trên AVD riêng `KKoreaStore34`: cập nhật từ APK thử nghiệm code `4` giữ lựa chọn tiếng Anh; xóa dữ liệu thử nghiệm rồi mở mới (không có Play service) hiển thị onboarding và giao diện tiếng Anh; chọn tiếng Việt thủ công rồi force-stop/mở lại vẫn giữ tiếng Việt; mở tab Đọc thành công, crash log trống trong các bước kiểm tra. APK emulator được tạo từ AAB mới và ký bằng debug key để kiểm thử local; AAB upload vẫn ký bằng upload key được giữ nguyên. Chưa xác nhận truy vấn quốc gia trên tài khoản Play thật hoặc runtime trên thiết bị 16 KB. Bằng chứng local: `release/smoke-1.1.3-5-default-en.png`, `release/smoke-1.1.3-5-saved-vi.png`.
+
+### AAB bản đầu
 
 `release/com.spacekatcompany.kkoreanhangul-1.1.2-4.aab`
 
@@ -64,11 +74,13 @@ Package mới có dữ liệu riêng, không tự nhận dữ liệu package cũ
 
 ## Giai đoạn sau
 
-Privacy URL và mục privacy trong app; mô tả Auto Backup; hồ sơ cửa hàng/ảnh Android; Data safety/App content; kiểm nội dung học, thiết bị cấu hình thấp và runtime 16 KB. Không tự bắt đầu Closed testing hoặc Production.
+Privacy URL và mục privacy trong app; mô tả Auto Backup; Data safety/App content; kiểm nội dung học, thiết bị cấu hình thấp và runtime 16 KB. Không tự bắt đầu Closed testing hoặc Production.
 
-## Thay đổi ngôn ngữ đang ở source — chưa phát hành
+Hồ sơ cửa hàng đã lưu trên Console với English (United States) `en-US` mặc định và Vietnamese `vi` bổ sung: tên, mô tả ngắn/đầy đủ, icon Hangmi hiện có, banner mới và 6 screenshot Android cho mỗi ngôn ngữ. Tệp nguồn nằm trong [store-assets](../store-assets/README.md). Publishing overview xác nhận đủ thông tin listing cho cả hai ngôn ngữ, nhưng **Send app for review** bị khóa đến khi hoàn tất các bước App setup bắt buộc. Hồ sơ chưa gửi review/chưa hiển thị như một trang Store đã được review; việc này không chặn Internal release. Bằng chứng: `release/store-listing-completed.png`, `release/store-listing-review-pending.png`.
 
-Bản Internal `1.1.2 (4)` và AAB đã lưu ở trên vẫn dùng logic cũ: mặc định tiếng Việt khi chưa có lựa chọn đã lưu. Ngôn ngữ mặc định của store listing `en-US` không quyết định ngôn ngữ bên trong app.
+## Ngôn ngữ mặc định từ 1.1.3 (5)
+
+Bản cũ `1.1.2 (4)` dùng logic mặc định tiếng Việt khi chưa có lựa chọn đã lưu. Bản `1.1.3 (5)` đã phát hành logic mới bên dưới. Ngôn ngữ mặc định của store listing `en-US` không quyết định ngôn ngữ bên trong app.
 
 Source mới ưu tiên lựa chọn ngôn ngữ đã lưu; nếu chưa có lựa chọn hợp lệ, Android đọc **quốc gia tài khoản Google Play** bằng `BillingClient.getBillingConfigAsync`. Đây không phải ngôn ngữ thiết bị, vị trí GPS, hay quốc gia suy ra từ SIM. Ví dụ Play Việt Nam + máy đặt tiếng Anh vẫn chọn tiếng Việt.
 
@@ -80,6 +92,6 @@ Splash/onboarding chờ đọc ngôn ngữ, và kết quả truy vấn cũ khôn
 
 Trước lần phát hành tiếp theo, kiểm trên thiết bị cài qua Play: (1) cài mới với Play VN và máy tiếng Anh → tiếng Việt; (2) Play JP → tiếng Nhật; (3) quốc gia chưa ánh xạ hoặc dịch vụ không phản hồi → tiếng Anh; (4) chọn tiếng Anh thủ công với Play VN, đóng/mở → giữ tiếng Anh; (5) khôi phục backup có locale hợp lệ → giữ locale backup. Android Auto Backup có thể phục hồi lựa chọn cũ khi cài lại; cần xóa dữ liệu/không phục hồi backup để kiểm đúng trạng thái cài mới.
 
-Theo yêu cầu hiện tại, không tăng version, không tạo AAB mới và không upload/release.
+Ngày 05/10/2026, chủ tài khoản yêu cầu phát hành phiên bản mới rồi commit/push. Phiên bản đã tăng lên `1.1.3 (5)`, build và phát hành riêng trên Internal testing.
 
 Kiểm tra local: TypeScript đạt, 61 unit test đạt; Expo tự đăng ký `PlayCountryModule`; Android `compileReleaseKotlin`, gộp manifest và đóng gói JavaScript/Hermes đạt. Chưa xác nhận quốc gia Play trên thiết bị thật.

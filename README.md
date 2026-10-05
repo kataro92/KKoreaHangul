@@ -4,6 +4,8 @@
 
 ## Screenshots
 
+Google Play listing copy, the store icon, feature graphic, and localized Android screenshots are in [`store-assets/`](store-assets/README.md). Internal testing build and release details are documented in [`docs/INTERNAL_TESTING.md`](docs/INTERNAL_TESTING.md).
+
 Captured on the **iOS Simulator** (native React Native UI). Each feature shows **three states** in **light** and **dark** appearance (follows the system theme).
 
 ### Alphabet
