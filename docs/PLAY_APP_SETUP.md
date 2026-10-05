@@ -1,14 +1,16 @@
 # Google Play app setup
 
-Live Console checked on 5 October 2026. App: KKorea Hangul, package `com.spacekatcompany.kkoreanhangul`, developer `6660012349184224355`, app ID `4975560487486352974`.
+Live Console checked on 6 October 2026. App: KKorea Hangul, package `com.spacekatcompany.kkoreanhangul`, developer `6660012349184224355`, app ID `4975560487486352974`.
 
-Dashboard currently confirms **10 of 11 setup tasks completed**. Content rating awaits the account owner's explicit acceptance of the IARC Terms of Use. No IARC terms have been accepted or rating questionnaire submitted by the agent. Completing setup is separate from Google review or release approval.
+All **11 setup tasks are completed**: after Content ratings was saved, Dashboard stopped showing the outstanding “Finish setting up your app” section. App content → Need attention now says **“You're all caught up”**, and Actioned lists ten completed policy declarations, including the additional Advertising ID declaration. Completing setup is separate from Google review or release approval.
 
 ## Saved declarations
 
 - Privacy policy: https://kataro92.github.io/spacekat-privacy-policies/kkorea-hangul/
 - App access/sign-in: no restricted access, no login, no account creation.
 - Ads: none.
+- Advertising ID: not used. The released `1.1.3 (5)` merged manifest has no `com.google.android.gms.permission.AD_ID`, and the app has no ads/Advertising ID integration. This additional declaration was saved on 6 October.
+- Content rating: IARC **Completed**, submitted 6 October 2026; regional ratings below.
 - Target audience: 13–15, 16–17, 18 and over. This is the intended audience, not an IARC rating.
 - Government apps: no.
 - Financial features: none; no purchases/subscriptions despite the Billing SDK used to obtain Play country.
@@ -36,11 +38,31 @@ Saved Data safety: **Diagnostics** and **Device or other IDs**, collected and sh
 
 Audit text is in ignored `release/audit-billing/`. Reassess these declarations whenever SDKs, billing, backup, TTS, notifications or networking change. [Google Data safety definitions](https://support.google.com/googleplay/android-developer/answer/10787469?hl=en), [Android data-use guidance](https://developer.android.com/privacy-and-security/declare-data-use), [Play country query](https://developer.android.com/google/play/billing/integrate#query_billing_config).
 
-## Content rating still to do
+## Completed content rating
 
-Prepared category **All Other App Types**, email `spacekatcompany@gmail.com`. The Terms of Use checkbox remains unchecked, awaiting the owner's approval.
+Category **All Other App Types**, email `spacekatcompany@gmail.com`. The owner personally accepted the IARC terms and advanced to the questionnaire. The questionnaire and its final Summary were saved on 6 October; Console confirms IARC status **Completed**. The certificate ID currently displays `-`.
 
-Answer the actual questionnaire based on bundled content. Vocabulary includes beer/wine and tobacco/cigarette illustrations. `to-kill.webp` shows a stylized magic attack on a fantasy creature; `murder.webp` depicts a detective investigating a scene without a body or gore; `suicide.webp` shows people offering support without depicting self-harm. `drug.webp` depicts medicine/pharmacy supplies. These educational images must be considered when answering substance/violence/reference questions; do not blindly select “No” for every category.
+The answers account for bundled vocabulary and illustrations:
+
+- Human violence is referred to in vocabulary such as murder/suicide, without depicting injury or gore. `murder.webp` shows a detective investigating a scene; `suicide.webp` shows people offering support. The style is childlike, with no realistic suffering, historical war setting, or sinister violence.
+- Non-human fantasy violence is referred to and rarely depicted from a distant perspective (`to-kill.webp`, pillow-character fight). Reactions are unrealistic and there is no associated blood/gore. A separate cute blood-droplet illustration is small and infrequent.
+- Rare scary elements include ghost/hell/scary illustrations, without horrifying images.
+- The lottery vocabulary illustration contains gambling themes; gambling is not a focus and no gambling games are playable.
+- Rare minor potentially offensive language includes the vocabulary meaning “idiot, stupid”; no discriminatory language or sexual expletives were identified.
+- Illegal/recreational drugs are referenced by `마약` / “ma túy”; the illustration itself is pharmacy supplies, with no illegal-drug use or instructions. Medical drugs are referenced rarely. Alcohol and tobacco are referenced and depicted in use rarely (drinking-party illustrations, a lit cigarette), with no first-person use, encouragement, or instructions.
+- Sexual content, crude humor, native user-to-user sharing, featured online content, age-restricted sales, precise-location sharing, digital purchases, cash/crypto/NFT rewards and browser/search functionality: no. Export through the system share sheet is not native user interaction.
+- Primarily a news or **educational product**: yes, because this is a Korean-language learning app. This is reflected in the generated ratings.
+
+| Region | Rating |
+| --- | --- |
+| Brazil (ClassInd) | All ages |
+| North America (ESRB) | Everyone 10+ |
+| Europe (PEGI) | PEGI 3 |
+| Germany (USK) | Ages 6+; Contents for Different Age Groups |
+| Rest of world (IARC Generic) | Rated for 3+ |
+| Russia / South Korea (Google Play) | Rated for 3+ |
+
+These are the ratings shown by Console, not a claim of Google review approval. Reassess the questionnaire when educational content, images or app features change. The intended audience remains 13 and over.
 
 ## Privacy source and next binary
 
@@ -50,4 +72,4 @@ Public policy commits: `0d80606` (initial policy) and `772113c` (Billing diagnos
 
 The current Play binary **1.1.3 (5) predates the in-app policy screen**. Before submitting a binary for a broader review/release, build and verify a higher version code containing the screen. This setup task has not uploaded another binary or sent changes for review.
 
-Proof: ignored `release/iarc-consent-pending.png` and `release/play-app-setup-10-of-11.png`.
+Current proof: ignored `release/play-app-content-complete.png` (nothing requiring attention) and `release/play-content-ratings-complete.png` (IARC Completed). Earlier `release/iarc-consent-pending.png` and `release/play-app-setup-10-of-11.png` are historical, superseded snapshots.
