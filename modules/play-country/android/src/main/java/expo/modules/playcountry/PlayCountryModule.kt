@@ -13,7 +13,9 @@ import expo.modules.kotlin.modules.Module
 import expo.modules.kotlin.modules.ModuleDefinition
 import java.util.concurrent.atomic.AtomicBoolean
 
-/** Reads Play country once per request. No purchase flows, caching or analytics. */
+/** Reads Play country once per request. No purchases or country caching.
+ * The Billing SDK's own operational diagnostics are disclosed in the privacy policy.
+ */
 class PlayCountryModule : Module() {
   private val handler = Handler(Looper.getMainLooper())
   private val pending = mutableSetOf<CountryRequest>()

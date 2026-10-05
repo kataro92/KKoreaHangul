@@ -61,6 +61,7 @@ function ThemedStack() {
       >
         <Stack.Screen name="(tabs)" />
         <Stack.Screen name="settings" options={{ headerShown: true }} />
+        <Stack.Screen name="privacy" options={{ headerShown: true }} />
         <Stack.Screen name="grammar/[id]" options={{ headerShown: true }} />
         <Stack.Screen name="review-manage" options={{ headerShown: true }} />
         <Stack.Screen name="guide" options={{ headerShown: true }} />

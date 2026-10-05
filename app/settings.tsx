@@ -19,6 +19,7 @@ import { useSrs } from '../src/contexts/SrsContext';
 import { useGuidance } from '../src/contexts/GuidanceContext';
 import { exportBackup, importBackup } from '../src/storage/backup';
 import { loadJSON, saveJSON, StorageKeys } from '../src/storage/store';
+import { PRIVACY_LABELS } from '../src/legal/privacy';
 import {
   scheduleDailyReminder,
   cancelReminder,
@@ -352,6 +353,12 @@ export default function SettingsScreen() {
         <Text style={[styles.aboutDescription, { color: c.textSecondary }]}>{t('aboutDescription')}</Text>
         <Text style={[styles.aboutAuthor, { color: c.primary }]}>{t('aboutAuthor')}</Text>
         <Text style={[styles.aboutThanks, { color: c.textSecondary }]}>{t('aboutThanks')}</Text>
+        <Pressable accessibilityRole="button"
+          style={({ pressed }) => [styles.feedbackRow, { opacity: pressed ? 0.6 : 1, paddingVertical: 10 }]}
+          onPress={() => router.push('/privacy')}>
+          <Ionicons name="shield-checkmark-outline" size={18} color={c.primary} />
+          <Text style={[styles.feedbackEmail, { color: c.primary, marginLeft: 8 }]}>{PRIVACY_LABELS[locale]}</Text>
+        </Pressable>
         <Pressable
           style={({ pressed }) => [styles.feedbackRow, { opacity: pressed ? 0.6 : 1 }]}
           onPress={() => Linking.openURL('mailto:kataro92@gmail.com?subject=KKorea%20Hangul%20-%20Feedback')}

@@ -17,6 +17,8 @@ Phạm vi: chỉ Internal testing, dừng trước Closed testing và Production
 
 ## AAB đã chuẩn bị
 
+Thiết lập App content và chính sách riêng tư: xem [PLAY_APP_SETUP.md](PLAY_APP_SETUP.md). Mã nguồn mới bổ sung trang chính sách trong app; binary `1.1.3 (5)` hiện tại chưa chứa trang này.
+
 `release/com.spacekatcompany.kkoreanhangul-1.1.3-5.aab`
 
 SHA-256: `475AA135E528F95FA9D3500368B256260486B95E08D9EE4BD4EA9E2FCFA0205D`.
