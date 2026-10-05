@@ -77,6 +77,7 @@ type TranslationMap = {
   // Alphabet
   alphabetTitle: string;
   alphabetSubtitle: string;
+  alphabetAudioGuide: string;
   alphabetBasicConsonants: string;
   alphabetDoubleConsonants: string;
   alphabetBasicVowels: string;
@@ -268,6 +269,7 @@ const translations: Record<Locale, TranslationMap> = {
     posParticle: 'Particle',
     alphabetTitle: 'Hangul alphabet',
     alphabetSubtitle: 'Korean letters with Vietnamese romanization',
+    alphabetAudioGuide: 'Tap to hear a letter name and sound example. For final consonants, → shows a word with the same ending sound.',
     alphabetBasicConsonants: 'Basic consonants (자음)',
     alphabetDoubleConsonants: 'Double consonants (쌍자음)',
     alphabetBasicVowels: 'Basic vowels (모음)',
@@ -448,6 +450,7 @@ const translations: Record<Locale, TranslationMap> = {
     posParticle: 'Trợ từ',
     alphabetTitle: 'Bảng chữ cái Hangul',
     alphabetSubtitle: 'Chữ Hàn và cách phát âm tiếng Việt',
+    alphabetAudioGuide: 'Chạm để nghe tên chữ và âm mẫu. Với phụ âm cuối, → là từ có cùng âm cuối.',
     alphabetBasicConsonants: 'Phụ âm cơ bản (자음)',
     alphabetDoubleConsonants: 'Phụ âm kép (쌍자음)',
     alphabetBasicVowels: 'Nguyên âm cơ bản (모음)',
@@ -627,6 +630,7 @@ const translations: Record<Locale, TranslationMap> = {
     posParticle: '助词',
     alphabetTitle: '韩文字母表',
     alphabetSubtitle: '韩文及越南语罗马音',
+    alphabetAudioGuide: '点击聆听字母名称和发音示例。韵尾的 → 表示同韵尾发音的示例词。',
     alphabetBasicConsonants: '基本辅音 (자음)',
     alphabetDoubleConsonants: '双辅音 (쌍자음)',
     alphabetBasicVowels: '基本元音 (모음)',
@@ -807,6 +811,7 @@ const translations: Record<Locale, TranslationMap> = {
     posParticle: 'प्रत्यय',
     alphabetTitle: 'हंगुल वर्णमाला',
     alphabetSubtitle: 'कोरियाई अक्षर और उच्चारण',
+    alphabetAudioGuide: 'अक्षर का नाम और ध्वनि उदाहरण सुनने के लिए टैप करें। अंतिम व्यंजन में → समान अंतिम ध्वनि वाला शब्द दिखाता है।',
     alphabetBasicConsonants: 'मूल व्यंजन (자음)',
     alphabetDoubleConsonants: 'दोहरे व्यंजन (쌍자음)',
     alphabetBasicVowels: 'मूल स्वर (모음)',
@@ -987,6 +992,7 @@ const translations: Record<Locale, TranslationMap> = {
     posParticle: 'Partícula',
     alphabetTitle: 'Alfabeto hangul',
     alphabetSubtitle: 'Letras coreanas con romanización',
+    alphabetAudioGuide: 'Toca para oír el nombre de la letra y un ejemplo. En las consonantes finales, → indica una palabra con el mismo sonido final.',
     alphabetBasicConsonants: 'Consonantes básicas (자음)',
     alphabetDoubleConsonants: 'Consonantes dobles (쌍자음)',
     alphabetBasicVowels: 'Vocales básicas (모음)',
@@ -1167,6 +1173,7 @@ const translations: Record<Locale, TranslationMap> = {
     posParticle: 'Particule',
     alphabetTitle: 'Alphabet hangul',
     alphabetSubtitle: 'Lettres coréennes et romanisation',
+    alphabetAudioGuide: 'Touchez pour entendre le nom de la lettre et un exemple. Pour les consonnes finales, → indique un mot avec le même son final.',
     alphabetBasicConsonants: 'Consonnes de base (자음)',
     alphabetDoubleConsonants: 'Consonnes doubles (쌍자음)',
     alphabetBasicVowels: 'Voyelles de base (모음)',
@@ -1347,6 +1354,7 @@ const translations: Record<Locale, TranslationMap> = {
     posParticle: '助詞',
     alphabetTitle: 'ハングル文字',
     alphabetSubtitle: '韓国語と発音',
+    alphabetAudioGuide: 'タップすると字母名と発音例を聞けます。終声の → は同じ語末音を持つ単語です。',
     alphabetBasicConsonants: '基本子音 (자음)',
     alphabetDoubleConsonants: '双子音 (쌍자음)',
     alphabetBasicVowels: '基本母音 (모음)',

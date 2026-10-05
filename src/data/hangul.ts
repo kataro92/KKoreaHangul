@@ -60,7 +60,7 @@ export const JUNGSEONG: HangulChar[] = [
 // ============ FINAL CONSONANTS (Jongseong) - 28 values (0 = none) ============
 export const JONGSEONG: HangulChar[] = [
   { char: '', pronunciation: '', name: 'Không có' },
-  { char: 'ㄱ', pronunciation: 'k/g', name: 'Giyeok' },
+  { char: 'ㄱ', pronunciation: 'k', name: 'Giyeok' },
   { char: 'ㄲ', pronunciation: 'k', name: 'Ssanggiyeok' },
   { char: 'ㄳ', pronunciation: 'k', name: 'Giyeok-siot' },
   { char: 'ㄴ', pronunciation: 'n', name: 'Nieun' },
@@ -95,7 +95,7 @@ export interface BatchimBySoundGroup {
   items: HangulChar[];
 }
 
-const BATCHIM_SOUND_ORDER = ['k/g', 'k', 'n', 't', 'l', 'm', 'p', 'ng'];
+const BATCHIM_SOUND_ORDER = ['k', 'n', 't', 'l', 'm', 'p', 'ng'];
 
 export function getBatchimGroupedBySound(): BatchimBySoundGroup[] {
   const bySound = new Map<string, HangulChar[]>();
@@ -172,7 +172,7 @@ export const COMPOUND_VOWELS: HangulChar[] = [
 
 // Double batchim as separate 2-char forms for display
 export const BATCHIM_DISPLAY: HangulChar[] = [
-  { char: 'ㄱ', pronunciation: 'k/g', name: 'Giyeok' },
+  { char: 'ㄱ', pronunciation: 'k', name: 'Giyeok' },
   { char: 'ㄲ', pronunciation: 'k', name: 'Ssanggiyeok' },
   { char: 'ㄳ', pronunciation: 'k', name: 'Giyeok-siot' },
   { char: 'ㄴ', pronunciation: 'n', name: 'Nieun' },
@@ -201,7 +201,25 @@ export const BATCHIM_DISPLAY: HangulChar[] = [
   { char: 'ㅎ', pronunciation: 't', name: 'Hieut' },
 ];
 
-// ============ TTS helpers (jamo alone is unreliable — speak as a syllable) ============
+// ============ Alphabet audio ============
+// Letter names: National Institute of Korean Language, Hangul Orthography §4.
+// https://www.korean.go.kr/front/mcfaq/mcfaqView.do?mcfaq_seq=5573&mn_id=217
+// Final consonants have no independently pronounceable sound. Use a familiar
+// word ending in one of the seven standard final sounds instead of inventing
+// a syllable from the displayed jamo.
+// https://korean.go.kr/kornorms/regltn/regltnView.do?regltn_code=0002
+
+const CONSONANT_NAMES = [
+  '기역', '쌍기역', '니은', '디귿', '쌍디귿', '리을', '미음', '비읍', '쌍비읍',
+  '시옷', '쌍시옷', '이응', '지읒', '쌍지읒', '치읓', '키읔', '티읕', '피읖', '히읗',
+] as const;
+
+// In Unicode jongseong order. Each word ends in the final sound represented
+// by the selected batchim (including clusters and neutralized final sounds).
+const FINAL_SOUND_EXAMPLES = [
+  '', '국', '국', '국', '산', '산', '산', '옷', '달', '국', '밤', '달', '달',
+  '달', '밥', '달', '밤', '밥', '밥', '옷', '옷', '강', '옷', '옷', '국', '옷', '밥', '옷',
+] as const;
 
 const HANGUL_SYLLABLE_BASE = 0xac00;
 
@@ -212,10 +230,9 @@ function composeSyllable(chosung: number, jungseong: number, jongseong = 0): str
 export type AlphabetSpeakRole = 'initial' | 'vowel' | 'final';
 
 /**
- * Map a displayed jamo to a pronounceable Hangul syllable for TTS:
- * - initial: consonant + ㅏ (가, 나, …)
- * - vowel: ㅇ + vowel (아, 야, …)
- * - final: 아 + batchim (악, 안, …)
+ * Text read when an alphabet card is tapped. Consonants use their standard
+ * Korean names, vowels use their standalone syllables, and batchim use real
+ * example words with the same final sound.
  */
 export function getAlphabetSpeakText(char: string, role: AlphabetSpeakRole): string {
   if (role === 'vowel') {
@@ -223,10 +240,19 @@ export function getAlphabetSpeakText(char: string, role: AlphabetSpeakRole): str
     if (i >= 0) return composeSyllable(11, i, 0);
   } else if (role === 'initial') {
     const i = CHOSUNG.findIndex((c) => c.char === char);
-    if (i >= 0) return composeSyllable(i, 0, 0);
+    if (i >= 0) return CONSONANT_NAMES[i];
   } else if (role === 'final') {
     const i = JONGSEONG.findIndex((j) => j.char === char);
-    if (i > 0) return composeSyllable(11, 0, i);
+    if (i > 0) return FINAL_SOUND_EXAMPLES[i];
   }
   return char;
+}
+
+/** A simple open syllable makes the initial consonant audible after its name. */
+export function getAlphabetSoundExample(char: string, role: AlphabetSpeakRole): string {
+  if (role === 'initial') {
+    const i = CHOSUNG.findIndex((c) => c.char === char);
+    if (i >= 0) return composeSyllable(i, 0);
+  }
+  return getAlphabetSpeakText(char, role);
 }

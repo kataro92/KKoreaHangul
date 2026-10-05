@@ -2,7 +2,7 @@ import React, { useCallback } from 'react';
 import { Pressable, StyleSheet, Text } from 'react-native';
 import * as Speech from 'expo-speech';
 import type { AlphabetSpeakRole, HangulChar } from '../data/hangul';
-import { getAlphabetSpeakText } from '../data/hangul';
+import { getAlphabetSoundExample, getAlphabetSpeakText } from '../data/hangul';
 import { useTheme } from '../constants/theme';
 import { useSpeechConfig } from '../contexts/SpeechConfigContext';
 import { GlassView } from './glass/GlassView';
@@ -12,28 +12,38 @@ interface CharacterCardProps {
   speakRole: AlphabetSpeakRole;
 }
 
+let latestAlphabetPlaybackId = 0;
+
 export function CharacterCard({ item, speakRole }: CharacterCardProps) {
   const theme = useTheme();
   const { getSpeechOptions } = useSpeechConfig();
+  const spokenText = getAlphabetSpeakText(item.char, speakRole);
+  const soundExample = getAlphabetSoundExample(item.char, speakRole);
+  const label = speakRole === 'initial' ? `${spokenText} · ${soundExample}` : speakRole === 'final' ? `→ ${spokenText}` : spokenText;
 
   const speak = useCallback(() => {
-    const text = getAlphabetSpeakText(item.char, speakRole);
-    if (!text) return;
-    Speech.stop();
-    Speech.speak(text, getSpeechOptions());
-  }, [item.char, speakRole, getSpeechOptions]);
+    if (!spokenText) return;
+    const id = ++latestAlphabetPlaybackId;
+    const options = getSpeechOptions();
+    const text = speakRole === 'initial' ? `${spokenText}. ${soundExample}.` : spokenText;
+    void Speech.stop().catch(() => undefined).then(() => {
+      if (id === latestAlphabetPlaybackId) {
+        Speech.speak(text, { ...options, rate: Math.min(options.rate, 0.85) });
+      }
+    });
+  }, [spokenText, soundExample, speakRole, getSpeechOptions]);
 
   return (
     <Pressable
       onPress={speak}
       accessibilityRole="button"
-      accessibilityLabel={`${item.char}${item.pronunciation ? `, ${item.pronunciation}` : ''}`}
+      accessibilityLabel={`${item.char}${item.pronunciation ? `, ${item.pronunciation}` : ''}, ${label}`}
       style={({ pressed }) => [pressed && styles.pressed]}
     >
       <GlassView radius={theme.radius.md} strong style={styles.card}>
         <Text style={[styles.char, { color: theme.colors.text }]}>{item.char}</Text>
         <Text style={[styles.pronunciation, { color: theme.colors.primary }]}>{item.pronunciation}</Text>
-        {item.name ? <Text style={[styles.name, { color: theme.colors.textSecondary }]}>{item.name}</Text> : null}
+        <Text style={[styles.name, { color: theme.colors.textSecondary }]}>{label}</Text>
       </GlassView>
     </Pressable>
   );

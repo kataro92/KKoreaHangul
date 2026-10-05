@@ -9,7 +9,8 @@
     "userInterfaceStyle": "automatic",
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.kataro92.kkorea-hangul"
+      "bundleIdentifier": "com.kataro92.kkorea-hangul",
+      "appleTeamId": "7HG9BF8LGF"
     },
     "android": {
       "adaptiveIcon": {
@@ -37,7 +38,9 @@
             "backgroundColor": "#141634"
           }
         }
-      ]
+      ],
+      "./plugins/withLocalNotificationsOnly",
+      "./plugins/withAutomaticSigning"
     ]
   }
 }

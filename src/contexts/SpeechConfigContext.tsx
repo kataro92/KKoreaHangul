@@ -124,10 +124,11 @@ export function SpeechConfigProvider({ children }: { children: React.ReactNode }
         const koVoices = list.filter((v) => v.language.startsWith('ko'));
         setVoices(koVoices);
         setSelectedVoiceId((prev) => {
-          if (prev !== null) return prev;
+          if (prev && koVoices.some((v) => v.identifier === prev)) return prev;
           if (koVoices.length === 0) return null;
           const yuna = koVoices.find((v) => v.name.toLowerCase().includes('yuna'));
-          return (yuna ?? koVoices[0]).identifier;
+          const enhanced = koVoices.find((v) => v.quality === 'Enhanced');
+          return (yuna ?? enhanced ?? koVoices[0]).identifier;
         });
         setVoicesLoaded(true);
       })
@@ -135,15 +136,22 @@ export function SpeechConfigProvider({ children }: { children: React.ReactNode }
   }, []);
 
   const getSpeechOptions = useCallback(
-    (callbacks?: { onDone?: () => void; onStopped?: () => void; onError?: () => void }) => ({
-      language: 'ko-KR',
-      rate,
-      pitch,
-      volume,
-      ...(selectedVoiceId && { voice: selectedVoiceId }),
-      ...callbacks,
-    }),
-    [rate, pitch, volume, selectedVoiceId]
+    (callbacks?: { onDone?: () => void; onStopped?: () => void; onError?: () => void }) => {
+      const selectedVoice = voices.find((v) => v.identifier === selectedVoiceId);
+      const preferredVoice = selectedVoice
+        ?? voices.find((v) => v.name.toLowerCase().includes('yuna'))
+        ?? voices.find((v) => v.quality === 'Enhanced')
+        ?? voices[0];
+      return {
+        language: 'ko-KR',
+        rate,
+        pitch,
+        volume,
+        ...(preferredVoice && { voice: preferredVoice.identifier }),
+        ...callbacks,
+      };
+    },
+    [rate, pitch, volume, selectedVoiceId, voices]
   );
 
   const value: SpeechConfigContextValue = {
