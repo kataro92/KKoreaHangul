@@ -273,7 +273,11 @@ APP_URL=http://localhost:8083 node scripts/capture-screenshots.mjs
 
 ## Privacy
 
-The app is fully offline and collects no personal data — see [PRIVACY.md](PRIVACY.md).
+Learning content and progress work offline and stay on your device. Google Play country lookup, Billing diagnostics, optional support purchases, system backup and pronunciation services are described in [PRIVACY.md](PRIVACY.md).
+
+## Support Hangmi
+
+Current source adds an optional **Feed Hangmi the cat** section at the end of Settings, closed by default and localized in all seven UI languages. Symbolic kibble, pâté and toy gifts support the developer through one-time repeatable Google Play purchases, without ads, renewals or feature unlocks. Prices come from the store; missing products never show a payment button. This feature is **not yet in Internal 1.1.3 (5)**. Product setup, the privacy/declaration changes needed before release and test coverage are in [docs/HANGMI_SUPPORT.md](docs/HANGMI_SUPPORT.md).
 
 ## Author
 

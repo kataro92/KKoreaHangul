@@ -2,8 +2,8 @@
 
 Package: `com.spacekatcompany.kkoreanhangul`. English (United States), `en-US`, is the default listing; Vietnamese is the additional translation. Google Play uses the language code `vi`; the local asset files use `vi-VN` to identify the screenshot locale.
 
-- `listing.en-US.json`: English app name and descriptions. Short description: 72 characters; full description: 1,804.
-- `listing.vi-VN.json`: Vietnamese app name and descriptions. Short description: 61 characters; full description: 1,701.
+- `listing.en-US.json`: English app name and descriptions. Short description: 72 characters; full description: 1,993.
+- `listing.vi-VN.json`: Vietnamese app name and descriptions. Short description: 61 characters; full description: 1,890.
 - `icon-512.png`: existing Hangmi icon exported at 512 × 512, PNG RGBA, under 1 MB. Original app icon unchanged.
 - `feature-graphic.png`: new Hangmi feature graphic, 1024 × 500, opaque PNG. Generated with imagegen using `assets/mascot/hangmi-read.webp` as a character reference. The graphic uses the app's pastel palette and the text “KKorea Hangul” / “Learn • Read • Review”.
 - `screenshots/en-US/`: six Android screenshots with English interface labels.
@@ -20,3 +20,5 @@ Both languages were saved in Google Play Console on 2026-10-05, with the existin
 Publishing overview confirms that both languages contain all required listing information. **Send app for review** is disabled until the required app dashboard setup steps are complete. Therefore, these assets are saved on Console but are not yet approved or visible as a reviewed public store listing. Local evidence: `release/store-listing-completed.png` and `release/store-listing-review-pending.png` (ignored build artifacts).
 
 Sources: [Google preview asset requirements](https://support.google.com/googleplay/android-developer/answer/9866151?hl=en), app README, and the actual Internal app UI.
+
+On 2026-10-07, both full descriptions were updated and saved to explain optional, one-time symbolic Hangmi support purchases. All learning features remain free with no ads. Data safety includes optional Purchase history and the revised public policy is deployed. Assets and declarations are still saved pending review; no Closed or Production track was started. The old disabled-review-button snapshot above is historical, before the initial setup was completed.

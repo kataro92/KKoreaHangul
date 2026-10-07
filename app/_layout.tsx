@@ -10,6 +10,7 @@ import { GuidanceProvider, useGuidance } from '../src/contexts/GuidanceContext';
 import { AppSplash } from '../src/components/glass/AppSplash';
 import { OnboardingOverlay } from '../src/components/onboarding/OnboardingOverlay';
 import { useTheme } from '../src/constants/theme';
+import { recoverSupportIfNeeded } from '../src/support/billing';
 
 // Import có bảo vệ: nếu chưa cài expo-splash-screen thì app vẫn chạy (no-op).
 let SplashScreen: any = null;
@@ -34,6 +35,8 @@ function ThemedStack() {
   const theme = useTheme();
   const { ready } = useGuidance();
   const { ready: languageReady } = useLanguage();
+
+  useEffect(() => { void recoverSupportIfNeeded(); }, []);
 
   useEffect(() => {
     // Lớp AppSplash (React) đã phủ kín; ẩn splash native bên dưới sau frame đầu

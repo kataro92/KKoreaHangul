@@ -1,6 +1,6 @@
 # KKorea Hangul — Internal testing
 
-Phạm vi: chỉ Internal testing, dừng trước Closed testing và Production. Miễn phí, không quảng cáo. Cập nhật ngày 05/10/2026.
+Phạm vi: chỉ Internal testing, dừng trước Closed testing và Production. Miễn phí, không quảng cáo. Cập nhật ngày 07/10/2026.
 
 ## Package hiện tại
 
@@ -76,6 +76,8 @@ Package mới có dữ liệu riêng, không tự nhận dữ liệu package cũ
 
 ## Giai đoạn sau
 
+Bản mới `1.1.4 (6)` có **Góp nuôi mèo Hangmi** và màn hình privacy: đã build, ký, kiểm và upload vào nháp Internal; **chưa rollout**. Ba sản phẩm Active, giá VN 29.000 / 59.000 / 99.000 ₫, license testing đã lưu danh sách KKorea. Policy công khai và Data safety/listing mua hàng đã đồng bộ; đang chờ xác nhận điều khoản IARC để cập nhật digital goods trước rollout. AAB SHA-256 `E53230988A2F0A4FF8BDCED0EE681B618A3C16059B856E6BD9A1E791AB5F769C`; typecheck, 70 Jest test, bundletool/chữ ký/khóa ký và 38 thư viện ELF 16 KB đạt. Console preview không giảm thiết bị, chỉ cảnh báo thiếu deobfuscation mapping: bản này không bật minify/R8 nên không có mapping. Chưa chạy checkout trên thiết bị cài qua Play. Xem [Hangmi support](HANGMI_SUPPORT.md).
+
 Privacy URL, chính sách mô tả Auto Backup, Data safety và App content đã hoàn tất ngày 06/10/2026; xem [Google Play app setup](PLAY_APP_SETUP.md). Source có màn hình privacy trong app, nhưng binary Internal `1.1.3 (5)` chưa có màn hình này. Lần build tiếp theo cần tăng version code và bao gồm thay đổi đó. Cần tiếp tục kiểm thiết bị cấu hình thấp và runtime 16 KB. Không tự bắt đầu Closed testing hoặc Production.
 
 Hồ sơ cửa hàng đã lưu trên Console với English (United States) `en-US` mặc định và Vietnamese `vi` bổ sung: tên, mô tả ngắn/đầy đủ, icon Hangmi hiện có, banner mới và 6 screenshot Android cho mỗi ngôn ngữ. Tệp nguồn nằm trong [store-assets](../store-assets/README.md). Publishing overview xác nhận đủ thông tin listing cho cả hai ngôn ngữ. App setup đã hoàn tất và Content rating có trạng thái IARC Completed; App content không còn khai báo cần xử lý. Hồ sơ và khai báo đang lưu chờ gửi review, chưa hiển thị như một trang Store đã được review; việc này không chặn Internal release. Bằng chứng: `release/store-listing-completed.png`, `release/play-app-content-complete.png`, `release/play-content-ratings-complete.png`.
@@ -88,7 +90,7 @@ Source mới ưu tiên lựa chọn ngôn ngữ đã lưu; nếu chưa có lựa
 
 Ánh xạ sản phẩm: VN → vi; CN/TW/HK/MO → zh; IN → hi; JP → ja; FR → fr; ES và AR/BO/CL/CO/CR/CU/DO/EC/GT/HN/MX/NI/PA/PE/PY/SV/UY/VE → es. Các quốc gia còn lại → en. Quốc gia không xác định, lỗi dịch vụ, hoặc quá 2 giây → en. iOS/web và Expo Go không có module Android này → en. Người dùng luôn có thể chọn một trong bảy ngôn ngữ trong Cài đặt.
 
-Module local `modules/play-country` được Expo tự liên kết khi build Android. Billing Client chỉ truy vấn cấu hình, không có luồng mua hàng, quảng cáo hoặc theo dõi hành vi học do developer triển khai. Billing SDK có gửi dữ liệu chẩn đoán kỹ thuật tới Google; thông tin này đã được khai báo trong Data safety và privacy policy, xem [cơ sở kiểm tra SDK](PLAY_APP_SETUP.md#data-safety-basis). SDK bổ sung quyền thường `com.android.vending.BILLING` vào manifest; app vẫn miễn phí, không thêm sản phẩm mua hàng. Không lưu mã quốc gia hoặc tự ghi ngôn ngữ suy ra vào storage; chỉ lựa chọn thủ công được lưu. Lần mở sau khi chưa chọn thủ công sẽ truy vấn lại. [API và quy định sử dụng của Google](https://developer.android.com/google/play/billing/integrate#query-billing-config).
+Module local `modules/play-country` được Expo tự liên kết khi build Android. Trong binary `1.1.3 (5)`, Billing Client chỉ truy vấn cấu hình; bản `1.1.4 (6)` thêm luồng hỗ trợ riêng. Không có quảng cáo hoặc theo dõi hành vi học do developer triển khai. Billing SDK có gửi dữ liệu chẩn đoán kỹ thuật tới Google; thông tin này đã được khai báo trong Data safety và privacy policy, xem [cơ sở kiểm tra SDK](PLAY_APP_SETUP.md#data-safety-basis). SDK bổ sung quyền thường `com.android.vending.BILLING` vào manifest; app vẫn miễn phí. Bản `1.1.3 (5)` chưa có sản phẩm mua hàng; bản `1.1.4 (6)` có ba món hỗ trợ tự nguyện. Không lưu mã quốc gia hoặc tự ghi ngôn ngữ suy ra vào storage; chỉ lựa chọn thủ công được lưu. Lần mở sau khi chưa chọn thủ công sẽ truy vấn lại. [API và quy định sử dụng của Google](https://developer.android.com/google/play/billing/integrate#query-billing-config).
 
 Splash/onboarding chờ đọc ngôn ngữ, và kết quả truy vấn cũ không ghi đè lựa chọn thủ công/khôi phục backup mới hơn. Cần build binary mới cho module native; cập nhật JavaScript riêng không bổ sung module cho binary đang phát hành.
 

@@ -8,6 +8,7 @@ interface GlassButtonProps {
   children?: React.ReactNode;
   onPress?: () => void;
   disabled?: boolean;
+  accessibilityLabel?: string;
   /** 'primary' = nền màu đặc; 'glass' = kính mờ; 'outline' = viền màu */
   variant?: 'primary' | 'glass' | 'outline';
   /** Màu nhấn (mặc định primary theme) */
@@ -26,6 +27,7 @@ export function GlassButton({
   children,
   onPress,
   disabled,
+  accessibilityLabel,
   variant = 'primary',
   color,
   compact,
@@ -42,6 +44,9 @@ export function GlassButton({
   if (variant === 'glass') {
     return (
       <Pressable
+        accessibilityRole="button"
+        accessibilityLabel={accessibilityLabel ?? label}
+        accessibilityState={{ disabled: !!disabled }}
         onPress={onPress}
         disabled={disabled}
         style={({ pressed }) => [{ opacity: pressed || disabled ? 0.7 : 1 }, style]}
@@ -61,6 +66,9 @@ export function GlassButton({
     : [styles.center, pad];
   return (
     <Pressable
+      accessibilityRole="button"
+      accessibilityLabel={accessibilityLabel ?? label}
+      accessibilityState={{ disabled: !!disabled }}
       onPress={onPress}
       disabled={disabled}
       style={({ pressed }) => [

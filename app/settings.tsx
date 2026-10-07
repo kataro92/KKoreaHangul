@@ -6,6 +6,7 @@ import { GlassButton } from '../src/components/glass/GlassButton';
 import { GlassCard } from '../src/components/glass/GlassCard';
 import { GlassScreen } from '../src/components/glass/GlassScreen';
 import { HangmiFigure } from '../src/components/mascot/HangmiFigure';
+import { HangmiSupport } from '../src/components/support/HangmiSupport';
 import { useTheme } from '../src/constants/theme';
 import { useLanguage, LOCALE_NATIVE_LABELS, LOCALE_FLAGS } from '../src/contexts/LanguageContext';
 import type { Locale } from '../src/contexts/LanguageContext';
@@ -367,6 +368,7 @@ export default function SettingsScreen() {
           <Text style={[styles.feedbackEmail, { color: c.primary }]}>kataro92@gmail.com</Text>
         </Pressable>
       </GlassCard>
+      <HangmiSupport />
     </ScrollView>
     </GlassScreen>
   );

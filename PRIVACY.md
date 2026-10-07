@@ -2,7 +2,7 @@
 
 ## About this policy
 
-KKorea Hangul is a Korean-language learning app published by The Space Kat Company / Phạm Huy Đức. This policy applies to the app, including Android package com.spacekatcompany.kkoreanhangul. Last updated: 5 October 2026.
+KKorea Hangul is a Korean-language learning app published by The Space Kat Company / Phạm Huy Đức. This policy applies to the app, including Android package com.spacekatcompany.kkoreanhangul. Last updated: 7 October 2026.
 
 ## Learning data on your device
 
@@ -14,15 +14,23 @@ Your custom flashcards, review progress and statistics, practice preferences, la
 
 On Android, if you have not saved a valid language choice, the app asks the Google Play service for the country associated with your Play account to choose an initial interface language. Unsupported countries, unavailable services, or a timeout use English. Your saved language choice takes priority.
 
-The country code is used temporarily for this request and is not saved, sent to a developer server, or used for analytics, advertising, or profiling. It is not GPS location. The app does not access your Google email address, payment details, purchase history, or precise location. The Google Play service handles its own account and service information under Google's policies. The app does not offer in-app purchases.
+The country code is used temporarily for this request and is not saved, sent to a developer server, or used for analytics, advertising, or profiling. It is not GPS location. The country query does not access your Google email address, payment details, purchase history, or precise location. The Google Play service handles its own account and service information under Google’s policies. Optional support purchases are described separately below.
 
 ## Google Play library diagnostics
 
-The Google Play Billing library used for the country query includes its own diagnostic logging transport. When the app initializes or uses that library, it may queue and send technical events to Google over HTTPS, including connection or API results, errors, timing information, app package and version, Billing library and Android versions, device manufacturer/model/build and memory information, network type, system language/country, time-zone offset, SIM operator code when available, and a randomly generated Billing-client session identifier. This session identifier is not the advertising identifier.
+The Google Play Billing library used for the country query and optional support purchases includes its own diagnostic logging transport. When the app initializes or uses that library, it may queue and send technical events to Google over HTTPS, including connection or API results, errors, timing information, app package and version, Billing library and Android versions, device manufacturer/model/build and memory information, network type, system language/country, time-zone offset, SIM operator code when available, and a randomly generated Billing-client session identifier. This session identifier is not the advertising identifier.
 
 This technical data supports operation, troubleshooting and reliability measurement of the Google Play service. It is separate from your learning records: the app does not pass flashcards, review history, entered learning text, or the returned Play country code to this logger. Google receives the SDK diagnostics; the developer does not receive them. Diagnostic events can be stored in a local transport queue before transmission, so they are not treated as ephemeral. Google controls server-side retention and deletion under its policies; clearing app storage removes the local queue but does not erase data already sent to Google.
 
-The country query is automatic when there is no saved valid language. There is no separate in-app switch to disable the library diagnostics during that query. With a saved language, subsequent app launches skip the country query. Core lessons remain usable without the Play service or a successful query.
+The country query is automatic when there is no saved valid language. There is no separate in-app switch to disable the library diagnostics during that query. With a saved language, subsequent app launches skip the country query. Core lessons remain usable without the Play service or a successful query. Opening the support section also initializes the library. After a checkout has been attempted, the app reconnects on launch or foreground to finish pending purchases, even when a language choice is saved. Lessons do not depend on these requests.
+
+## Optional support for Hangmi
+
+On Android, you can voluntarily support the developer with symbolic gifts for Hangmi through Google Play. These are one-time repeatable purchases, not subscriptions, charitable donations, or delivery of physical food/toys. They do not unlock lessons or change access to app features. Google handles checkout, payment information, orders and refunds under its policies; the app and developer do not receive your payment card or bank details.
+
+The app queries available product IDs and store-localized prices, and receives purchase product IDs, state, quantity and a purchase token from Play. It sends the token back to Play to consume/acknowledge the purchase. The token is used in memory and is not stored as raw text or sent to a developer server. A SHA-256 transaction fingerprint and per-gift totals are saved together in private Android storage to avoid counting a purchase twice. A flag records that checkout has been used, to recover pending transactions on later launches. This device-local history is not an accounting record and does not automatically adjust for refunds.
+
+Android operating-system backup/transfer may restore these totals and fingerprints with the relevant backup snapshot. They are not included in the app’s exported learning-data JSON backup, do not continuously synchronize, and cannot be reconstructed from Play after consumable purchases have finished. Clearing storage removes local totals; older OS backups may still contain them. Google retains its transaction records separately. No developer-operated purchase database or independent server-side token verification is configured.
 
 ## Manual backup and restore
 
@@ -44,7 +52,7 @@ If you enable the study reminder, the app requests notification permission and s
 
 ## Permissions and external services
 
-Notification, vibration, wake and boot permissions support optional local reminders. Internet and network-state permissions support platform services. Google Play Billing permission is included for the Play-country query; no purchases or subscriptions are offered. Backup files are selected through system pickers and shared only on your action.
+Notification, vibration, wake and boot permissions support optional local reminders. Internet and network-state permissions support platform services. Google Play Billing permission is included for the Play-country query and optional one-time support purchases; no subscriptions are offered. Backup files are selected through system pickers and shared only on your action.
 
 The app does not request location, contacts, camera, microphone, calendar, or broad storage access, and does not use an advertising identifier. The existence of a platform permission does not mean the app sends your learning data to the developer.
 
@@ -66,7 +74,7 @@ We update this policy when app data practices change and identify the update dat
 
 ## Phạm vi
 
-KKorea Hangul là ứng dụng học tiếng Hàn do The Space Kat Company / Phạm Huy Đức phát hành. Chính sách áp dụng cho ứng dụng, gồm package Android com.spacekatcompany.kkoreanhangul. Cập nhật ngày 05/10/2026.
+KKorea Hangul là ứng dụng học tiếng Hàn do The Space Kat Company / Phạm Huy Đức phát hành. Chính sách áp dụng cho ứng dụng, gồm package Android com.spacekatcompany.kkoreanhangul. Cập nhật ngày 07/10/2026.
 
 ## Dữ liệu học trên thiết bị
 
@@ -78,15 +86,23 @@ Thẻ tự tạo, tiến độ và thống kê ôn tập, tùy chọn luyện đ
 
 Trên Android, khi chưa lưu lựa chọn ngôn ngữ hợp lệ, app hỏi dịch vụ Google Play về quốc gia tài khoản Play để chọn ngôn ngữ giao diện ban đầu. Quốc gia chưa hỗ trợ, dịch vụ không khả dụng hoặc hết thời gian chờ dùng tiếng Anh. Lựa chọn ngôn ngữ đã lưu được ưu tiên.
 
-Mã quốc gia chỉ được sử dụng tạm thời cho yêu cầu đó; không lưu, không gửi cho máy chủ nhà phát triển, không dùng cho analytics, quảng cáo hoặc lập hồ sơ. Đây không phải vị trí GPS. App không đọc email Google, thông tin thanh toán, lịch sử mua hàng hoặc vị trí chính xác. Dịch vụ Google Play xử lý thông tin tài khoản và dịch vụ của họ theo chính sách Google. App không có mua hàng trong ứng dụng.
+Mã quốc gia chỉ được sử dụng tạm thời cho yêu cầu đó; không lưu, không gửi cho máy chủ nhà phát triển, không dùng cho analytics, quảng cáo hoặc lập hồ sơ. Đây không phải vị trí GPS. Truy vấn quốc gia không đọc email Google, thông tin thanh toán, lịch sử mua hàng hoặc vị trí chính xác. Dịch vụ Google Play xử lý thông tin tài khoản và dịch vụ của họ theo chính sách Google. Khoản hỗ trợ tự nguyện được mô tả riêng bên dưới.
 
 ## Chẩn đoán của thư viện Google Play
 
-Thư viện Google Play Billing dùng để hỏi quốc gia có cơ chế ghi và gửi chẩn đoán riêng. Khi app khởi tạo hoặc dùng thư viện, thư viện có thể xếp hàng và gửi sự kiện kỹ thuật tới Google qua HTTPS: kết quả kết nối/API, lỗi, thời gian xử lý, package và phiên bản app, phiên bản Billing/Android, hãng/mẫu/bản dựng thiết bị và thông tin bộ nhớ, loại mạng, ngôn ngữ/quốc gia hệ thống, múi giờ, mã nhà mạng SIM nếu có và một mã phiên Billing-client sinh ngẫu nhiên. Mã phiên này không phải mã quảng cáo.
+Thư viện Google Play Billing dùng để hỏi quốc gia và hỗ trợ tự nguyện có cơ chế ghi và gửi chẩn đoán riêng. Khi app khởi tạo hoặc dùng thư viện, thư viện có thể xếp hàng và gửi sự kiện kỹ thuật tới Google qua HTTPS: kết quả kết nối/API, lỗi, thời gian xử lý, package và phiên bản app, phiên bản Billing/Android, hãng/mẫu/bản dựng thiết bị và thông tin bộ nhớ, loại mạng, ngôn ngữ/quốc gia hệ thống, múi giờ, mã nhà mạng SIM nếu có và một mã phiên Billing-client sinh ngẫu nhiên. Mã phiên này không phải mã quảng cáo.
 
 Dữ liệu kỹ thuật phục vụ vận hành, xử lý lỗi và đo độ tin cậy của dịch vụ Google Play. App không chuyển thẻ học, lịch sử ôn tập, văn bản học đã nhập hoặc mã quốc gia Play trả về vào bộ ghi chẩn đoán này. Google nhận chẩn đoán SDK; nhà phát triển không nhận chúng. Sự kiện có thể lưu trong hàng đợi trên máy trước khi truyền nên không được xem là xử lý tạm thời trong bộ nhớ. Google quyết định thời gian giữ và xóa dữ liệu trên máy chủ theo chính sách của Google; xóa bộ nhớ app chỉ xóa hàng đợi cục bộ, không xóa dữ liệu đã gửi.
 
-Truy vấn quốc gia chạy tự động khi chưa có lựa chọn ngôn ngữ hợp lệ đã lưu. App không có công tắc riêng tắt chẩn đoán thư viện trong lần truy vấn đó. Khi đã lưu ngôn ngữ, những lần mở app sau sẽ bỏ qua truy vấn quốc gia. Bài học chính vẫn dùng được khi thiếu dịch vụ Play hoặc truy vấn thất bại.
+Truy vấn quốc gia chạy tự động khi chưa có lựa chọn ngôn ngữ hợp lệ đã lưu. App không có công tắc riêng tắt chẩn đoán thư viện trong lần truy vấn đó. Khi đã lưu ngôn ngữ, những lần mở app sau sẽ bỏ qua truy vấn quốc gia. Bài học chính vẫn dùng được khi thiếu dịch vụ Play hoặc truy vấn thất bại. Mở phần hỗ trợ cũng khởi tạo thư viện. Sau khi đã mở một lượt thanh toán, app kết nối lại khi khởi động hoặc vào tiền cảnh để hoàn tất giao dịch còn chờ, kể cả khi đã lưu ngôn ngữ. Bài học không phụ thuộc các yêu cầu này.
+
+## Góp nuôi mèo Hangmi
+
+Trên Android, bạn có thể hỗ trợ nhà phát triển tự nguyện qua các món quà tượng trưng cho Hangmi bằng Google Play. Đây là thanh toán một lần có thể góp lại, không phải đăng ký, quyên góp từ thiện hay giao thức ăn/đồ chơi thật. Không mở khóa bài học hoặc thay đổi quyền dùng tính năng. Google xử lý thanh toán, thông tin trả tiền, đơn hàng và hoàn tiền theo chính sách của họ; app và nhà phát triển không nhận thông tin thẻ hay tài khoản ngân hàng của bạn.
+
+App hỏi Play về mã sản phẩm, giá theo cửa hàng và nhận mã sản phẩm đã mua, trạng thái, số lượng và purchase token. Token được gửi lại Play để consume/xác nhận giao dịch, chỉ dùng trong bộ nhớ, không lưu dạng thô hoặc gửi tới máy chủ nhà phát triển. Fingerprint SHA-256 của giao dịch và bộ đếm từng món được lưu cùng nhau trong bộ nhớ Android riêng để tránh đếm trùng. Một cờ ghi nhận đã mở thanh toán giúp khôi phục giao dịch còn chờ khi mở app sau này. Thống kê trên thiết bị này không phải sổ kế toán và không tự điều chỉnh theo hoàn tiền.
+
+Sao lưu/chuyển máy của Android có thể phục hồi bộ đếm và fingerprint theo snapshot tương ứng. Chúng không nằm trong tệp JSON sao lưu dữ liệu học do app xuất, không đồng bộ liên tục và không thể tái dựng từ Play sau khi consumable đã hoàn tất. Xóa dữ liệu sẽ xóa số lượng cục bộ; bản sao lưu hệ điều hành cũ có thể vẫn chứa chúng. Google giữ hồ sơ giao dịch riêng. Không có cơ sở dữ liệu mua hàng hoặc xác minh token độc lập trên máy chủ nhà phát triển.
 
 ## Xuất và khôi phục sao lưu
 
@@ -108,7 +124,7 @@ Nếu bật nhắc học, app xin quyền thông báo và lên lịch thông bá
 
 ## Quyền và dịch vụ bên ngoài
 
-Quyền thông báo, rung, đánh thức và khởi động hỗ trợ lời nhắc cục bộ tùy chọn. Quyền Internet và trạng thái mạng hỗ trợ dịch vụ nền tảng. Quyền Google Play Billing dùng cho truy vấn quốc gia Play; không có mua hàng hoặc đăng ký trả phí. Tệp sao lưu chỉ được chọn qua bộ chọn hệ thống và chia sẻ khi bạn thao tác.
+Quyền thông báo, rung, đánh thức và khởi động hỗ trợ lời nhắc cục bộ tùy chọn. Quyền Internet và trạng thái mạng hỗ trợ dịch vụ nền tảng. Quyền Google Play Billing dùng cho truy vấn quốc gia Play và khoản hỗ trợ một lần tùy chọn; không có đăng ký trả phí. Tệp sao lưu chỉ được chọn qua bộ chọn hệ thống và chia sẻ khi bạn thao tác.
 
 App không xin quyền vị trí, danh bạ, camera, micro, lịch hoặc truy cập toàn bộ bộ nhớ, và không dùng mã định danh quảng cáo. Có quyền nền tảng không đồng nghĩa app gửi dữ liệu học cho nhà phát triển.
 

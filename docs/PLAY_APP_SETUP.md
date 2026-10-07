@@ -1,6 +1,6 @@
 # Google Play app setup
 
-Live Console checked on 6 October 2026. App: KKorea Hangul, package `com.spacekatcompany.kkoreanhangul`, developer `6660012349184224355`, app ID `4975560487486352974`.
+Live Console checked on 7 October 2026. App: KKorea Hangul, package `com.spacekatcompany.kkoreanhangul`, developer `6660012349184224355`, app ID `4975560487486352974`.
 
 All **11 setup tasks are completed**: after Content ratings was saved, Dashboard stopped showing the outstanding “Finish setting up your app” section. App content → Need attention now says **“You're all caught up”**, and Actioned lists ten completed policy declarations, including the additional Advertising ID declaration. Completing setup is separate from Google review or release approval.
 
@@ -13,7 +13,7 @@ All **11 setup tasks are completed**: after Content ratings was saved, Dashboard
 - Content rating: IARC **Completed**, submitted 6 October 2026; regional ratings below.
 - Target audience: 13–15, 16–17, 18 and over. This is the intended audience, not an IARC rating.
 - Government apps: no.
-- Financial features: none; no purchases/subscriptions despite the Billing SDK used to obtain Play country.
+- Financial features: none. Optional one-time support is purchased through Google Play; this is not a wallet, money-transfer, lending, investment or financial-advice service. See [Google financial feature categories](https://support.google.com/googleplay/android-developer/answer/13849271?hl=en).
 - Health features: none.
 - Category: App / Education.
 - Tags: Education, Grammar, Language education, Pronunciation, Test preparation.
@@ -68,8 +68,10 @@ These are the ratings shown by Console, not a claim of Google review approval. R
 
 `src/legal/privacy-policy.json` is the bilingual source used by the new offline `/privacy` screen and the public webpage. Settings → About links to the screen; other UI languages default to the English policy with English/Vietnamese switches. Run `node scripts/export-privacy.mjs` to regenerate `PRIVACY.md` and `store-assets/privacy.html`. Publish the HTML to `kkorea-hangul/index.html` in `D:\Projects\spacekat-privacy-policies` (GitHub Pages).
 
-Public policy commits: `0d80606` (initial policy) and `772113c` (Billing diagnostics); Pages deployment succeeded and live text was verified. TypeScript and all 61 existing tests pass after these source changes.
+Public policy commits: `0d80606` (initial), `772113c` (Billing diagnostics), `30254ad` (optional Hangmi support). Pages deployment succeeded and live EN/VI support text was verified on 7 October.
 
 The current Play binary **1.1.3 (5) predates the in-app policy screen**. Before submitting a binary for a broader review/release, build and verify a higher version code containing the screen. This setup task has not uploaded another binary or sent changes for review.
+
+Update on 7 October: three Hangmi support products are Active with one Buy option each; EN/VI store descriptions now explain optional support and no longer claim no in-app purchases. Data safety now also includes **Purchase history**, collected/shared, optional, non-ephemeral, purpose App functionality; other types and security answers are unchanged. Public privacy policy is deployed. These Console changes are saved, not reviewed. IARC still describes the old binary: the new form requires accepting Terms of Use again; owner confirmation is pending before answering digital goods Yes. AAB `1.1.4 (6)` is uploaded to an Internal draft, not rolled out yet. See [Hangmi support](HANGMI_SUPPORT.md).
 
 Current proof: ignored `release/play-app-content-complete.png` (nothing requiring attention) and `release/play-content-ratings-complete.png` (IARC Completed). Earlier `release/iarc-consent-pending.png` and `release/play-app-setup-10-of-11.png` are historical, superseded snapshots.
