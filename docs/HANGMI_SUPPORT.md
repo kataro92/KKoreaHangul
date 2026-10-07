@@ -1,6 +1,6 @@
 # Góp nuôi mèo Hangmi
 
-Đã tham khảo `D:\Projects\Kalendar\docs\app-community.vi.md` cùng plugin Billing, ledger và kiểm thử của Kalendar. Chủ ứng dụng đã chọn ba món và mức giá dưới đây ngày 07/10/2026. Đã cấu hình ba sản phẩm trên Console ngày 07/10/2026. AAB `1.1.4 (6)` đã build, ký và upload vào bản nháp Internal; chưa rollout tại thời điểm cập nhật này.
+Đã tham khảo `D:\Projects\Kalendar\docs\app-community.vi.md` cùng plugin Billing, ledger và kiểm thử của Kalendar. Chủ ứng dụng đã chọn ba món và mức giá dưới đây ngày 07/10/2026. Đã cấu hình ba sản phẩm và phát hành AAB `1.1.4 (6)` riêng trên Internal testing ngày 07/10/2026; Console xác nhận **Active — Available to internal testers**, release ID `3`.
 
 ## Nội dung và mức hỗ trợ
 
@@ -26,9 +26,9 @@ OS backup/transfer Android có thể giữ ledger theo snapshot (manifest hiện
 
 Policy source EN/VI và `PRIVACY.md`/`store-assets/privacy.html` đã bổ sung luồng hỗ trợ, purchase token, fingerprint, bộ đếm và giới hạn backup. Trang policy công khai đã triển khai từ commit `30254ad` của repo privacy-policies; GitHub Pages thành công và nội dung EN/VI đã kiểm trực tiếp. Data safety đã lưu thêm Purchase history: collected/shared, optional, không ephemeral, App functionality; đang chờ gửi review.
 
-## Các bước trước khi đưa lên Internal
+## Cấu hình phát hành và kiểm tra trên thiết bị
 
-1. Tăng version code cao hơn 5, giữ upload key, build/release chỉ Internal theo hướng dẫn dự án. Đã chuẩn bị và upload code 6; rollout chờ IARC.
+1. Tăng version code cao hơn 5, giữ upload key, build/release chỉ Internal theo hướng dẫn dự án. Code 6 đã được phát hành lên Internal.
 2. Tạo/kích hoạt ba sản phẩm trong **đúng app KKorea**, option Buy, giá Việt Nam đúng bảng, EN/VI mô tả tương ứng; kiểm ProductDetails/checkout và tiền tệ khác. Sản phẩm Kalendar Active không có nghĩa KKorea đã có sản phẩm.
 3. Đồng bộ policy công khai. Rà soát Data safety để thêm **Purchase history**, optional, collected/shared với Google, purpose App functionality; fingerprint/lịch sử trên máy và Play purchase processing phải được khai báo theo thực tế. Diagnostics/Device IDs hiện có vẫn giữ và diễn giải cả hoạt động Billing hỗ trợ. Không khai báo app không có mua hàng nữa.
 4. Cập nhật IARC mục digital goods thành Yes và kiểm lại rating; rà soát mô tả listing/nhãn in-app purchases, Financial features nếu Console hỏi thêm. Không tự bắt đầu Closed/Production.
@@ -40,7 +40,7 @@ Tài liệu API: [Billing integration](https://developer.android.com/google/play
 
 - TypeScript đạt; 70 kiểm thử JavaScript đạt, gồm sản phẩm/giá thiếu, trạng thái chờ/hủy/kết quả chưa rõ, receipt sai, event trùng và snapshot cũ.
 - Native Debug/Release Kotlin compile đạt; 7 JUnit kiểm pending/unknown, consume trùng/lỗi/retry, giá VND, ledger qua restart/backup và lỗi ghi dữ liệu đạt. Expo tự liên kết `HangmiSupportModule` trong package list.
-- App `compileReleaseKotlin`, gộp manifest và đóng gói JavaScript/Hermes đạt. Manifest vẫn cho phép Auto Backup, không có AD_ID. Đây là kiểm build local, không upload/release binary.
+- App `compileReleaseKotlin`, gộp manifest và đóng gói JavaScript/Hermes đạt. Manifest vẫn cho phép Auto Backup, không có AD_ID. Kết quả này là kiểm build local; trạng thái phát hành Console được ghi riêng bên dưới.
 - Đã kiểm giao diện thật qua web local, tiếng Việt/Anh và khung 390/320 px: đóng mặc định, mở hiện đúng món/copy/mascot, không tràn ngang, không có nút trả tiền trên web. Bằng chứng local: `release/hangmi-support-vi.png`. Đây không phải kiểm UI checkout native hoặc thanh toán Play thật.
 - Metro loại `release/` và `.secrets/` khỏi theo dõi: socket Gradle trên Windows từng gây EACCES và dừng dev server; source/assets bình thường vẫn được theo dõi.
 
@@ -51,4 +51,5 @@ Chưa kiểm trên thiết bị cài qua Play và chưa chạy license-test than
 - `hangmi_kibble`, `hangmi_pate`, `hangmi_toy`: option `buy` loại Buy, Active, 174 countries/regions; giá Việt Nam đúng 29.000 / 59.000 / 99.000 ₫. Các vùng khác dùng giá Google Play chuyển đổi. EN-US mặc định, thêm bản dịch vi; tax category Digital app sales. Không tạo offers hoặc subscriptions.
 - License testing đã lưu thêm danh sách KKorea Hangul - Thử nghiệm nội bộ (2 người), giữ danh sách Nhật Nguyệt được chọn; response RESPOND_NORMALLY. Đây là cấu hình developer-wide, không phải bằng chứng checkout trên thiết bị.
 - Bản build: TypeScript và 70 Jest test đạt; bundleRelease thành công, bundletool validate/chữ ký/upload certificate đúng, 38 thư viện 64-bit đạt ELF 16 KB. SHA-256: `E53230988A2F0A4FF8BDCED0EE681B618A3C16059B856E6BD9A1E791AB5F769C`.
-- IARC yêu cầu chấp nhận lại Terms of Use ở bảng mới; đang chờ chủ tài khoản xác nhận. Chưa thay khai báo digital goods.
+- Sau khi chủ tài khoản xác nhận, đã chấp nhận lại IARC Terms of Use và hoàn tất bảng mới: digital goods Yes, random/chance-based purchases No. Console xác nhận **Completed**, submitted 07/10/2026 lúc 12:09 PM; các mức tuổi giữ nguyên, thêm interactive element **In-App Purchases**. App content không còn mục cần xử lý. Khai báo và listing được lưu chờ gửi review.
+- Release `1.1.4 (6) - Hangmi support - Internal`, ID `3`, được phát hành 07/10/2026 lúc 12:09 PM (giờ hiển thị trên Console), **Available to internal testers — Not reviewed**. Không bắt đầu Closed/Production. Bằng chứng: `release/hangmi-internal-1.1.4-active.png`, `release/hangmi-iarc-completed.png`.

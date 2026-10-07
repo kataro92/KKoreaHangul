@@ -5,19 +5,27 @@ Phạm vi: chỉ Internal testing, dừng trước Closed testing và Production
 ## Package hiện tại
 
 - Android: `com.spacekatcompany.kkoreanhangul`, đúng ID được yêu cầu.
-- Phiên bản Internal hiện tại: `1.1.3`, versionCode `5`.
+- Phiên bản Internal hiện tại: `1.1.4`, versionCode `6`.
 - iOS giữ bundleIdentifier riêng trong `app.json`.
 - Tài khoản Play: The Space Kat Company, developer ID `6660012349184224355`.
 - App mới đã tạo ngày 05/10/2026 sau khi chủ tài khoản xác nhận hai khai báo: KKorea Hangul, English (United States) — `en-US`, App, Free. App ID `4975560487486352974`, Internal track ID `4699881387950463788`. Danh sách thử `KKorea Hangul - Thử nghiệm nội bộ` đã được chọn và lưu, gồm `spacekatcompany@gmail.com` và `kataro92@gmail.com`.
 - [Internal testing trên Console](https://play.google.com/console/u/1/developers/6660012349184224355/app/4975560487486352974/tracks/4699881387950463788).
-- Đã phát hành release ID `2`, tên `1.1.3 (5) - Internal`, ghi chú `en-US` và `vi`, ngày 05/10/2026 lúc 18:05 (giờ hiển thị trên Console). Console xác nhận **Active — Available to internal testers**. Chưa bắt đầu Closed testing hoặc Production. Release đầu tiên là `1.1.2 (4) - Internal`, release ID `1`, ngày 05/10/2026 lúc 13:53; bundle code `4` không được đưa vào release mới.
+- Đã phát hành release ID `3`, tên `1.1.4 (6) - Hangmi support - Internal`, ghi chú `en-US` và `vi`, ngày 07/10/2026 lúc 12:09 PM (giờ hiển thị trên Console). Console xác nhận **Active — Available to internal testers — Not reviewed**. Chưa bắt đầu Closed testing hoặc Production. Bản trước `1.1.3 (5) - Internal`, release ID `2`, phát hành ngày 05/10/2026 lúc 18:05. Release đầu tiên `1.1.2 (4) - Internal`, release ID `1`, ngày 05/10/2026 lúc 13:53. Bundle code `4` và `5` không được đưa vào release mới.
 - [Tham gia Internal testing](https://play.google.com/apps/internaltest/4699881387950463788): đăng nhập bằng một trong hai email đã chọn, tham gia rồi cài từ Google Play. Danh sách email là điều kiện tham gia, không đồng nghĩa đã opt-in. Google thông báo thay đổi thường xuất hiện trong một giờ, đôi khi lâu hơn.
-- Play tạm hiển thị `com.spacekatcompany.kkoreanhangul (unreviewed)` vì app chưa review. Bản `1.1.3 (5)` có dung lượng tải cài mới ước tính 57,4 MB, cập nhật 10,4 MB. Có một cảnh báo không chặn về deobfuscation file; bản hiện tại chưa bật minify/R8, native debug symbols đã đính kèm.
-- Bằng chứng bản hiện tại: `release/com.spacekatcompany.kkoreanhangul-1.1.3-5-internal-published.png`. Bằng chứng bản đầu: `release/com.spacekatcompany.kkoreanhangul-internal-published.jpg`.
+- Play tạm hiển thị `com.spacekatcompany.kkoreanhangul (unreviewed)` vì app chưa review. Bản `1.1.4 (6)` có dung lượng tải cài mới ước tính 57,5 MB, cập nhật 7,21 MB. Không giảm thiết bị hỗ trợ. Có một cảnh báo không chặn về deobfuscation file; bản hiện tại chưa bật minify/R8, native debug symbols đã đính kèm.
+- Bằng chứng bản hiện tại: `release/hangmi-internal-1.1.4-active.png`. Bằng chứng các bản trước: `release/com.spacekatcompany.kkoreanhangul-1.1.3-5-internal-published.png`, `release/com.spacekatcompany.kkoreanhangul-internal-published.jpg`.
 
 ## AAB đã chuẩn bị
 
-Thiết lập App content và chính sách riêng tư: xem [PLAY_APP_SETUP.md](PLAY_APP_SETUP.md). Mã nguồn mới bổ sung trang chính sách trong app; binary `1.1.3 (5)` hiện tại chưa chứa trang này.
+Thiết lập App content và chính sách riêng tư: xem [PLAY_APP_SETUP.md](PLAY_APP_SETUP.md). Binary `1.1.4 (6)` chứa trang chính sách trong app và phần góp nuôi Hangmi.
+
+`release/com.spacekatcompany.kkoreanhangul-1.1.4-6.aab`
+
+SHA-256: `E53230988A2F0A4FF8BDCED0EE681B618A3C16059B856E6BD9A1E791AB5F769C`.
+
+Build release, TypeScript và 70 Jest test đạt; 7 native JUnit test đã đạt trong bước kiểm module. Bundletool validate, jarsigner verify, đối chiếu upload certificate được giữ nguyên, package/version/target SDK 36 và kiểm 38 thư viện ELF 64-bit alignment 16 KB đạt. JavaScript/Hermes và native `HangmiSupportModule` được đóng gói. Chưa kiểm checkout trên thiết bị cài qua Play hoặc runtime trên thiết bị 16 KB.
+
+### AAB 1.1.3 trước đó
 
 `release/com.spacekatcompany.kkoreanhangul-1.1.3-5.aab`
 
@@ -76,9 +84,9 @@ Package mới có dữ liệu riêng, không tự nhận dữ liệu package cũ
 
 ## Giai đoạn sau
 
-Bản mới `1.1.4 (6)` có **Góp nuôi mèo Hangmi** và màn hình privacy: đã build, ký, kiểm và upload vào nháp Internal; **chưa rollout**. Ba sản phẩm Active, giá VN 29.000 / 59.000 / 99.000 ₫, license testing đã lưu danh sách KKorea. Policy công khai và Data safety/listing mua hàng đã đồng bộ; đang chờ xác nhận điều khoản IARC để cập nhật digital goods trước rollout. AAB SHA-256 `E53230988A2F0A4FF8BDCED0EE681B618A3C16059B856E6BD9A1E791AB5F769C`; typecheck, 70 Jest test, bundletool/chữ ký/khóa ký và 38 thư viện ELF 16 KB đạt. Console preview không giảm thiết bị, chỉ cảnh báo thiếu deobfuscation mapping: bản này không bật minify/R8 nên không có mapping. Chưa chạy checkout trên thiết bị cài qua Play. Xem [Hangmi support](HANGMI_SUPPORT.md).
+Bản `1.1.4 (6)` có **Góp nuôi mèo Hangmi** và màn hình privacy đã phát hành trên Internal. Ba sản phẩm Active, giá VN 29.000 / 59.000 / 99.000 ₫, license testing đã lưu danh sách KKorea. Policy công khai và Data safety/listing mua hàng đã đồng bộ. IARC mới Completed ngày 07/10/2026, digital goods Yes, random purchases No; các mức tuổi giữ nguyên, thêm In-App Purchases. Chưa chạy checkout trên thiết bị cài qua Play; dùng phương thức Google Play test để kiểm success/cancel/decline/pending, phục hồi và mua lặp trước khi mở rộng phát hành. Xem [Hangmi support](HANGMI_SUPPORT.md).
 
-Privacy URL, chính sách mô tả Auto Backup, Data safety và App content đã hoàn tất ngày 06/10/2026; xem [Google Play app setup](PLAY_APP_SETUP.md). Source có màn hình privacy trong app, nhưng binary Internal `1.1.3 (5)` chưa có màn hình này. Lần build tiếp theo cần tăng version code và bao gồm thay đổi đó. Cần tiếp tục kiểm thiết bị cấu hình thấp và runtime 16 KB. Không tự bắt đầu Closed testing hoặc Production.
+Privacy URL, chính sách mô tả Auto Backup, Data safety và App content đã hoàn tất và cập nhật cho Hangmi ngày 07/10/2026; xem [Google Play app setup](PLAY_APP_SETUP.md). Binary Internal `1.1.4 (6)` chứa màn hình privacy. Cần tiếp tục kiểm thiết bị cấu hình thấp và runtime 16 KB. Không tự bắt đầu Closed testing hoặc Production.
 
 Hồ sơ cửa hàng đã lưu trên Console với English (United States) `en-US` mặc định và Vietnamese `vi` bổ sung: tên, mô tả ngắn/đầy đủ, icon Hangmi hiện có, banner mới và 6 screenshot Android cho mỗi ngôn ngữ. Tệp nguồn nằm trong [store-assets](../store-assets/README.md). Publishing overview xác nhận đủ thông tin listing cho cả hai ngôn ngữ. App setup đã hoàn tất và Content rating có trạng thái IARC Completed; App content không còn khai báo cần xử lý. Hồ sơ và khai báo đang lưu chờ gửi review, chưa hiển thị như một trang Store đã được review; việc này không chặn Internal release. Bằng chứng: `release/store-listing-completed.png`, `release/play-app-content-complete.png`, `release/play-content-ratings-complete.png`.
 
