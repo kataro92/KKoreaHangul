@@ -39,7 +39,7 @@ export async function requestPermission(): Promise<boolean> {
  * @param title tiêu đề thông báo
  * @param body nội dung thông báo
  */
-export async function scheduleDailyReminder(title: string, body: string): Promise<boolean> {
+async function replaceDailyReminder(title: string, body: string): Promise<boolean> {
   if (!Notifications) return false;
   try {
     const ok = await requestPermission();
@@ -60,12 +60,27 @@ export async function scheduleDailyReminder(title: string, body: string): Promis
   }
 }
 
+// Serialize language changes, restores and toggle actions so concurrent updates
+// cannot leave duplicate reminders or reinstate a reminder after cancellation.
+let reminderUpdates: Promise<unknown> = Promise.resolve();
+export function scheduleDailyReminder(title: string, body: string): Promise<boolean> {
+  const result = reminderUpdates.then(() => replaceDailyReminder(title, body));
+  reminderUpdates = result;
+  return result;
+}
+
 /** Huỷ mọi lịch nhắc. */
-export async function cancelReminder(): Promise<void> {
+async function removeReminder(): Promise<void> {
   if (!Notifications) return;
   try {
     await Notifications.cancelAllScheduledNotificationsAsync();
   } catch {
     // ignore
   }
+}
+
+export function cancelReminder(): Promise<void> {
+  const result = reminderUpdates.then(removeReminder);
+  reminderUpdates = result;
+  return result;
 }

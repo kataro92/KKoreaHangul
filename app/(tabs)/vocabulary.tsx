@@ -18,6 +18,7 @@ import { useSrs } from '../../src/contexts/SrsContext';
 import vocabularyData from '../../src/data/vocabulary.json';
 import { decomposeString } from '../../src/utils/decompose';
 import { resolveVocabIllustration } from '../../src/utils/vocabIllustration';
+import { getVocabularyMeaning } from '../../src/localization/learningContent';
 
 type VocabEntry = { word: string; meaning: string; pos: string; vi?: string; illust?: string };
 type LevelKey = 'topik1' | 'topik2';
@@ -48,7 +49,7 @@ export default function VocabularyScreen() {
     topik1Entries.length > 0 ? getRandomEntry('topik1') : null
   );
   const [speaking, setSpeaking] = useState(false);
-  const { t } = useLanguage();
+  const { t, locale } = useLanguage();
   const theme = useTheme();
   const c = theme.colors;
   const { getSpeechOptions, rate } = useSpeechConfig();
@@ -62,10 +63,10 @@ export default function VocabularyScreen() {
     addCard({
       type: 'vocab',
       front: entry.word,
-      back: entry.vi || entry.meaning,
+      back: getVocabularyMeaning(entry, locale),
       extra: { pos: entry.pos, illust: entry.illust },
     });
-  }, [entry, addCard]);
+  }, [entry, addCard, locale]);
 
   const illustSource = entry ? resolveVocabIllustration(entry.illust || entry.word) : null;
 
@@ -147,7 +148,7 @@ export default function VocabularyScreen() {
                 <Text style={[styles.pos, { color: c.primary }]}>
                   {POS_LABEL_KEYS[entry.pos] ? t(POS_LABEL_KEYS[entry.pos]) : entry.pos}
                 </Text>
-                <Text style={[styles.meaning, { color: c.text }]}>{entry.vi || entry.meaning}</Text>
+                <Text style={[styles.meaning, { color: c.text }]}>{getVocabularyMeaning(entry, locale)}</Text>
               </View>
             </View>
             <GlassButton onPress={speak} style={styles.speakBtn} label={speaking ? undefined : t('speakButton')}>

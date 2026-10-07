@@ -17,9 +17,13 @@ import type { Rating } from '../../src/srs/types';
 import { getSuggestions } from '../../src/srs/suggest';
 import type { VocabSuggestion } from '../../src/srs/suggest';
 import { resolveVocabIllustration } from '../../src/utils/vocabIllustration';
+import { CARD_TYPE_LABELS, getVocabularyMeaning } from '../../src/localization/learningContent';
+import { getCardMeaning, getCardPronunciation } from '../../src/srs/refresh';
+import { useReadingDisplay } from '../../src/contexts/ReadingDisplayContext';
 
 export default function ReviewScreen() {
-  const { t } = useLanguage();
+  const { t, locale } = useLanguage();
+  const { phoneticSystem } = useReadingDisplay();
   const theme = useTheme();
   const c = theme.colors;
   const router = useRouter();
@@ -28,6 +32,7 @@ export default function ReviewScreen() {
   const [flipped, setFlipped] = useState(false);
 
   const current = dueCards[0] ?? null;
+  const currentPronunciation = current ? getCardPronunciation(current, locale, phoneticSystem) : undefined;
 
   const existingFronts = useMemo(
     () => new Set(cards.filter((x) => x.type === 'vocab').map((x) => x.front)),
@@ -45,12 +50,12 @@ export default function ReviewScreen() {
       addCard({
         type: 'vocab',
         front: s.word,
-        back: s.vi || s.meaning,
+        back: getVocabularyMeaning(s, locale),
         extra: { pos: s.pos, illust: s.illust },
       });
       setSuggestions((prev) => prev.filter((x) => x.word !== s.word));
     },
-    [addCard]
+    [addCard, locale]
   );
 
   const reviewIllust =
@@ -114,7 +119,7 @@ export default function ReviewScreen() {
           <Pressable onPress={() => setFlipped((f) => !f)}>
             <GlassCard contentStyle={styles.cardContent}>
               <View style={styles.cardTop}>
-                <Text style={[styles.typeTag, { color: c.textSecondary }]}>{current.type}</Text>
+                <Text style={[styles.typeTag, { color: c.textSecondary }]}>{CARD_TYPE_LABELS[locale][current.type]}</Text>
                 <Pressable
                   onPress={speak}
                   hitSlop={8}
@@ -131,10 +136,10 @@ export default function ReviewScreen() {
               {flipped ? (
                 <>
                   <View style={[styles.divider, { backgroundColor: c.hairline }]} />
-                  {current.extra?.phonetic ? (
-                    <Text style={[styles.phonetic, { color: c.primary }]}>{current.extra.phonetic}</Text>
+                  {currentPronunciation ? (
+                    <Text style={[styles.phonetic, { color: c.primary }]}>{currentPronunciation}</Text>
                   ) : null}
-                  <Text style={[styles.back, { color: c.text }]}>{current.back}</Text>
+                  <Text style={[styles.back, { color: c.text }]}>{getCardMeaning(current, locale)}</Text>
                 </>
               ) : (
                 <Text style={[styles.tapHint, { color: c.textSecondary }]}>{t('srsShowAnswer')}</Text>
@@ -173,7 +178,7 @@ export default function ReviewScreen() {
               <View style={styles.suggestInfo}>
                 <Text style={[styles.suggestWord, { color: c.text }]}>{s.word}</Text>
                 <Text style={[styles.suggestMeaning, { color: c.textSecondary }]} numberOfLines={1}>
-                  {s.vi || s.meaning}
+                  {getVocabularyMeaning(s, locale)}
                 </Text>
               </View>
               <Pressable

@@ -1,51 +1,58 @@
-/**
- * Đồng bộ mặt sau (nghĩa) của thẻ SR với dữ liệu nguồn mới nhất.
- * Dùng để cập nhật nghĩa tiếng Việt cho các thẻ đã thêm trước khi có bản dịch.
- * Chỉ áp dụng cho thẻ 'vocab' và 'sentence'; thẻ 'custom'/'grammar' giữ nguyên.
- */
 import vocabularyData from '../data/vocabulary.json';
-import sentencesData from '../data/sentences.json';
+import { SENTENCES_TOPIK1, SENTENCES_TOPIK2, getSentenceMeaning, getSentencePronunciation } from '../data/sentences';
+import { getGrammarById } from '../data/grammar';
+import { getVocabularyMeaning, type VocabularyEntry } from '../localization/learningContent';
+import type { Locale } from '../localization/locale';
+import type { PhoneticSystem } from '../data/phonetics';
 import type { SrsCard } from './types';
 
-type Vocab = { word: string; meaning: string; vi?: string };
-type Sent = { id: string; ko: string; vi: string };
-
-const vocabByWord = new Map<string, string>();
-for (const lv of ['topik1', 'topik2'] as const) {
-  const entries = (vocabularyData as any)[lv]?.entries as Vocab[] | undefined;
-  entries?.forEach((e) => vocabByWord.set(e.word, e.vi || e.meaning));
+const vocabByWord = new Map<string, VocabularyEntry>();
+for (const level of ['topik1', 'topik2'] as const) {
+  vocabularyData[level].entries.forEach((entry) => vocabByWord.set(entry.word, entry));
 }
+const sentences = [...SENTENCES_TOPIK1, ...SENTENCES_TOPIK2];
+const sentById = new Map(sentences.map((sentence) => [sentence.id, sentence]));
+const sentByKo = new Map(sentences.map((sentence) => [sentence.ko, sentence]));
+const findSentence = (card: SrsCard) =>
+  (card.extra?.sourceId ? sentById.get(card.extra.sourceId) : undefined) ?? sentByKo.get(card.front);
 
-const sentById = new Map<string, string>();
-const sentByKo = new Map<string, string>();
-for (const lv of ['topik1', 'topik2'] as const) {
-  const list = (sentencesData as any)[lv] as Sent[] | undefined;
-  list?.forEach((s) => {
-    sentById.set(s.id, s.vi);
-    sentByKo.set(s.ko, s.vi);
-  });
-}
-
-/** Trả về mặt sau mới nhất cho một thẻ, hoặc null nếu không cần đổi. */
-export function freshBack(card: SrsCard): string | null {
-  let next: string | undefined;
+/** Resolve built-in cards at render time, including cards saved in another language. */
+export function getCardMeaning(card: SrsCard, locale: Locale): string {
   if (card.type === 'vocab') {
-    next = vocabByWord.get(card.front);
+    const entry = vocabByWord.get(card.front);
+    if (entry) return getVocabularyMeaning(entry, locale);
   } else if (card.type === 'sentence') {
-    next = (card.extra?.sourceId && sentById.get(card.extra.sourceId)) || sentByKo.get(card.front);
+    const sentence = findSentence(card);
+    if (sentence) return getSentenceMeaning(sentence, locale);
+  } else if (card.type === 'grammar' && card.extra?.sourceId) {
+    const grammar = getGrammarById(card.extra.sourceId, locale);
+    if (grammar) return grammar.explanation;
   }
-  if (next && next !== card.back) return next;
-  return null;
+  // User-authored or unknown imported content has no built-in translation.
+  return card.back;
 }
 
-/** Áp dụng đồng bộ cho danh sách thẻ. Trả về { cards, changed }. */
-export function syncMeanings(cards: SrsCard[]): { cards: SrsCard[]; changed: number } {
+export function getCardPronunciation(card: SrsCard, locale: Locale, system: PhoneticSystem): string | undefined {
+  if (card.type === 'sentence') {
+    const sentence = findSentence(card);
+    if (sentence) return getSentencePronunciation(sentence, locale, system);
+  }
+  return card.extra?.phonetic;
+}
+
+export function freshBack(card: SrsCard, locale: Locale = 'en'): string | null {
+  const next = getCardMeaning(card, locale);
+  return next !== card.back ? next : null;
+}
+
+/** Explicitly refresh saved meanings without changing scheduling or custom cards. */
+export function syncMeanings(cards: SrsCard[], locale: Locale = 'en'): { cards: SrsCard[]; changed: number } {
   let changed = 0;
   const nextCards = cards.map((card) => {
-    const nb = freshBack(card);
-    if (nb) {
+    const back = freshBack(card, locale);
+    if (back !== null) {
       changed += 1;
-      return { ...card, back: nb };
+      return { ...card, back };
     }
     return card;
   });

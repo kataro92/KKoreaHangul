@@ -13,7 +13,7 @@ import { getGrammarByLevel } from '../../src/data/grammar';
 import type { GrammarLevel } from '../../src/data/grammar';
 
 export default function GrammarScreen() {
-  const { t } = useLanguage();
+  const { t, locale } = useLanguage();
   const theme = useTheme();
   const c = theme.colors;
   const router = useRouter();
@@ -21,7 +21,7 @@ export default function GrammarScreen() {
   const [query, setQuery] = useState('');
 
   const items = useMemo(() => {
-    const list = getGrammarByLevel(level);
+    const list = getGrammarByLevel(level, locale);
     const q = query.trim().toLowerCase();
     if (!q) return list;
     return list.filter(
@@ -30,7 +30,7 @@ export default function GrammarScreen() {
         g.explanation.toLowerCase().includes(q) ||
         g.tags.some((tag) => tag.toLowerCase().includes(q))
     );
-  }, [level, query]);
+  }, [level, query, locale]);
 
   const levelBtn = (lv: GrammarLevel, label: string) => {
     const active = level === lv;

@@ -11,6 +11,7 @@ import { loadJSON, saveJSON, StorageKeys } from '../storage/store';
 import { initialSrsState, isDue, review } from '../srs/sm2';
 import { syncMeanings } from '../srs/refresh';
 import type { CardType, Rating, SrsCard } from '../srs/types';
+import { useLanguage } from './LanguageContext';
 
 type NewCardInput = {
   type: CardType;
@@ -49,6 +50,7 @@ function makeId(): string {
 }
 
 export function SrsProvider({ children }: { children: React.ReactNode }) {
+  const { locale } = useLanguage();
   const [cards, setCards] = useState<SrsCard[]>([]);
   const [loaded, setLoaded] = useState(false);
   // Tick để tính lại "đến hạn" theo thời gian mà không cần đổi cards.
@@ -60,9 +62,7 @@ export function SrsProvider({ children }: { children: React.ReactNode }) {
     let active = true;
     loadJSON<SrsCard[]>(StorageKeys.srsCards, []).then((data) => {
       if (!active) return;
-      // Đồng bộ nghĩa (vd cập nhật nghĩa tiếng Việt cho thẻ cũ) khi mở app.
-      const { cards: synced } = syncMeanings(data);
-      setCards(synced);
+      setCards(data);
       setLoaded(true);
       didLoad.current = true;
     });
@@ -154,17 +154,16 @@ export function SrsProvider({ children }: { children: React.ReactNode }) {
   const refreshMeanings = useCallback(() => {
     let changed = 0;
     setCards((prev) => {
-      const result = syncMeanings(prev);
+      const result = syncMeanings(prev, locale);
       changed = result.changed;
       return result.cards;
     });
     return changed;
-  }, []);
+  }, [locale]);
 
   const reloadFromStorage = useCallback(async () => {
     const data = await loadJSON<SrsCard[]>(StorageKeys.srsCards, []);
-    const { cards: synced } = syncMeanings(data);
-    setCards(synced);
+    setCards(data);
   }, []);
 
   const dueCards = useMemo(() => {

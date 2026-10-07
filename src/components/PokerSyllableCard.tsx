@@ -2,7 +2,8 @@ import React, { useEffect, useRef, useState } from 'react';
 import { Animated, Pressable, StyleSheet, Text, View } from 'react-native';
 import { useTheme } from '../constants/theme';
 import { useReadingDisplay } from '../contexts/ReadingDisplayContext';
-import { getPartPronunciations } from '../data/phonetics';
+import { getPartPronunciations, resolvePhoneticSystem } from '../data/phonetics';
+import { useLanguage } from '../contexts/LanguageContext';
 import type { DecomposedSyllable } from '../utils/decompose';
 
 interface PokerSyllableCardProps {
@@ -19,7 +20,8 @@ const CARD_H = 132;
 export function PokerSyllableCard({ data }: PokerSyllableCardProps) {
   const theme = useTheme();
   const { phoneticSystem } = useReadingDisplay();
-  const pron = getPartPronunciations(data, phoneticSystem);
+  const { locale } = useLanguage();
+  const pron = getPartPronunciations(data, resolvePhoneticSystem(phoneticSystem, locale));
   const isDark = theme.scheme === 'dark';
   const face = isDark ? '#1E2238' : '#FFFBF0';
   const ink = isDark ? '#F4F5FF' : '#1A1520';

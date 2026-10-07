@@ -1,0 +1,29 @@
+{
+  "n-e-gada-oda": {
+    "explanation": "Describes movement to a place. 에 marks the destination of a verb of motion."
+  },
+  "conj-a-eo-yo": {
+    "explanation": "To conjugate the informal polite present tense, remove 다 and look at the stem's last vowel, rather than its 받침. Vowels often contract when the ending is added."
+  },
+  "irr-b": {
+    "explanation": "Most adjectives ending in 받침 ㅂ change ㅂ to 우 before a vowel. 돕다/곱다 are exceptions that form 와."
+  },
+  "irr-reu": {
+    "explanation": "A stem ending in 르 drops ㅡ before 아/어 and adds ㄹ to the preceding syllable. Use ㄹ라 if the preceding vowel is ㅏ/ㅗ, and ㄹ러 otherwise."
+  },
+  "irr-h": {
+    "explanation": "Most color or state adjectives ending in 받침 ㅎ drop ㅎ and change the vowel (아/어 → 애). 좋다 follows the regular pattern."
+  },
+  "irr-exceptions": {
+    "explanation": "A stem with 받침 ㄷ/ㅅ/ㅂ/ㅎ is not necessarily irregular. Memorize regular forms and special irregular forms such as 돕다/곱다."
+  },
+  "num-sino": {
+    "explanation": "The Sino-Korean number system comes from Chinese. Use it for money (원), months (월), dates (일), minutes (분), telephone numbers, ordinal numbers and large numbers."
+  },
+  "num-native": {
+    "explanation": "Use native Korean numbers to count objects, people, ages and hours with counters such as 개/명/살/시/마리/병/잔."
+  },
+  "a-eun-v-neun-modifier": {
+    "explanation": "The noun-modifying form (관형사형) turns a verb or adjective into a word or clause placed BEFORE a noun. Vietnamese usually puts the noun before its adjective; Korean puts the modifier first, as in 예쁜 꽃.\n\n• Adjective + (으)ㄴ: describes a noun's current quality or state. 작은 집 (a small house), 좋은 사람 (a good person), 바쁜 하루 (a busy day).\n• Verb + 는: describes an ongoing or habitual action. 읽는 책 (the book being read), 다니는 회사 (the company one works for), 자주 가는 식당 (a restaurant one often visits).\n• 있다/없다 and compounds such as 맛있다, 맛없다, 재미있다, 재미없다 use the verb ending 는 in this form: 맛있는 음식, 재미있는 영화.\n\nIrregular forms to remember with (으)ㄴ:\n• Stems ending in ㄹ drop ㄹ before ㄴ/는: 살다 → 사는, 길다 → 긴, 멀다 → 먼.\n• Stems ending in ㅂ: ㅂ → 우, as in 덥다 → 더운, 어렵다 → 어려운, 귀엽다 → 귀여운.\n• Stems ending in ㅎ drop ㅎ: 그렇다 → 그런, 어떻다 → 어떤, 하얗다 → 하얀."
+  }
+}

@@ -3,7 +3,7 @@ import { StyleSheet, Text, View } from 'react-native';
 import { useTheme } from '../constants/theme';
 import { useLanguage } from '../contexts/LanguageContext';
 import { useReadingDisplay } from '../contexts/ReadingDisplayContext';
-import { getPartPronunciations } from '../data/phonetics';
+import { getPartPronunciations, resolvePhoneticSystem } from '../data/phonetics';
 import type { DecomposedSyllable } from '../utils/decompose';
 import { GlassCard } from './glass/GlassCard';
 
@@ -12,11 +12,11 @@ interface DecomposedResultProps {
 }
 
 export function DecomposedResult({ data }: DecomposedResultProps) {
-  const { t } = useLanguage();
+  const { t, locale } = useLanguage();
   const theme = useTheme();
   const c = theme.colors;
   const { phoneticSystem } = useReadingDisplay();
-  const pron = getPartPronunciations(data, phoneticSystem);
+  const pron = getPartPronunciations(data, resolvePhoneticSystem(phoneticSystem, locale));
   const hasFinal = data.finalChar.length > 0;
   const silentLabel = '—';
 

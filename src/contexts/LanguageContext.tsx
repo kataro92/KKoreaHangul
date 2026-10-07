@@ -2,6 +2,7 @@ import React, { createContext, useCallback, useContext, useEffect, useRef, useSt
 import { loadJSON, saveJSON, StorageKeys } from '../storage/store';
 import { FALLBACK_LOCALE, resolveInitialLocale, type Locale } from '../localization/locale';
 import { detectDefaultLocale } from '../localization/detectDefaultLocale';
+import { getLearningUiText } from '../localization/learningContent';
 export type { Locale } from '../localization/locale';
 
 type TranslationMap = {
@@ -1569,7 +1570,7 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
   }, []);
 
   const t = useCallback(
-    (key: keyof TranslationMap) => translations[locale][key] ?? key,
+    (key: keyof TranslationMap) => getLearningUiText(key, locale) ?? translations[locale][key] ?? key,
     [locale]
   );
 

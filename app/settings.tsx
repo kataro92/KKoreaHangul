@@ -8,7 +8,7 @@ import { GlassScreen } from '../src/components/glass/GlassScreen';
 import { HangmiFigure } from '../src/components/mascot/HangmiFigure';
 import { HangmiSupport } from '../src/components/support/HangmiSupport';
 import { useTheme } from '../src/constants/theme';
-import { useLanguage, LOCALE_NATIVE_LABELS, LOCALE_FLAGS } from '../src/contexts/LanguageContext';
+import { useLanguage, LOCALE_NATIVE_LABELS, LOCALE_FLAGS, translations } from '../src/contexts/LanguageContext';
 import type { Locale } from '../src/contexts/LanguageContext';
 import { useSpeechConfig, RATE_OPTIONS, PITCH_OPTIONS, VOLUME_OPTIONS } from '../src/contexts/SpeechConfigContext';
 import {
@@ -21,6 +21,7 @@ import { useGuidance } from '../src/contexts/GuidanceContext';
 import { exportBackup, importBackup } from '../src/storage/backup';
 import { loadJSON, saveJSON, StorageKeys } from '../src/storage/store';
 import { PRIVACY_LABELS } from '../src/legal/privacy';
+import { isLocale } from '../src/localization/locale';
 import {
   scheduleDailyReminder,
   cancelReminder,
@@ -122,10 +123,12 @@ export default function SettingsScreen() {
             await reloadLanguage();
             await reloadSpeech();
             await reloadReadingDisplay();
+            const savedLocale = await loadJSON<unknown>(StorageKeys.locale, locale);
+            const restoredText = translations[isLocale(savedLocale) ? savedLocale : locale];
             // Áp lại trạng thái nhắc ôn theo dữ liệu vừa khôi phục.
             const s = await loadJSON<SettingsData>(StorageKeys.settings, {});
             if (s.reminderEnabled) {
-              const ok = await scheduleDailyReminder(t('reminderTitle'), t('reminderBody'));
+              const ok = await scheduleDailyReminder(restoredText.reminderTitle, restoredText.reminderBody);
               setReminderEnabled(ok);
               if (!ok) await saveJSON(StorageKeys.settings, { ...s, reminderEnabled: false });
             } else {
@@ -133,7 +136,7 @@ export default function SettingsScreen() {
               await cancelReminder();
             }
             setBackupBusy(false);
-            Alert.alert(t('backupDoneTitle'), t('backupDoneBody'));
+            Alert.alert(restoredText.backupDoneTitle, restoredText.backupDoneBody);
           } else {
             setBackupBusy(false);
             if (result.status === 'invalid') {

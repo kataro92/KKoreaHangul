@@ -1,5 +1,7 @@
 /** Kiểu dữ liệu cho ngữ pháp + truy cập tiện lợi vào grammar.json */
 import grammarData from './grammar.json';
+import type { Locale } from '../localization/locale';
+import { translateVietnamese } from '../localization/learningContent';
 
 export type GrammarLevel = 'topik1' | 'topik2' | 'basics';
 
@@ -29,11 +31,36 @@ export const GRAMMAR_BASICS: GrammarItem[] =
 
 export const ALL_GRAMMAR: GrammarItem[] = [...GRAMMAR_BASICS, ...GRAMMAR_TOPIK1, ...GRAMMAR_TOPIK2];
 
-export function getGrammarByLevel(level: GrammarLevel): GrammarItem[] {
-  if (level === 'basics') return GRAMMAR_BASICS;
-  return level === 'topik1' ? GRAMMAR_TOPIK1 : GRAMMAR_TOPIK2;
+export type LocalizedGrammarItem = Omit<GrammarItem, 'examples'> & {
+  examples: { ko: string; translation: string; note?: string }[];
+};
+
+const localized = new Map<Locale, LocalizedGrammarItem[]>();
+function getLocalizedGrammar(locale: Locale): LocalizedGrammarItem[] {
+  const cached = localized.get(locale);
+  if (cached) return cached;
+  const tr = (text: string) => translateVietnamese(text, locale);
+  const items = ALL_GRAMMAR.map((item) => ({
+    ...item,
+    title: tr(item.title),
+    structure: tr(item.structure),
+    explanation: tr(item.explanation),
+    usage: tr(item.usage),
+    tags: item.tags.map(tr),
+    examples: item.examples.map((example) => ({
+      ko: example.ko,
+      translation: tr(example.vi),
+      note: example.note ? tr(example.note) : undefined,
+    })),
+  }));
+  localized.set(locale, items);
+  return items;
 }
 
-export function getGrammarById(id: string): GrammarItem | undefined {
-  return ALL_GRAMMAR.find((g) => g.id === id);
+export function getGrammarByLevel(level: GrammarLevel, locale: Locale): LocalizedGrammarItem[] {
+  return getLocalizedGrammar(locale).filter((item) => item.level === level);
+}
+
+export function getGrammarById(id: string, locale: Locale): LocalizedGrammarItem | undefined {
+  return getLocalizedGrammar(locale).find((g) => g.id === id);
 }

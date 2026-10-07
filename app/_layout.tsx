@@ -11,6 +11,8 @@ import { AppSplash } from '../src/components/glass/AppSplash';
 import { OnboardingOverlay } from '../src/components/onboarding/OnboardingOverlay';
 import { useTheme } from '../src/constants/theme';
 import { recoverSupportIfNeeded } from '../src/support/billing';
+import { loadJSON, StorageKeys } from '../src/storage/store';
+import { scheduleDailyReminder } from '../src/services/notifications';
 
 // Import có bảo vệ: nếu chưa cài expo-splash-screen thì app vẫn chạy (no-op).
 let SplashScreen: any = null;
@@ -34,7 +36,19 @@ try {
 function ThemedStack() {
   const theme = useTheme();
   const { ready } = useGuidance();
-  const { ready: languageReady } = useLanguage();
+  const { ready: languageReady, t } = useLanguage();
+
+  // Scheduled notification text must also follow language changes and restored settings.
+  useEffect(() => {
+    if (!languageReady) return;
+    let active = true;
+    void loadJSON<{ reminderEnabled?: boolean }>(StorageKeys.settings, {}).then((settings) => {
+      if (active && settings.reminderEnabled) {
+        void scheduleDailyReminder(t('reminderTitle'), t('reminderBody'));
+      }
+    });
+    return () => { active = false; };
+  }, [languageReady, t]);
 
   useEffect(() => { void recoverSupportIfNeeded(); }, []);
 

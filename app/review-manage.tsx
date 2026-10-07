@@ -9,10 +9,11 @@ import { HangmiFigure } from '../src/components/mascot/HangmiFigure';
 import { useTheme } from '../src/constants/theme';
 import { useLanguage } from '../src/contexts/LanguageContext';
 import { useSrs } from '../src/contexts/SrsContext';
+import { getCardMeaning } from '../src/srs/refresh';
 
 export default function ReviewManageScreen() {
   const navigation = useNavigation();
-  const { t } = useLanguage();
+  const { t, locale } = useLanguage();
   const theme = useTheme();
   const c = theme.colors;
   const { cards, addCard, removeCard, refreshMeanings } = useSrs();
@@ -21,7 +22,7 @@ export default function ReviewManageScreen() {
   const [back, setBack] = useState('');
 
   useEffect(() => {
-    navigation.setOptions({ title: t('srsManageTitle') });
+    navigation.setOptions({ title: t('srsManageTitle'), headerBackTitle: t('tabReview') });
   }, [navigation, t]);
 
   const canSave = front.trim().length > 0 && back.trim().length > 0;
@@ -88,7 +89,7 @@ export default function ReviewManageScreen() {
               <View style={styles.cardInfo}>
                 <Text style={[styles.cardFront, { color: c.text }]}>{card.front}</Text>
                 <Text style={[styles.cardBack, { color: c.textSecondary }]} numberOfLines={1}>
-                  {card.back}
+                  {getCardMeaning(card, locale)}
                 </Text>
               </View>
               <Pressable

@@ -9,7 +9,8 @@ import { SolidWave } from './SolidWave';
 import { useLanguage } from '../contexts/LanguageContext';
 import { useSpeechConfig } from '../contexts/SpeechConfigContext';
 import { useSrs } from '../contexts/SrsContext';
-import { getRandomSentence } from '../data/sentences';
+import { getRandomSentence, getSentenceMeaning, getSentencePronunciation } from '../data/sentences';
+import { useReadingDisplay } from '../contexts/ReadingDisplayContext';
 import type { Sentence, SentenceLevel } from '../data/sentences';
 import { loadJSON, saveJSON, StorageKeys } from '../storage/store';
 
@@ -19,7 +20,8 @@ type SelfRating = 'bad' | 'ok' | 'good';
 type HistoryEntry = { sentenceId: string; level: SentenceLevel; rating: SelfRating; at: string };
 
 export function ReadingPractice() {
-  const { t } = useLanguage();
+  const { t, locale } = useLanguage();
+  const { phoneticSystem } = useReadingDisplay();
   const theme = useTheme();
   const c = theme.colors;
   const { getSpeechOptions, rate: speechRate } = useSpeechConfig();
@@ -116,12 +118,12 @@ export function ReadingPractice() {
         addCard({
           type: 'sentence',
           front: sentence.ko,
-          back: sentence.vi,
-          extra: { phonetic: sentence.phonetic_vi, sourceId: sentence.id },
+          back: getSentenceMeaning(sentence, locale),
+          extra: { phonetic: getSentencePronunciation(sentence, locale, phoneticSystem), sourceId: sentence.id },
         });
       }
     },
-    [sentence, level, addCard]
+    [sentence, level, addCard, locale, phoneticSystem]
   );
 
   const chip = (active: boolean, label: string, onPress: () => void, flexible = true) => (
@@ -176,9 +178,9 @@ export function ReadingPractice() {
           ) : (
             <View>
               <Text style={[styles.answerLabel, { color: c.textSecondary }]}>{t('practicePhonetic')}</Text>
-              <Text style={[styles.phonetic, { color: c.primary }]}>{sentence.phonetic_vi}</Text>
+              <Text style={[styles.phonetic, { color: c.primary }]}>{getSentencePronunciation(sentence, locale, phoneticSystem)}</Text>
               <Text style={[styles.answerLabel, { color: c.textSecondary }]}>{t('practiceMeaning')}</Text>
-              <Text style={[styles.meaning, { color: c.text }]}>{sentence.vi}</Text>
+              <Text style={[styles.meaning, { color: c.text }]}>{getSentenceMeaning(sentence, locale)}</Text>
 
               <GlassButton onPress={listen} style={styles.listenBtn} label={speaking ? undefined : t('practiceListen')}>
                 {speaking ? (

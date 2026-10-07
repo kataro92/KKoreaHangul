@@ -14,13 +14,13 @@ import { getGrammarById } from '../../src/data/grammar';
 export default function GrammarDetailScreen() {
   const { id } = useLocalSearchParams<{ id: string }>();
   const navigation = useNavigation();
-  const { t } = useLanguage();
+  const { t, locale } = useLanguage();
   const theme = useTheme();
   const c = theme.colors;
   const { getSpeechOptions } = useSpeechConfig();
   const [speakingIndex, setSpeakingIndex] = useState<number | null>(null);
 
-  const item = getGrammarById(String(id));
+  const item = getGrammarById(String(id), locale);
 
   useEffect(() => {
     navigation.setOptions({ title: item?.title ?? t('grammarTitle'), headerBackTitle: t('tabGrammar') });
@@ -91,7 +91,7 @@ export default function GrammarDetailScreen() {
               <Ionicons name={speakingIndex === index ? 'stop-circle' : 'volume-high'} size={24} color={c.primary} />
             </Pressable>
           </View>
-          <Text style={[styles.exampleVi, { color: c.textSecondary }]}>{ex.vi}</Text>
+          <Text style={[styles.exampleVi, { color: c.textSecondary }]}>{ex.translation}</Text>
           {ex.note ? <Text style={[styles.exampleNote, { color: c.primary }]}>{ex.note}</Text> : null}
         </GlassCard>
       ))}

@@ -17,6 +17,19 @@ Phạm vi: chỉ Internal testing, dừng trước Closed testing và Production
 
 ## AAB đã chuẩn bị
 
+### Bản 1.1.5 đang chờ upload
+
+Ngày 07/10/2026, chủ ứng dụng yêu cầu phát hành các thay đổi nội dung học đa ngôn ngữ. Đã tăng source lên `1.1.5 (7)` và build thành công từ code cập nhật. Bản này **chưa upload hoặc rollout**: bộ chọn tệp trình duyệt không phản hồi, sau đó Computer Use dừng do không xác định được URL Chrome đủ chắc chắn để kiểm tra quyền thao tác. Internal đang active vẫn là `1.1.4 (6)`.
+
+- AAB: `release/com.spacekatcompany.kkoreanhangul-1.1.5-7.aab`.
+- SHA-256: `2B9DE0AB99437D098185024933B11212AD87D37F754309E8CBF9D68E5BBBE261`.
+- TypeScript và 97 Jest test trong 9 suite đạt. Gradle bundleRelease thành công; bundletool validate, jarsigner verify, package/version/target SDK 36 và upload certificate cũ khớp. 38 thư viện ELF 64-bit đạt alignment 16 KB; JavaScript/Hermes được đóng gói.
+- Nội dung: dịch ngữ pháp/từ vựng/nghĩa câu/privacy theo ngôn ngữ chọn, phiên âm câu offline, thẻ ôn tập theo locale và nhắc học khi đổi ngôn ngữ/khôi phục backup. Các catalog là bản dịch máy, cần rà soát ngôn ngữ trên thiết bị; kiểm thử coverage không chứng minh chất lượng bản dịch.
+- Console đang mở form release ID `4`, tên `1.1.5 (7) - Learning languages - Internal`, ghi chú EN/VI đã điền; chưa có AAB mới. Sau khi upload cần xác nhận code `7`, preview không có lỗi chặn, rồi Save and publish riêng trên Internal. Không đưa code `6` vào release mới.
+- Chưa smoke test bản này trên thiết bị Android; kiểm reminder và checkout qua Play vẫn cần thiết bị thực.
+
+### Bản 1.1.4 đã phát hành
+
 Thiết lập App content và chính sách riêng tư: xem [PLAY_APP_SETUP.md](PLAY_APP_SETUP.md). Binary `1.1.4 (6)` chứa trang chính sách trong app và phần góp nuôi Hangmi.
 
 `release/com.spacekatcompany.kkoreanhangul-1.1.4-6.aab`

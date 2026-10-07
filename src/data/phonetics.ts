@@ -8,8 +8,23 @@
  */
 
 import type { DecomposedSyllable } from '../utils/decompose';
+import { decomposeString } from '../utils/decompose';
+import type { Locale } from '../localization/locale';
 
 export type PhoneticSystem = 'default' | 'romanization' | 'ipa';
+
+/** The default pronunciation guide follows the app language; explicit systems win. */
+export function resolvePhoneticSystem(system: PhoneticSystem, locale: Locale): PhoneticSystem {
+  return system === 'default' && locale !== 'vi' ? 'romanization' : system;
+}
+
+export function getTextPronunciation(text: string, system: PhoneticSystem, locale: Locale): string {
+  const resolved = resolvePhoneticSystem(system, locale);
+  return text.replace(/[가-힣]+/g, (word) => {
+    const parts = decomposeString(word).map((syllable) => getPartPronunciations(syllable, resolved).syllable);
+    return resolved === 'ipa' ? `/${parts.map((part) => part.slice(1, -1)).join('')}/` : parts.join('');
+  });
+}
 
 /** Revised Romanization — phụ âm đầu (19) */
 const RR_CHOSUNG = [
